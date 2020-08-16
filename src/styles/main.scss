@@ -22,11 +22,11 @@ tr {
   color: #808080;
 }
 
-tr:nth-child(2n + 1) {
+tr:nth-of-type(2n + 1) {
   background: #f5f5f5;
 }
 
-table tr:first-child {
+table tr:first-of-type {
   background: #e25644;
   color: #fff;
 }
@@ -37,23 +37,23 @@ th {
   padding: 18px;
 }
 
-table tr:last-child td:first-child {
+table tr:last-of-type td:first-of-type {
   border-bottom-left-radius: 10px;
 }
 
-table tr:last-child td:last-child {
+table tr:last-of-type td:last-of-type {
   border-bottom-right-radius: 10px;
 }
 
-table tr:first-child th:first-child {
+table tr:first-of-type th:first-of-type {
   border-top-left-radius: 10px;
 }
 
-table tr:first-child th:last-child {
+table tr:first-of-type th:last-of-type {
   border-top-right-radius: 10px;
 }
 
-tr:not(:first-child):hover {
+tr:not(:first-of-type):hover {
   background: #f5f5f5;
   color: #585858;
   cursor: pointer;
