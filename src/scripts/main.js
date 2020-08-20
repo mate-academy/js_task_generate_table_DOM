@@ -14,7 +14,15 @@ function addPeopleToTable(peopleArr) {
       const th = document.createElement('th');
 
       if (elem !== 'fatherName' && elem !== 'motherName' && elem !== 'slug') {
-        th.textContent = person[elem];
+        if (elem === 'sex') {
+          if (person[elem] === 'm') {
+            th.textContent = 'Male';
+          } else {
+            th.textContent = 'Female';
+          }
+        } else {
+          th.textContent = person[elem];
+        }
         tr.append(th);
       }
     }
