@@ -15,11 +15,9 @@ function addPeopleToTable(peopleArr) {
 
       if (elem !== 'fatherName' && elem !== 'motherName' && elem !== 'slug') {
         if (elem === 'sex') {
-          if (person[elem] === 'm') {
-            th.textContent = 'Male';
-          } else {
-            th.textContent = 'Female';
-          }
+          person[elem] === 'm'
+            ? th.textContent = 'Male'
+            : th.textContent = 'Female';
         } else {
           th.textContent = person[elem];
         }
