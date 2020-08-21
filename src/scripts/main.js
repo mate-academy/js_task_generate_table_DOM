@@ -1,7 +1,9 @@
 'use strict';
 
 const people = require('./lib/people');
-const dashboard = document.querySelector('.dashboard');
+const dashboard = document
+  .querySelector('.dashboard')
+  .getElementsByTagName('tbody')[0];
 
 for (const person of people) {
   const tr = document.createElement('tr');
