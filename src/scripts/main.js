@@ -8,7 +8,7 @@ people.map(person => {
   tableBody.insertAdjacentHTML('beforeend', `
     <tr>
       <th>${person.name}</th>
-      <th>${isFullWordForGender(person.sex)}</th>
+      <th>${person.sex === 'm' ? 'Male' : 'Female'}</th>
       <th>${person.born}</th>
       <th>${person.died}</th>
       <th>${person.died - person.born}</th>
@@ -16,11 +16,3 @@ people.map(person => {
    </tr>
    `);
 });
-
-function isFullWordForGender(input) {
-  return input === 'm'
-    ? 'Male'
-    : input === 'f'
-      ? 'Female'
-      : input;
-}
