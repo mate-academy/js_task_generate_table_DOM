@@ -14,12 +14,12 @@ people.forEach(person => {
 
   row.innerHTML
   = `
-    <th>${person.name}</th>
-    <th>${gender}</th>
-    <th>${String(person.born)}</th>
-    <th>${String(person.died)}</th>
-    <th>${String(age)}</th>
-    <th>${String(century)}</th>
+    <td>${person.name}</td>
+    <td>${gender}</td>
+    <td>${String(person.born)}</td>
+    <td>${String(person.died)}</td>
+    <td>${String(age)}</td>
+    <td>${String(century)}</td>
 `;
   table.append(row);
 });
