@@ -5,10 +5,10 @@ const people = require('./lib/people');
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const tableHeaders = document.querySelector('tr');
+const table = document.querySelector('tbody');
 
 people.forEach(person => {
-  tableHeaders.insertAdjacentHTML('afterend', `
+  table.insertAdjacentHTML('beforeend', `
     <tr>
       <td>${person.name}</td>
       <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
