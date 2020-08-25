@@ -11,17 +11,18 @@ function addPeopleToTable(peopleArr) {
     const thCentury = document.createElement('th');
 
     for (const elem in person) {
-      const th = document.createElement('th');
+      const td = document.createElement('td');
+
+      if (elem === 'sex') {
+        person[elem] === 'm'
+          ? td.textContent = 'Male'
+          : td.textContent = 'Female';
+        tr.append(td);
+      }
 
       if (elem !== 'fatherName' && elem !== 'motherName' && elem !== 'slug') {
-        if (elem === 'sex') {
-          person[elem] === 'm'
-            ? th.textContent = 'Male'
-            : th.textContent = 'Female';
-        } else {
-          th.textContent = person[elem];
-        }
-        tr.append(th);
+        td.textContent = person[elem];
+        tr.append(td);
       }
     }
 
