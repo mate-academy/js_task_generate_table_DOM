@@ -2,7 +2,19 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+people.map(person => {
+  const { name, sex, born, died } = person;
+
+  dashboard.insertAdjacentHTML('beforeend',
+    `<tr>
+      <th>${name}</th>
+      <th>${sex}</th>
+      <th>${born}</th>
+      <th>${died}</th>
+      <th>${died - born}</th>
+      <th>${Math.ceil(died / 100)}</th>
+    </tr>`
+  );
+});
