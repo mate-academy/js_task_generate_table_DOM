@@ -2,9 +2,6 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const tableRow = document.querySelector('tr');
 
 for (const person of people) {
