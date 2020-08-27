@@ -15,6 +15,6 @@ const personsTable = people.map(person => {
     </tr>`;
 });
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard tbody');
 
 personsTable.forEach(person => table.insertAdjacentHTML('beforeend', person));
