@@ -1,33 +1,20 @@
 'use strict';
 
 const people = require('./lib/people');
-
-people.map(person => {
-  delete person.fatherName;
-  delete person.motherName;
-  delete person.slug;
-
-  if (person.sex === 'm') {
-    person.sex = 'male';
-  } else {
-    person.sex = 'female';
-  }
-
-  person.age = person.died - person.born;
-  person.century = Math.ceil(person.died / 100);
-});
-
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
   const tableRow = document.createElement('tr');
+  const gender = (person.sex === 'f') ? 'Female' : 'Male';
 
-  for (const element in person) {
-    const tableCell = document.createElement('td');
-
-    tableCell.innerText = person[element];
-    tableRow.append(tableCell);
-  }
+  tableRow.insertAdjacentHTML('afterbegin', `
+    <td>${person.name}</td>
+    <td>${gender}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
+  `);
 
   table.append(tableRow);
 }
