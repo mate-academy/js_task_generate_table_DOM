@@ -2,7 +2,21 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('tbody');
 
-// write your code here
+for (const person of people) {
+  person.sex === 'm'
+    ? person.sex = 'Male'
+    : person.sex = 'Famale';
+
+  table.insertAdjacentHTML('beforeend',
+    `<tr class="${person.name}">
+      <td>${person.name}</td>
+      <td>${person.sex}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.floor(person.died / 100)}</td>
+    </tr>`
+  );
+}
