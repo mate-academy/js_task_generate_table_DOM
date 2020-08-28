@@ -2,37 +2,21 @@
 
 const people = require('./lib/people');
 
-const table = document.querySelector('.dashboard');
-
-const tableHead = document.querySelectorAll('th');
+const table = document.querySelector('tbody');
 
 for (const person of people) {
-  const row = document.createElement('tr');
+  person.sex === 'm'
+    ? person.sex = 'Male'
+    : person.sex = 'Famale';
 
-  row.className = `${person.name}`;
-  table.append(row);
-
-  for (let j = 0; j < tableHead.length; j++) {
-    const cell = document.createElement('td');
-
-    switch (tableHead[j].innerText) {
-      case 'Age':
-        cell.innerText = person.died - person.born;
-        row.append(cell);
-        break;
-      case 'Century':
-        cell.innerText = Math.floor(person.died / 100);
-        row.append(cell);
-        break;
-      case 'Gender' :
-        person.sex === 'm'
-          ? cell.innerText = 'Male'
-          : cell.innerText = 'Famale';
-        row.append(cell);
-        break;
-      default:
-        cell.innerText = person[tableHead[j].innerText.toLowerCase()];
-        row.append(cell);
-    }
-  }
+  table.insertAdjacentHTML('beforeend',
+    `<tr class="${person.name}">
+      <td>${person.name}</td>
+      <td>${person.sex}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.floor(person.died / 100)}</td>
+    </tr>`
+  );
 }
