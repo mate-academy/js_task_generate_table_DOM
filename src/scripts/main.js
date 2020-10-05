@@ -1,8 +1,27 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard');
+const data = ['name', 'sex', 'born', 'died', 'age', 'century'];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach(person => {
+  const row = document.createElement('tr');
 
-// write your code here
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
+
+  if (person.sex === 'm') {
+    person.sex = 'Male';
+  } else {
+    person.sex = 'Female';
+  }
+
+  for (const dataType of data) {
+    const td = document.createElement('td');
+
+    td.innerText = person[dataType];
+    row.append(td);
+  }
+
+  table.append(row);
+});
