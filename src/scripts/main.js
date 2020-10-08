@@ -3,9 +3,6 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 for (const person of people) {
   const { name, sex, born, died } = person;
   const tableRow = document.createElement('tr');
