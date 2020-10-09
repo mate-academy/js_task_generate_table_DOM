@@ -1,6 +1,6 @@
 'use strict';
 
-const people = require('./lib/people.json');
+const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
 people.forEach(({ name, sex, born, died }) => {
