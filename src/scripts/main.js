@@ -16,7 +16,7 @@ function fillInTable(content) {
       + (person.died - person.born) + '</td><td>'
       + (Math.ceil(person.died / 100)) + '</td></tr>';
 
-    table.append(html);
+    table.innerHTML = html;
   }
 }
 
