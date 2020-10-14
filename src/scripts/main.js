@@ -10,12 +10,12 @@ for (const person of people) {
   const century = Math.ceil(person.died / 100);
 
   tr.innerHTML = `
-    <th>${person.name}</th>
-    <th>${sex}</th>
-    <th>${person.born}</th>
-    <th>${person.died}</th>
-    <th>${age}</th>
-    <th>${century}</th>
+    <td>${person.name}</td>
+    <td>${sex}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</t>
   `;
 
   table.append(tr);
