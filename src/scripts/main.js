@@ -8,12 +8,11 @@ for (const { name, sex, born, died } of people) {
 
   rowForTable.innerHTML = `
   <td>${name}</td>
-  <td>${sex === 'f' ? 'Famale' : 'Male'}</td>
+  <td>${sex === 'f' ? 'Female' : 'Male'}</td>
   <td>${born}</td>
   <td>${died}</td>
   <td>${died - born}</td>
   <td>${Math.ceil(died / 100)}</td>
   `;
-  
   dashboard.append(rowForTable);
 }
