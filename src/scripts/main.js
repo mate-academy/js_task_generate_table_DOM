@@ -4,19 +4,16 @@ const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
-  const personLine = document.createElement('tr');
+  const PersonlineForTable = document.createElement('tr');
 
-  person.age = person.died - person.born;
-  person.century = Math.ceil(person.died / 100);
-
-  personLine.innerHTML = `
-    <td>${person.name}</td>
-    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${person.age}</td>
-    <td>${person.century}</td>
+  PersonlineForTable.innerHTML = `
+  <td>${person.name}</td>
+  <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${person.died - person.born}</td>
+  <td>${Math.ceil(person.died / 100)}</td>
   `;
 
-  table.append(personLine);
+  table.append(PersonlineForTable);
 };
