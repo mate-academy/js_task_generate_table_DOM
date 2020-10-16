@@ -1,29 +1,21 @@
 'use strict';
 
 const people = require('./lib/people');
-const table = document.querySelector('.dashboard');
-const information = ['name', 'sex', 'born', 'died', 'age', 'century'];
+const tableOfPeople = document.querySelector('.dashboard');
 
-for (const man of people) {
-  const row = document.createElement('tr');
+for (const { name, sex, born, died } of people) {
+  const tableRow = document.createElement('tr');
 
-  for (const info of information) {
-    const manInfo = document.createElement('td');
-
-    manInfo.textContent = man[info];
-
-    if (info === 'sex') {
-      manInfo.textContent = man.sex === 'm'
-        ? 'Male'
-        : 'Female';
-    } else if (info === 'age') {
-      manInfo.textContent = man.died - man.born;
-    } else if (info === 'century') {
-      manInfo.textContent = Math.ceil(man.died / 100);
-    }
-
-    row.append(manInfo);
-  }
-
-  table.append(row);
+  tableRow.innerHTML = `
+  <td>${name}</td>
+  <td>${sex === 'f'
+    ? 'Female'
+    : 'Male'}
+  </td>
+  <td>${born}</td>
+  <td>${died}</td>
+  <td>${died - born}</td>
+  <td>${Math.ceil(died / 100)}</td>
+  `;
+  tableOfPeople.append(tableRow);
 }
