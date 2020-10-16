@@ -16,7 +16,7 @@ for (const person of people) {
   const row = document.createElement('tr');
 
   addCell(person.name, row);
-  addCell(person.sex === 'f' ? 'female' : 'male', row);
+  addCell(person.sex === 'f' ? 'Female' : 'Male', row);
   addCell(person.born, row);
   addCell(person.died, row);
   addCell(person.died - person.born, row);
