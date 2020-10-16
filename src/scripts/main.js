@@ -8,7 +8,6 @@ console.log(people); // you can remove it
 const rootTable = document.querySelector('.dashboard');
 
 people.forEach(person => {
-
   const rowElement = document.createElement('tr');
 
   rowElement.innerHTML = `
