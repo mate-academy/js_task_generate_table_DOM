@@ -8,7 +8,7 @@ for (const { name, sex, born, died } of people) {
 
   row.innerHTML = `
     <td>${name}</td>
-    <td>${sex === 'f' ? 'Male' : 'Female'}</td>
+    <td>${sex === 'm' ? 'Male' : 'Female'}</td>
     <td>${born}</td>
     <td>${died}</td>
     <td>${died - born}</td>
