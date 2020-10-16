@@ -5,6 +5,7 @@ const table = document.querySelector('.dashboard');
 
 for (const person of people) {
   const { name, sex, born, died } = person;
+
   const tableRow = document.createElement('tr');
 
   tableRow.innerHTML = `
