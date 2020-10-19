@@ -8,8 +8,7 @@ people.forEach(person => {
   person.age = person.died - person.born;
   person.century = Math.ceil(person.died / 100);
 
-  person.sex === 'm' ? person.sex = 'Male' : person.sex = 'Female';
-
+  person.sex = (person.sex === 'm') ? 'Male' : 'Female';
   delete person.motherName;
   delete person.fatherName;
   delete person.slug;
