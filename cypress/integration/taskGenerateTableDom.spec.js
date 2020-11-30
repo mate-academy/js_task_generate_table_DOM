@@ -1,47 +1,27 @@
 'use strict';
 
-Cypress.Commands.add('hasData', (firstValue, secondValue, header) => {
-  cy.contains(firstValue).then(($firstValue) => {
-    cy.contains(secondValue).then(($secondValue) => {
-      cy.contains(header).then(($header) => {
-        const firstValuePosition = $firstValue.offset().left;
-        const secondValuePosition = $secondValue.offset().left;
-        const headerPosition = $header.offset().left;
-
-        expect(headerPosition).to.equal(firstValuePosition);
-        expect(headerPosition).to.equal(secondValuePosition);
-      });
-    });
-  });
-});
+const people = require('../../src/scripts/lib/people.json');
 
 describe('Generate table app', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
-  it('should contain a first column as a Name', () => {
-    cy.hasData('Carolus Haverbeke', 'Emma de Milliano', 'Name');
-  });
+  it('should create a table based on people.json file', () => {
+    for (let i = 0; i < people.length; i++) {
 
-  it('should contain a second column as a Gender', () => {
-    cy.hasData('Male', 'Female', 'Gender');
-  });
+      cy.contains('tr', people[i].name).contains('td', people[i].born);
+      cy.contains('tr', people[i].name).contains('td', people[i].died);
 
-  it('should contain a third column as a Born', () => {
-    cy.hasData('1736', '1835', 'Born');
-  });
+      cy.contains('tr', people[i].name)
+        .contains(('td', people[i].died) - ('td', people[i].born));
 
-  it('should contain a fourth column as a Died', () => {
-    cy.hasData('1809', '1917', 'Died');
-  });
+      cy.contains('tr', people[i].name)
+        .contains('td', Math.ceil(people[i].died / 100));
 
-  it('should contain a fifth column as an Age', () => {
-    cy.hasData('50', '94', 'Age');
-  });
-
-  it('should contain a sixth column as a Century', () => {
-    cy.hasData('20', '20', 'Century');
+      cy.contains('tr', people[i].name)
+        .contains('td', people[i].sex === 'm' ? 'Male' : 'Female');
+    }
   });
 
   it(`shouldn't contain fatherName, motherName and slug in table`, () => {
