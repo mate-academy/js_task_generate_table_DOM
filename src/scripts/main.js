@@ -2,7 +2,24 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  dashboard.append(row);
+
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  const headings
+    = [person.name, person.sex, person.born, person.died, age, century];
+
+  for (const heading of headings) {
+    const th = document.createElement('th');
+
+    th.textContent = heading;
+
+    row.append(th);
+  }
+};
