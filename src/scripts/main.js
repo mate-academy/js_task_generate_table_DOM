@@ -18,7 +18,7 @@ for (const row of advancedDB) {
   table.insertAdjacentHTML('beforeend',
     `<tr>
       <td>${row.name}</td>
-      <td>${row.sex}</td>
+      <td>${row.sex === 'f' ? 'Female' : 'Male'}</td>
       <td>${row.born}</td>
       <td>${row.died}</td>
       <td>${row.age}</td>
