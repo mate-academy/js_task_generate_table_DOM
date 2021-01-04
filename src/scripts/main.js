@@ -3,11 +3,11 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-[...people].forEach(person => {
+people.forEach(person => {
   const row = document.createElement('tr');
 
   row.innerHTML = `<td>${person.name}</td>
-        <td>${person.sex === 'f' ? 'female' : 'male'}</td>
+        <td>${person.sex === 'f' ? 'Female' : 'Mnpm ale'}</td>
         <td>${person.born}</td>
         <td>${person.died}</td>
         <td>${person.died - person.born}</td>
