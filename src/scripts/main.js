@@ -5,39 +5,51 @@ const people = require('./lib/people');
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const layoutTable = document.querySelector('.dashboard');
+// const layoutTable = document.querySelector('.dashboard');
+const firstRow = document.querySelector('tr');
 let gender;
 
 for (const person of people) {
   person.sex === 'm' ? gender = 'Male' : gender = 'Female';
 
-  const newRow = document.createElement('tr');
-  const personName = document.createElement('td');
+  firstRow.insertAdjacentHTML('afterend', `
+    <tr>
+      <td>${person.name}</td>
+      <td>${gender}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
+    </tr>
+  `);
 
-  personName.innerText = person.name;
+  // const newRow = document.createElement('tr');
+  // const personName = document.createElement('td');
 
-  const personGender = document.createElement('td');
+  // personName.innerText = person.name;
 
-  personGender.innerText = gender;
+  // const personGender = document.createElement('td');
 
-  const personBorn = document.createElement('td');
+  // personGender.innerText = gender;
 
-  personBorn.innerText = person.born;
+  // const personBorn = document.createElement('td');
 
-  const personDied = document.createElement('td');
+  // personBorn.innerText = person.born;
 
-  personDied.innerText = person.died;
+  // const personDied = document.createElement('td');
 
-  const personAge = document.createElement('td');
+  // personDied.innerText = person.died;
 
-  personAge.innerText = person.died - person.born;
+  // const personAge = document.createElement('td');
 
-  const personCentury = document.createElement('td');
+  // personAge.innerText = person.died - person.born;
 
-  personCentury.innerText = Math.ceil(person.died / 100);
+  // const personCentury = document.createElement('td');
 
-  newRow.append(personName, personGender,
-    personBorn, personDied, personAge, personCentury);
+  // personCentury.innerText = Math.ceil(person.died / 100);
 
-  layoutTable.append(newRow);
+  // newRow.append(personName, personGender,
+  //   personBorn, personDied, personAge, personCentury);
+
+  // layoutTable.append(newRow);
 };
