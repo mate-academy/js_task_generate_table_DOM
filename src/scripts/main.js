@@ -3,7 +3,7 @@
 const people = require('./lib/people');
 
 for (const person of people) {
-  document.querySelector('.dashboard').insertAdjacentHTML('beforeend', `
+  document.querySelector('tr').insertAdjacentHTML('afterend', `
   <tr>
     <td>${person.name}</td>
     <td>${person.sex === 'm' ? `Male` : `Female`}</td>
