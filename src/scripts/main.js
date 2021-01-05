@@ -2,12 +2,12 @@
 
 const people = require('./lib/people');
 
-const adashboard = document.querySelector('.dashboard');
+const dashboard = document.querySelector('.dashboard');
 
 for (const person of people) {
   const tr = document.createElement('tr');
 
-  adashboard.append(tr);
+  dashboard.append(tr);
 
   tr.innerHTML = `
     <td>${person.name}</td>
