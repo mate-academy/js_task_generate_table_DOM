@@ -11,7 +11,7 @@ for (const person of people) {
   table.insertAdjacentdTML('beforeend', `
   <tr>
     <td>${person.name}</td>
-    <td>${person.sex}</td
+    <td>${(person.sex === 'm') ? 'Male' : 'Female'}</td
     <td>${person.born}</td>
     <td>${person.died}</td>
     <td>${person.died - person.born}</td>
