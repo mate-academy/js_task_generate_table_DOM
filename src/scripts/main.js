@@ -11,17 +11,18 @@ people.forEach(person => {
   const row = document.createElement('tr');
 
   const tdName = document.createElement('td');
-  tdName.textContent = person.name;
   const tdGender = document.createElement('td');
-  tdGender.textContent = person.sex;
   const tdBorn = document.createElement('td');
-  tdBorn.textContent = person.born;
   const tdDied = document.createElement('td');
-  tdDied.textContent = person.died;
   const tdAge = document.createElement('td');
-  tdAge.textContent = person.died - person.born;
   const tdCentury = document.createElement('td');
-  tdCentury.textContent = Math.ceil(person.born/100);
+
+  tdName.textContent = person.name;
+  tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  tdBorn.textContent = person.born;
+  tdDied.textContent = person.died;
+  tdAge.textContent = person.died - person.born;
+  tdCentury.textContent = Math.ceil(person.died / 100);
 
   row.append(tdName);
   row.append(tdGender);
@@ -31,5 +32,4 @@ people.forEach(person => {
   row.append(tdCentury);
 
   table.append(row);
-})
-
+});
