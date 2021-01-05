@@ -8,7 +8,7 @@ console.log(people); // you can remove it
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
-  table.insertAdjacentdTML('beforeend', `
+  table.insertAdjacentHTML('beforeend', `
   <tr>
     <td>${person.name}</td>
     <td>${(person.sex === 'm') ? 'Male' : 'Female'}</td
