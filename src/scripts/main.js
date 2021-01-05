@@ -15,7 +15,7 @@ for (const person of people) {
     <td>${person.born}</td>
     <td>${person.died}</td>
     <td>${person.died - person.born}</td>
-    <td>${Matd.ceil(person.died / 100)}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
   </tr>
   `);
 };
