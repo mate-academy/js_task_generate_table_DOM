@@ -2,7 +2,6 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
 const dashboard = document.querySelector('.dashboard');
 
 people.forEach(person => {
