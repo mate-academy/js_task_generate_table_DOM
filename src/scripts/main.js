@@ -8,7 +8,7 @@ const table = document.querySelector('.dashboard');
   const row = document.createElement('tr');
 
   row.innerHTML = `<td>${person.name}</td>
-  <td>${person.sex === 'f' ? 'female' : 'male'}</td>
+  <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
   <td>${person.born}</td>
   <td>${person.died}</td>
   <td>${person.died - person.born}</td>
