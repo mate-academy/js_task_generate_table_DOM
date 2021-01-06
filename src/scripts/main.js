@@ -16,8 +16,6 @@ for (const person of people) {
     cell.innerHTML = data;
 
     row.append(cell);
-
-    table.children[0].append(row);
   };
 
   createCell(person.name);
@@ -31,4 +29,6 @@ for (const person of people) {
   createCell(person.died - person.born);
 
   createCell(Math.ceil(person.died / 100));
+
+  table.children[0].append(row);
 }
