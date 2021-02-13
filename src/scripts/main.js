@@ -8,10 +8,11 @@ people.forEach(person => {
   
     const age = person.died - person.born;
     const century = Math.ceil(person.died / 100);
+    const sex = person.sex === 'm' ? 'Male' : 'Female'
   
     tr.innerHTML = `
         <td>${person.name}</td>
-        <td>${person.sex}</td>
+        <td>${sex}</td>
         <td>${person.born}</td>
         <td>${person.died}</td>
         <td>${age}</td>
