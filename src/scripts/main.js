@@ -2,9 +2,9 @@
 
 const people = require('./lib/people');
 
-convertingAPeopleObjectToATable(people);
+createTableWithPeople(people);
 
-function convertingAPeopleObjectToATable(men) {
+function createTableWithPeople(men) {
   const tbody = document.querySelector('tbody');
 
   for (const person of men) {
