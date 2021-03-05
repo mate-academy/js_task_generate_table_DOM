@@ -2,7 +2,29 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function createTable(allPersons) {
+  const generaTable = document.querySelector('.dashboard').children[0];
 
-// write your code here
+  for (let i = 0; i < people.length; i++) {
+    const fullSexName = people[i].sex === 'm'
+      ? 'Male'
+      : 'Female';
+
+    const row = document.createElement('tr');
+
+    generaTable.append(row);
+
+    row.innerHTML = `
+    <tr>
+      <td>${allPersons[i].name}</td>
+      <td>${fullSexName}</td>
+      <td>${allPersons[i].born}</td>
+      <td>${allPersons[i].died}</td>
+      <td>${allPersons[i].died - allPersons[i].born}</td>
+      <td>${Math.ceil(allPersons[i].died / 100)}</td>
+    </tr>
+    `;
+  };
+};
+
+createTable(people);
