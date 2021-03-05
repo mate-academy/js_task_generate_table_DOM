@@ -8,7 +8,7 @@ const element = document.querySelector('.dashboard');
   const newLine = document.createElement('tr');
 
   newLine.innerHTML = `<td> ${person.name} </td>`
-    + `<td> ${person.sex} </td>`
+    + `<td> ${person.sex === 'm' ? 'Male' : 'Female'} </td>`
     + `<td> ${person.born} </td>`
     + `<td> ${person.died} </td>`
     + `<td> ${person.died - person.born} </td>`
