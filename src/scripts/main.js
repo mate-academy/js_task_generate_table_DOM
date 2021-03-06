@@ -16,7 +16,7 @@ for (const person of people) {
         createCell(person, 'name', row);
         break;
       case 'sex':
-        createCell(person, 'sex', row);
+        createCellGender(person, row);
         break;
       case 'born':
         createCell(person, 'born', row);
@@ -35,6 +35,19 @@ function createCell(object, key, row) {
   const cell = document.createElement('td');
   const cellText = document.createTextNode(object[key]);
 
+  cell.appendChild(cellText);
+  row.appendChild(cell);
+}
+
+function createCellGender(object, row) {
+  const cell = document.createElement('td');
+  let cellText = '';
+
+  if (object.sex === 'f') {
+    cellText = document.createTextNode('Female');
+  } else {
+    cellText = document.createTextNode('Male');
+  }
   cell.appendChild(cellText);
   row.appendChild(cell);
 }
