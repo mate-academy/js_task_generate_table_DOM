@@ -27,7 +27,7 @@ for (const person in people) {
   row.append(personCentury);
 
   personName.textContent = people[person].name;
-  personGender.textContent = people[person].sex === 'f' ? 'female' : 'male';
+  personGender.textContent = people[person].sex === 'f' ? 'Female' : 'Male';
   personBorn.textContent = people[person].born;
   personDied.textContent = people[person].died;
   personAge.textContent = people[person].died - people[person].born;
