@@ -2,25 +2,25 @@
 
 const people = require('./lib/people');
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard').children[0];
 
-function createRowElement(value) {
+function createRowElement(value, row) {
   const createdRowElement = document.createElement('td');
 
-  createdRowElement.innerHTML = value;
+  createdRowElement.innerHTML = value + '';
 
-  return createdRowElement;
+  row.append(createdRowElement);
 }
 
 for (const person of people) {
   const createdRow = document.createElement('tr');
 
-  createdRow.append(createRowElement(person.name));
-  createdRow.append(createRowElement(person.sex === 'm' ? 'Male' : 'Female'));
-  createdRow.append(createRowElement(person.born));
-  createdRow.append(createRowElement(person.died));
-  createdRow.append(createRowElement(person.died - person.born));
-  createdRow.append(createRowElement(Math.ceil(person.born / 100)));
+  createRowElement(person.name, createdRow);
+  createRowElement(person.sex === 'm' ? 'Male' : 'Female', createdRow);
+  createRowElement(person.born, createdRow);
+  createRowElement(person.died, createdRow);
+  createRowElement(person.died - person.born, createdRow);
+  createRowElement(Math.ceil(person.died / 100), createdRow);
 
   table.append(createdRow);
 }
