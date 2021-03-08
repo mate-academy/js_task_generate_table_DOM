@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 2,
-    "start": "2021-03-08T06:52:24.695Z",
-    "end": "2021-03-08T06:52:33.564Z",
-    "duration": 8814,
+    "start": "2021-03-08T07:49:55.231Z",
+    "end": "2021-03-08T07:50:04.095Z",
+    "duration": 8809,
     "testsRegistered": 2,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "1611ecb7-2c91-478b-8c16-813c7a44c802",
+      "uuid": "da3db0c8-1c2d-417a-8dbe-421651bcfaa2",
       "title": "",
       "fullFile": "cypress/integration/taskGenerateTableDom.spec.js",
       "file": "cypress/integration/taskGenerateTableDom.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ef703d32-625a-43cc-8d70-9a4f3c012709",
+          "uuid": "7635f19c-ec1c-44b4-ab7f-ce2bc50bd0ec",
           "title": "Generate table app",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should create a table based on people.json file",
               "fullTitle": "Generate table app should create a table based on people.json file",
               "timedOut": null,
-              "duration": 4477,
+              "duration": 4437,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -51,8 +51,8 @@
                 "estack": "AssertionError: Timed out retrying: Expected to find content: 'Carolus Haverbeke' within the selector: 'tr' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress/integration/taskGenerateTableDom.spec.js:107:10)",
                 "diff": null
               },
-              "uuid": "825ab69c-ac91-4cb5-8895-f20393775ddd",
-              "parentUUID": "ef703d32-625a-43cc-8d70-9a4f3c012709",
+              "uuid": "1093d7d5-aa51-404b-87d2-e6290ab69024",
+              "parentUUID": "7635f19c-ec1c-44b4-ab7f-ce2bc50bd0ec",
               "isHook": false,
               "skipped": false
             },
@@ -60,7 +60,7 @@
               "title": "shouldn't contain fatherName, motherName and slug in table",
               "fullTitle": "Generate table app shouldn't contain fatherName, motherName and slug in table",
               "timedOut": null,
-              "duration": 4337,
+              "duration": 4372,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -73,8 +73,8 @@
                 "estack": "AssertionError: Timed out retrying: Expected to find element: `tbody`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress/integration/taskGenerateTableDom.spec.js:115:8)",
                 "diff": null
               },
-              "uuid": "177e192d-5900-4af2-9de6-2b49dd120123",
-              "parentUUID": "ef703d32-625a-43cc-8d70-9a4f3c012709",
+              "uuid": "345833ec-67a2-428a-9b2f-d0f4431c3bbe",
+              "parentUUID": "7635f19c-ec1c-44b4-ab7f-ce2bc50bd0ec",
               "isHook": false,
               "skipped": false
             }
@@ -82,12 +82,12 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "825ab69c-ac91-4cb5-8895-f20393775ddd",
-            "177e192d-5900-4af2-9de6-2b49dd120123"
+            "1093d7d5-aa51-404b-87d2-e6290ab69024",
+            "345833ec-67a2-428a-9b2f-d0f4431c3bbe"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 8814,
+          "duration": 8809,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
