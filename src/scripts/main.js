@@ -22,5 +22,5 @@ for (const person of people) {
   createdRow.append(createRowElement(person.died - person.born));
   createdRow.append(createRowElement(Math.ceil(person.born / 100)));
 
-  table.lastChild.after(createdRow);
+  table.append(createdRow);
 }
