@@ -3,49 +3,40 @@
 const people = require('./lib/people');
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
 
 for (const person in people) {
-  const row = document.createElement('tr');
+  const row = createCell('tr', table);
 
-  table.append(row);
+  createCell('td', row, people[person].name);
 
-  const personName = document.createElement('td');
-
-  row.append(personName);
-  personName.textContent = people[person].name;
-
-  const gender = document.createElement('td');
-
-  row.append(gender);
-
-  gender.textContent = (people[person].sex === 'm')
+  const gender = (people[person].sex === 'm')
     ? 'Male'
     : 'Female';
 
-  const born = document.createElement('td');
+  createCell('td', row, gender);
+  createCell('td', row, people[person].born);
+  createCell('td', row, people[person].died);
 
-  row.append(born);
+  const age = people[person].died - people[person].born;
 
-  born.textContent = people[person].born;
+  createCell('td', row, age);
 
-  const died = document.createElement('td');
+  const century = Math.ceil(people[person].died / 100);
 
-  row.append(died);
+  createCell('td', row, century);
+}
 
-  died.textContent = people[person].died;
+function createCell(element, parentElement, content) {
+  const row = document.createElement(element);
 
-  const age = document.createElement('td');
+  parentElement.append(row);
 
-  row.append(age);
+  if (content) {
+    row.textContent = content;
+  }
 
-  age.textContent = people[person].died - people[person].born;
-
-  const century = document.createElement('td');
-
-  row.append(century);
-
-  century.textContent = Math.ceil(people[person].died / 100);
+  return row;
 }
