@@ -7,16 +7,6 @@ console.log(people); // you can remove it
 
 const dashboard = document.querySelector('.dashboard');
 
-function getPersonGender(string) {
-  if (string === 'm') {
-    return 'Male';
-  }
-
-  if (string === 'f') {
-    return 'Female';
-  }
-}
-
 for (let i = 0; i < people.length; i++) {
   const row = document.createElement('tr');
 
@@ -25,7 +15,7 @@ for (let i = 0; i < people.length; i++) {
       ${people[i].name}
     </td>
     <td>
-      ${getPersonGender(people[i].sex)}
+      ${people[i].sex === 'm' ? 'Male' : 'Female'}
     </td>
     <td>
       ${people[i].born}
