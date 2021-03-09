@@ -7,20 +7,16 @@ console.log(people); // you can remove it
 
 // write your code here
 
-people.forEach(human => {
-  const table = document.querySelector('.dashboard');
-  const tableBody = table.querySelector('tbody');
+const table = document.querySelector('.dashboard');
+const tableBody = table.querySelector('tbody');
 
+people.forEach(human => {
   const age = human.died - human.born;
   const century = Math.ceil(human.died / 100);
 
   let gender = '';
 
-  if (human.sex === 'm') {
-    gender = 'Male';
-  } else {
-    gender = 'Female';
-  }
+  (human.sex === 'm') ? gender = 'Male' : gender = 'Female';
 
   tableBody.insertAdjacentHTML('beforeend', `
     <tr>
