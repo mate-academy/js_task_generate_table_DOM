@@ -14,9 +14,9 @@ people.forEach(human => {
   const age = human.died - human.born;
   const century = Math.ceil(human.died / 100);
 
-  let gender = '';
-
-  (human.sex === 'm') ? gender = 'Male' : gender = 'Female';
+  const gender = human.sex === 'm'
+    ? 'Male'
+    : 'Female';
 
   tableBody.insertAdjacentHTML('beforeend', `
     <tr>
