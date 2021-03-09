@@ -3,9 +3,9 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard tbody');
 
-function addToTable(map, data) {
+function addToTable(element, data) {
   return data.forEach(person => {
-    map.insertAdjacentHTML('beforeend', `
+    element.insertAdjacentHTML('beforeend', `
       <tr>
         <td>${person.name}</td>
         <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
