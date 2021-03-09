@@ -10,11 +10,7 @@ function createTable(allPersons) {
       ? 'Male'
       : 'Female';
 
-    const row = document.createElement('tr');
-
-    generaTable.append(row);
-
-    row.insertAdjacentHTML('beforeend', `
+    generaTable.insertAdjacentHTML('beforeend', `
     <tr>
       <td>${allPersons[i].name}</td>
       <td>${fullSexName}</td>
