@@ -14,7 +14,7 @@ function createTable(allPersons) {
 
     generaTable.append(row);
 
-    row.innerHTML = `
+    row.insertAdjacentHTML('beforeend', `
     <tr>
       <td>${allPersons[i].name}</td>
       <td>${fullSexName}</td>
@@ -23,7 +23,7 @@ function createTable(allPersons) {
       <td>${allPersons[i].died - allPersons[i].born}</td>
       <td>${Math.ceil(allPersons[i].died / 100)}</td>
     </tr>
-    `;
+    `);
   };
 };
 
