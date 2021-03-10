@@ -2,23 +2,23 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 2,
+    "passes": 0,
     "pending": 0,
-    "failures": 0,
-    "start": "2021-03-06T10:10:59.342Z",
-    "end": "2021-03-06T10:11:01.639Z",
-    "duration": 2179,
+    "failures": 1,
+    "start": "2021-03-06T10:20:33.976Z",
+    "end": "2021-03-06T10:20:34.638Z",
+    "duration": 562,
     "testsRegistered": 2,
-    "passPercent": 100,
+    "passPercent": 0,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
-    "skipped": 0,
-    "hasSkipped": false
+    "skipped": 1,
+    "hasSkipped": true
   },
   "results": [
     {
-      "uuid": "b0dd0f07-d988-46e2-a544-e970392e07a1",
+      "uuid": "8c549288-5576-4408-84b4-62636aa4ca0f",
       "title": "",
       "fullFile": "cypress\\integration\\taskGenerateTableDom.spec.js",
       "file": "cypress\\integration\\taskGenerateTableDom.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b2491bd9-3dcc-4423-8425-76ed9c8629fc",
+          "uuid": "a07fee4b-24d0-451d-90e4-fb4185c03c2b",
           "title": "Generate table app",
           "fullFile": "",
           "file": "",
@@ -38,17 +38,21 @@
               "title": "should create a table based on people.json file",
               "fullTitle": "Generate table app should create a table based on people.json file",
               "timedOut": null,
-              "duration": 2016,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 562,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "for (var i = 0; i < people.length; i++) {\n  cy.contains('tr', people[i].name).contains('td', people[i].born);\n  cy.contains('tr', people[i].name).contains('td', people[i].died);\n  cy.contains('tr', people[i].name).contains(('td', people[i].died) - ('td', people[i].born));\n  cy.contains('tr', people[i].name).contains('td', Math.ceil(people[i].died / 100));\n  cy.contains('tr', people[i].name).contains('td', people[i].sex === 'm' ? 'Male' : 'Female');\n}",
-              "err": {},
-              "uuid": "c6d82075-dfdd-4dca-9bfd-1c115b998038",
-              "parentUUID": "b2491bd9-3dcc-4423-8425-76ed9c8629fc",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Generate table app`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Generate table app`\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:157791:25\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:157162:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:157771:13\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:10325:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:8260:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:8317:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:8362:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:8438:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:5032:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:5025:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:5041:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:4911:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\taskGenerateTableDom.spec.js:103:8)",
+                "diff": null
+              },
+              "uuid": "88e8edfd-4ae4-4d36-96ee-d144ff2b141a",
+              "parentUUID": "a07fee4b-24d0-451d-90e4-fb4185c03c2b",
               "isHook": false,
               "skipped": false
             },
@@ -56,30 +60,31 @@
               "title": "shouldn't contain fatherName, motherName and slug in table",
               "fullTitle": "Generate table app shouldn't contain fatherName, motherName and slug in table",
               "timedOut": null,
-              "duration": 163,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.get('tbody').contains('Petrus de Milliano').should('not.exist');\ncy.get('tbody').contains('Laurentia van Vlaenderen').should('not.exist');\ncy.get('tbody').contains('jan-van-brussel-1714').should('not.exist');",
               "err": {},
-              "uuid": "6217aca2-800d-4b88-94e3-0e57c7fc1afd",
-              "parentUUID": "b2491bd9-3dcc-4423-8425-76ed9c8629fc",
+              "uuid": "055dd4d7-553b-4d12-a1ae-262ad12511ca",
+              "parentUUID": "a07fee4b-24d0-451d-90e4-fb4185c03c2b",
               "isHook": false,
-              "skipped": false
+              "skipped": true
             }
           ],
           "suites": [],
-          "passes": [
-            "c6d82075-dfdd-4dca-9bfd-1c115b998038",
-            "6217aca2-800d-4b88-94e3-0e57c7fc1afd"
+          "passes": [],
+          "failures": [
+            "88e8edfd-4ae4-4d36-96ee-d144ff2b141a"
           ],
-          "failures": [],
           "pending": [],
-          "skipped": [],
-          "duration": 2179,
+          "skipped": [
+            "055dd4d7-553b-4d12-a1ae-262ad12511ca"
+          ],
+          "duration": 562,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

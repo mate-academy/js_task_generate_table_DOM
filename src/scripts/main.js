@@ -2,30 +2,15 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
   const row = document.createElement('tr');
 
-  for (const key in person) {
-    switch (key) {
-      case 'name':
-        createCell(person, 'name', row);
-        break;
-      case 'sex':
-        createCellGender(person, row);
-        break;
-      case 'born':
-        createCell(person, 'born', row);
-        break;
-      case 'died':
-        createCell(person, 'died', row);
-        break;
-    }
-  }
+  createCell(person, 'name', row);
+  createCellGender(person, row);
+  createCell(person, 'born', row);
+  createCell(person, 'died', row);
   createCellAge(person, row);
   createCellCentury(person, row);
   table.append(row);
