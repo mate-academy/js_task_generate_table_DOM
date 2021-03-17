@@ -2,50 +2,47 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
-const table = document.querySelector('tbody');
+const table = document.querySelector('.dashboard tbody');
 
 for (const person of people) {
   const tr = document.createElement('tr');
 
   table.append(tr);
 
-  const thName = document.createElement('th');
+  const tdName = document.createElement('td');
 
-  thName.textContent = person.name;
-  tr.append(thName);
+  tdName.textContent = person.name;
+  tr.append(tdName);
 
-  const thGender = document.createElement('th');
+  const tdGender = document.createElement('td');
 
   if (person.sex === 'f') {
-    thGender.textContent = 'Female';
+    tdGender.textContent = 'Female';
   }
 
   if (person.sex === 'm') {
-    thGender.textContent = 'Male';
+    tdGender.textContent = 'Male';
   }
 
-  tr.append(thGender);
+  tr.append(tdGender);
 
-  const thBorn = document.createElement('th');
+  const tdBorn = document.createElement('td');
 
-  thBorn.textContent = person.born;
-  tr.append(thBorn);
+  tdBorn.textContent = person.born;
+  tr.append(tdBorn);
 
-  const thDied = document.createElement('th');
+  const tdDied = document.createElement('td');
 
-  thDied.textContent = person.died;
-  tr.append(thDied);
+  tdDied.textContent = person.died;
+  tr.append(tdDied);
 
-  const thAge = document.createElement('th');
+  const tdAge = document.createElement('td');
 
-  thAge.textContent = person.died - person.born;
-  tr.append(thAge);
+  tdAge.textContent = person.died - person.born;
+  tr.append(tdAge);
 
-  const thCenture = document.createElement('th');
+  const tdCenture = document.createElement('td');
 
-  thCenture.textContent = Math.ceil(person.born / 100);
-  tr.append(thCenture);
+  tdCenture.textContent = Math.ceil(person.died / 100);
+  tr.append(tdCenture);
 }
