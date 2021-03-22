@@ -2,47 +2,37 @@
 
 const people = require('./lib/people');
 
-const table = document.querySelector('.dashboard tbody');
+const table = document.querySelector('tbody');
 
 for (const person of people) {
-  const tr = document.createElement('tr');
-
-  table.append(tr);
-
-  const tdName = document.createElement('td');
-
-  tdName.textContent = person.name;
-  tr.append(tdName);
-
-  const tdGender = document.createElement('td');
+  let gender;
 
   if (person.sex === 'f') {
-    tdGender.textContent = 'Female';
+    gender = 'Female';
+  } else {
+    gender = 'Male';
   }
 
-  if (person.sex === 'm') {
-    tdGender.textContent = 'Male';
-  }
-
-  tr.append(tdGender);
-
-  const tdBorn = document.createElement('td');
-
-  tdBorn.textContent = person.born;
-  tr.append(tdBorn);
-
-  const tdDied = document.createElement('td');
-
-  tdDied.textContent = person.died;
-  tr.append(tdDied);
-
-  const tdAge = document.createElement('td');
-
-  tdAge.textContent = person.died - person.born;
-  tr.append(tdAge);
-
-  const tdCenture = document.createElement('td');
-
-  tdCenture.textContent = Math.ceil(person.died / 100);
-  tr.append(tdCenture);
+  table.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>
+        ${person.name}
+      </td>
+      <td>
+        ${gender}
+      </td>
+      <td>
+        ${person.born}
+      </td>
+      <td>
+        ${person.died}
+      </td>
+      <td>
+        ${person.died - person.born}
+      </td>
+      <td>
+        ${Math.ceil(person.died / 100)}
+      </td>
+    </tr>
+ `);
 }
