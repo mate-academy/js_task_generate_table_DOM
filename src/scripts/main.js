@@ -1,24 +1,17 @@
 'use strict';
 
 const people = require('./lib/people');
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('tbody');
 
 people.forEach(person => {
-  const cells = [person.name, person.sex, person.born, person.died,
-    person.died - person.born, Math.ceil(person.died / 100)];
-  const row = document.createElement('tr');
-
-  for (let cell of cells) {
-    if (cell === 'f') {
-      cell = 'Female';
-    } else if (cell === 'm') {
-      cell = 'Male';
-    }
-
-    const item = document.createElement('td');
-
-    item.textContent = cell;
-    row.append(item);
-  }
-  table.append(row);
+  table.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>${person.name}</td>
+      <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
+    </tr>
+  `);
 });
