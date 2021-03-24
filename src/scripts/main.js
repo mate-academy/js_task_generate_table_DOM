@@ -6,14 +6,24 @@ const dashboard = document.querySelector('.dashboard');
 
 for (const human of people) {
   const tr = document.createElement('tr');
+  let sexRes = 'null';
+
+  if (human.sex === 'm') {
+    sexRes = 'Male';
+  } else {
+    sexRes = 'Female';
+  }
+
+  const age = human.died - human.born;
+  const century = Math.ceil(human.died / 100);
 
   tr.insertAdjacentHTML('beforeend', `
     <td>${human.name}</td>
-    <td>${human.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${sexRes}</td>
     <td>${human.born}</td>
     <td>${human.died}</td>
-    <td>${human.died - human.born}</td>
-    <td>${Math.ceil(human.died / 100)}</td>
+    <td>${age}</td>
+    <td>${century}</td>
   `);
 
   dashboard.append(tr);
