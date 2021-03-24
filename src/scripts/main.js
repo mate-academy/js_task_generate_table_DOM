@@ -13,7 +13,7 @@ for (const person of people) {
     <td>${person.born}</td>
     <td>${person.died}</td>
     <td>${person.died - person.born}</td>
-    <td>${Math.round(person.died / 100)}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
   `);
 
   table.append(tr);
