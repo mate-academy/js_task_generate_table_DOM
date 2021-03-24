@@ -10,19 +10,16 @@ const table = document.querySelector('.dashboard');
 
 table.children[0].insertAdjacentHTML('beforeend',
   people.map(
-    person => {
-      let row = '<tr>';
-
-      row += `<td>${person.name}</td>`;
-      row += `<td>${person.sex === 'm' ? 'Male' : 'Female'}</td>`;
-      row += `<td>${person.born}</td>`;
-      row += `<td>${person.died}</td>`;
-      row += `<td>${person.died - person.born}</td>`;
-      row += `<td>${Math.ceil(person.died / 100)}</td>`;
-
-      row += '</tr>';
-
-      return row;
-    },
+    person =>
+      `
+        <tr>
+          <td>${person.name}</td>
+          <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+          <td>${person.born}</td>
+          <td>${person.died}</td>
+          <td>${person.died - person.born}</td>
+          <td>${Math.ceil(person.died / 100)}</td>
+        </tr>
+      `
   ).join(''),
 );
