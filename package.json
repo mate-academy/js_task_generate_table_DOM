@@ -29,6 +29,7 @@
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-node": "^9.0.1",
     "gh-pages": "2.0.0",
+    "json-loader": "^0.5.7",
     "mochawesome": "^6.2.1",
     "mochawesome-merge": "^4.2.0",
     "mochawesome-report-generator": "^5.1.0",
@@ -43,6 +44,5 @@
   ],
   "mateAcademy": {
     "projectType": "layoutDOM"
-  },
-  "dependencies": {}
+  }
 }
