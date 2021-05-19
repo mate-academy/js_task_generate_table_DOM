@@ -1,8 +1,27 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('table');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const myPeople = people.map(human => {
+  return {
+    name: human.name,
+    sex: human.sex,
+    born: human.born,
+    died: human.died,
+    age: human.died - human.born,
+    century: Math.ceil(human.died / 100),
+  };
+});
 
-// write your code here
+const columns = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+for (const human of myPeople) {
+  const newRow = table.insertRow();
+
+  for (const cell of columns) {
+    const newCell = newRow.insertCell();
+
+    newCell.appendChild(document.createTextNode(human[cell]));
+  }
+}
