@@ -3,7 +3,7 @@
 const people = require('./lib/people');
 const table = document.querySelector('table');
 
-const myPeople = [...people].map(human => {
+const myPeople = people.map(human => {
   return {
     name: human.name,
     sex: human.sex,
@@ -19,9 +19,9 @@ const columns = ['name', 'sex', 'born', 'died', 'age', 'century'];
 for (const human of myPeople) {
   const newRow = table.insertRow();
 
-  for (const id of columns) {
+  for (const cell of columns) {
     const newCell = newRow.insertCell();
 
-    newCell.appendChild(document.createTextNode(human[id]));
+    newCell.appendChild(document.createTextNode(human[cell]));
   }
 }
