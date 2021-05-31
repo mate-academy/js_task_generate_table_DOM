@@ -17,7 +17,7 @@ function addingPerson(person) {
   <th>${(person.born / 100).toFixed(0)}</th>
 `;
 
-  Array.from(document.querySelectorAll('.dashboard'))[0]
+  document.querySelector('.dashboard')
     .append(newRow);
 }
 
