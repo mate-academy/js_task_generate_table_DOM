@@ -5,32 +5,25 @@ const people = require('./lib/people');
 const table = document.querySelector('tbody');
 
 people.forEach(person => {
-  const personName = person.name;
-  const personGender = person.sex === 'm' ? 'Male' : 'Female';
-  const personBorn = person.born;
-  const personDied = person.died;
-  const personAge = personDied - personBorn;
-  const personCentury = Math.ceil(personDied / 100);
-
   table.insertAdjacentHTML('beforeend', `
     <tr>
       <th>
-        ${personName}
+        ${person.name}
       </th>
       <th>
-        ${personGender}
+        ${person.sex === 'm' ? 'Male' : 'Female'}
       </th>
       <th>
-        ${personBorn}
+        ${person.born}
       </th>
       <th>
-        ${personDied}
+        ${person.died}
       </th>
       <th>
-        ${personAge}
+        ${person.died - person.born}
       </th>
       <th>
-        ${personCentury}
+        ${Math.ceil(person.died / 100)}
       </th>
     </tr>
   `);
