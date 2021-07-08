@@ -1,24 +1,15 @@
 'use strict';
 
 const people = require('./lib/people');
-const accessToTable = document.querySelector('.dashboard');
+const accessToTable = document.querySelector('tBody');
 
-accessToTable.innerHTML = `
-  <tr>
-    <th>Name</th>
-    <th>Gender</th>
-    <th>Born</th>
-    <th>Died</th>
-    <th>Age</th>
-    <th>Century</th>
-  </tr>`
-
-    + people.map(x => `
+accessToTable.insertAdjacentHTML('beforeend',
+  people.map(x => `
     <tr>
-      <th>${x.name}</th>
-      <th>${x.sex}</th>
-      <th>${x.born}</th>
-      <th>${x.died}</th>
-      <th>${x.died - x.born}</th>
-      <th>${Math.ceil(x.died / 100)}</th>
-  </tr>`).join('');
+      <td>${x.name}</td>
+      <td>${x.sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${x.born}</td>
+      <td>${x.died}</td>
+      <td>${x.died - x.born}</td>
+      <td>${Math.ceil(x.died / 100)}</td>
+  </tr>`).join(''));
