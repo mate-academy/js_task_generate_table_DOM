@@ -1,7 +1,8 @@
 'use strict';
 
 const people = require('./lib/people');
-const dashboardBody = document.querySelector('tbody');
+const dashboard = document.querySelector('.dashboard');
+const dashboardBody = dashboard.querySelector('tbody');
 
 people.forEach(person => {
   dashboardBody.insertAdjacentHTML('beforeend', `
