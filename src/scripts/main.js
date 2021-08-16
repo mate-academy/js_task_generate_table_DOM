@@ -2,8 +2,7 @@
 
 const people = require('./lib/people');
 // eslint-disable-next-line no-console
-const dashboard = document.querySelector('table');
-const currentTable = dashboard.querySelector('tbody');
+const currentTable = document.querySelector('tbody');
 
 const addEntries = (table, peopleObjects) => {
   for (const person of peopleObjects) {
