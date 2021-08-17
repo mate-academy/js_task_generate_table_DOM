@@ -3,9 +3,9 @@
 const people = require('./lib/people');
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
+const tableBody = table.querySelector('tbody');
 
 people.forEach(person => {
   const newRow = document.createElement('tr');
@@ -19,5 +19,5 @@ people.forEach(person => {
   <td>${Math.ceil(person.died / 100)}</td>
   `;
 
-  table.append(newRow);
+  tableBody.append(newRow);
 });
