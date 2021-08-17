@@ -5,7 +5,7 @@ const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
 people.forEach(person => {
-  table.insertAdjacentHTML('beforeend',
+  table.lastElementChild.insertAdjacentHTML('beforeend',
     `<tr>
       <td>${person.name}</td>
       <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
