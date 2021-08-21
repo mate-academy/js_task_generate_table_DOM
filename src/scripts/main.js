@@ -19,11 +19,6 @@ for (const person of people) {
   died.textContent = person.died;
   age.textContent = person.died - person.born;
   century.textContent = Math.ceil(person.died / 100);
-  row.append(personName);
-  row.append(gender);
-  row.append(born);
-  row.append(died);
-  row.append(age);
-  row.append(century);
+  row.append(personName, gender, born, died, age, century);
   table.append(row);
 }
