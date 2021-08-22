@@ -6,3 +6,21 @@ const people = require('./lib/people');
 console.log(people); // you can remove it
 
 // write your code here
+
+const tabl = document.querySelector('table');
+
+for (const person of people) {
+  const row = document.createElement('tr');
+  const sex = person.sex === 'm' ? 'Male' : 'Female';
+
+  row.innerHTML = `
+    <th>${person.name}</th>
+    <th>${sex}</th>
+    <th>${person.born}</th>
+    <th>${person.died}</th>
+    <th>${person.died - person.born}</th>
+    <th>${Math.ceil(person.died / 100)}</th>
+    `;
+
+  tabl.append(row);
+};
