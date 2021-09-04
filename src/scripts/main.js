@@ -1,8 +1,18 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.map(({ name: moniker, sex, born, died }) => {
+  const row = document.createElement('tr');
 
-// write your code here
+  row.innerHTML = `
+    <th>${moniker}</th>
+    <th>${sex === 'm' ? 'Male' : 'Female'}</th>
+    <th>${born}</th>
+    <th>${died}</th>
+    <th>${died - born}</th>
+    <th>${Math.ceil(died / 100)}</th>
+  `;
+  table.append(row);
+});
