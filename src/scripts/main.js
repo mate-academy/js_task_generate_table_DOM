@@ -8,7 +8,7 @@ people.map(({ name: moniker, sex, born, died }) => {
 
   row.innerHTML = `
     <th>${moniker}</th>
-    <th>${sex}</th>
+    <th>${sex === 'm' ? 'Male' : 'Female'}</th>
     <th>${born}</th>
     <th>${died}</th>
     <th>${died - born}</th>
