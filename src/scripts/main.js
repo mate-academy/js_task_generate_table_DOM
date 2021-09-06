@@ -11,26 +11,25 @@ people.map(
     dashboardTable.firstElementChild.appendChild(row);
 
     for (const type in person) {
-      if (type === 'slug') {
-        continue;
-      };
-
       const pot = document.createElement('td');
 
-      if (type === 'fatherName') {
-        pot.innerText = person.died - person.born;
-        row.appendChild(pot);
-        continue;
+      switch (type) {
+        case 'fatherName':
+          pot.innerText = person.died - person.born;
+          row.appendChild(pot);
+          continue;
+        case 'motherName':
+          pot.innerText = Math.round(person.died / 100);
+          row.appendChild(pot);
+          continue;
+        case 'slug':
+          continue;
+        default:
+          pot.innerText = person[type];
+          row.appendChild(pot);
       }
-
-      if (type === 'motherName') {
-        pot.innerText = Math.round(person.died / 100);
-        row.appendChild(pot);
-        continue;
-      }
-      pot.innerText = person[type];
-      row.appendChild(pot);
     }
 
     return person;
-  });
+  }
+);
