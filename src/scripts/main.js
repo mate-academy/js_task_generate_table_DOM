@@ -19,11 +19,11 @@ for (let i = 0; i < people.length; i++) {
       5: Math.ceil((people[i].died / 100) - 1),
     };
 
-    const th = document.createElement('TH');
+    const td = document.createElement('TD');
 
-    th.append(document.createTextNode(obj[j]));
+    td.append(document.createTextNode(obj[j]));
 
-    tr.append(th);
+    tr.append(td);
   }
 }
 
