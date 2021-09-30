@@ -2,7 +2,25 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const newPeople = people.map(person => ({ ...person }));
+const table = document.querySelector('table');
 
-// write your code here
+newPeople
+  .map(person => {
+    delete person.fatherName;
+    delete person.motherName;
+    delete person.slug;
+    person.age = person.died - person.born;
+    person.century = Math.ceil(person.died / 100);
+    person.sex = (person.sex === 'm') ? 'Male' : 'Female';
+  });
+
+for (const person of newPeople) {
+  const row = table.insertRow();
+
+  for (const data in person) {
+    const call = row.insertCell();
+
+    call.innerText = person[data];
+  }
+}
