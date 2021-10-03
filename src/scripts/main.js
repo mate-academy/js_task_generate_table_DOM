@@ -2,7 +2,27 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const personArray = people
+  .map(personObjects => Object.assign({}, personObjects));
 
-// write your code here
+personArray
+  .forEach(person => {
+    delete person.fatherName;
+    delete person.motherName;
+    delete person.slug;
+    person.sex = (person.sex !== 'f') ? 'Male' : 'Female';
+    person.age = person.died - person.born;
+    person.century = Math.ceil(person.died / 100);
+  });
+
+const tables = document.querySelector('table');
+
+for (const peoples of personArray) {
+  const rowColumns = tables.insertRow();
+
+  for (const key in peoples) {
+    const cellColumns = rowColumns.insertCell();
+
+    cellColumns.innerText = peoples[key];
+  };
+};
