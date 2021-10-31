@@ -8,7 +8,7 @@ const tabelOfPeople = document.querySelector('table.dashboard > tbody');
 for (const element of people) {
   const cells = `
   <td>${element.name}</td>
-  <td>${element.sex}</td>
+  <td>${element.sex === 'm' ? 'Male' : 'Female'}</td>
   <td>${element.born}</td>
   <td>${element.died}</td>
   <td>${element.died - element.born}</td>
