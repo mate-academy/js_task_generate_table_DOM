@@ -3,30 +3,30 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-for (const person of people) {
+for (const { name: fullName, sex, born, died } of people) {
   const tableRow = document.createElement('tr');
 
-  const fullName = document.createElement('td');
-  const gender = document.createElement('td');
-  const born = document.createElement('td');
-  const died = document.createElement('td');
-  const age = document.createElement('td');
-  const century = document.createElement('td');
+  const nameColumn = document.createElement('td');
+  const sexColumn = document.createElement('td');
+  const bornColum = document.createElement('td');
+  const diedColumn = document.createElement('td');
+  const ageColumn = document.createElement('td');
+  const centuryColumn = document.createElement('td');
 
-  fullName.textContent = person.name;
+  nameColumn.textContent = fullName;
 
-  if (person.sex === 'f') {
-    gender.textContent = 'Female';
-  } else {
-    gender.textContent = 'Male';
-  }
+  sexColumn.textContent = sex === 'f'
+    ? 'Female'
+    : 'Male';
 
-  born.textContent = person.born;
-  died.textContent = person.died;
-  age.textContent = person.died - person.born;
-  century.textContent = Math.ceil(person.died / 100);
+  bornColum.textContent = born;
+  diedColumn.textContent = died;
+  ageColumn.textContent = died - born;
+  centuryColumn.textContent = Math.ceil(died / 100);
 
-  tableRow.append(fullName, gender, born, died, age, century);
+  tableRow.append(
+    nameColumn, sexColumn, bornColum, diedColumn, ageColumn, centuryColumn
+  );
 
   table.append(tableRow);
 }
