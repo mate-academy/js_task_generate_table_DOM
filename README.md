@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_generate_table_DOM/)
+    - [DEMO LINK](https://dariia-romanova.github.io/js_task_generate_table_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -27,8 +27,8 @@ From the preview, you can see that table has 6 headers, but our data does not co
 4) Done.
 
 Hints:
-- Age is `person.died - person.born`
-- Century:divide year of person's death by 100 `Math.ceil(person.died / 100)`
+- Age is `person.died - person.born`Math.ceil(person.died / 100)`
+- Century:divide year of person's death by 100 `
 
 Do not change styles or HTML layout in this task. Change only `main.js` file.
 
