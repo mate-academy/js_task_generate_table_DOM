@@ -390,11 +390,3 @@ for (const person of people) {
 
 console.log(table);
 
-
-// for (let person of people) {
-//   let tr = document.createElement('tr');
-    
-  
-
-//   tbody.appendChild(tr);
-// }
