@@ -7,35 +7,30 @@ const table = document.querySelector('.dashboard');
 for (const person of people) {
   const tr = document.createElement('tr');
 
-  const tdN = document.createElement('td');
+  const nAme = document.createElement('td');
 
-  tdN.innerHTML = person.name;
-  tr.appendChild(tdN);
+  nAme.innerHTML = person.name;
 
-  const tdG = document.createElement('td');
+  const sex = document.createElement('td');
 
-  tdG.innerHTML = person.sex;
-  tr.appendChild(tdG);
+  sex.innerHTML = person.sex === 'm' ? 'male' : 'female';
 
-  const tdB = document.createElement('td');
+  const born = document.createElement('td');
 
-  tdB.innerHTML = person.born;
-  tr.appendChild(tdB);
+  born.innerHTML = person.born;
 
-  const tdD = document.createElement('td');
+  const died = document.createElement('td');
 
-  tdD.innerText = person.died;
-  tr.appendChild(tdD);
+  died.innerText = person.died;
 
-  const tdAge = document.createElement('td');
+  const age = document.createElement('td');
 
-  tdAge.innerText = person.died;
-  tr.appendChild(tdAge);
+  age.innerText = +person.died - +person.born;
 
-  const tdC = document.createElement('td');
+  const century = document.createElement('td');
 
-  tdC.innerText = Math.ceil(person.died / 100);
-  tr.appendChild(tdC);
+  century.innerText = Math.ceil(person.died / 100);
 
+  tr.append(nAme, sex, born, died, age, century);
   table.appendChild(tr);
 }
