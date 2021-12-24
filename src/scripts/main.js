@@ -9,7 +9,7 @@ for (let i = 0; i < people.length; i++) {
 
   item.innerHTML = `
   <th>${people[i].name}</th>
-  <th>${people[i].sex}</th>
+  <th>${people[i].sex === 'm' ? 'Male' : 'Female'}</th>
   <th>${people[i].born}</th>
   <th>${people[i].died}</th>
   <th>${people[i].died - people[i].born}</th>
