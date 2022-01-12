@@ -5,10 +5,10 @@ const people = require('./lib/people');
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const table = document.querySelector('.dashboard').querySelector('tbody');
+const newTable = document.querySelector('.dashboard').querySelector('tbody');
 
 people.map(person => {
-  table.insertAdjacentHTML('beforeend', `<tr>
+  newTable.insertAdjacentHTML('beforeend', `<tr>
     <td>${person.name}</td>
     <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
     <td>${person.born}</td>
