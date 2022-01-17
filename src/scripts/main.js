@@ -2,7 +2,32 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const rows = people.map(person => {
+  const tr = document.createElement('tr');
+  const td = `
+    <td>
+      ${person.name}
+    </td>
+    <td>
+      ${person.sex}
+    </td>
+    <td>
+      ${person.born}
+    </td>
+    <td>
+      ${person.died}
+    </td>
+    <td>
+      ${person.died - person.born}
+    <td>
+      ${Math.ceil(person.died / 100)}
+    </td>`;
+
+  tr.innerHTML = td;
+
+  return tr;
+});
+const table = document.querySelector('.dashboard');
+
+rows.map(row => table.append(row));
