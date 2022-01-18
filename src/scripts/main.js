@@ -10,7 +10,7 @@ const rows = people.map(person => {
       ${person.name}
     </td>
     <td>
-      ${person.sex}
+      ${person.sex === 'm' ? 'Male' : 'Female'}
     </td>
     <td>
       ${person.born}
