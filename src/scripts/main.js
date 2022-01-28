@@ -2,7 +2,23 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const body = document.querySelector('tbody');
 
-// write your code here
+people.map(pers => {
+  let gender;
+
+  pers.age === 'm' ? gender = 'Male' : gender = 'Female';
+
+  const row = document.createElement('tr');
+
+  row.innerHTML = `
+    <th>${pers.name}</th>
+    <th>${gender}</th>
+    <th>${pers.born}</th>
+    <th>${pers.died}</th>
+    <th>${pers.died - pers.born}</th>
+    <th>${Math.ceil(pers.died / 100)}</th>
+  `;
+
+  body.append(row);
+});
