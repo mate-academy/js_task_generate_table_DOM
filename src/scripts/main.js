@@ -7,7 +7,7 @@ const body = document.querySelector('tbody');
 people.map(pers => {
   let gender;
 
-  pers.age === 'm' ? gender = 'Male' : gender = 'Female';
+  pers.sex === 'm' ? gender = 'Male' : gender = 'Female';
 
   const row = document.createElement('tr');
 
