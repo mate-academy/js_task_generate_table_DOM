@@ -6,7 +6,8 @@ const people = require('./lib/people');
 console.log(people); // you can remove it
 
 const nevarr = people.map(el => {
-  return `<tr>
+  return `
+  <tr>
  <td>${el.name}</td>
  <td>${el.sex === 'f' ? 'Female' : 'Male'}</td>
  <td>${el.born}</td>
@@ -17,16 +18,6 @@ const nevarr = people.map(el => {
  `;
 });
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('tbody');
 
-table.innerHTML = `
- <tr>
- <th>Name</th>
- <th>Gender</th>
- <th>Born</th>
- <th>Died</th>
- <th>Age</th>
- <th>Century</th>
-</tr>
-${nevarr.join('')}
-`;
+table.insertAdjacentHTML('beforeend', nevarr.join(' '));
