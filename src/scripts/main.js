@@ -11,11 +11,9 @@ for (let i = 0; i < people.length; i++) {
   const tableRow = document.createElement('tr');
   const age = people[i].died - people[i].born;
   const century = Math.ceil(people[i].died / 100);
-  let gender = 'Male';
-
-  if (people[i].sex === 'f') {
-    gender = 'Female';
-  };
+  const gender = people[i].sex === 'f'
+    ? 'Female'
+    : 'Male';
 
   tableRow.innerHTML = `
     <td>${people[i].name}</td>
