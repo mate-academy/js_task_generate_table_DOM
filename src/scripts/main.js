@@ -15,15 +15,13 @@ for (const person of people) {
   const personTableRow = document.createElement('tr');
 
   personTableRow.insertAdjacentHTML('afterbegin', `
-    <th>${person.name}</th>
-    <th>${person.sex}</th>
-    <th>${person.born}</th>
-    <th>${person.died}</th>
-    <th>${person.age}</th>
-    <th>${person.century}</th>
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.age}</td>
+    <td>${person.century}</td>
   `);
 
-  table.append(personTableRow)
+  table.append(personTableRow);
 }
-
-
