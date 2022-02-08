@@ -6,31 +6,26 @@ const table = document.querySelector('table');
 
 for (const person of people) {
   const row = document.createElement('tr');
-  const column1 = document.createElement('td');
-  const column2 = document.createElement('td');
-  const column3 = document.createElement('td');
-  const column4 = document.createElement('td');
-  const column5 = document.createElement('td');
-  const column6 = document.createElement('td');
+  const nameOfPerson = document.createElement('td');
+  const sex = document.createElement('td');
+  const born = document.createElement('td');
+  const died = document.createElement('td');
+  const age = document.createElement('td');
+  const century = document.createElement('td');
 
-  column1.textContent = person.name;
+  nameOfPerson.textContent = person.name;
 
   if (person.sex === 'f') {
-    column2.textContent = 'Female';
+    sex.textContent = 'Female';
   } else {
-    column2.textContent = 'Male';
+    sex.textContent = 'Male';
   };
 
-  column3.textContent = person.born;
-  column4.textContent = person.died;
-  column5.textContent = person.died - person.born;
-  column6.textContent = Math.ceil(person.died / 100);
+  born.textContent = person.born;
+  died.textContent = person.died;
+  age.textContent = person.died - person.born;
+  century.textContent = Math.ceil(person.died / 100);
 
   table.append(row);
-  row.append(column1);
-  row.append(column2);
-  row.append(column3);
-  row.append(column4);
-  row.append(column5);
-  row.append(column6);
+  row.append(nameOfPerson, sex, born, died, age, century);
 };
