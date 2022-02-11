@@ -5,27 +5,17 @@ const tableRef = document.getElementsByClassName('dashboard')[0];
 
 for (const person of people) {
   const newRow = tableRef.insertRow(-1);
-  const newCell1 = newRow.insertCell(0);
 
-  newCell1.innerText = `${person.name}`;
+  newRow.insertAdjacentHTML('beforeend', '<td>' + `${person.name}` + '</td>');
 
-  const newCell2 = newRow.insertCell(1);
+  newRow.insertAdjacentHTML('beforeend', '<td>'
+  + `${person.sex === 'm' ? 'Male' : 'Female'}` + '</td>');
+  newRow.insertAdjacentHTML('beforeend', '<td>' + `${person.born}` + '</td>');
+  newRow.insertAdjacentHTML('beforeend', '<td>' + `${person.died}` + '</td>');
 
-  newCell2.innerText = `${person.sex === 'm' ? 'Male' : 'Female'}`;
+  newRow.insertAdjacentHTML('beforeend', '<td>'
+  + `${person.died - person.born}` + '</td>');
 
-  const newCell3 = newRow.insertCell(2);
-
-  newCell3.innerText = `${person.born}`;
-
-  const newCell4 = newRow.insertCell(3);
-
-  newCell4.innerText = `${person.died}`;
-
-  const newCell5 = newRow.insertCell(4);
-
-  newCell5.innerText = `${person.died - person.born}`;
-
-  const newCell6 = newRow.insertCell(5);
-
-  newCell6.innerText = `${Math.ceil(person.died / 100) - 1}`;
+  newRow.insertAdjacentHTML('beforeend', '<td>'
+  + `${Math.ceil(person.died / 100)}` + '</td>');
 }
