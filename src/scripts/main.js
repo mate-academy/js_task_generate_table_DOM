@@ -2,11 +2,68 @@
 
 const people = require('./lib/people');
 
-const myTable = document.querySelector('.dasboard');
+/* const people = [
+  {
+    name: 'Carolus Haverbeke',
+    sex: 'm',
+    born: 1832,
+    died: 1905,
+    fatherName: 'Carel Haverbeke',
+    motherName: 'Maria van Brussel',
+    slug: 'carolus-haverbeke-1832',
+  },
+  {
+    name: 'Carolus Haverbeke',
+    sex: 'm',
+    born: 1832,
+    died: 1905,
+    fatherName: 'Carel Haverbeke',
+    motherName: 'Maria van Brussel',
+    slug: 'carolus-haverbeke-1832',
+  },
+  {
+    name: 'Carolus Haverbeke',
+    sex: 'm',
+    born: 1832,
+    died: 1905,
+    fatherName: 'Carel Haverbeke',
+    motherName: 'Maria van Brussel',
+    slug: 'carolus-haverbeke-1832',
+  },
+  {
+    name: 'Carolus Haverbeke',
+    sex: 'm',
+    born: 1832,
+    died: 1905,
+    fatherName: 'Carel Haverbeke',
+    motherName: 'Maria van Brussel',
+    slug: 'carolus-haverbeke-1832',
+  },
+  {
+    name: 'Carolus Haverbeke',
+    sex: 'm',
+    born: 1832,
+    died: 1905,
+    fatherName: 'Carel Haverbeke',
+    motherName: 'Maria van Brussel',
+    slug: 'carolus-haverbeke-1832',
+  },
+  {
+    name: 'Carolus Haverbeke',
+    sex: 'm',
+    born: 1832,
+    died: 1905,
+    fatherName: 'Carel Haverbeke',
+    motherName: 'Maria van Brussel',
+    slug: 'carolus-haverbeke-1832',
+  },
+]; */
+
+const myTable = document.querySelector('.dashboard');
 
 const tableRow = document.createElement('tr');
 
-for (const person of people.length) {
+for (const person of people) {
   tableRow.insertAdjacentHTML('beforeend', `
     <td> ${person.name} </td>
     <td> ${person.sex} </td>
