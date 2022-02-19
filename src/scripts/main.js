@@ -2,7 +2,20 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const myTable = document.querySelector('.dasboard');
 
-// write your code here
+const tableRow = document.createElement('tr');
+
+for (const person of people.length) {
+  tableRow.insertAdjacentHTML('beforeend', `
+    <td> ${person.name} </td>
+    <td> ${person.sex} </td>
+    <td> ${person.born} </td>
+    <td> ${person.died} </td>
+    <td> ${person.died - person.born} </td>
+    <td> ${Math.ceil(person.died / 100)} </td>
+    `
+  );
+
+  myTable.append(tableRow);
+}
