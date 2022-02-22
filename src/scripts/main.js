@@ -7,15 +7,9 @@ const myTable = document.querySelector('.dashboard');
 for (const person of people) {
   const tableRow = document.createElement('tr');
 
-  let gender = 'Female';
-
-  if (person.sex === 'm') {
-    gender = 'Male';
-  }
-
   tableRow.insertAdjacentHTML('afterbegin', `
     <td> ${person.name} </td>
-    <td> ${gender} </td>
+    <td> ${(person.sex === 'm') ? 'Male' : 'Female'} </td>
     <td> ${person.born} </td>
     <td> ${person.died} </td>
     <td> ${person.died - person.born} </td>
