@@ -7,19 +7,27 @@ console.log(people); // you can remove it
 
 // write your code here
 
-const table = document.querySelector('.dashboard tbody');
+const list = document.querySelector('ul');
+const listElements = document.querySelectorAll('li');
 
-for (const person of people) {
-  const age = person.died - person.born;
-  const century = Math.ceil(person.died / 100);
-  const sex = person.sex === 'm' ? 'male' : 'female';
+function sortList(data) {
+  const dataArr = [...data];
 
-  table.insertAdjacentHTML('beforeend', `
-    <td>${person.name}<td/>
-    <td>${sex}<td/>
-    <td>${person.born}<td/>
-    <td>${person.died}<td/>
-    <td>${age}<td/>
-    <td>${century}<td/>`
-  );
+  const convertToNumber = (stringValue) => {
+    return +stringValue.dataset.salary.slice(1).split(',').join('');
+  };
+
+  dataArr.sort((prev, next) => convertToNumber(next) - convertToNumber(prev));
+
+  list.append(...dataArr);
 }
+
+function getEmployees(data) {
+  return [...data].map((employee) => ({
+    name: employee.textContent,
+    ...employee.dataset,
+  }));
+}
+
+sortList(listElements);
+getEmployees(listElements);
