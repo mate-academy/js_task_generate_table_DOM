@@ -15,11 +15,11 @@ for (const person of people) {
   const sex = person.sex === 'm' ? 'male' : 'female';
 
   table.insertAdjacentHTML('beforeend', `
-  <td>${person.name}<td/>
-  <td>${sex}<td/>
-  <td>${person.born}<td/>
-  <td>${person.died}<td/>
-  <td>${age}<td/>
-  <td>${century}<td/>`
+    <td>${person.name}<td/>
+    <td>${sex}<td/>
+    <td>${person.born}<td/>
+    <td>${person.died}<td/>
+    <td>${age}<td/>
+    <td>${century}<td/>`
   );
 }
