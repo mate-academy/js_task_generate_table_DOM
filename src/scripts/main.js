@@ -12,10 +12,9 @@ for (let i = 0; i < people.length; i++) {
   const personCentury = Math.ceil(people[i].died / 100);
   const tr = document.createElement('tr');
 
-  const name1 = document.createElement('td');
+  const name = document.createElement('td');
 
-  name1.innerHTML = people[i].name;
-  tr.append(name1);
+  name.innerHTML = people[i].name;
 
   const gender = document.createElement('td');
 
@@ -25,27 +24,23 @@ for (let i = 0; i < people.length; i++) {
     gender.innerHTML = 'Male';
   }
 
-  tr.append(gender);
-
   const born = document.createElement('td');
 
   born.innerHTML = people[i].born;
-  tr.append(born);
 
   const died = document.createElement('td');
 
   died.innerHTML = people[i].died;
-  tr.append(died);
 
   const age = document.createElement('td');
 
   age.innerHTML = personAge;
-  tr.append(age);
 
   const century = document.createElement('td');
 
   century.innerHTML = personCentury;
-  tr.append(century);
+
+  tr.append(name, gender, born, died, age, century);
 
   table.append(tr);
 }
