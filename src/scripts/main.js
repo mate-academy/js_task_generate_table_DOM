@@ -6,10 +6,10 @@ const people = require('./lib/people');
 console.log(people); // you can remove it
 
 const table = document.querySelector('table');
-const personAge = people.map(person => person.died - person.born);
-const personCentury = people.map(person => Math.ceil(person.died / 100));
 
 for (let i = 0; i < people.length; i++) {
+  const personAge = people[i].died - people[i].born;
+  const personCentury = Math.ceil(people[i].died / 100);
   const tr = document.createElement('tr');
 
   const name1 = document.createElement('td');
@@ -39,12 +39,12 @@ for (let i = 0; i < people.length; i++) {
 
   const age = document.createElement('td');
 
-  age.innerHTML = personAge[i];
+  age.innerHTML = personAge;
   tr.append(age);
 
   const century = document.createElement('td');
 
-  century.innerHTML = personCentury[i];
+  century.innerHTML = personCentury;
   tr.append(century);
 
   table.append(tr);
