@@ -9,10 +9,12 @@ console.log(people); // you can remove it
 
 const tablet = document.querySelector('.dashboard').children[0];
 
+const sexStyler = (x) => x === 'm' ? 'Male' : 'Female';
+
 people.forEach(person => tablet.insertAdjacentHTML('beforeend', `
   <tr>
     <td>${person.name}</th>
-    <td>${person.sex}</th>
+    <td>${sexStyler(person.sex)}</th>
     <td>${person.born}</th>
     <td>${person.died}</th>
     <td>${person.died - person.born}</th>
