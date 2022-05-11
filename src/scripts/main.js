@@ -24,12 +24,14 @@ people.forEach(person => {
     tdSex.innerText = 'Female';
   }
 
-  row.append(tdName);
-  row.append(tdSex);
-  row.append(tdBorn);
-  row.append(tdDied);
-  row.append(tdDied);
-  row.append(tdAge);
-  row.append(tdCentry);
+  row.append(
+    tdName,
+    tdSex,
+    tdBorn,
+    tdDied,
+    tdAge,
+    tdCentry
+  );
+
   table.append(row);
 });
