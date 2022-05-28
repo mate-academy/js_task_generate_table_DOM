@@ -13,12 +13,7 @@ people.forEach(person => {
   const century = document.createElement('th');
 
   tbody.appendChild(tr);
-  tr.appendChild(firstName);
-  tr.appendChild(gender);
-  tr.appendChild(born);
-  tr.appendChild(died);
-  tr.appendChild(age);
-  tr.appendChild(century);
+  tr.append(firstName, gender, born, died, age, century);
 
   firstName.append(person.name);
   gender.append(person.sex);
