@@ -1,8 +1,20 @@
 'use strict';
 
 const people = require('./lib/people');
+const rootEl = document.querySelector('table');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+for (const objPeople of people) {
+  const list = document.createElement('tr');
 
-// write your code here
+  const age = objPeople.died - objPeople.born;
+  const century = objPeople.slug.slice(-4, -2);
+
+  list.innerHTML = `
+    <td>${objPeople.name}</td>
+    <td>${objPeople.sex}</td>
+    <td>${objPeople.born}</td>
+    <td>${objPeople.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>`;
+  rootEl.append(list);
+}
