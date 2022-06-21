@@ -1,8 +1,24 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+[...people].forEach(person => {
+  const row = document.createElement('tr');
 
-// write your code here
+  [
+    person.name,
+    person.sex === 'm' ? 'Male' : 'Female',
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ].forEach(value => {
+    const cell = document.createElement('td');
+
+    cell.textContent = value;
+    row.append(cell);
+  });
+
+  table.append(row);
+});
