@@ -6,14 +6,14 @@ const table = document.querySelector('.dashboard');
 [...people].forEach(person => {
   const row = document.createElement('tr');
 
-  [
-    person.name,
-    person.sex === 'm' ? 'Male' : 'Female',
-    person.born,
-    person.died,
-    person.died - person.born,
-    Math.ceil(person.died / 100),
-  ].forEach(value => {
+  const fullName = person.name;
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+  const born = person.born;
+  const died = person.died;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  [ fullName, gender, born, died, age, century ].forEach(value => {
     const cell = document.createElement('td');
 
     cell.textContent = value;
