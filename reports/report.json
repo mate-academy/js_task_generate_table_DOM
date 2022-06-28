@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-28T11:13:59.646Z",
+    "end": "2022-06-28T11:14:01.402Z",
+    "duration": 1649,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "66601148-33e0-40ce-9c7f-b25e4f0ab078",
+      "title": "",
+      "fullFile": "cypress\\integration\\taskGenerateTableDom.spec.js",
+      "file": "cypress\\integration\\taskGenerateTableDom.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "61cd0382-b63d-4fbc-9273-25ebafc2de92",
+          "title": "Generate table app",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a table based on people.json file",
+              "fullTitle": "Generate table app should create a table based on people.json file",
+              "timedOut": null,
+              "duration": 1528,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "for (var i = 0; i < people.length; i++) {\n  cy.contains('tr', people[i].name).contains('td', people[i].born);\n  cy.contains('tr', people[i].name).contains('td', people[i].died);\n  cy.contains('tr', people[i].name).contains(('td', people[i].died) - ('td', people[i].born));\n  cy.contains('tr', people[i].name).contains('td', Math.ceil(people[i].died / 100));\n  cy.contains('tr', people[i].name).contains('td', people[i].sex === 'm' ? 'Male' : 'Female');\n}",
+              "err": {},
+              "uuid": "df5fa0df-8832-48f9-b4c5-89de0472216f",
+              "parentUUID": "61cd0382-b63d-4fbc-9273-25ebafc2de92",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shouldn't contain fatherName, motherName and slug in table",
+              "fullTitle": "Generate table app shouldn't contain fatherName, motherName and slug in table",
+              "timedOut": null,
+              "duration": 121,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('tbody').contains('Petrus de Milliano').should('not.exist');\ncy.get('tbody').contains('Laurentia van Vlaenderen').should('not.exist');\ncy.get('tbody').contains('jan-van-brussel-1714').should('not.exist');",
+              "err": {},
+              "uuid": "c0295c62-0106-4b16-86b9-129cd10974f5",
+              "parentUUID": "61cd0382-b63d-4fbc-9273-25ebafc2de92",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df5fa0df-8832-48f9-b4c5-89de0472216f",
+            "c0295c62-0106-4b16-86b9-129cd10974f5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1649,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
