@@ -8,11 +8,10 @@ const people = require('./lib/people');
 const dashboard = document.querySelector(`.dashboard`);
 
 people.forEach(el => {
-  const table = document.createElement(`tr`);
+  const row = document.createElement(`tr`);
   const century = Math.ceil(el.died / 100);
 
-  table.innerHTML
-     = `
+  row.innerHTML = `
       <td>${el.name}</td>
       <td>${(el.sex === 'm') ? 'Male' : 'Female'}</td>
       <td>${el.born}</td>
@@ -20,5 +19,5 @@ people.forEach(el => {
       <td>${el.died - el.born}</td>
       <td>${century}</td>
     `;
-  dashboard.appendChild(table);
+  dashboard.appendChild(row);
 });
