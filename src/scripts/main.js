@@ -13,11 +13,11 @@ people.forEach(person => {
   row.innerHTML = `
   <tr>
   <td>${person.name}</td>
-  <td>${person.sex}</td>
+  <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
   <td>${person.born}</td>
   <td>${person.died}</td>
-  <td>${person.person.died - person.born}</td>
-  <td>${person.Matd.ceil(person.died / 100)}</td>
+  <td>${person.died - person.born}</td>
+  <td>${person.Math.ceil(person.died / 100)}</td>
   </tr>
   `;
 
