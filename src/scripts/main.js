@@ -6,14 +6,15 @@ const people = require('./lib/people');
 
 // write your code here
 const core = document.querySelector('.dashboard');
+let lastStyleLeft = 'border-bottom-left-radius: unset;';
+let lastStyleRight = 'border-bottom-right-radius: unset;';
 
 for (const section of people) {
   const colorBackground = people.indexOf(section) % 2 === 0
     ? 'white'
     : '#f5f5f5';
 
-  let lastStyleLeft = 'border-bottom-left-radius: unset;';
-  let lastStyleRight = 'border-bottom-right-radius: unset;';
+  const sexPeople = section.sex === 'm' ? 'Male' : 'Female';
 
   if (people.indexOf(section) === Object.keys(people).length - 1) {
     lastStyleLeft = 'border-bottom-left-radius: 10px;';
@@ -29,7 +30,7 @@ for (const section of people) {
     ">
     <td style="${lastStyleLeft}">
     ${section.name}</td>
-    <td>${section.sex}</td>
+    <td>${sexPeople}</td>
     <td>${section.born}</td>
     <td>${section.died}</td>
     <td>${section.died - section.born}</td>
