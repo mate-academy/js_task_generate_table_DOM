@@ -6,37 +6,51 @@ const table = document.querySelector('tbody');
 
 for (const human of people) {
   const row = document.createElement('tr');
-  const humanName = document.createElement('td');
-  const humanGender = document.createElement('td');
-  const humanBorn = document.createElement('td');
-  const humanDied = document.createElement('td');
-  const humanAge = document.createElement('td');
-  const humanCen = document.createElement('td');
+  let humanName;
+  let humanGender;
+  let humanBorn;
+  let humanDied;
+  let humanAge;
+  let humanCen;
 
   for (let i = 0; i < table.children[0].cells.length; i++) {
     const property = table.children[0].cells[i].textContent;
 
     switch (property) {
       case 'Name' :
-        humanName.textContent = human.name;
+        humanName = human.name;
         break;
       case 'Gender' :
-        humanGender.textContent = (human.sex === 'f' ? 'Female' : 'Male');
+        humanGender = (human.sex === 'f' ? 'Female' : 'Male');
         break;
       case 'Born' :
-        humanBorn.textContent = human.born;
+        humanBorn = human.born;
         break;
       case 'Died' :
-        humanDied.textContent = human.died;
+        humanDied = human.died;
         break;
       case 'Age' :
-        humanAge.textContent = human.died - human.born;
+        humanAge = human.died - human.born;
         break;
       case 'Century' :
-        humanCen.textContent = Math.ceil(human.died / 100);
+        humanCen = Math.ceil(human.died / 100);
         break;
     }
   }
-  row.append(humanName, humanGender, humanBorn, humanDied, humanAge, humanCen);
+
+  humanName = `<td>${humanName}</td>`;
+  humanGender = `<td>${humanGender}</td>`;
+  humanBorn = `<td>${humanBorn}</td>`;
+  humanDied = `<td>${humanDied}</td>`;
+  humanAge = `<td>${humanAge}</td>`;
+  humanCen = `<td>${humanCen}</td>`;
+
+  row.insertAdjacentHTML('afterbegin', humanCen);
+  row.insertAdjacentHTML('afterbegin', humanAge);
+  row.insertAdjacentHTML('afterbegin', humanDied);
+  row.insertAdjacentHTML('afterbegin', humanBorn);
+  row.insertAdjacentHTML('afterbegin', humanGender);
+  row.insertAdjacentHTML('afterbegin', humanName);
+
   table.append(row);
 }
