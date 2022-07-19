@@ -1,8 +1,25 @@
 'use strict';
 
 const people = require('./lib/people');
+const dashboard = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach(element => {
+  const tableRow = document.createElement('tr');
+  const preparedPeople = {
+    name: element.name,
+    sex: element.sex === 'm' ? 'Male' : 'Female',
+    born: element.born,
+    died: element.died,
+    age: element.died - element.born,
+    century: Math.ceil(element.born / 100),
+  };
 
-// write your code here
+  for (const key in preparedPeople) {
+    const tableData = document.createElement('td');
+
+    tableData.textContent = preparedPeople[key];
+    tableRow.append(tableData);
+  }
+
+  dashboard.append(tableRow);
+});
