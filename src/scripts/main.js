@@ -22,7 +22,7 @@ people.forEach(person => {
         tableData.innerText = person.name;
         break;
       case 1:
-        tableData.innerText = person.sex;
+        tableData.innerText = person.sex === 'f' ? 'Female' : 'Male';
         break;
       case 2:
         tableData.innerText = person.born;
