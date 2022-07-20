@@ -31,7 +31,7 @@ people.forEach(person => {
         tableData.innerText = person.died;
         break;
       case 4:
-        tableData.innerText = person.name;
+        tableData.innerText = person.died - person.born;
         break;
       case 5:
         tableData.innerText = Math.ceil(person.died / 100);
