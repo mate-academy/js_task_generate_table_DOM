@@ -38,19 +38,14 @@ for (const human of people) {
     }
   }
 
-  humanName = `<td>${humanName}</td>`;
-  humanGender = `<td>${humanGender}</td>`;
-  humanBorn = `<td>${humanBorn}</td>`;
-  humanDied = `<td>${humanDied}</td>`;
-  humanAge = `<td>${humanAge}</td>`;
-  humanCen = `<td>${humanCen}</td>`;
-
-  row.insertAdjacentHTML('afterbegin', humanCen);
-  row.insertAdjacentHTML('afterbegin', humanAge);
-  row.insertAdjacentHTML('afterbegin', humanDied);
-  row.insertAdjacentHTML('afterbegin', humanBorn);
-  row.insertAdjacentHTML('afterbegin', humanGender);
-  row.insertAdjacentHTML('afterbegin', humanName);
+  row.insertAdjacentHTML('afterbegin', `
+    <td>${humanName}</td>
+    <td>${humanGender}</td>
+    <td>${humanBorn}</td>
+    <td>${humanDied}</td>
+    <td>${humanAge}</td>
+    <td>${humanCen}</td>
+  `);
 
   table.append(row);
 }
