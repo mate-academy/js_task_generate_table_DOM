@@ -4,14 +4,14 @@ const people = require('./lib/people');
 const table = document.querySelector('tbody');
 
 for (const person of people) {
-  people.sex = people.sex === 'f'
-    ? people.sex === 'Female'
-    : people.sex = 'Male';
+  const sex = person.sex === 'f'
+    ? 'Female'
+    : 'Male';
 
   table.insertAdjacentHTML('beforeend', `
       <tr>
         <td>${person.name}</td>
-        <td>${person.sex}</td>
+        <td>${sex}</td>
         <td>${person.born}</td>
         <td>${person.died}</td>
         <td>${person.died - person.born}</td>
