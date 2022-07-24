@@ -11,7 +11,7 @@ people.forEach(element => {
       <th>${element.born}</th>
       <th>${element.died}</th>
       <th>${element.died - element.born}</th>
-      <th>${Math.floor((element.died) / 100)}</th>
+      <th>${Math.ceil((element.died) / 100)}</th>
     </tr>
   `);
 });
