@@ -10,20 +10,20 @@ const tableElement = document.querySelector('.dashboard').firstElementChild;
 people.map(human => tableElement.insertAdjacentHTML('beforeend', `
   <tr>
     <td>${human.name}</td>
-    <td>${gender(human.sex)}</td>
+    <td>${getGender(human.sex)}</td>
     <td>${human.born}</td>
     <td>${human.died}</td>
-    <td>${age(human.born, human.died)}</td>
+    <td>${getAge(human.born, human.died)}</td>
     <td>${century(human.died)}</td>
   </tr>
   `)
 );
 
-function gender(sex) {
+function getGender(sex) {
   return sex === 'm' ? 'Male' : 'Female';
 };
 
-function age(born, died) {
+function getAge(born, died) {
   return died - born;
 };
 
