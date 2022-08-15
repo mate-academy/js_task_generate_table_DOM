@@ -6,3 +6,37 @@ const people = require('./lib/people');
 console.log(people); // you can remove it
 
 // write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach(person => {
+  const tr = document.createElement('tr'); // create table row
+  const personName = person.name;
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+  const born = person.born;
+  const died = person.died;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  tr.insertAdjacentHTML('beforeend', `
+    <td>
+      ${personName}
+    </td>
+    <td>
+      ${gender}
+    </td>
+    <td>
+      ${born}
+    </td>
+    <td>
+      ${died}
+    </td>
+    <td>
+      ${age}
+    </td>
+    <td>
+      ${century}
+    </td>
+  `);
+
+  table.append(tr);
+});
