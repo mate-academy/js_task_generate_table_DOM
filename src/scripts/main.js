@@ -31,18 +31,5 @@ function valTableName(arr) {
          <td>${Math.ceil(person.died / 100)}</td>
        </tr>
       `);
-    // const tr = document.createElement('tr');
-
-    // table.append(tr);
-    // tr.appendChild(document.createElement('td')).append(el.name);
-
-    // tr.appendChild(document.createElement('td')).append(male(el.sex));
-    // tr.appendChild(document.createElement('td')).append(el.born);
-    // tr.appendChild(document.createElement('td')).append(el.died);
-    // tr.appendChild(document.createElement('td')).append(el.died - el.born);
-
-    // tr.appendChild(document.createElement('td')).append(
-    //   Math.ceil(el.died / 100)
-    // );
   });
 }
