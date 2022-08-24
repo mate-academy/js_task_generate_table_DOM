@@ -1,8 +1,22 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// eslint-disable-next-line no-shadow
+people.forEach(({ name, sex, born, died }) => {
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const tr = document.createElement('tr');
 
-// write your code here
+  tr.innerHTML = `
+    <th>${name}</th>
+    <th>${sex === 'f' ? 'Female' : 'Male'}</th>
+    <th>${born}</th>
+    <th>${died}</th>
+    <th>${age}</th>
+    <th>${century}</th>
+  `;
+
+  table.append(tr);
+});
