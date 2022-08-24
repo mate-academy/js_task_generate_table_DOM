@@ -11,7 +11,7 @@ people.forEach(({ name, sex, born, died }) => {
 
   tr.innerHTML = `
     <th>${name}</th>
-    <th>${sex}</th>
+    <th>${sex === 'f' ? 'Female' : 'Male'}</th>
     <th>${born}</th>
     <th>${died}</th>
     <th>${age}</th>
