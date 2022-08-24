@@ -4,6 +4,8 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
+people.sort((a, b) => (b.died - b.born) - (a.died - a.born));
+
 // eslint-disable-next-line no-console
 
 // write your code here
@@ -14,7 +16,6 @@ people.forEach(person => {
   const gender = sex === 'm' ? 'Male' : 'Female';
   const age = died - born;
   const century = Math.ceil(died / 100);
-
   const row = document.createElement('tr');
 
   row.insertAdjacentHTML('afterbegin', `
