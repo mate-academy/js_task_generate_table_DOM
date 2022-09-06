@@ -1,8 +1,37 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.getElementsByClassName('dashboard ')[0]
+  .getElementsByTagName('tbody')[0];
+const resultPeople = people.map(person =>
+  ` <tr>
+      <td>
+        ${person.name}
+      </td>
+      <td>
+        ${gender(person)}
+      </td>
+      <td>
+        ${person.born}
+      </td>
+      <td>
+        ${person.died}
+      </td>
+      <td>
+        ${person.died - person.born}
+      </td>
+      <td>
+        ${Math.ceil(person.died / 100)}
+      </td>
+    </tr>
+  `)
+  .reduce((prev, current) => prev + current, '');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+  function gender(person) {
+    if (person.sex === 'm') {
+      return 'Male';
+    }
+    return 'Female';
+  }
 
-// write your code here
+table.insertAdjacentHTML('beforeend', resultPeople);
