@@ -25,13 +25,14 @@ const resultPeople = people.map(person =>
       </td>
     </tr>
   `)
-  .reduce((prev, current) => prev + current, '');
+  .join('');
 
-  function gender(person) {
-    if (person.sex === 'm') {
-      return 'Male';
-    }
-    return 'Female';
+function gender(person) {
+  if (person.sex === 'm') {
+    return 'Male';
   }
+
+  return 'Female';
+}
 
 table.insertAdjacentHTML('beforeend', resultPeople);
