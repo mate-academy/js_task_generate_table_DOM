@@ -8,21 +8,20 @@ console.log(people); // you can remove it
 const table = document.querySelector('tbody');
 
 for (const person of people) {
+  const personName = person.name;
+  const personSex = person.sex === 'm' ? 'Male' : 'Female';
+  const born = person.born;
+  const died = person.died;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
   table.insertAdjacentHTML('beforeend', `
   <tr>
-    <td>${person.name}</td>
-    <td>${getGender(person)}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${person.died - person.born}</td>
-    <td>${Math.ceil(person.died / 100)}</td>
+    <td>${personName}</td>
+    <td>${personSex}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
   </tr>`);
-}
-
-function getGender(pers) {
-  if (pers.sex === 'm') {
-    return 'Male';
-  }
-
-  return 'Female';
 }
