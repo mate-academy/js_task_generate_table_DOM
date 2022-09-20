@@ -13,25 +13,31 @@ for (const person of people) {
   const personAge = document.createElement('td');
   const personCentury = document.createElement('td');
 
-  personName.innerHTML = person.name;
+  personName.innerText = person.name;
 
-  if (person.sex === 'm') {
-    personGender.innerHTML = 'Male';
+  switch (person.sex) {
+    case 'm': 
+      personGender.innerText = 'Male';
+    break;
+
+    case 'f': 
+      personGender.innerText = 'Female';
+    break;
   }
 
-  if (person.sex === 'f') {
-    personGender.innerHTML = 'Female';
-  }
-
-  personBorn.innerHTML = person.born;
-  personDied.innerHTML = person.died;
-  personAge.innerHTML = person.died - person.born;
-  personCentury.innerHTML = Math.ceil(person.died / 100);
+  personBorn.innerText = person.born;
+  personDied.innerText = person.died;
+  personAge.innerText = person.died - person.born;
+  personCentury.innerText = Math.ceil(person.died / 100);
 
   tr.append(
-    personName, personGender, 
-    personBorn, personDied, 
-    personAge, personCentury
+    personName,
+    personGender,
+    personBorn,
+    personDied,
+    personAge,
+    personCentury
   );
+
   dashboard.append(tr);
 }
