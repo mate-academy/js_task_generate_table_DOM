@@ -9,12 +9,16 @@ console.log(people); // you can remove it
 function createAndAppendNewCell(value, parentTag, personItem) {
   const newItem = document.createElement('td');
 
-  if (value === 'age') {
-    newItem.innerText = personItem.died - personItem.born;
-  } else if (value === 'century') {
-    newItem.innerText = Math.ceil(personItem.died / 100);
-  } else {
-    newItem.innerText = personItem[value];
+  switch (value) {
+    case 'age':
+      newItem.innerText = personItem.died - personItem.born;
+      break;
+    case 'century':
+      newItem.innerText = Math.ceil(personItem.died / 100);
+      break;
+    default:
+      newItem.innerText = personItem[value];
+      break;
   }
 
   parentTag.appendChild(newItem);
