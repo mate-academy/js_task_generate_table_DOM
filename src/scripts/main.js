@@ -3,9 +3,6 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-// console.log(people); // you can remove it
-
 people.map(item => {
   delete item.motherName;
   delete item.fatherName;
