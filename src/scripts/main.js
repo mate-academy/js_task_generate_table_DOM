@@ -41,7 +41,7 @@ function genRow(person) {
   return tableRow;
 }
 
-// get arrow of rows
+// get array of rows
 
 const rowsArray = people.map(genRow);
 
