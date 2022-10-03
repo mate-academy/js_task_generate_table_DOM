@@ -2,7 +2,23 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const list = document.querySelector('.dashboard');
 
-// write your code here
+for (const person of people) {
+  const age = person.died - person.born;
+  const gender = people.sex === 'm' ? 'Male' : 'Female';
+  const century = Math.ceil(person.died / 100);
+
+  const tr = document.createElement('tr');
+
+  tr.innerHTML = `
+    <td>${person.name}</td>
+    <td>${gender}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+`;
+
+  list.append(tr);
+}
