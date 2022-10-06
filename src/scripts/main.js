@@ -1,10 +1,9 @@
 'use strict';
 
 const people = require('./lib/people');
-
 const table = document.querySelector('.dashboard tbody');
 
-function personSex(person) {
+function personInfo(person) {
   let personSexStr;
 
   if (person.sex === 'f') {
@@ -25,13 +24,4 @@ function personSex(person) {
   `;
 }
 
-people.map(person => table.insertAdjacentHTML('beforeend', ` 
-  <tr>
-    <th>${person.name}</th>
-    <th>${personSex(person.sex)}ale</th>
-    <th>${person.born}</th>
-    <th>${person.died}</th>
-    <th>${person.died - person.born}</th>
-    <th>${Math.ceil(person.died / 100)}</th>
-  </tr>
-  `));
+people.map(person => table.insertAdjacentHTML('beforeend', personInfo(person)));
