@@ -3,13 +3,13 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard tbody');
 
-function personInfo(person) {
+function getPersonInfo(person) {
   let personSexStr;
 
   if (person.sex === 'f') {
-    personSexStr = `<th>${person.sex.toUpperCase()}emale</th>`;
+    personSexStr = `<th>Female</th>`;
   } else {
-    personSexStr = `<th>${person.sex.toUpperCase()}ale</th>`;
+    personSexStr = `<th>Male</th>`;
   };
 
   return ` 
@@ -24,4 +24,5 @@ function personInfo(person) {
   `;
 }
 
-people.map(person => table.insertAdjacentHTML('beforeend', personInfo(person)));
+people.forEach(person => table
+  .insertAdjacentHTML('beforeend', getPersonInfo(person)));
