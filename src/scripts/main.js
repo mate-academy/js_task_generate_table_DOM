@@ -2,7 +2,7 @@
 
 const people = require('./lib/people');
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard tbody');
 
 people.forEach(person => {
   table.insertAdjacentHTML('beforeend', `
