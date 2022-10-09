@@ -1,11 +1,13 @@
 'use strict';
 
+// debugger;
+
 const people = require('./lib/people');
 
 // eslint-disable-next-line no-console
 console.log(people);
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('tbody');
 
 for (let i = 0; i < people.length; i++) {
   table.insertAdjacentHTML('beforeend', `
