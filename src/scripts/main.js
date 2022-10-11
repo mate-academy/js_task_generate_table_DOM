@@ -8,37 +8,37 @@ console.log(people);
 const table = document.querySelector('tbody');
 
 for (const person of people) {
-  const someOne = document.createElement('tr');
+  const row = document.createElement('tr');
 
-  const someOneName = document.createElement('td');
+  const nameColumn = document.createElement('td');
 
-  someOneName.textContent = person.name;
-  someOne.append(someOneName);
+  nameColumn.textContent = person.name;
+  row.append(nameColumn);
 
-  const someOneGender = document.createElement('td');
+  const genderColumn = document.createElement('td');
 
-  someOneGender.textContent = (person.sex === 'm') ? 'Male' : 'Female';
-  someOne.append(someOneGender);
+  genderColumn.textContent = (person.sex === 'm') ? 'Male' : 'Female';
+  row.append(genderColumn);
 
-  const someOneBorn = document.createElement('td');
+  const bornColumn = document.createElement('td');
 
-  someOneBorn.textContent = person.born;
-  someOne.append(someOneBorn);
+  bornColumn.textContent = person.born;
+  row.append(bornColumn);
 
-  const someOneDied = document.createElement('td');
+  const diedColumn = document.createElement('td');
 
-  someOneDied.textContent = person.died;
-  someOne.append(someOneDied);
+  diedColumn.textContent = person.died;
+  row.append(diedColumn);
 
-  const someOneAge = document.createElement('td');
+  const ageColumn = document.createElement('td');
 
-  someOneAge.textContent = (person.died - person.born);
-  someOne.append(someOneAge);
+  ageColumn.textContent = (person.died - person.born);
+  row.append(ageColumn);
 
-  const someOneCentury = document.createElement('td');
+  const centuryColumn = document.createElement('td');
 
-  someOneCentury.textContent = (Math.ceil(person.died / 100));
-  someOne.append(someOneCentury);
+  centuryColumn.textContent = (Math.ceil(person.died / 100));
+  row.append(centuryColumn);
 
-  table.append(someOne);
+  table.append(row);
 };
