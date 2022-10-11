@@ -1,11 +1,6 @@
 'use strict';
 
-// debugger;
-
 const people = require('./lib/people');
-
-// eslint-disable-next-line no-console
-console.log(people);
 
 const table = document.querySelector('tbody');
 
