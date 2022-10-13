@@ -6,7 +6,7 @@ const list = document.querySelector('.dashboard');
 
 for (const person of people) {
   const age = person.died - person.born;
-  const gender = people.sex === 'm' ? 'Male' : 'Female';
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
   const century = Math.ceil(person.died / 100);
 
   const tr = document.createElement('tr');
