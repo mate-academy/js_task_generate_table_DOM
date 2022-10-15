@@ -2,14 +2,9 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
-// write your code here
-
 const table = document.querySelector('.dashboard');
 
-people.map(person => {
+people.forEach(person => {
   const newTable = document.createElement('tr');
 
   table.append(newTable);
@@ -20,6 +15,14 @@ people.map(person => {
   newTable.append(nameColumn);
 
   const genderColumn = document.createElement('th');
+
+  switch (person.sex) {
+    case 'f':
+      person.sex = 'Female';
+      break;
+    case 'm':
+      person.sex = 'Male';
+  }
 
   genderColumn.textContent = person.sex;
   newTable.append(genderColumn);
