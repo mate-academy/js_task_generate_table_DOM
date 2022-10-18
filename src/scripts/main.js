@@ -3,12 +3,12 @@
 const people = require('./lib/people');
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+console.log(people);
 
 people.map(person => {
   const table = document.querySelector('.dashboard');
 
-  const line = `
+  table.lastChild.innerHTML += `
     <tr>
       <td>${person.name}</td>
       <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
@@ -17,6 +17,4 @@ people.map(person => {
       <td>${person.died - person.born}</td>
       <td>${Math.ceil(person.died / 100)}</td>
     </tr>`;
-
-  table.lastChild.innerHTML += line;
 });
