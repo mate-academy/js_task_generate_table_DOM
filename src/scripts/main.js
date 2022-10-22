@@ -16,15 +16,17 @@ people.forEach(person => {
 
   const genderColumn = document.createElement('th');
 
+  let sex = '';
+
   switch (person.sex) {
     case 'f':
-      person.sex = 'Female';
+      sex = 'Female';
       break;
     case 'm':
-      person.sex = 'Male';
+      sex = 'Male';
   }
 
-  genderColumn.textContent = person.sex;
+  genderColumn.textContent = sex;
   newTable.append(genderColumn);
 
   const bornColumn = document.createElement('th');
