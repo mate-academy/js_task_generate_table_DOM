@@ -10,17 +10,29 @@ const table = document.querySelector('.dashboard');
 people.forEach(person => {
   const tr = document.createElement('tr');
 
-  person.age = person.died - person.born;
+  const humanAge = person.died - person.born;
 
-  person.century = Math.ceil(person.died / 100);
+  const humanCenturyOfDeath = Math.ceil(person.died / 100);
+
+  switch (person.sex) {
+    case 'm':
+      person.sex = 'Male';
+      break;
+    case 'f':
+      person.sex = 'Female';
+      break;
+    default:
+      person.sex = 'someone else';
+      break;
+  };
 
   tr.insertAdjacentHTML('afterbegin', `
-  <td>${person.name}</td>
-  <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
-  <td>${person.born}</td>
-  <td>${person.died}</td>
-  <td>${person.age}</td>
-  <td>${person.century}</td>
+    <td>${person.name}</td>
+    <td>${person.sex}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${humanAge}</td>
+    <td>${humanCenturyOfDeath}</td>
   `);
   table.append(tr);
 });
