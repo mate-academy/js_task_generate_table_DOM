@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_generate_table_DOM/)
+    - [DEMO LINK](https://kolya-movchan.github.io/js_task_generate_table_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -11,7 +11,7 @@ This task requires knowledge of how HTML table works. You can learn it here:
  - [MDN HTML table basics](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics)
 
 Okay, now we know what is a table, and can do some magic.
-In `main.js`, you already have imported file `people.json`. Variable `people` contains an array of people, you can check it by using `console.log`.
+In `main.js`, you already have imported file `people.json`. Variable `people` contains an    array of people, you can check it by using `console.log`.
 Your task today is to convert this array to table rows.
 
 Your layout for start: 
