@@ -11,7 +11,7 @@ This task requires knowledge of how HTML table works. You can learn it here:
  - [MDN HTML table basics](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics)
 
 Okay, now we know what is a table, and can do some magic.
-In `main.js`, you already have imported file `people.json`. Variable `people` contains an array of people, you can check it by using `console.log`.
+In `main.js`, you already have imported file `people.json`. Variable `people` contains an    array of people, you can check it by using `console.log`.
 Your task today is to convert this array to table rows.
 
 Your layout for start: 
