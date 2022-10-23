@@ -8,8 +8,10 @@ console.log(people); // you can remove it
 people.map(person => {
   const newRow = document.createElement('tr');
 
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
   newRow.append(createCell(person.name));
-  newRow.append(createCell(person.sex));
+  newRow.append(createCell(gender));
   newRow.append(createCell(person.born));
   newRow.append(createCell(person.died));
   newRow.append(createCell(person.died - person.born));
