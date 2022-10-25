@@ -2,7 +2,26 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('tbody');
 
-// write your code here
+function getGender(gender) {
+  return gender === 'm' ? 'Male' : 'Female';
+}
+
+makeTable(people);
+
+function makeTable(arr) {
+  arr.forEach(person => {
+    table.insertAdjacentHTML(
+      'beforeend',
+      `
+      <tr>
+        <td>${person.name}</td>
+        <td>${getGender(person.sex)}</td>
+        <td>${person.born}</td>
+        <td>${person.died}</td>
+        <td>${person.died - person.born}</td>
+        <td>${Math.ceil(person.died / 100)}</td>
+      `);
+  });
+}
