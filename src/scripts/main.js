@@ -1,8 +1,23 @@
 'use strict';
 
-const people = require('./lib/people');
+function makeDashboard(dashboard, people) {
+  for (const person of people) {
+    const gender = person.sex === 'm' ? 'Male' : 'Female';
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+    dashboard.tBodies[0].insertAdjacentHTML('beforeend', `
+      <tr>
+        <td>${person.name}</td>
+        <td>${gender}</td>
+        <td>${person.born}</td>
+        <td>${person.died}</td>
+        <td>${person.died - person.born}</td>
+        <td>${Math.ceil(person.died / 100)}</td>
+      </tr>
+    `);
+  }
+}
 
-// write your code here
+const peopleData = require('./lib/people');
+const table = document.querySelector('.dashboard');
+
+makeDashboard(table, peopleData);
