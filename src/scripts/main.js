@@ -4,12 +4,8 @@ const people = require('./lib/people');
 
 const table = document.querySelector('tbody');
 
-function gender(p) {
-  if (p === 'm') {
-    return 'Male';
-  }
-
-  return 'Female';
+function getGender(gender) {
+  return gender === 'm' ? 'Male' : 'Female';
 }
 
 makeTable(people);
@@ -21,7 +17,7 @@ function makeTable(arr) {
       `
       <tr>
         <td>${person.name}</td>
-        <td>${gender(person.sex)}</td>
+        <td>${getGender(person.sex)}</td>
         <td>${person.born}</td>
         <td>${person.died}</td>
         <td>${person.died - person.born}</td>
