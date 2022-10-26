@@ -20,6 +20,3 @@ for (const person of people) {
 
   dashBoard.append(row);
 }
-
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
