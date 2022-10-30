@@ -1,8 +1,26 @@
+/* eslint-disable no-shadow */
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard tbody');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const sexToString = (sex) => sex === 'm' ? 'Male' : 'Female';
 
-// write your code here
+const createRows = (peopleArr) => {
+  for (const person of people) {
+    const { name, sex, born, died } = person;
+
+    table.insertAdjacentHTML('beforeend', `
+      <tr>
+        <td>${name}</td>
+        <td>${sexToString(sex)}</td>
+        <td>${born}</td>
+        <td>${died}</td>
+        <td>${died - born}</td>
+        <td>${Math.ceil(died / 100)}</td>
+      </tr>
+    `);
+  }
+};
+
+createRows(people);
