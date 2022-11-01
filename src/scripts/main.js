@@ -1,6 +1,6 @@
 'use strict';
 
-const people = require('./lib/people');
+const usersData = require('./lib/people');
 
 const table = document.querySelector('.dashboard tbody');
 
@@ -8,8 +8,8 @@ function checkSex(sex) {
   return sex === 'm' ? 'Male' : 'Female';
 }
 
-function fillTable(arr) {
-  arr.forEach(person => {
+function fillTable(people) {
+  people.forEach(person => {
     table.insertAdjacentHTML('beforeend', `
     <tr>
       <td>${person.name}</td>
@@ -23,4 +23,4 @@ function fillTable(arr) {
   });
 }
 
-fillTable(people);
+fillTable(usersData);
