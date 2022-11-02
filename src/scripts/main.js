@@ -3,8 +3,8 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard').lastChild;
 
-function genereteTable(obj) {
-  obj.forEach(element => {
+function genereteTable(data) {
+  data.forEach(element => {
     table.innerHTML += `
     <tr>
       <td>${element.name}</td>
