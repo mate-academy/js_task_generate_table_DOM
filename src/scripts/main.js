@@ -1,8 +1,21 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard').lastChild;
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function genereteTable(data) {
+  data.forEach(element => {
+    table.innerHTML += `
+    <tr>
+      <td>${element.name}</td>
+      <td>${element.sex === 'f' ? 'Female' : 'Male'}</td>
+      <td>${element.born}</td>
+      <td>${element.died}</td>
+      <td>${element.died - element.born}</td>
+      <td>${Math.ceil(element.died / 100)}</td>
+    </tr>
+    `;
+  });
+}
 
-// write your code here
+genereteTable(people);
