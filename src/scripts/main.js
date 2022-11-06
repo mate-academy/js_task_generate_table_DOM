@@ -7,11 +7,11 @@ const table = document.querySelector('.dashboard tbody');
 const formatSex = (sex) => sex === 'm' ? 'Male' : 'Female';
 
 for (const person of people) {
-  const { name, sex, born, died } = person;
+  const { aName, sex, born, died } = person;
 
   table.insertAdjacentHTML('beforeend', `
     <tr>
-      <td>${name}</td>
+      <td>${aName}</td>
       <td>${formatSex(sex)}</td>
       <td>${born}</td>
       <td>${died}</td>
