@@ -3,27 +3,39 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-let tableKeys = [...document.querySelectorAll('th')];
+let tableKeys = {};
 
-tableKeys = tableKeys.map(item => item.innerText.toLowerCase());
+[...document.querySelectorAll('th')].map(item => {
+  tableKeys[item.innerText.toLowerCase()] = item.innerText.toLowerCase();
+});
 
+const gender = {
+  m: 'Male',
+  f: 'Female',
+};
 // eslint-disable-next-line no-console
+
 people.forEach(person => {
   const tableRow = document.createElement('tr');
 
-  for (const criteria of tableKeys) {
+  for (const criteria in tableKeys) {
     const cell = document.createElement('td');
 
-    if (criteria === 'age') {
-      cell.innerText = person.died - person.born;
-    } else if (criteria === 'century') {
-      cell.innerText = Math.ceil(person.died / 100);
-    } else if (criteria === 'gender') {
-      cell.innerHTML = person.sex === 'm'
-        ? 'Male'
-        : 'Female';
-    } else {
-      cell.innerText = person[criteria];
+    switch (criteria) {
+      case tableKeys.age:
+        cell.innerText = person.died - person.born;
+        break;
+
+      case tableKeys.gender:
+        cell.innerHTML = gender[person.sex];
+        break;
+
+      case tableKeys.century:
+        cell.innerText = Math.ceil(person.died / 100);
+        break;
+
+      default:
+        cell.innerText = person[criteria];
     }
 
     tableRow.appendChild(cell);
