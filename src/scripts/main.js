@@ -2,38 +2,26 @@
 
 const people = require('./lib/people');
 
+const fragment = document.createDocumentFragment();
+
 people.forEach(person => {
   const tr = document.createElement('tr');
 
-  const tdName = document.createElement('td');
+  createElement(tr, person.name);
+  createElement(tr, person.sex);
+  createElement(tr, person.born);
+  createElement(tr, person.died);
+  createElement(tr, person.died - person.born);
+  createElement(tr, Math.ceil(person.died / 100));
 
-  tdName.textContent = person.name;
-  tr.append(tdName);
-
-  const tdSex = document.createElement('td');
-
-  tdSex.textContent = person.sex;
-  tr.append(tdSex);
-
-  const tdBorn = document.createElement('td');
-
-  tdBorn.textContent = person.born;
-  tr.append(tdBorn);
-
-  const tdDied = document.createElement('td');
-
-  tdDied.textContent = person.died;
-  tr.append(tdDied);
-
-  const tdAge = document.createElement('td');
-
-  tdAge.textContent = person.died - person.born;
-  tr.append(tdAge);
-
-  const tdCentury = document.createElement('td');
-
-  tdCentury.textContent = Math.ceil(person.died / 100);
-  tr.append(tdCentury);
-
-  document.querySelector('.dashboard').append(tr);
+  fragment.append(tr);
 });
+
+document.querySelector('.dashboard').append(fragment);
+
+function createElement(row, data) {
+  const ceil = document.createElement('td');
+
+  ceil.textContent = data;
+  row.append(ceil);
+}
