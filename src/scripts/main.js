@@ -5,19 +5,21 @@ const people = require('./lib/people');
 const tab = document.querySelector('.dashboard');
 
 for (const person of people) {
-  const x = document.createElement('tr');
-  const gender = person.sex === 'f' ? 'Female' : 'Male';
-  const age = person.died - person.born;
+  const { born, died, sex } = person;
+
+  const createTr = document.createElement('tr');
+  const gender = sex === 'f' ? 'Female' : 'Male';
+  const age = died - born;
   const century = Math.ceil(person.died / 100);
 
-  x.insertAdjacentHTML('afterbegin', `
+  createTr.insertAdjacentHTML('afterbegin', `
   <th>${person.name}</th>
   <th>${gender}</th>
-  <th>${person.born}</th>
-  <th>${person.died}</th>
+  <th>${born}</th>
+  <th>${died}</th>
   <th>${age}</th>
   <th>${century}</th>
   `);
 
-  tab.append(x);
+  tab.append(createTr);
 }
