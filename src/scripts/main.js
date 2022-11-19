@@ -1,7 +1,6 @@
 'use strict';
 
 const people = require('./lib/people');
-
 const table = document.querySelector('tbody');
 
 for (const person of people) {
