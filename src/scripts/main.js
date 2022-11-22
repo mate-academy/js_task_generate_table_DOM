@@ -1,7 +1,6 @@
 'use strict';
 
-const people = require('./lib/people');
-const arrPeople = JSON.parse(people);
+const arrPeople = require('./lib/people');
 
 // eslint-disable-next-line no-console
 const tableElement = document.querySelector('.dashboard');
