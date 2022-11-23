@@ -8,40 +8,40 @@ console.log(people); // you can remove it
 const list = document.querySelector('.dashboard');
 
 for (let i = 0; i < people.length; i++) {
-  const line = document.createElement('tr');
-  const nameLine = document.createElement('td');
+  const row = document.createElement('tr');
+  const nameCell = document.createElement('td');
 
-  nameLine.textContent = people[i].name;
-  line.append(nameLine);
+  nameCell.textContent = people[i].name;
+  row.append(nameCell);
 
-  const genderLine = document.createElement('td');
+  const genderCell = document.createElement('td');
 
   if (people[i].sex === 'm') {
-    genderLine.textContent = 'Male';
+    genderCell.textContent = 'Male';
   } else {
-    genderLine.textContent = 'Female';
+    genderCell.textContent = 'Female';
   }
-  line.append(genderLine);
+  row.append(genderCell);
 
-  const bornLine = document.createElement('td');
+  const bornCell = document.createElement('td');
 
-  bornLine.textContent = people[i].born;
-  line.append(bornLine);
+  bornCell.textContent = people[i].born;
+  row.append(bornCell);
 
-  const diedLine = document.createElement('td');
+  const diedCell = document.createElement('td');
 
-  diedLine.textContent = people[i].died;
-  line.append(diedLine);
+  diedCell.textContent = people[i].died;
+  row.append(diedCell);
 
-  const ageLine = document.createElement('td');
+  const ageCell = document.createElement('td');
 
-  ageLine.textContent = people[i].died - people[i].born;
-  line.append(ageLine);
+  ageCell.textContent = people[i].died - people[i].born;
+  row.append(ageCell);
 
-  const centuryLine = document.createElement('td');
+  const centuryCell = document.createElement('td');
 
-  centuryLine.textContent = Math.ceil(people[i].died / 100);
-  line.append(centuryLine);
+  centuryCell.textContent = Math.ceil(people[i].died / 100);
+  row.append(centuryCell);
 
-  list.append(line);
+  list.append(row);
 }
