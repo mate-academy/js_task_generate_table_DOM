@@ -17,7 +17,7 @@ for (const person of people) {
   for (const info in mainInfo) {
     const infoInColumn = document.createElement('td');
 
-    infoInColumn.textContent = person[info];
+    infoInColumn.textContent = mainInfo[info];
 
     columnInTable.append(infoInColumn);
   }
