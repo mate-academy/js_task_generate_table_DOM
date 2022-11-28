@@ -7,7 +7,7 @@ console.log(people); // you can remove it
 
 const ppl = people.map(pl => ({
   Name: pl.name,
-  Gender: pl.sex,
+  Gender: pl.sex === 'f' ? 'Female' : 'Male',
   Born: pl.born,
   Died: pl.died,
   Age: pl.died - pl.born,
