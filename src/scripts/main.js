@@ -5,18 +5,18 @@ const people = require('./lib/people');
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const ppl = people.map(pl => ({
-  Name: pl.name,
-  Gender: pl.sex === 'f' ? 'Female' : 'Male',
-  Born: pl.born,
-  Died: pl.died,
-  Age: pl.died - pl.born,
-  Century: Math.ceil(pl.died / 100),
+const peopleDetails = people.map(human => ({
+  Name: human.name,
+  Gender: human.sex === 'f' ? 'Female' : 'Male',
+  Born: human.born,
+  Died: human.died,
+  Age: human.died - human.born,
+  Century: Math.ceil(human.died / 100),
 }));
 
 const table = document.querySelector('.dashboard');
 
-ppl.forEach(person => {
+peopleDetails.forEach(person => {
   const row = document.createElement('tr');
 
   Object.values(person).forEach(text => {
