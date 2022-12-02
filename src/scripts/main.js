@@ -2,7 +2,24 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.body.firstElementChild;
+const tablebody = table.firstElementChild;
 
-// write your code here
+for (const human of people) {
+  const age = human.died - human.born;
+  const century = Math.ceil(human.died / 100);
+  let sex;
+
+  human.sex === 'f' ? sex = 'Feminine' : sex = 'Male';
+
+  tablebody.insertAdjacentHTML('beforeend', `
+  <tr>
+    <td>${human.name}</td>
+    <td>${sex}</td>
+    <td>${human.born}</td>
+    <td>${human.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  </tr>
+  `);
+}
