@@ -10,7 +10,7 @@ for (const human of people) {
   const century = Math.ceil(human.died / 100);
   let sex;
 
-  human.sex === 'f' ? sex = 'Feminine' : sex = 'Male';
+  human.sex === 'f' ? sex = 'Female' : sex = 'Male';
 
   tablebody.insertAdjacentHTML('beforeend', `
   <tr>
