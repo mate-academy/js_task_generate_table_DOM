@@ -2,7 +2,19 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tableRef = document.querySelector('.dashboard tbody');
 
-// write your code here
+tableRef.insertAdjacentHTML('beforeend', `
+  ${people.map(({ name: personName, sex, born, died }) => {
+    return `
+      <tr>
+        <th>${personName}</th>
+        <th>${(sex === 'm') ? 'Male' : 'Female'}</th>
+        <th>${born}</th>
+        <th>${died}</th>
+        <th>${died - born}</th>
+        <th>${Math.ceil(died / 100)}</th>
+      </tr>
+    `;
+  }).join('')}
+`);
