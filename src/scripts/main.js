@@ -8,12 +8,12 @@ tableRef.insertAdjacentHTML('beforeend', `
   ${people.map(({ name: personName, sex, born, died }) => {
     return `
       <tr>
-        <th>${personName}</th>
-        <th>${(sex === 'm') ? 'Male' : 'Female'}</th>
-        <th>${born}</th>
-        <th>${died}</th>
-        <th>${died - born}</th>
-        <th>${Math.ceil(died / 100)}</th>
+        <td>${personName}</td>
+        <td>${(sex === 'm') ? 'Male' : 'Female'}</th>
+        <td>${born}</td>
+        <td>${died}</td>
+        <td>${died - born}</td>
+        <td>${Math.ceil(died / 100)}</td>
       </tr>
     `;
   }).join('')}
