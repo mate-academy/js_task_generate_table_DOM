@@ -7,7 +7,8 @@ const arrayPeople = people.map(person => {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
   const sex = person.sex === 'm' ? 'Male' : 'Female';
-  const tablePerson = `
+
+  return `
   <tr>
       <td>${person.name}</td>
       <td>${sex}</td>
@@ -17,8 +18,6 @@ const arrayPeople = people.map(person => {
       <td>${century}</td>
    </tr>
   `;
-
-  return tablePerson;
 });
 
 table.children[0].insertAdjacentHTML('beforeend', arrayPeople.join(''));
