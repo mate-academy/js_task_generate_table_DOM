@@ -7,8 +7,7 @@ const tableBody = document.querySelector('tbody');
 tableBody.insertAdjacentHTML('beforeend', `
   ${people.map((
     {
-      // eslint-disable-next-line no-shadow
-      name,
+      name: personName,
       sex,
       born,
       died,
@@ -17,7 +16,7 @@ tableBody.insertAdjacentHTML('beforeend', `
     }
   ) => `
     <tr>
-      <td>${name}</td>
+      <td>${personName}</td>
       <td>${sex === 'm' ? 'Male' : 'Female'}</td>
       <td>${born}</td>
       <td>${died}</td>
