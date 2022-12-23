@@ -2,42 +2,17 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard tbody');
 
 for (const person of people) {
-  const personData = document.createElement('tr');
-  const personName = document.createElement('td');
-  const personGender = document.createElement('td');
-  const personBorn = document.createElement('td');
-  const personDied = document.createElement('td');
-  const personAge = document.createElement('td');
-  const personCentury = document.createElement('td');
-  const age = person.died - person.born;
-
-  personName.textContent = person.name;
-  personGender.textContent = gender(person.sex);
-  personBorn.textContent = person.born;
-  personDied.textContent = person.died;
-  personAge.textContent = age;
-  personCentury.textContent = Math.ceil(person.died / 100);
-
-  personData.append(personName,
-    personGender,
-    personBorn,
-    personDied,
-    personAge,
-    personCentury);
-
-  table.append(personData);
+  table.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>${person.name}</td>
+      <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
+    </tr>
+  `);
 }
-
-function gender(sex) {
-  if (sex === 'f') {
-    return 'Female';
-  } else {
-    return 'Male';
-  }
-};
