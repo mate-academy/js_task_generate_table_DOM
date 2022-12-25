@@ -1,8 +1,22 @@
 'use strict';
 
 const people = require('./lib/people');
+const dashboard = document.querySelector('tbody');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach(person => {
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
 
-// write your code here
+  const { name: personName, sex, born, died, age, century } = person;
+
+  dashboard.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>${personName}</td>
+      <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    </tr>
+  `);
+});
