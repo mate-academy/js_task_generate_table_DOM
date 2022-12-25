@@ -2,10 +2,10 @@
 
 const people = require('./lib/people');
 
-const dashboard = document.querySelector('.dashboard');
+const dashboard = document.querySelector('.dashboard tbody');
 
-const table = people.map(person => {
-  return `
+people.forEach(person => {
+  dashboard.insertAdjacentHTML('beforeend', `
     <tr>
       <td>${person.name}</td>
       <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
@@ -14,7 +14,5 @@ const table = people.map(person => {
       <td>${person.died - person.born}</td>
       <td>${Math.ceil(person.died / 100)}</td>
     </tr>
-  `;
+  `);
 });
-
-dashboard.insertAdjacentHTML('beforeend', table);
