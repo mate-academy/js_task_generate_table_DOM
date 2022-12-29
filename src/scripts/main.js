@@ -12,12 +12,12 @@ people.map(item => {
 
   row.innerHTML = `
  <tr>
-  <th>${item.name}</th>
-  <th>${item.sex}</th>
-  <th>${item.born}</th>
-  <th>${item.died}</th>
-  <th>${item.died - item.born}</th>
-  <th>${Math.ceil(item.died / 100)}</th>
+  <td>${item.name}</td>
+  <td>${item.sex}</td>
+  <td>${item.born}</td>
+  <td>${item.died}</td>
+  <td>${item.died - item.born}</td>
+  <td>${Math.ceil(item.died / 100)}</td>
   </tr>
 `;
 });
