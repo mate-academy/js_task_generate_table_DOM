@@ -2,7 +2,7 @@
 
 const people = require('./lib/people');
 
-const table = document.querySelector('table');
+const tableBody = document.querySelector('tbody');
 
 // eslint-disable-next-line no-shadow
 people.forEach(({ name, sex, born, died }) => {
@@ -20,5 +20,5 @@ people.forEach(({ name, sex, born, died }) => {
   centuryCeil.innerHTML = Math.ceil(died / 100);
 
   row.append(...ceils);
-  table.append(row);
+  tableBody.append(row);
 });
