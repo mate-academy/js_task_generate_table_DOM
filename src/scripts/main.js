@@ -1,30 +1,21 @@
 'use strict';
 
 const people = require('./lib/people.json');
-
-// eslint-disable-next-line no-console
-console.log(people);
-
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
   const row = document.createElement('tr');
-
-  if (person.sex === 'm') {
-    person.sex = 'Male';
-  };
-
-  if (person.sex === 'f') {
-    person.sex = 'Female';
-  };
+  const personSex = person.sex === 'm' ? 'Male' : 'Female';
+  const personAge = person.died - person.born;
+  const personCentury = Math.ceil(person.died / 100);
 
   row.innerHTML = `
     <th>${person.name}</th>
-    <th>${person.sex}</th>
+    <th>${personSex}</th>
     <th>${person.born}</th>
     <th>${person.died}</th>
-    <th>${person.died - person.born}</th>
-    <th>${Math.ceil(person.died / 100)}</th>
+    <th>${personAge}</th>
+    <th>${personCentury}</th>
   `;
 
   table.append(row);
