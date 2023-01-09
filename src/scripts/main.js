@@ -10,16 +10,17 @@ function getCentury(year) {
   return Math.ceil(year / 100);
 }
 
+// eslint-disable-next-line no-shadow
 people.forEach(({ name, born, died, sex }) => {
   table.insertAdjacentHTML('beforeend',
     `<tr>
-    <td>${name}</td>
-    <td>${sex === 'f' ? 'Female' : 'Male'}</td>
-    <td>${born}</td>
-    <td>${died}</td>
-    <td>${died - born}</td>
-    <td>${getCentury(died)}</td>
-  </tr>
+      <td>${name}</td>
+      <td>${sex === 'f' ? 'Female' : 'Male'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${died - born}</td>
+      <td>${getCentury(died)}</td>
+    </tr>
   `
   );
 });
