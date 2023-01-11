@@ -8,9 +8,7 @@ const getCentury = (deathAge) => {
   return Math.ceil(deathAge / 100);
 };
 
-const getFullGender = (sex) => {
-  return sex === 'f' ? 'Female' : 'Male';
-};
+const getFullGender = sex => sex === 'f' ? 'Female' : 'Male';
 
 const getRow = (person) => {
   return `<tr>
@@ -25,4 +23,6 @@ const getRow = (person) => {
 
 const tbody = table.children[0];
 
-tbody.innerHTML += people.map(person => getRow(person)).join('');
+tbody.innerHTML += people
+  .map(getRow)
+  .join('');
