@@ -16,7 +16,7 @@ for (const person of people) {
   const age = document.createElement('td');
   const century = document.createElement('td');
 
-  name_.textContent = person.name_;
+  name_.textContent = person.name;
   born.textContent = person.born;
   died.textContent = person.died;
   age.textContent = person.died - person.born;
