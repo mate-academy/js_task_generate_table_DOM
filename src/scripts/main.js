@@ -9,7 +9,7 @@ const list = document.querySelector('tbody');
 
 people.forEach(person => {
   list.insertAdjacentHTML('beforeend', `
-    <tr>
+  <tr>
     <td>${person.name}</td>
     <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
     <td>${person.died}</td>
