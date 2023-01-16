@@ -15,8 +15,7 @@ for (const person of people) {
 
   nameCell.textContent = person.name;
 
-  genderCell.textContent = (person.sex === 'm') ? 'Male'
-    : (person.sex === 'f') ? 'Female' : person.sex;
+  genderCell.textContent = (person.sex === 'm') ? 'Male' : 'Female';
 
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
