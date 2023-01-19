@@ -5,29 +5,33 @@ const people = require('./lib/people');
 const dashboard = document.querySelector('.dashboard');
 
 for (const person of people) {
-  // eslint-disable-next-line no-shadow
-  const { name, sex, born, died } = person;
+  const {
+    name: personName,
+    sex,
+    born,
+    died,
+  } = person;
   const row = document.createElement('tr');
-  const name_ = document.createElement('td');
-  const sex_ = document.createElement('td');
-  const born_ = document.createElement('td');
-  const died_ = document.createElement('td');
-  const age_ = document.createElement('td');
-  const century_ = document.createElement('td');
+  const nameCell = document.createElement('td');
+  const sexCell = document.createElement('td');
+  const bornCell = document.createElement('td');
+  const diedCell = document.createElement('td');
+  const ageCell = document.createElement('td');
+  const centuryCell = document.createElement('td');
 
-  name_.textContent = name;
-  born_.textContent = born;
-  died_.textContent = died;
-  age_.textContent = died - born;
-  century_.textContent = Math.ceil(died / 100);
+  nameCell.textContent = personName;
+  bornCell.textContent = born;
+  diedCell.textContent = died;
+  ageCell.textContent = died - born;
+  centuryCell.textContent = Math.ceil(died / 100);
 
-  sex === 'f' ? sex_.textContent = 'Female' : sex_.textContent = 'Male';
+  sex === 'f' ? sexCell.textContent = 'Female' : sexCell.textContent = 'Male';
 
-  row.append(name_);
-  row.append(sex_);
-  row.append(born_);
-  row.append(died_);
-  row.append(age_);
-  row.append(century_);
+  row.append(nameCell);
+  row.append(sexCell);
+  row.append(bornCell);
+  row.append(diedCell);
+  row.append(ageCell);
+  row.append(centuryCell);
   dashboard.append(row);
 }
