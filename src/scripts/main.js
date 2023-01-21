@@ -9,7 +9,7 @@ const table = document.querySelector('.dashboard');
 
 people.forEach(el => {
   const { name: person, sex, born, died } = el;
-  const personGender = sex === 'm' ? 'Female' : 'Male';
+  const personGender = sex === 'm' ? 'Male' : 'Female';
   const personAge = died - born;
   const personCentury = Math.ceil(died / 100);
 
