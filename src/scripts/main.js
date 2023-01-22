@@ -3,9 +3,8 @@
 const people = require('./lib/people');
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+console.log(people);
 
-// write your code here
 const tableBody = document.querySelector('.dashboard').children[0];
 
 for (const person of people) {
