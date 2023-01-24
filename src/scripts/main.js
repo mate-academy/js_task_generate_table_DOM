@@ -2,9 +2,6 @@
 
 const people = require('./lib/people');
 
-// const age = people.map(el => el.died - el.born);
-// const century = people.map(el => Math.ceil(el.died / 100));
-
 const table = document.querySelector('.dashboard').children[0];
 
 people.map(person => {
