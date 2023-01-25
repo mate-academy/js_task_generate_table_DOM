@@ -2,34 +2,39 @@
 
 const people = require('./lib/people');
 
-const dash = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard');
 
-people.map(a => createRow(a, dash));
+people.map(a => createRow(a, table));
 
-function createRow(human, nodeHook) {
-  const table = document.createElement('tr');
+function createRow(person, nodeHook) {
+  const row = document.createElement('tr');
 
-  const humanName = document.createElement('th');
-  humanName.textContent = human.name;
+  const cellName = document.createElement('th');
 
-  const humanSex = document.createElement('th');
-  humanSex.textContent = human.sex === 'm' ? 'Male' : 'Female';
+  cellName.textContent = person.name;
 
-  const humanBorn = document.createElement('th');
-  humanBorn.textContent = human.born;
+  const cellSex = document.createElement('th');
 
-  const humanDied = document.createElement('th');
-  humanDied.textContent = human.died;
+  cellSex.textContent = person.sex === 'm' ? 'Male' : 'Female';
 
-  const humanAge = document.createElement('th');
-  humanAge.textContent = human.died - human.born;
+  const cellBorn = document.createElement('th');
 
-  const humanCentury = document.createElement('th');
-  humanCentury.textContent = Math.ceil(human.died / 100);
+  cellBorn.textContent = person.born;
 
-  table.append(humanName, humanSex, humanBorn, humanDied, humanAge, humanCentury);
+  const cellDied = document.createElement('th');
 
-  nodeHook.append(table);
+  cellDied.textContent = person.died;
 
+  const cellAge = document.createElement('th');
+
+  cellAge.textContent = person.died - person.born;
+
+  const cellCentury = document.createElement('th');
+
+  cellCentury.textContent = Math.ceil(person.died / 100);
+
+  row.append(cellName, cellSex, cellBorn,
+    cellDied, cellAge, cellCentury);
+
+  nodeHook.append(row);
 }
-
