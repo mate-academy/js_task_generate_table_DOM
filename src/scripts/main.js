@@ -2,10 +2,9 @@
 
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
-const tableRow = document.createElement('tr');
-
 
 for (const person of people) {
+  const tableRow = document.createElement('tr');
   table.append(tableRow);
 
   tableRow.insertAdjacentHTML('beforeend', `
