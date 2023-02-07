@@ -5,6 +5,7 @@ const table = document.querySelector('.dashboard');
 
 for (const person of people) {
   const tableRow = document.createElement('tr');
+
   table.append(tableRow);
 
   tableRow.insertAdjacentHTML('beforeend', `
@@ -14,5 +15,5 @@ for (const person of people) {
   <td>${person.died}</td>
   <td>${person.died - person.born}</td>
   <td>${Math.ceil(person.died / 100)}</td>
-  `);
+`);
 }
