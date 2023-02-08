@@ -2,7 +2,22 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.map(person => {
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
+});
 
-// write your code here
+const table = document.querySelector('table').children[0];
+
+for (const person of people) {
+  table.insertAdjacentHTML('beforeend', `
+        <tr>
+            <td>${person.name}</td>
+            <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+            <td>${person.born}</td>
+            <td>${person.died}</td>
+            <td>${person.age}</td>
+            <td>${person.century}</td>
+        </tr>`
+  );
+};
