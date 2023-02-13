@@ -4,37 +4,17 @@ const people = require('./lib/people');
 
 const tablElement = document.querySelector('.dashboard');
 
-for (const person of people) {
+people.forEach(person => {
   const trElement = document.createElement('tr');
-  const thName = document.createElement('th');
 
-  thName.textContent = person.name;
-  trElement.append(thName);
-
-  const thSex = document.createElement('th');
-
-  thSex.textContent = person.sex;
-  trElement.append(thSex);
-
-  const thBorn = document.createElement('th');
-
-  thBorn.textContent = person.born;
-  trElement.append(thBorn);
-
-  const thDied = document.createElement('th');
-
-  thDied.textContent = person.died;
-  trElement.append(thDied);
-
-  const thAge = document.createElement('th');
-
-  thAge.textContent = person.died - person.born;
-  trElement.append(thAge);
-
-  const thCentury = document.createElement('th');
-
-  thCentury.textContent = Math.ceil(person.died / 100);
-  trElement.append(thCentury);
+  trElement.insertAdjacentHTML('beforeend', `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
+  `);
 
   tablElement.append(trElement);
-}
+});
