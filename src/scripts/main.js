@@ -10,31 +10,31 @@ const arr = JSON.parse(JSON.stringify(people));
 
 arr.map(person => {
   const item = document.createElement('tr');
-  const cell = document.createElement('td');
+  const cellName = document.createElement('td');
 
-  cell.textContent = person.name;
+  cellName.textContent = person.name;
 
-  const cell1 = document.createElement('td');
+  const cellSex = document.createElement('td');
 
-  cell1.textContent = person.sex;
+  cellSex.textContent = person.sex === 'm' ? 'Male' : 'Female';
 
-  const cell2 = document.createElement('td');
+  const cellBorn = document.createElement('td');
 
-  cell2.textContent = person.born;
+  cellBorn.textContent = person.born;
 
-  const cell3 = document.createElement('td');
+  const cellDied = document.createElement('td');
 
-  cell3.textContent = person.died;
+  cellDied.textContent = person.died;
 
-  const cell4 = document.createElement('td');
+  const cellAge = document.createElement('td');
 
-  cell4.textContent = person.died - person.born;
+  cellAge.textContent = person.died - person.born;
 
-  const cell5 = document.createElement('td');
+  const cellCentury = document.createElement('td');
 
-  cell5.textContent = Math.ceil(person.died / 100);
+  cellCentury.textContent = Math.ceil(person.died / 100);
 
-  item.append(cell, cell1, cell2, cell3, cell4, cell5);
+  item.append(cellName, cellSex, cellBorn, cellDied, cellAge, cellCentury);
 
   return result.append(item);
 });
