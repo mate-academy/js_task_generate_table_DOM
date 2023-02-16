@@ -6,8 +6,6 @@ const table = document.querySelector('tbody');
 
 people.forEach(element => {
   const {
-    // eslint-disable-next-line no-shadow
-    name,
     sex,
     born,
     died,
@@ -17,7 +15,7 @@ people.forEach(element => {
 
   table.insertAdjacentHTML('beforeend', `
     <tr>
-    <td>${name}</td>
+    // <td>${element.name}</td> 
     <td>${sex === 'm' ? 'Male' : 'Female'}</td>
     <td>${born}</td>
     <td>${died}</td>
