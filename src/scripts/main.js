@@ -1,8 +1,7 @@
 'use strict';
 
 const people = require('./lib/people');
-
-const result = document.querySelector('table');
+const table = document.querySelector('table');
 
 for (const person of people) {
   const tr = document.createElement('tr');
@@ -15,5 +14,5 @@ for (const person of people) {
     <td>${person.died - person.born}</td>
     <td>${Math.ceil(person.died / 100)}</td>
 `;
-  result.append(tr);
+  table.append(tr);
 }
