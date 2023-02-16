@@ -2,20 +2,20 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const table = document.querySelector('tbody');
 
-people.forEach(element => {
+people.forEach(({
+  // eslint-disable-next-line no-shadow
+  name, sex, born, died, age = died - born, century = Math.ceil(died / 100),
+}) => {
   table.insertAdjacentHTML('beforeend', `
   <tr>
-  <td>${element.name}</td>
-  <td>${element.sex === 'm' ? 'Male' : 'Female'}</td>
-  <td>${element.born}</td>
-  <td>${element.died}</td>
-  <td>${element.died - element.born}</td>
-  <td>${Math.ceil(element.died / 100)}</td>
+  <td>${name}</td>
+  <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+  <td>${born}</td>
+  <td>${died}</td>
+  <td>${age}</td>
+  <td>${century}</td>
 </tr>
   `);
 });
