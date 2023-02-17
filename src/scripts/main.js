@@ -4,11 +4,11 @@ const people = require('./lib/people');
 
 const table = document.querySelector('.dashboard');
 
-people.forEach(({ name, sex, born, died }) => {
+people.forEach(({ name: personName, sex, born, died }) => {
   const tableRow = document.createElement('tr');
 
   tableRow.insertAdjacentHTML('beforeend', `
-  <td>${name}</td>
+  <td>${personName}</td>
   <td>${sex === 'm' ? 'Male' : 'Female'}</td>
   <td>${born}</td>
   <td>${died}</td>
