@@ -14,8 +14,8 @@ people.forEach(element => {
   } = element;
 
   table.insertAdjacentHTML('beforeend', `
-    <tr>
-    // <td>${element.name}</td> 
+  <tr>
+    <td>${element.name}</td>
     <td>${sex === 'm' ? 'Male' : 'Female'}</td>
     <td>${born}</td>
     <td>${died}</td>
