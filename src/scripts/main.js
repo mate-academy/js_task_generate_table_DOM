@@ -3,22 +3,22 @@
 const people = require('./lib/people');
 const tableBody = document.querySelector('tbody');
 
-// eslint-disable-next-line no-console
-const createPersonRow = (person) => {
-  const row = document.createElement('tr');
+// eslint-disable-next-line no-console, no-shadow
+const createPersonRow = ({ name, sex, born, died }) => {
+  const tableRow = document.createElement('tr');
 
-  row.innerHTML = `
-    <td>${person.name}</td>
-    <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${person.died - person.born}</td>
-    <td>${Math.ceil(person.died / 100)}</td>
+  tableRow.innerHTML = `
+    <td>${name}</td>
+    <td>${sex === 'f' ? 'Female' : 'Male'}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${Math.ceil(died / 100)}</td>
   `;
 
-  return row;
+  return tableRow;
 };
 
-for (const person of people) {
+people.forEach(person => {
   tableBody.append(createPersonRow(person));
-}
+});
