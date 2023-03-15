@@ -2,33 +2,22 @@
 
 const people = require('./lib/people');
 
-const table = document.querySelector('table');
+const dashboard = document.querySelector('.dashboard');
 
 for (const person of people) {
-  const personRow = document.createElement('tr');
-  const personName = document.createElement('td');
-  const personGender = document.createElement('td');
-  const personBorn = document.createElement('td');
-  const personDied = document.createElement('td');
-  const personAge = document.createElement('td');
-  const personCentury = document.createElement('td');
+  const table = document.createElement('tr');
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+  const gender = person.sex === 'm'
+    ? 'Male'
+    : 'Female';
 
-  personName.textContent = person.name;
+  table.innerHTML = `<td>${person.name}</td>
+                      <td>${gender}</td>
+                      <td>${person.born}</td>
+                      <td>${person.died}</td>
+                      <td>${age}</td>
+                      <td>${century}</td>`;
 
-  person.sex === 'm'
-    ? personGender.textContent = 'Male'
-    : personGender.textContent = 'Female';
-
-  personBorn.textContent = person.born;
-  personDied.textContent = person.died;
-  personAge.textContent = person.died - person.born;
-  personCentury.textContent = Math.ceil(person.died / 100);
-
-  personRow.append(personName);
-  personRow.append(personGender);
-  personRow.append(personBorn);
-  personRow.append(personDied);
-  personRow.append(personAge);
-  personRow.append(personCentury);
-  table.append(personRow);
+  dashboard.append(table);
 }
