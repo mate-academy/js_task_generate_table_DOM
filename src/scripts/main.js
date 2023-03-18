@@ -5,17 +5,17 @@ const people = require('./lib/people');
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const table = document.querySelector('table');
+const table = document.querySelector('tbody');
 
-people.forEach(person => {
+people.forEach(({ name: personName, sex, born, died }) => {
   table.insertAdjacentHTML('beforeend', `
   <tr>
-    <td>${person.name}</td>
-    <td>${person.sex}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${person.died - person.born}</td>
-    <td>${Math.ceil(person.died / 100)}</td>
+    <td>${personName}</td>
+    <td>${sex}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${Math.ceil(died / 100)}</td>
   </tr>
 `);
 });
