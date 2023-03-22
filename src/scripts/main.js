@@ -9,7 +9,7 @@ for (const human of people) {
     'beforeend',
     `<tr>
     <th>${human.name}</th>
-    <th>${human.sex}</th>
+    <th>${human.sex === 'm' ? 'Male' : 'Female'}</th>
     <th>${human.born}</th>
     <th>${human.died}</th>
     <th>${human.died - human.born}</th>
