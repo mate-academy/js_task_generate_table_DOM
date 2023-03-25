@@ -8,23 +8,14 @@ console.log(people); // you can remove it
 // write your code here
 
 const peopleNew = people.map(person => {
-  person.age = person.died - person.born;
-  person.century = Math.ceil(person.died / 100);
-
-  if (person.sex === 'm') {
-    person.gender = 'Male';
-  }
-
-  if (person.sex === 'f') {
-    person.gender = 'Female';
-  }
-
-  delete person.fatherName;
-  delete person.motherName;
-  delete person.sex;
-  delete person.slug;
-
-  return person;
+  return {
+    name: person.name,
+    gender: person.sex === 'm' ? 'Male' : 'Female',
+    born: person.born,
+    died: person.died,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
 });
 
 for (const item of peopleNew) {
