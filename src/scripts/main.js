@@ -5,24 +5,26 @@ const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
 const addRow = function(person) {
-  person.age = person.died - person.born;
-  person.centyry = Math.ceil(person.died / 100);
+  const copyPerson = { ...person };
 
-  if (person.sex === 'm') {
-    person.sex = 'Male';
+  copyPerson.age = copyPerson.died - copyPerson.born;
+  copyPerson.centyry = Math.ceil(copyPerson.died / 100);
+
+  if (copyPerson.sex === 'm') {
+    copyPerson.sex = 'Male';
   } else {
-    person.sex = 'Female';
+    copyPerson.sex = 'Female';
   };
 
   const tr = document.createElement('tr');
 
   tr.innerHTML = `
-  <td>${person.name}</td>
-  <td>${person.sex}</td>
-  <td>${person.born}</td>
-  <td>${person.died}</td>
-  <td>${person.age}</td>
-  <td>${person.centyry}</td>
+  <td>${copyPerson.name}</td>
+  <td>${copyPerson.sex}</td>
+  <td>${copyPerson.born}</td>
+  <td>${copyPerson.died}</td>
+  <td>${copyPerson.age}</td>
+  <td>${copyPerson.centyry}</td>
   `;
 
   return tr;
