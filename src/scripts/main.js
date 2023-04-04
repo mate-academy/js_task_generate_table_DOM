@@ -8,20 +8,24 @@ console.log(people); // you can remove it
 // write your code here
 const table = document.querySelector('.dashboard');
 
-let tableHTML = '';
+let tableRow = '';
+const tableHeader = `
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Born</th>
+    <th>Died</th>
+    <th>Age</th>
+    <th>Century</th>
+  </tr>
+`;
 
 for (const person of people) {
   const personAge = person.died - person.born;
   const personCentury = Math.ceil(person.died / 100);
-  let personGender;
+  const personGender = person.sex === 'm' ? 'Male' : 'Female';
 
-  if (person.sex === 'm') {
-    personGender = 'Male';
-  } else {
-    personGender = 'Female';
-  }
-
-  tableHTML += `
+  tableRow += `
     <tr>
       <td>${person.name}</td>
       <td>${personGender}</td>
@@ -33,14 +37,7 @@ for (const person of people) {
   `;
 
   table.innerHTML = `
-  <tr>
-    <th>Name</th>
-    <th>Gender</th>
-    <th>Born</th>
-    <th>Died</th>
-    <th>Age</th>
-    <th>Century</th>
-  </tr>
-  ${tableHTML}
+  ${tableHeader}
+  ${tableRow}
   `;
 }
