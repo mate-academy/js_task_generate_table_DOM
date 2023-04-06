@@ -6,9 +6,7 @@ const header = document.querySelector('.dashboard').rows[0];
 const newRow = document.createElement('tr');
 
 people.forEach(person => {
-  let gender = '';
-
-  person.sex === 'f' ? gender = 'Male' : gender = 'Female';
+  const gender = person.sex === 'f' ? 'Male' : 'Female';
 
   newRow.innerHTML = `
     <tr>
