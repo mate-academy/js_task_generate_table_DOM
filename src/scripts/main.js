@@ -4,17 +4,22 @@ const people = require('./lib/people');
 
 const table = document.querySelector('.dashboard');
 
-for (const person of people) {
+people.forEach(person => {
+  const { name: personName, sex, born, died } = person;
+  const age = died - born;
+  const century = Math.ceil(died / 100);
   const row = document.createElement('tr');
 
   row.innerHTML = `
-    <td>${person.name}</td>
-    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${person.died - person.born}</td>
-    <td>${Math.ceil(person.died / 100)}</td>
+    <tr>
+      <td>${personName}</td>
+      <td>${sex}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    <tr>
   `;
 
   table.append(row);
-}
+});
