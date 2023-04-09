@@ -3,21 +3,17 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard').children[0];
 
-people.map(person => {
-  let gender;
-
-  person.sex === 'm'
-    ? gender = 'Male'
-    : gender = 'Female';
+people.map(({ sex, died, name, born }) => {
+  const gender = sex === 'm' ? 'Male' : 'Female';
 
   table.insertAdjacentHTML('beforeend', `
       <tr>
-        <td>${person.name}</td>
+        <td>${name}</td>
         <td>${gender}</td>
-        <td>${person.born}</td>
-        <td>${person.died}</td>
-        <td>${person.died - person.born}</td>
-        <td>${Math.ceil(person.died / 100)}</td>
+        <td>${born}</td>
+        <td>${died}</td>
+        <td>${died - born}</td>
+        <td>${Math.ceil(died / 100)}</td>
       </tr>
   `);
 });
