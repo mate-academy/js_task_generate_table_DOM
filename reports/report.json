@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-04-12T19:22:12.386Z",
+    "end": "2023-04-12T19:22:12.882Z",
+    "duration": 445,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "49560e11-3725-4cf0-ad00-d2bb2f5cdf61",
+      "title": "",
+      "fullFile": "cypress/integration/taskGenerateTableDom.spec.js",
+      "file": "cypress/integration/taskGenerateTableDom.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d5c2a895-aa19-48dc-8682-2fa704d71397",
+          "title": "Generate table app",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a table based on people.json file",
+              "fullTitle": "Generate table app should create a table based on people.json file",
+              "timedOut": null,
+              "duration": 445,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "for (var i = 0; i < people.length; i++) {\n  cy.contains('tr', people[i].name).contains('td', people[i].born);\n  cy.contains('tr', people[i].name).contains('td', people[i].died);\n  cy.contains('tr', people[i].name).contains(('td', people[i].died) - ('td', people[i].born));\n  cy.contains('tr', people[i].name).contains('td', Math.ceil(people[i].died / 100));\n  cy.contains('tr', people[i].name).contains('td', people[i].sex === 'm' ? 'Male' : 'Female');\n}",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Generate table app`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://localhost:8080/\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Generate table app`\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:157791:25\n    at visitFailedByErr (http://localhost:8080/__cypress/runner/cypress_runner.js:157162:12)\n    at http://localhost:8080/__cypress/runner/cypress_runner.js:157771:13\n    at tryCatcher (http://localhost:8080/__cypress/runner/cypress_runner.js:10325:23)\n    at Promise._settlePromiseFromHandler (http://localhost:8080/__cypress/runner/cypress_runner.js:8260:31)\n    at Promise._settlePromise (http://localhost:8080/__cypress/runner/cypress_runner.js:8317:18)\n    at Promise._settlePromise0 (http://localhost:8080/__cypress/runner/cypress_runner.js:8362:10)\n    at Promise._settlePromises (http://localhost:8080/__cypress/runner/cypress_runner.js:8438:18)\n    at _drainQueueStep (http://localhost:8080/__cypress/runner/cypress_runner.js:5032:12)\n    at _drainQueue (http://localhost:8080/__cypress/runner/cypress_runner.js:5025:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:5041:5)\n    at Async.drainQueues (http://localhost:8080/__cypress/runner/cypress_runner.js:4911:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress/integration/taskGenerateTableDom.spec.js:103:8)",
+                "diff": null
+              },
+              "uuid": "96ddf09d-05a8-4612-97d2-7133a8fa50bf",
+              "parentUUID": "d5c2a895-aa19-48dc-8682-2fa704d71397",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "shouldn't contain fatherName, motherName and slug in table",
+              "fullTitle": "Generate table app shouldn't contain fatherName, motherName and slug in table",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('tbody').contains('Petrus de Milliano').should('not.exist');\ncy.get('tbody').contains('Laurentia van Vlaenderen').should('not.exist');\ncy.get('tbody').contains('jan-van-brussel-1714').should('not.exist');",
+              "err": {},
+              "uuid": "18441382-d7da-465c-b297-887d9b1407eb",
+              "parentUUID": "d5c2a895-aa19-48dc-8682-2fa704d71397",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "96ddf09d-05a8-4612-97d2-7133a8fa50bf"
+          ],
+          "pending": [],
+          "skipped": [
+            "18441382-d7da-465c-b297-887d9b1407eb"
+          ],
+          "duration": 445,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
