@@ -1,8 +1,21 @@
 'use strict';
 
 const people = require('./lib/people');
+const tbody = document.querySelector('tbody');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+for (const person of people) {
+  const { sex, born, died } = person;
+  const sexy = (sex === 'm') ? 'Male' : 'Female';
 
-// write your code here
+  const inputTableRow
+    = `<tr>
+    <td>${person.name}</td>
+    <td>${sexy}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${Math.ceil(died / 100)}</td>
+    </tr>`;
+
+  tbody.insertAdjacentHTML('beforeend', inputTableRow);
+}
