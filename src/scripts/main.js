@@ -6,13 +6,7 @@ const table = document.querySelector('.dashboard');
 
 for (let i = 0; i < people.length; i++) {
   const newRow = document.createElement('tr');
-  let gender = '';
-
-  if (people[i].sex === 'm') {
-    gender = 'Male';
-  } else {
-    gender = 'Female';
-  }
+  const gender = people[i].sex === 'm' ? 'Male' : 'Female';
 
   newRow.innerHTML = `
     <th>${people[i].name}</th>
