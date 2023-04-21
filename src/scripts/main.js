@@ -1,16 +1,6 @@
 'use strict';
 
 const people = require('./lib/people');
-// // {/* <tr>
-// <td>oleg</td>
-// <td>oleg</td>
-// <td>oleg</td>
-// <td>oleg</td>
-// <td>oleg</td>
-// </tr> */}
-
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
 const dashboard = document.querySelector('.dashboard');
 
