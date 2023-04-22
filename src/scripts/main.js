@@ -2,8 +2,6 @@
 
 const people = require('./lib/people');
 
-// write your code here
-
 const dashboard = document.querySelector('.dashboard');
 
 for (const person of people) {
