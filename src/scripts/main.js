@@ -6,7 +6,7 @@ const table = document.querySelector('.dashboard');
 
 people.forEach(human => {
   const { sex, born, died } = human;
-  const gender = (s) => s === 'm' ? 'Male' : 'Famele';
+  const gender = (personSex) => personSex === 'm' ? 'Male' : 'Famele';
   const nameHuman = human.name;
   const age = human.died - human.born;
   const century = Math.ceil(human.died / 100);
