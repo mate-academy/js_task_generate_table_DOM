@@ -2,8 +2,6 @@
 
 const people = require('./lib/people');
 
-console.log(people);
-
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
