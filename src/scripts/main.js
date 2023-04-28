@@ -2,6 +2,8 @@
 
 const people = require('./lib/people');
 
+console.log(people);
+
 const table = document.querySelector('.dashboard');
 
 for (const person of people) {
@@ -17,6 +19,10 @@ for (const person of people) {
   genderCell.textContent = person.gender;
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
+
+  const genderLabel = person.sex === 'm' ? 'Male' : 'Female';
+
+  genderCell.textContent = genderLabel;
 
   const age = person.died - person.born;
 
