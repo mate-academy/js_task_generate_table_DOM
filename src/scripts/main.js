@@ -4,12 +4,12 @@ const people = require('./lib/people');
 
 const tElement = document.querySelector('tbody');
 
-people.forEach(({ sex, names, born, died }) => {
+people.forEach(({ name: personName, sex, born, died }) => {
   const gender = sex === 'm' ? 'Male' : 'Female';
 
   tElement.insertAdjacentHTML('beforeend', `
     <tr>
-      <td>${names}</td>
+      <td>${personName}</td>
       <td>${gender}</td>
       <td>${born}</td>
       <td>${died}</td>
