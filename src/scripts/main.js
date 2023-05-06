@@ -3,10 +3,8 @@
 const people = require('./lib/people');
 
 const peopleMapped = people.map(person => ({
-  name: person.name,
+  ...person,
   gender: (person.sex === 'm') ? 'Male' : 'Female',
-  born: person.born,
-  died: person.died,
   age: person.died - person.born,
   century: Math.ceil(person.died / 100),
 }));
