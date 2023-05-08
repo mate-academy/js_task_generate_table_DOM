@@ -1,8 +1,21 @@
 'use strict';
 
 const people = require('./lib/people');
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach(({ sex, born, died, name: n }) => {
+  table.firstElementChild.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>${n}</td>
+      <td>${getGender(sex)}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${died - born}</td>
+      <td>${Math.ceil(died / 100)}</td>
+    </tr>
+  `);
+});
 
-// write your code here
+function getGender(sex) {
+  return sex === 'm' ? 'Male' : 'Female';
+}
