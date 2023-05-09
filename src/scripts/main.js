@@ -5,39 +5,47 @@ const people = require('./lib/people');
 people.forEach(person => {
   const row = document.createElement('tr');
 
-  const nameCell = document.createElement('td');
+  const tdCreate = () => {
+    return document.createElement('td');
+  };
+
+  const appendItem = (cellName) => {
+    return row.appendChild(cellName);
+  };
+
+  const nameCell = tdCreate();
 
   nameCell.textContent = person.name;
-  row.appendChild(nameCell);
+  appendItem(nameCell);
 
-  const genderCell = document.createElement('td');
+  const genderCell = tdCreate();
 
   if (person.sex === 'm') {
     genderCell.textContent = 'Male';
   } else {
     genderCell.textContent = 'Female';
   }
-  row.appendChild(genderCell);
+  appendItem(genderCell);
 
-  const bornCell = document.createElement('td');
+  const bornCell = tdCreate();
 
   bornCell.textContent = person.born;
-  row.appendChild(bornCell);
+  appendItem(bornCell);
 
-  const diedCell = document.createElement('td');
+  const diedCell = tdCreate();
 
   diedCell.textContent = person.died;
-  row.appendChild(diedCell);
+  appendItem(diedCell);
 
-  const ageCell = document.createElement('td');
+  const ageCell = tdCreate();
 
   ageCell.textContent = person.died - person.born;
-  row.appendChild(ageCell);
+  appendItem(ageCell);
 
-  const centuryCell = document.createElement('td');
+  const centuryCell = tdCreate();
 
   centuryCell.textContent = Math.ceil(person.died / 100);
-  row.appendChild(centuryCell);
+  appendItem(centuryCell);
 
   const dashboardTable = document.querySelector('.dashboard');
 
