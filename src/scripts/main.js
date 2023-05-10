@@ -2,21 +2,21 @@
 
 const people = require('./lib/people');
 
-const tableEl = document.querySelector('.dashboard');
+const tableBodyEl = document.querySelector('.dashboard tbody');
 
 for (const person of people) {
-  const row = document.createElement('tr');
 
-  row.insertAdjacentHTML('beforeend', `
-        <td>${ person.name }</td>
-        <td>${ getGender(person.sex) }</td>
-        <td>${ person.born }</td>
-        <td>${ person.died }</td>
-        <td>${ person.died - person.born }</td>
-        <td>${ getCentury(person.died) }</td>
+    tableBodyEl.insertAdjacentHTML('beforeend', `
+        <tr>
+            <td>${person.name}</td>
+            <td>${getGender(person.sex)}</td>
+            <td>${person.born}</td>
+            <td>${person.died}</td>
+            <td>${person.died - person.born}</td>
+            <td>${getCentury(person.died)}</td>
+        </tr>
     `);
 
-  tableEl.append(row);
 }
 
 function getGender(sex) {
