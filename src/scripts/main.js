@@ -5,7 +5,7 @@ const people = require('./lib/people');
 const row = document.querySelector('.dashboard').lastChild;
 
 const genders = (gender) => {
-  return (gender === 'm') ? 'Male' : 'Feminine';
+  return (gender === 'm') ? 'Male' : 'Female';
 };
 
 for (const person of people) {
