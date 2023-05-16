@@ -10,11 +10,11 @@ const table = document.querySelector('.dashboard > tbody');
 // write your code here
 for (let i = 0; i < 6; i++) {
   const row = document.createElement('tr');
-  const rowItemName = document.createElement('th');
+  const rowItemName = document.createElement('td');
 
   rowItemName.textContent = people[i].name;
 
-  const rowItemGender = document.createElement('th');
+  const rowItemGender = document.createElement('td');
 
   if (people[i].sex === 'm') {
     rowItemGender.textContent = 'Male';
@@ -24,19 +24,19 @@ for (let i = 0; i < 6; i++) {
     rowItemGender.textContent = people[i].sex;
   }
 
-  const rowItemBorn = document.createElement('th');
+  const rowItemBorn = document.createElement('td');
 
   rowItemBorn.textContent = people[i].born;
 
-  const rowItemDied = document.createElement('th');
+  const rowItemDied = document.createElement('td');
 
   rowItemDied.textContent = people[i].died;
 
-  const rowItemAge = document.createElement('th');
+  const rowItemAge = document.createElement('td');
 
   rowItemAge.textContent = people[i].died - people[i].born;
 
-  const rowItemCentury = document.createElement('th');
+  const rowItemCentury = document.createElement('td');
 
   rowItemCentury.textContent = Math.ceil(people[i].died / 100);
 
