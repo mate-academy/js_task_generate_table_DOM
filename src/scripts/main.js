@@ -16,7 +16,13 @@ for (let i = 0; i < 6; i++) {
 
   const rowItemGender = document.createElement('th');
 
-  rowItemGender.textContent = people[i].sex;
+  if (people[i].sex === 'm') {
+    rowItemGender.textContent = 'Male';
+  } else if (people[i].sex === 'f') {
+    rowItemGender.textContent = 'Female';
+  } else {
+    rowItemGender.textContent = people[i].sex;
+  }
 
   const rowItemBorn = document.createElement('th');
 
