@@ -8,7 +8,7 @@ console.log(people); // you can remove it
 const table = document.querySelector('.dashboard > tbody');
 
 // write your code here
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < people.length; i++) {
   const row = document.createElement('tr');
   const rowItemName = document.createElement('td');
 
@@ -16,13 +16,10 @@ for (let i = 0; i < 6; i++) {
 
   const rowItemGender = document.createElement('td');
 
-  if (people[i].sex === 'm') {
-    rowItemGender.textContent = 'Male';
-  } else if (people[i].sex === 'f') {
-    rowItemGender.textContent = 'Female';
-  } else {
-    rowItemGender.textContent = people[i].sex;
-  }
+  rowItemGender.textContent
+    = people[i].sex === 'm' ? 'Male'
+      : people[i].sex === 'f' ? 'Female'
+        : people[i].sex;
 
   const rowItemBorn = document.createElement('td');
 
