@@ -20,6 +20,7 @@ people.forEach(users => {
   } else {
     cell2.textContent = 'Male';
   }
+  
   cell3.textContent = users.born;
   cell4.textContent = users.died;
   cell5.textContent = (users.died - users.born);
