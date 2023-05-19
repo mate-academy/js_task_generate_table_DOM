@@ -2,20 +2,22 @@
 
 const people = require('./lib/people');
 
-const bord = document.querySelector('.dashboard');
+const dashboard = document.querySelector('.dashboard');
 
 function dashboardGenerator(list) {
-  for (const value of [...list]) {
+  for (const value of list) {
     const newRow = document.createElement('tr');
 
-    delete value.slug;
+    value.age = value.died - value.born;
+    value.century = Math.ceil(value.died / 100);
 
     for (const key in value) {
-      const rowData = document.createElement('th');
+      const rowData = document.createElement('td');
 
       switch (key) {
         case 'name':
           rowData.textContent = value[key];
+          newRow.append(rowData);
           break;
 
         case 'sex':
@@ -31,32 +33,35 @@ function dashboardGenerator(list) {
             default:
               break;
           }
+          newRow.append(rowData);
           break;
 
         case 'born':
           rowData.textContent = value[key];
+          newRow.append(rowData);
           break;
 
         case 'died':
           rowData.textContent = value[key];
+          newRow.append(rowData);
           break;
 
-        case 'fatherName':
-          rowData.textContent = value.died - value.born;
+        case 'age':
+          rowData.textContent = value[key];
+          newRow.append(rowData);
           break;
 
-        case 'motherName':
-          rowData.textContent = Math.ceil(value.died / 100);
+        case 'century':
+          rowData.textContent = value[key];
+          newRow.append(rowData);
           break;
 
         default:
           break;
       }
-
-      newRow.append(rowData);
     }
 
-    bord.append(newRow);
+    dashboard.append(newRow);
   }
 }
 
