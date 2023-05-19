@@ -15,19 +15,14 @@ function dashboardGenerator(list) {
       const rowData = document.createElement('td');
 
       switch (key) {
-        case 'name':
-          rowData.textContent = value[key];
-          newRow.append(rowData);
-          break;
-
         case 'sex':
           switch (value[key]) {
             case 'f':
-              rowData.textContent = 'female';
+              rowData.textContent = 'Female';
               break;
 
             case 'm':
-              rowData.textContent = 'male';
+              rowData.textContent = 'Male';
               break;
 
             default:
@@ -36,22 +31,12 @@ function dashboardGenerator(list) {
           newRow.append(rowData);
           break;
 
+        case 'name':
         case 'born':
-          rowData.textContent = value[key];
-          newRow.append(rowData);
-          break;
-
         case 'died':
-          rowData.textContent = value[key];
-          newRow.append(rowData);
-          break;
-
         case 'age':
-          rowData.textContent = value[key];
-          newRow.append(rowData);
-          break;
-
         case 'century':
+
           rowData.textContent = value[key];
           newRow.append(rowData);
           break;
