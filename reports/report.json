@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 1,
-    "start": "2023-05-21T13:56:59.982Z",
-    "end": "2023-05-21T13:57:05.358Z",
-    "duration": 5190,
+    "start": "2023-05-21T15:50:44.696Z",
+    "end": "2023-05-21T15:50:49.618Z",
+    "duration": 4839,
     "testsRegistered": 2,
     "passPercent": 50,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "9671d873-72a7-4ce8-bbf6-7e780a6db75c",
+      "uuid": "85336b35-ddf1-4248-b1f7-1445331fc0f1",
       "title": "",
       "fullFile": "cypress\\integration\\taskGenerateTableDom.spec.js",
       "file": "cypress\\integration\\taskGenerateTableDom.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b7b7cea3-a5b1-4f2f-8d19-e872a04b8739",
+          "uuid": "6eba515a-9aff-4a18-a531-9a05f97e30c7",
           "title": "Generate table app",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should create a table based on people.json file",
               "fullTitle": "Generate table app should create a table based on people.json file",
               "timedOut": null,
-              "duration": 4744,
+              "duration": 4665,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -51,8 +51,8 @@
                 "estack": "AssertionError: Timed out retrying: Expected to find content: '1832' within the element: <tr> and with the selector: 'td' but never did.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\taskGenerateTableDom.spec.js:107:41)",
                 "diff": null
               },
-              "uuid": "c8581028-0995-4b6e-a3dc-5c3cdeee80a3",
-              "parentUUID": "b7b7cea3-a5b1-4f2f-8d19-e872a04b8739",
+              "uuid": "16e5cb91-42d7-46b1-9c77-68fa434c16a7",
+              "parentUUID": "6eba515a-9aff-4a18-a531-9a05f97e30c7",
               "isHook": false,
               "skipped": false
             },
@@ -60,7 +60,7 @@
               "title": "shouldn't contain fatherName, motherName and slug in table",
               "fullTitle": "Generate table app shouldn't contain fatherName, motherName and slug in table",
               "timedOut": null,
-              "duration": 446,
+              "duration": 174,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -69,22 +69,22 @@
               "context": null,
               "code": "cy.get('tbody').contains('Petrus de Milliano').should('not.exist');\ncy.get('tbody').contains('Laurentia van Vlaenderen').should('not.exist');\ncy.get('tbody').contains('jan-van-brussel-1714').should('not.exist');",
               "err": {},
-              "uuid": "3334825e-e9e8-4793-b9db-73f0a30d7a97",
-              "parentUUID": "b7b7cea3-a5b1-4f2f-8d19-e872a04b8739",
+              "uuid": "63808983-9c6f-4890-ac43-d5417cb5e169",
+              "parentUUID": "6eba515a-9aff-4a18-a531-9a05f97e30c7",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "3334825e-e9e8-4793-b9db-73f0a30d7a97"
+            "63808983-9c6f-4890-ac43-d5417cb5e169"
           ],
           "failures": [
-            "c8581028-0995-4b6e-a3dc-5c3cdeee80a3"
+            "16e5cb91-42d7-46b1-9c77-68fa434c16a7"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 5190,
+          "duration": 4839,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
