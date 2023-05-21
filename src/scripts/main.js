@@ -7,15 +7,8 @@ console.log(people); // you can remove it
 
 const current = document.querySelector('tr');
 
-people.forEach((person) => {
-  person.age = person.died - person.born;
-  person.century = Math.ceil(person.died / 100);
-
-  if (person.sex === 'f') {
-    person.sex = 'female';
-  } else {
-    person.sex = 'male';
-  }
+people.forEach(({ name: fullName, died, born, sex }) => {
+  const century = Math.ceil(died / 100);
 
   const table = document.createElement('tr');
 
@@ -23,12 +16,12 @@ people.forEach((person) => {
 
   table.insertAdjacentHTML(
     'beforeend', `
-    <th>${person.name}</th>
-    <th>${person.sex}</th>
-    <th>${person.born}</th>
-    <th>${person.died}</th>
-    <th>${person.age}</th>
-    <th>${person.century}</th>
+    <th>${fullName}</th>
+    <th>${sex === 'f' ? 'Female' : 'Male'}</th>
+    <th>${born}</th>
+    <th>${died}</th>
+    <th>${died - born}</th>
+    <th>${century}</th>
     `
   );
 });
