@@ -10,26 +10,15 @@ const rootElement = document.querySelector('.dashboard');
 people.forEach(person => {
   const row = document.createElement('tr');
 
-  const cellName = document.createElement('td');
-  const cellGender = document.createElement('td');
-  const cellBorn = document.createElement('td');
-  const cellDied = document.createElement('td');
-  const cellAge = document.createElement('td');
-  const cellCentery = document.createElement('td');
-
-  cellName.textContent = person.name;
-  cellGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
-  cellBorn.textContent = person.born;
-  cellDied.textContent = person.died;
-  cellAge.textContent = person.died - person.born;
-  cellCentery.textContent = Math.ceil(person.died / 100);
-
-  row.append(cellName);
-  row.append(cellGender);
-  row.append(cellBorn);
-  row.append(cellDied);
-  row.append(cellAge);
-  row.append(cellCentery);
+  row.innerHTML = `
+  <tr>
+    <th>${person.name}</th>
+    <th>${person.sex === 'm' ? 'Male' : 'Female'}</th>
+    <th>${person.born}</th>
+    <th>${person.died}</th>
+    <th>${person.died - person.born}</th>
+    <th>${Math.ceil(person.died / 100)}</th>
+</tr>`;
 
   rootElement.append(row);
 });
