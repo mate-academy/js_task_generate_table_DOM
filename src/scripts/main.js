@@ -16,12 +16,12 @@ people.forEach(({ name: fullName, died, born, sex }) => {
 
   table.insertAdjacentHTML(
     'beforeend', `
-    <th>${fullName}</th>
-    <th>${sex === 'f' ? 'Female' : 'Male'}</th>
-    <th>${born}</th>
-    <th>${died}</th>
-    <th>${died - born}</th>
-    <th>${century}</th>
+    <td>${fullName}</td>
+    <td>${sex === 'f' ? 'Female' : 'Male'}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${century}</td>
     `
   );
 });
