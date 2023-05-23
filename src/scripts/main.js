@@ -3,13 +3,13 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-for (const person of people) {
+people.forEach(person => {
   const tableRow = document.createElement('tr');
 
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
-  const personArrey = [
+  const personArray = [
     person.name,
     person.sex,
     person.born,
@@ -18,12 +18,12 @@ for (const person of people) {
     century,
   ];
 
-  for (const el of personArrey) {
+  personArray.forEach(el => {
     const tableData = document.createElement('td');
 
     tableData.textContent = el;
     tableRow.append(tableData);
-  }
+  });
 
   table.append(tableRow);
-}
+});
