@@ -5,9 +5,8 @@ const people = require('./lib/people');
 const dashboardRef = document.querySelector('.dashboard');
 
 function addData(arr) {
-  for (const item of arr) {
-    const count = 0;
-    const newRow = dashboardRef.insertRow(count + 1);
+  arr.forEach((item, i) => {
+    const newRow = dashboardRef.insertRow(i);
     const { sex, born, died } = item;
     const gender = sex === 'm' ? 'Male' : 'Female';
     const age = died - born;
@@ -23,7 +22,7 @@ function addData(arr) {
     `;
 
     newRow.insertAdjacentHTML('beforeend', rowHtml);
-  }
+  });
 }
 
 addData(people);
