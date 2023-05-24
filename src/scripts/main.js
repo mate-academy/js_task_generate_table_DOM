@@ -9,6 +9,12 @@ people.forEach(person => {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
+  if (person.sex === 'm') {
+    person.sex = 'Male';
+  } else {
+    person.sex = 'Female';
+  }
+
   const personArray = [
     person.name,
     person.sex,
