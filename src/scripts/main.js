@@ -4,10 +4,10 @@ const people = require('./lib/people');
 
 // eslint-disable-next-line no-console
 
-function addRow(arg) {
-  const table = document.querySelector('table');
+function addRow() {
+  const table = document.querySelector('.dashboard');
 
-  for (const person of people) {
+  people.forEach((person) => {
     const newRow = table.insertRow();
 
     newRow.innerHTML = `
@@ -18,7 +18,7 @@ function addRow(arg) {
       <td>${person.died - person.born}</td>
       <td>${Math.ceil(person.died / 100)}</td>
     `;
-  }
+  });
 }
 
-addRow('table');
+addRow();
