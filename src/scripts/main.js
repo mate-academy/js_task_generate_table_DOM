@@ -14,8 +14,13 @@ people.forEach((person) => {
     cells[i] = newRow.insertCell();
   }
 
+  if (person.sex === 'm') {
+    cells[1].innerHTML = 'Male';
+  } else {
+    cells[1].innerHTML = 'Female';
+  }
+
   cells[0].innerHTML = person.name;
-  cells[1].innerHTML = person.sex;
   cells[2].innerHTML = person.born;
   cells[3].innerHTML = person.died;
   cells[4].innerHTML = person.died - person.born;
