@@ -2,7 +2,22 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
+const cellCount = 6;
 
-// write your code here
+people.forEach((person) => {
+  const newRow = table.insertRow();
+
+  const cells = [];
+
+  for (let i = 0; i < cellCount; i++) {
+    cells[i] = newRow.insertCell();
+  }
+
+  cells[0].innerHTML = person.name;
+  cells[1].innerHTML = person.sex;
+  cells[2].innerHTML = person.born;
+  cells[3].innerHTML = person.died;
+  cells[4].innerHTML = person.died - person.born;
+  cells[5].innerHTML = Math.ceil(person.died / 100);
+});
