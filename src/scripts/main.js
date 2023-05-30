@@ -3,7 +3,7 @@
 const people = require('./lib/people');
 const table = document.querySelector('.dashboard');
 
-people.forEach(function({ name: personName, sex, born, died }) {
+people.forEach(({ name: personName, sex, born, died }) => {
   const tableRow = document.createElement('tr');
   const gender = sex === 'm'
     ? 'Male'
