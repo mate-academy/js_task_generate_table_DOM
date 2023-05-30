@@ -7,21 +7,19 @@ console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
 
-people.forEach(function(obj) {
-  if (obj.sex === 'm') {
-    obj.sex = obj.sex.toUpperCase() + 'ale';
-  } else {
-    obj.sex = obj.sex.toUpperCase() + 'emale';
-  }
-
+people.forEach(function({ name: personName, sex, born, died }) {
   const tableRow = document.createElement('tr');
+  const gender = sex === 'm'
+    ? 'Male'
+    : 'Female';
+
   const person = {
-    name: obj.name,
-    gender: obj.sex,
-    born: obj.born,
-    died: obj.died,
-    age: obj.died - obj.born,
-    century: Math.ceil(obj.died / 100),
+    name: personName,
+    gender,
+    born,
+    died,
+    age: died - born,
+    century: Math.ceil(died / 100),
   };
 
   const properties = Object.keys(person);
