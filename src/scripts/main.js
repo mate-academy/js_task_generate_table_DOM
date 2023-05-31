@@ -14,7 +14,7 @@ for (const obj of people) {
 
   const dataCellb = document.createElement('td');
 
-  dataCellb.textContent = obj.sex;
+  dataCellb.textContent = gender(obj.sex);
 
   const dataCellc = document.createElement('td');
 
@@ -41,4 +41,18 @@ for (const obj of people) {
   dataRow.appendChild(dataCelld);
   dataRow.appendChild(dataCelle);
   dataRow.appendChild(dataCellf);
+}
+
+function gender(sex) {
+  let x = '';
+
+  if (sex === 'm') {
+    x = sex.replace('m', 'male');
+  }
+
+  if (sex === 'f') {
+    x = sex.replace('f', 'female');
+  }
+
+  return x;
 }
