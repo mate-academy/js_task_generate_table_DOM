@@ -5,10 +5,10 @@ const people = require('./lib/people');
 function createRowWithData(person) {
   const tableRow = document.createElement('tr');
 
-  const { name, sex, born, died } = person;
+  const { names, sex, born, died } = person;
 
   const markup = `
-  <td>${name}</td>
+  <td>${names}</td>
   <td>${sex === 'f' ? 'Female' : 'Male'}</td>
   <td>${born}</td>
   <td>${died}</td>
