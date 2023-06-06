@@ -3,12 +3,8 @@
 const people = require('./lib/people');
 const tableContainer = document.querySelector('.dashboard');
 
-function Gender(el) {
-  if (el === 'm') {
-    return 'Male';
-  }
-
-  return 'Female';
+function getGender(el) {
+  return el === 'm' ? 'Male' : 'Female';
 }
 
 for (const person of people) {
@@ -19,7 +15,7 @@ for (const person of people) {
   tableContainer.children[0].insertAdjacentHTML('beforeend', `
   <tr>
     <td>${person.name}</td>
-    <td>${Gender(sex)}</td>
+    <td>${getGender(sex)}</td>
     <td>${person.born}</td>
     <td>${person.died}</td>
     <td>${age}</td>
