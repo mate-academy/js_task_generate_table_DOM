@@ -5,16 +5,10 @@ const table = document.querySelector('.dashboard');
 const tableBody = table.querySelector('tbody');
 
 people.forEach(person => {
-  if (person.sex === 'm') {
-    person.sex = 'Male';
-  } else {
-    person.sex = 'Female';
-  }
-
   tableBody.insertAdjacentHTML('beforeend', `
     <tr>
       <th>${person.name}</th>
-      <th>${person.sex}</th>
+      <th>${person.sex === 'm' ? 'Male' : 'Female'}</th>
       <th>${person.born}</th>
       <th>${person.died}</th>
       <th>${person.died - person.born}</th>
