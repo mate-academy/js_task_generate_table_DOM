@@ -1,7 +1,6 @@
 'use strict';
 
 const people = require('./lib/people');
-
 const table = document.querySelector('.dashboard');
 
 people.forEach(person => {
@@ -15,7 +14,11 @@ people.forEach(person => {
   const centuryCell = document.createElement('td');
 
   nameCell.textContent = person.name;
-  sexCell.textContent = person.sex;
+
+  sexCell.textContent
+  = person.sex === 'm'
+      ? 'Male'
+      : 'Female';
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
   ageCell.textContent = (person.died - person.born);
