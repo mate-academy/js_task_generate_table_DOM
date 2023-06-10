@@ -1,7 +1,7 @@
 'use strict';
 
 const people = require('./lib/people');
-const dashboard = document.querySelector('.dashboard');
+const dashboard = document.querySelector('tbody');
 
 [...people].forEach(({ name: fullName, sex, born, died }) => {
   const tabelRow = document.createElement('tr');
@@ -12,7 +12,7 @@ const dashboard = document.querySelector('.dashboard');
     <td>${born}</td>
     <td>${died}</td>
     <td>${died - born}</td>
-    <td>${Math.ceil(born / 100)}</td>
+    <td>${Math.ceil(died / 100)}</td>
   `;
 
   dashboard.insertAdjacentElement('beforeend', tabelRow);
