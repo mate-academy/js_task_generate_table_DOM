@@ -3,16 +3,16 @@
 const people = require('./lib/people');
 const dashboard = document.querySelector('.dashboard');
 
-[...people].forEach(person => {
+[...people].forEach(({ name: fullName, sex, born, died }) => {
   const tabelRow = document.createElement('tr');
 
   tabelRow.innerHTML = `
-    <td>${person.name}</td>
-    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${person.died - person.born}</td>
-    <td>${Math.ceil(person.born / 100)}</td>
+    <td>${fullName}</td>
+    <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${Math.ceil(born / 100)}</td>
   `;
 
   dashboard.insertAdjacentElement('beforeend', tabelRow);
