@@ -4,7 +4,7 @@ const people = require('./lib/people');
 
 const tableElement = document.querySelector('.dashboard');
 
-const generateTableData = (data, row) => {
+const createTableData = (data, row) => {
   for (const value of Object.values(data)) {
     const tableData = document.createElement('td');
 
@@ -14,29 +14,35 @@ const generateTableData = (data, row) => {
   }
 };
 
-const generateTableRows = (table, data) => {
+const createTableRow = (data) => {
+  const tableRow = document.createElement('tr');
+
+  const { name: fullName, sex, born, died } = data;
+
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const gender = sex === 'm' ? 'Male' : 'Female';
+
+  const personData = {
+    fullName,
+    gender,
+    born,
+    died,
+    age,
+    century,
+  };
+
+  createTableData(personData, tableRow);
+
+  return tableRow;
+};
+
+const createTable = (data) => {
   for (const person of data) {
-    const tableRow = document.createElement('tr');
+    const tableRow = createTableRow(person);
 
-    const { name: fullName, sex, born, died } = person;
-
-    const age = died - born;
-    const century = Math.ceil(died / 100);
-    const gender = sex === 'm' ? 'Male' : 'Female';
-
-    const personData = {
-      fullName,
-      gender,
-      born,
-      died,
-      age,
-      century,
-    };
-
-    generateTableData(personData, tableRow);
-
-    table.appendChild(tableRow);
+    tableElement.appendChild(tableRow);
   }
 };
 
-generateTableRows(tableElement, people);
+createTable(people);
