@@ -6,14 +6,14 @@ const people = require('./lib/people');
 console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
-const peopleData = people.map(person => {
+const peopleData = people.map(({ name, sex, born, died }) => {
   return {
-    name: person.name,
-    gender: person.sex === 'm' ? 'Male' : 'Female',
-    born: person.born,
-    died: person.died,
-    age: person.died - person.born,
-    century: Math.ceil(person.died / 100),
+    name,
+    gender: sex === 'm' ? 'Male' : 'Female',
+    born,
+    died,
+    age: died - born,
+    century: Math.ceil(died / 100),
   };
 });
 
