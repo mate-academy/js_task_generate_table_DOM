@@ -2,45 +2,43 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const mainTab = document.querySelector('.dashboard');
 
-for (let i = 0; i < people.length; i++) {
-  const tab = document.createElement('tr');
+// for (let i = 0; i < people.length; i++) {
+people.forEach(person => {
+  const tableRow = document.createElement('tr');
 
   const nameColumn = document.createElement('td');
 
-  nameColumn.textContent = people[i].name;
-  tab.appendChild(nameColumn);
+  nameColumn.textContent = person.name;
+  tableRow.appendChild(nameColumn);
 
   const gender = document.createElement('td');
 
-  people[i].sex === 'm'
+  person.sex === 'm'
     ? gender.textContent = 'Male'
     : gender.textContent = 'Female';
-  tab.appendChild(gender);
+  tableRow.appendChild(gender);
 
   const born = document.createElement('td');
 
-  born.textContent = people[i].born;
-  tab.appendChild(born);
+  born.textContent = person.born;
+  tableRow.appendChild(born);
 
   const died = document.createElement('td');
 
-  died.textContent = people[i].died;
-  tab.appendChild(died);
+  died.textContent = person.died;
+  tableRow.appendChild(died);
 
   const age = document.createElement('td');
 
-  age.textContent = people[i].died - people[i].born;
-  tab.appendChild(age);
+  age.textContent = person.died - person.born;
+  tableRow.appendChild(age);
 
   const century = document.createElement('td');
 
-  century.textContent = Math.ceil(people[i].died / 100);
-  tab.appendChild(century);
+  century.textContent = Math.ceil(person.died / 100);
+  tableRow.appendChild(century);
 
-  mainTab.appendChild(tab);
-}
+  mainTab.appendChild(tableRow);
+});
