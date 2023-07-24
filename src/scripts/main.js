@@ -2,43 +2,16 @@
 
 const people = require('./lib/people');
 
-const mainTab = document.querySelector('.dashboard');
+const tbody = document.querySelector('tbody');
 
-// for (let i = 0; i < people.length; i++) {
 people.forEach(person => {
-  const tableRow = document.createElement('tr');
+  const markup = `
+  <td>${person.name}</td>
+  <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${person.died - person.born}</td>
+  <td>${Math.ceil(person.died / 100)}</td>`;
 
-  const nameColumn = document.createElement('td');
-
-  nameColumn.textContent = person.name;
-  tableRow.appendChild(nameColumn);
-
-  const gender = document.createElement('td');
-
-  person.sex === 'm'
-    ? gender.textContent = 'Male'
-    : gender.textContent = 'Female';
-  tableRow.appendChild(gender);
-
-  const born = document.createElement('td');
-
-  born.textContent = person.born;
-  tableRow.appendChild(born);
-
-  const died = document.createElement('td');
-
-  died.textContent = person.died;
-  tableRow.appendChild(died);
-
-  const age = document.createElement('td');
-
-  age.textContent = person.died - person.born;
-  tableRow.appendChild(age);
-
-  const century = document.createElement('td');
-
-  century.textContent = Math.ceil(person.died / 100);
-  tableRow.appendChild(century);
-
-  mainTab.appendChild(tableRow);
+  tbody.insertAdjacentHTML('beforeend', markup);
 });
