@@ -24,12 +24,14 @@ for (const person of people) {
   tdAge.textContent = age;
   tdCentury.textContent = century;
 
-  newRow.appendChild(tdName);
-  newRow.appendChild(tdSex);
-  newRow.appendChild(tdBorn);
-  newRow.appendChild(tdDied);
-  newRow.appendChild(tdAge);
-  newRow.appendChild(tdCentury);
+  newRow.innerHTML = `
+  <td>${person.name}</td>
+  <td>${gender}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${age}</td>
+  <td>${century}</td>
+  `;
 
   table.appendChild(newRow);
 }
