@@ -13,33 +13,19 @@ function calculateCentury(person) {
 function createTableRows() {
   const table = document.querySelector('.dashboard');
 
-  people.forEach((person) => {
-    const age = calculateAge(person);
-    const century = calculateCentury(person);
+  for (const person of people) {
+  const row = document.createElement('tr');
 
-    const row = document.createElement('tr');
-    const nameCell = document.createElement('td');
-    const genderCell = document.createElement('td');
-    const bornCell = document.createElement('td');
-    const diedCell = document.createElement('td');
-    const ageCell = document.createElement('td');
-    const centuryCell = document.createElement('td');
+  row.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `;
 
-    nameCell.textContent = person.name;
-    genderCell.textContent = person.sex;
-    bornCell.textContent = person.born;
-    diedCell.textContent = person.died;
-    ageCell.textContent = age;
-    centuryCell.textContent = century;
-
-    row.appendChild(nameCell);
-    row.appendChild(genderCell);
-    row.appendChild(bornCell);
-    row.appendChild(diedCell);
-    row.appendChild(ageCell);
-    row.appendChild(centuryCell);
-
-    table.appendChild(row);
+  table.append(row);
   });
 }
 
