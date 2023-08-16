@@ -12,25 +12,39 @@ people.forEach(person => {
   // eslint-disable-next-line no-shadow
   const { name, sex, born, died } = person;
   const tableRow = document.createElement('tr');
-  const tableDataName = document.createElement('td');
-  const tableDataGender = document.createElement('td');
-  const tableDataBorn = document.createElement('td');
-  const tableDataDied = document.createElement('td');
-  const tableDataAge = document.createElement('td');
-  const tableDataCentury = document.createElement('td');
+  const tableDataContentNaming = [
+    name,
+    (sex === 'm' ? 'Male' : 'Female'),
+    born, died, (died - born),
+    (Math.ceil(died / 100)),
+  ];
 
-  tableDataName.textContent = name;
-  tableDataGender.textContent = sex === 'm' ? 'Male' : 'Female';
-  tableDataBorn.textContent = born;
-  tableDataDied.textContent = died;
-  tableDataAge.textContent = died - born;
-  tableDataCentury.textContent = Math.ceil(died / 100);
+  tableDataContentNaming.forEach(content => {
+    const tableData = document.createElement('td');
 
-  tableRow.append(tableDataName);
-  tableRow.append(tableDataGender);
-  tableRow.append(tableDataBorn);
-  tableRow.append(tableDataDied);
-  tableRow.append(tableDataAge);
-  tableRow.append(tableDataCentury);
+    tableData.textContent = content;
+    tableRow.append(tableData);
+  });
+
+  // const tableDataName = document.createElement('td');
+  // const tableDataGender = document.createElement('td');
+  // const tableDataBorn = document.createElement('td');
+  // const tableDataDied = document.createElement('td');
+  // const tableDataAge = document.createElement('td');
+  // const tableDataCentury = document.createElement('td');
+
+  // tableDataName.textContent = name;
+  // tableDataGender.textContent = sex === 'm' ? 'Male' : 'Female';
+  // tableDataBorn.textContent = born;
+  // tableDataDied.textContent = died;
+  // tableDataAge.textContent = died - born;
+  // tableDataCentury.textContent = Math.ceil(died / 100);
+
+  // tableRow.append(tableDataName);
+  // tableRow.append(tableDataGender);
+  // tableRow.append(tableDataBorn);
+  // tableRow.append(tableDataDied);
+  // tableRow.append(tableDataAge);
+  // tableRow.append(tableDataCentury);
   table.append(tableRow);
 });
