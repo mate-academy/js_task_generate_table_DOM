@@ -26,25 +26,5 @@ people.forEach(person => {
     tableRow.append(tableData);
   });
 
-  // const tableDataName = document.createElement('td');
-  // const tableDataGender = document.createElement('td');
-  // const tableDataBorn = document.createElement('td');
-  // const tableDataDied = document.createElement('td');
-  // const tableDataAge = document.createElement('td');
-  // const tableDataCentury = document.createElement('td');
-
-  // tableDataName.textContent = name;
-  // tableDataGender.textContent = sex === 'm' ? 'Male' : 'Female';
-  // tableDataBorn.textContent = born;
-  // tableDataDied.textContent = died;
-  // tableDataAge.textContent = died - born;
-  // tableDataCentury.textContent = Math.ceil(died / 100);
-
-  // tableRow.append(tableDataName);
-  // tableRow.append(tableDataGender);
-  // tableRow.append(tableDataBorn);
-  // tableRow.append(tableDataDied);
-  // tableRow.append(tableDataAge);
-  // tableRow.append(tableDataCentury);
   table.append(tableRow);
 });
