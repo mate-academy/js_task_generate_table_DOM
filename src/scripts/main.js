@@ -2,7 +2,23 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach(({ name: personName, sex, born, died }) => {
+  const age = born - died;
+  const century = Math.ceil(died / 100);
+  const gender = (sex === 'm') ? 'Male' : 'Female';
+
+  const personRow = document.createElement('tr');
+
+  personRow.innerHTML = `
+    <th>${personName}</th>
+    <th>${gender}</th>
+    <th>${born}</th>
+    <th>${died}</th>
+    <th>${age}</th>
+    <th>${century}</th>
+  `;
+
+  dashboard.append(personRow);
+});
