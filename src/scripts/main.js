@@ -5,7 +5,7 @@ const people = require('./lib/people');
 const dashboard = document.querySelector('.dashboard');
 
 people.forEach(({ name: personName, sex, born, died }) => {
-  const age = born - died;
+  const age = died - born;
   const century = Math.ceil(died / 100);
   const gender = (sex === 'm') ? 'Male' : 'Female';
 
