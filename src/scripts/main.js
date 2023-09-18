@@ -1,8 +1,27 @@
 'use strict';
 
+const MALE_GENDER = 'm';
+
 const people = require('./lib/people');
+const dashboard = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach(person => {
+  const { name: personName, died, born, sex } = person;
 
-// write your code here
+  const age = died - person.born;
+  const century = Math.ceil(person.died / 100);
+  const row = document.createElement('tr');
+
+  row.insertAdjacentHTML('beforeEnd', `
+    <tr>
+      <td>${personName}</td>
+      <td>${sex === MALE_GENDER ? 'Male' : 'Female'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    </tr>
+  `);
+
+  dashboard.append(row);
+});
