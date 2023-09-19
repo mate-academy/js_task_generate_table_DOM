@@ -12,12 +12,12 @@ people.forEach(person => {
   const row = document.createElement('tr');
 
   row.innerHTML = `
-  <th>${person.name}</th>
-  <th>${person.sex}</th>
-  <th>${person.born}</th>
-  <th>${person.died}</th>
-  <th>${person.died - person.born}</th>
-  <th>${Math.ceil(person.died / 100)}</th>
+  <td>${person.name}</td>
+  <td>${person.sex}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${person.died - person.born}</td>
+  <td>${Math.ceil(person.died / 100)}</td>
   `;
 
   table.appendChild(row);
