@@ -14,43 +14,22 @@ function calculateAgeAndCentury(person) {
   };
 }
 
-const table = document.querySelectorAll('.dashboard');
+const table = document.querySelector('.dashboard');
 
-people.array.forEach(person => {
+people.forEach(person => {
   const { age, century } = calculateAgeAndCentury(person);
 
   const row = document.createElement('tr');
 
-  const nameCell = document.createElement('td');
+  row.innerHTML = `
 
-  nameCell.textContent = person.name;
-
-  const genderCell = document.createElement('td');
-
-  genderCell.textContent = person.gender;
-
-  const bornCell = document.createElement('td');
-
-  bornCell.textContent = person.born;
-
-  const diedCell = document.createElement('td');
-
-  diedCell.textContent = person.died;
-
-  const ageCell = document.createElement('td');
-
-  ageCell.textContent = age;
-
-  const centuryCell = document.createElement('td');
-
-  centuryCell.textContent = century;
-
-  row.appendChild(nameCell);
-  row.appendChild(genderCell);
-  row.appendChild(bornCell);
-  row.appendChild(diedCell);
-  row.appendChild(ageCell);
-  row.appendChild(centuryCell);
+  <th>${person.name}</th>
+  <th>${person.gender}</th>
+  <th>${person.born}</th>
+  <th>${person.died}</th>
+  <th>${age}</th>
+  <th>${century}</th>
+  `;
 
   table.appendChild(row);
 });
