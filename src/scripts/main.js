@@ -2,7 +2,17 @@
 
 const people = require('./lib/people');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+for (const human of people) {
+  table.insertRow().innerHTML += `
+    <tr>
+      <th>${human.name}</th>
+      <th>${human.sex}</th>
+      <th>${human.born}</th>
+      <th>${human.died}</th>
+      <th>${human.died - human.born}</th>
+      <th>${Math.ceil(human.born / 100)}</th>
+  </tr>
+  `;
+}
