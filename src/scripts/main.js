@@ -9,11 +9,9 @@ people.forEach(person => {
   const fields = ['name', 'sex', 'born', 'died'];
 
   fields.forEach(field => {
-    if (field === 'sex') {
-      row.appendChild(createCell(generateGenderTitle(person[field])));
-    } else {
-      row.appendChild(createCell(person[field]));
-    }
+    return field === 'sex'
+      ? row.appendChild(createCell(generateGenderTitle(person[field])))
+      : row.appendChild(createCell(person[field]));
   });
 
   row.appendChild(createCell(calculateAge(person.born, person.died)));
