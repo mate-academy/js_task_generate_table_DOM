@@ -4,21 +4,30 @@ const people = require('./lib/people');
 
 const tableElement = document.querySelector('.dashboard');
 
+const COLUMNS = {
+  NAME: 0,
+  GENDER: 1,
+  BORN: 2,
+  DIED: 3,
+  AGE: 4,
+  CENTURY: 5,
+};
+
 people.forEach(person => {
   const row = tableElement.insertRow();
 
   const cells = [];
 
-  [0, 1, 2, 3, 4, 5].forEach((cell) => {
-    cells.push(row.insertCell(cell));
+  Object.values(COLUMNS).forEach((col) => {
+    cells.push(row.insertCell(col));
   });
 
-  cells[0].textContent = person.name;
-  cells[1].textContent = person.sex === 'm' ? 'Male' : 'Female';
-  cells[2].textContent = person.born;
-  cells[3].textContent = person.died;
-  cells[4].textContent = person.died - person.born;
-  cells[5].textContent = Math.ceil(person.died / 100);
+  cells[COLUMNS.NAME].textContent = person.name;
+  cells[COLUMNS.GENDER].textContent = person.sex === 'm' ? 'Male' : 'Female';
+  cells[COLUMNS.BORN].textContent = person.born;
+  cells[COLUMNS.DIED].textContent = person.died;
+  cells[COLUMNS.AGE].textContent = person.died - person.born;
+  cells[COLUMNS.CENTURY].textContent = Math.ceil(person.died / 100);
 
   tableElement.appendChild(row);
 });
