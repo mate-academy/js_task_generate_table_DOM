@@ -1,8 +1,19 @@
 'use strict';
 
 const people = require('./lib/people');
+const tableElement = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+for (const person of people) {
+  const trElement = document.createElement('tr');
 
-// write your code here
+  tableElement.append(trElement);
+
+  trElement.innerHTML = `
+  <td>${person.name}</td>
+  <td>${person.sex}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${person.died - person.born}</td>
+  <td>${Math.ceil(person.died / 100)}</td>
+  `;
+}
