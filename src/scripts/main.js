@@ -2,18 +2,18 @@
 
 const people = require('./lib/people');
 
-const newTable = document.querySelector('.dashboard');
+const newTable = document.querySelector(`.dashboard`);
 const newTableBody = newTable.firstElementChild;
 
 people.forEach(element => {
   newTableBody.insertAdjacentHTML('beforeend', `
-    <tr>
-      <td>${element.name}</td>
-      <td>${element.sex === 'm' ? 'Male' : 'Female'}</td>
-      <td>${element.born}</td>
-      <td>${element.died}</td>
-      <td>${element.died - element.born}</td>
-      <td>${Math.ceil(element.died / 100)}</td>
-    </tr>
+  <tr>
+    <td>${element.name}</td>
+    <td>${element.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${element.born}</td>
+    <td>${element.died}</td>
+    <td>${element.died - element.born}</td>
+    <td>${Math.ceil(element.died / 100)}</td>
+  </tr>
   `);
 });
