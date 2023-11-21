@@ -372,5 +372,5 @@ for (const person of people) {
     </tr>
   `;
 
-  tableElement.insertAdjacentHTML('beforeend', newRow);
+  tableElement.querySelector('tbody').insertAdjacentHTML('beforeend', newRow);
 }
