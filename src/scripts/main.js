@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// Adding to people age, century
+people.forEach((el) => {
+  el.age = el.died - el.born;
+  el.century = Math.ceil(el.died / 100);
+});
 
-// write your code here
+// creating reference to table
+const table = document.querySelector('.dashboard');
+
+// loop to add content to table from people
+people.forEach((el) => {
+  // creating new row
+  const row = table.insertRow();
+
+  // creating ceils of table row
+  const PersonName = row.insertCell(0);
+  const PersonGender = row.insertCell(1);
+  const PersonBorn = row.insertCell(2);
+  const PersonDied = row.insertCell(3);
+  const PersonAge = row.insertCell(4);
+  const PersonCentury = row.insertCell(5);
+
+  // adding content to ceils
+  PersonName.innerHTML = el.name;
+  PersonGender.innerHTML = el.sex === 'm' ? 'Male' : 'Female';
+  PersonBorn.innerHTML = el.born;
+  PersonDied.innerHTML = el.died;
+  PersonAge.innerHTML = el.age;
+  PersonCentury.innerHTML = el.century;
+});
