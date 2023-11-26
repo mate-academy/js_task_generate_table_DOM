@@ -358,3 +358,31 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const columns = document.querySelectorAll('th');
+const table = document.querySelector('table');
+
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  columns.forEach((column) => {
+    const cell = document.createElement('td');
+    const category = column.textContent.toLowerCase();
+
+    switch (category) {
+      case 'age':
+        cell.textContent = person.died - person.born;
+        break;
+      case 'century':
+        cell.textContent = Math.ceil(person.died / 100);
+        break;
+      case 'gender':
+        cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+        break;
+      default:
+        cell.textContent = person[category];
+    }
+    row.append(cell);
+  });
+
+  table.append(row);
+}
