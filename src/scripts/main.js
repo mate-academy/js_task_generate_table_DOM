@@ -354,39 +354,18 @@ const people = [
   },
 ];
 
-const formattedPeople = people.map(el => ({
-  ...el,
-  age: el.died - el.born,
-  century: Math.ceil(el.died / 100),
-  gender: el.sex === 'm' ? 'Male' : 'Female',
-}));
+const tableElement = document.querySelector('.dashboard');
 
-const table = document.querySelector('.dashboard');
+for (const person of people) {
+  const tableRowElement = document.createElement('tr');
 
-const thead = table.createTHead();
-const headerRow = thead.insertRow();
-const headerLabels = ['Name', 'Gender', 'Born', 'Died', 'Age', 'Century'];
+  tableRowElement.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>`;
 
-headerLabels.forEach(label => {
-  const th = document.createElement('th');
-
-  th.textContent = label;
-  headerRow.appendChild(th);
-});
-
-const tbody = table.createTBody();
-
-function insertContent(row, person) {
-  row.insertCell(0).innerHTML = person.name;
-  row.insertCell(1).innerHTML = person.gender;
-  row.insertCell(2).innerHTML = person.born;
-  row.insertCell(3).innerHTML = person.died;
-  row.insertCell(4).innerHTML = person.age;
-  row.insertCell(5).innerHTML = person.century;
+  tableElement.append(tableRowElement);
 }
-
-formattedPeople.forEach(person => {
-  const row = tbody.insertRow();
-
-  insertContent(row, person);
-});
