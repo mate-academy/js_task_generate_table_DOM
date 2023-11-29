@@ -363,6 +363,19 @@ const formattedPeople = people.map(el => ({
 
 const table = document.querySelector('.dashboard');
 
+const thead = table.createTHead();
+const headerRow = thead.insertRow();
+const headerLabels = ['Name', 'Gender', 'Born', 'Died', 'Age', 'Century'];
+
+headerLabels.forEach(label => {
+  const th = document.createElement('th');
+
+  th.textContent = label;
+  headerRow.appendChild(th);
+});
+
+const tbody = table.createTBody();
+
 function insertContent(row, person) {
   row.insertCell(0).innerHTML = person.name;
   row.insertCell(1).innerHTML = person.gender;
@@ -373,7 +386,7 @@ function insertContent(row, person) {
 }
 
 formattedPeople.forEach(person => {
-  const row = table.insertRow();
+  const row = tbody.insertRow();
 
   insertContent(row, person);
 });
