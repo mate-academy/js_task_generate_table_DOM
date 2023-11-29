@@ -354,35 +354,26 @@ const people = [
   },
 ];
 
-function calculateAge(person) {
-  return person.died - person.born;
+const formattedPeople = people.map(el => ({
+  ...el,
+  age: el.died - el.born,
+  century: Math.ceil(el.died / 100),
+  gender: el.sex === 'm' ? 'Male' : 'Female',
+}));
+
+const table = document.querySelector('.dashboard');
+
+function insertContent(row, person) {
+  row.insertCell(0).innerHTML = person.name;
+  row.insertCell(1).innerHTML = person.gender;
+  row.insertCell(2).innerHTML = person.born;
+  row.insertCell(3).innerHTML = person.died;
+  row.insertCell(4).innerHTML = person.age;
+  row.insertCell(5).innerHTML = person.century;
 }
 
-function calculateCentury(year) {
-  return Math.ceil(year / 100);
-}
+formattedPeople.forEach(person => {
+  const row = table.insertRow();
 
-function createCell(content, align = 'center') {
-  const cell = document.createElement('td');
-
-  cell.textContent = content;
-  cell.style.padding = '8px';
-  cell.style.textAlign = align;
-
-  return cell;
-}
-
-people.forEach(person => {
-  const newRow = document.createElement('tr');
-
-  newRow.appendChild(createCell(person.name, 'left'));
-  newRow.appendChild(createCell(person.sex));
-  newRow.appendChild(createCell(person.born));
-  newRow.appendChild(createCell(person.died));
-  newRow.appendChild(createCell(calculateAge(person)));
-  newRow.appendChild(createCell(calculateCentury(person.died)));
-
-  const dashboardTable = document.querySelector('.dashboard');
-
-  dashboardTable.appendChild(newRow);
+  insertContent(row, person);
 });
