@@ -355,6 +355,8 @@ const people = [
 ];
 
 const table = document.querySelector('.dashboard');
+const FEMALE = 'Female';
+const MALE = 'Male';
 
 people.forEach(person => {
   const tr = document.createElement('tr');
@@ -378,10 +380,10 @@ people.forEach(person => {
 
 function showGender(sex) {
   if (sex === 'f') {
-    return 'Female';
+    return FEMALE;
   }
 
-  return 'Male';
+  return MALE;
 }
 
 function showAge(yearBorn, yearDied) {
