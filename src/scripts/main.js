@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+people.map((person) => {
+  const column = document.createElement('tr');
+  const updPerson = updatePerson(person);
+
+  for (const key in updPerson) {
+    const row = document.createElement('td');
+
+    row.textContent = updPerson[key];
+    column.append(row);
+  }
+
+  dashboard.append(column);
+});
+
+function updatePerson(item) {
+  return {
+    name: item.name,
+    sex: item.sex === 'm' ? 'Male' : 'Female',
+    born: item.born,
+    died: item.died,
+    age: item.died - item.born,
+    century: Math.ceil(item.died / 100),
+  };
+}
