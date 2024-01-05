@@ -358,8 +358,9 @@ const table = document.querySelector('.dashboard');
 
 const createTableCell = (row, cellValue) => {
   const cell = row.insertCell();
+
   cell.appendChild(document.createTextNode(cellValue));
-}
+};
 
 for (const person of people) {
   const age = person.died - person.born;
@@ -375,5 +376,3 @@ for (const person of people) {
   createTableCell(row, age);
   createTableCell(row, century);
 };
-
-
