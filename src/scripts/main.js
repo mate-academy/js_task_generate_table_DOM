@@ -357,15 +357,18 @@ const people = [
 const dashboard = document.querySelector('.dashboard');
 const tbody = dashboard.getElementsByTagName('tbody')[0];
 
-people.forEach((person) => {
+const peopleFromServer = JSON.stringify(people);
+const parsedPeople = JSON.parse(peopleFromServer);
+
+parsedPeople.forEach((person) => {
   const row = `
     <tr>
       <td>${person.name}</td>
-      <td>${person.sex}</td>
-      <td>${person.born.toString()}</td>
-      <td>${person.died.toString()}</td>
-      <td>${(person.died - person.born).toString()}</td>
-      <td>${Math.ceil(person.died / 100).toString()}</td>
+      <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
     </tr>
   `;
 
