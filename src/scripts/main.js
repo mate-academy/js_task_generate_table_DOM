@@ -354,7 +354,20 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
+const tbody = dashboard.getElementsByTagName('tbody')[0];
 
-// write your code here
+people.forEach((person) => {
+  const row = `
+    <tr>
+      <td>${person.name}</td>
+      <td>${person.sex}</td>
+      <td>${person.born.toString()}</td>
+      <td>${person.died.toString()}</td>
+      <td>${(person.died - person.born).toString()}</td>
+      <td>${Math.ceil(person.died / 100).toString()}</td>
+    </tr>
+  `;
+
+  tbody.insertAdjacentHTML('beforeend', row);
+});
