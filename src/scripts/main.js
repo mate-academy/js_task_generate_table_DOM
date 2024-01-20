@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+function getGender(gender) {
+  if (gender === 'm') {
+    return 'Male';
+  }
+
+  return 'Female';
+}
+
+table.innerHTML = `
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Born</th>
+    <th>Died</th>
+    <th>Age</th>
+    <th>Century</th>
+  </tr>
+  ${people.map(person => `
+    <tr>
+      <td>${person.name}</td>
+      <td>${getGender(person.sex)}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
+    </tr>
+  `).join('')}
+`;
