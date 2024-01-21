@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table');
 
-// write your code here
+// eslint-disable-next-line no-console
+console.log(table);
+
+people.map(person => {
+  const column = document.createElement('tr');
+
+  function generateTable(value) {
+    return {
+      Name: value.name,
+      Gender: value.sex === 'm' ? 'Male' : 'Female',
+      Born: value.born,
+      Died: value.died,
+      Age: value.died - value.born,
+      Century: Math.ceil(value.died / 100),
+    };
+  };
+
+  const newTable = generateTable(person);
+
+  for (const keys in newTable) {
+    const row = document.createElement('td');
+
+    row.textContent = newTable[keys];
+    column.append(row);
+  }
+
+  table.append(column);
+});
