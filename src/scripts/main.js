@@ -377,3 +377,19 @@ people.forEach(person => {
   ageCell.textContent = age;
   centuryCell.textContent = century;
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  table.addEventListener('mouseover', function(events) {
+    if (events.target.tagName === 'TD') {
+      events.target.parentElement.style.color = '#fff';
+      events.target.parentElement.style.background = '#000';
+    }
+  });
+
+  table.addEventListener('mouseout', function(events) {
+    if (events.target.tagName === 'TD') {
+      events.target.parentElement.style.color = '#000';
+      events.target.parentElement.style.background = '#fff';
+    }
+  });
+});
