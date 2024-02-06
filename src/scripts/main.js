@@ -358,17 +358,18 @@ const people = [
 console.log(people); // you can remove it
 
 const dashboard = document.querySelector('.dashboard');
-const element = document.createElement('tr');
 
-dashboard.append(element);
+people.forEach(person => {
+  const tr = document.createElement('tr');
 
-dashboard.innerHTML += people.map(person => (`
-  <tr>
+  tr.innerHTML = `
     <th>${person.name}</th>
     <th>${person.sex}</th>
     <th>${person.born}</th>
     <th>${person.died}</th>
     <th>${person.died - person.born}</th>
     <th>${Math.ceil(person.died / 100)}</th>
-  </tr>
-`)).join('');
+  `;
+
+  dashboard.append(tr);
+});
