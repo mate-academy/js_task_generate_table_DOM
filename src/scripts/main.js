@@ -357,7 +357,7 @@ const people = [
 const table = document.querySelector('.dashboard');
 
 people.forEach(person => {
-  const { personName, gender, born, died } = person;
+  const { name: personName, gender, born, died } = person;
 
   const row = document.createElement('tr');
 
