@@ -379,10 +379,10 @@ function createRow(person, table) {
 }
 
 function createCell(data, row) {
-  const ceil = document.createElement('TD');
+  const cell = document.createElement('TD');
 
-  ceil.innerHTML = data;
-  row.append(ceil);
+  cell.innerHTML = data;
+  row.append(cell);
 }
 
 const tableElement = document.querySelector('table.dashboard');
