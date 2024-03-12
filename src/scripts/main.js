@@ -358,3 +358,40 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const dashboard = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+  const fields = ['name', 'sex', 'born', 'died'];
+
+  fields.forEach((field) => {
+    return field === 'sex'
+      ? row.appendChild(createCell(generateGenderTitle(person[field])))
+      : row.appendChild(createCell(person[field]));
+  });
+
+  row.appendChild(createCell(calculateAge(person.born, person.died)));
+  row.appendChild(createCell(calculateCentury(person.died)));
+
+  dashboard.appendChild(row);
+});
+
+function createCell(value) {
+  const cell = document.createElement('td');
+
+  cell.textContent = value;
+
+  return cell;
+}
+
+function calculateAge(born, died) {
+  return died - born;
+}
+
+function calculateCentury(died) {
+  return Math.ceil(died / 100);
+}
+
+function generateGenderTitle(sex) {
+  return sex === 'm' ? 'Male' : 'Female';
+}
