@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 'use strict';
 
 const people = [
@@ -358,3 +359,21 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const table = document.querySelector('.dashboard');
+const tbody = table.getElementsByTagName('tbody')[0];
+
+people.forEach(({ name, sex, born, died }) => {
+  const row = `
+    <tr>
+      <td>${name}</td>
+      <td>${sex === 'f' ? 'Female' : 'Male'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${died - born}</td>
+      <td>${Math.ceil(died / 100)}</td>
+    </tr>
+  `;
+
+  tbody.insertAdjacentHTML('beforeend', row);
+});
