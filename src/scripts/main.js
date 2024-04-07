@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable padding-line-between-statements */
 'use strict';
 
@@ -359,32 +360,16 @@ const people = [
 
 const table = document.querySelector('.dashboard');
 
-people.forEach((person) => {
+people.forEach(({ sex, born, died, name }) => {
   const tr = document.createElement('tr');
 
-  const thName = document.createElement('th');
-  thName.textContent = person.name;
-
-  const thGender = document.createElement('th');
-  thGender.textContent = person.sex;
-
-  const thBorn = document.createElement('th');
-  thBorn.textContent = person.born;
-
-  const thDied = document.createElement('th');
-  thDied.textContent = person.died;
-
-  const thAge = document.createElement('th');
-  thAge.textContent = person.died - person.born;
-
-  const thCentury = document.createElement('th');
-  thCentury.textContent = Math.ceil(person.died / 100);
-
-  tr.appendChild(thName);
-  tr.appendChild(thGender);
-  tr.appendChild(thBorn);
-  tr.appendChild(thDied);
-  tr.appendChild(thAge);
-  tr.appendChild(thCentury);
+  tr.innerHTML = `
+    <td>${name}</td>
+    <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${Math.ceil(died / 100)}</td>
+  `;
   table.appendChild(tr);
 });
