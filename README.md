@@ -21,9 +21,9 @@ Your layout for start:
 From the preview, you can see that table has 6 headers, but our data does not contain age and century. Yes, you need to calculate them by yourself.
 
 ##### Steps to do this challenge:
-1) For each person from `people` array create table row with 6 table cells (name, gender, born, died, age, century)
+DONE - 1) For each person from `people` array create table row with 6 table cells (name, gender, born, died, age, century)
 DONE - 2) Find a table with class `dashboard` in the document.
-3) Append created row to table.
+DONE - 3) Append created row to table.
 4) Done.
 
 Hints:
