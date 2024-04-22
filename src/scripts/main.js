@@ -354,12 +354,7 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-// console.log(people); // you can remove it
-
-// write your code here
 const table = document.querySelector('.dashboard');
-// console.log(table);
 
 people.forEach((person) => {
   // eslint-disable-next-line no-shadow
