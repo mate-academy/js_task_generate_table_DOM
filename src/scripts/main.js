@@ -358,3 +358,27 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const { name: personName, sex, born, died } = person;
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+
+  const tr = document.createElement('tr');
+
+  tr.insertAdjacentHTML(
+    'afterbegin',
+    `
+    <td>${personName}</td>
+    <td>${sex === 'f' ? 'Female' : 'Male'}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `,
+  );
+
+  table.append(tr);
+});
