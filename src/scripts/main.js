@@ -357,4 +357,30 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const dashboard = document.querySelector('.dashboard');
+
+const normalizePeople = people.map((person) => {
+  const personAge = person.died - person.born;
+  const personCentury = Math.ceil(person.died / 100);
+
+  const result = {
+    nema: person.name,
+    sex: person.sex,
+    born: person.born,
+    died: person.died,
+    age: personAge,
+    century: personCentury,
+  };
+
+  return result;
+});
+
+normalizePeople.forEach((person) => {
+  const newRow = dashboard.insertRow();
+
+  Object.values(person).forEach((value) => {
+    const cell = newRow.insertCell();
+
+    cell.innerHTML = value;
+  });
+});
