@@ -359,7 +359,7 @@ console.log(people); // you can remove it
 
 // write your code here
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('tbody');
 
 people.forEach((person) => {
   const { name: personName, sex, born, died } = person;
