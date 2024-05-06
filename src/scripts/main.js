@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+function checkSex(sex) {
+  return sex === 'f' ? 'Female' : 'Male';
+}
+
+function createTableRow(value) {
+  const td = document.createElement('td');
+
+  td.textContent = value;
+
+  return td;
+}
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  tr.appendChild(createTableRow(person.name) || '');
+  tr.appendChild(createTableRow(checkSex(person.sex)) || '');
+  tr.appendChild(createTableRow(person.born) || '');
+  tr.appendChild(createTableRow(person.died) || '');
+  tr.appendChild(createTableRow(person.died - person.born) || '');
+  tr.appendChild(createTableRow(Math.ceil(person.died / 100)) || '');
+
+  table.appendChild(tr);
+});
