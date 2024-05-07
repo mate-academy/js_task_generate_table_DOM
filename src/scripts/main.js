@@ -361,7 +361,7 @@ people.forEach((person) => {
 
   const newPerson = {
     name: person.name,
-    gender: person.gender === 'm' ? 'Male' : 'Female',
+    gender: person.sex === 'm' ? 'Male' : 'Female',
     born: person.born,
     died: person.died,
     age: person.died - person.born,
