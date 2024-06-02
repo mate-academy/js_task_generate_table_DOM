@@ -354,7 +354,19 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tableMainRow = document.querySelector('table.dashboard tr');
 
-// write your code here
+people.map((person) => {
+  const newRow = document.createElement('tr');
+
+  const completeGender = person.sex === 'm' ? 'Male' : 'Female';
+
+  newRow.innerHTML = `<td>${person.name}</td>
+  <td>${completeGender}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${person.died - person.born}</td>
+  <td>${Math.ceil(person.died / 100)}</td>`;
+
+  tableMainRow.after(newRow);
+});
