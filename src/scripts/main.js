@@ -355,7 +355,6 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
 function createTableRow(person) {
   const tr = document.createElement('tr');
