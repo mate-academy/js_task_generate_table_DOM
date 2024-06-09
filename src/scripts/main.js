@@ -359,15 +359,15 @@ const table = document.querySelector('.dashboard');
 people.forEach((person) => {
   const row = document.createElement('tr');
 
-  const gender = document.createElement('td');
-
-  gender.textContent = person.gender;
-  row.appendChild(gender);
-
   const nameCell = document.createElement('td');
 
   nameCell.textContent = person.name;
   row.appendChild(nameCell);
+
+  const gender = document.createElement('td');
+
+  gender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  row.appendChild(gender);
 
   const born = document.createElement('td');
 
