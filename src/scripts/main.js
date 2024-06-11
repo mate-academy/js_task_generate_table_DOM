@@ -354,7 +354,40 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table.dashboard');
 
-// write your code here
+for (const person of people) {
+  const trElement = document.createElement('tr');
+
+  for (let i = 0; i < 6; i++) {
+    const tdElement = document.createElement('td');
+
+    switch (i) {
+      case 0:
+        tdElement.innerText = person.name;
+        break;
+      case 1:
+        tdElement.innerText = person.sex;
+        break;
+      case 2:
+        tdElement.innerText = person.born;
+        break;
+      case 3:
+        tdElement.innerText = person.died;
+        break;
+      case 4:
+        const ageperson = person.died - person.born;
+
+        tdElement.innerText = ageperson;
+        break;
+      case 5:
+        tdElement.innerText = Math.ceil(person.died / 100);
+        break;
+    }
+    trElement.appendChild(tdElement);
+  }
+
+  table.appendChild(trElement);
+}
+
+// console.log(childList);
