@@ -363,7 +363,12 @@ people.forEach((person) => {
   fields.forEach((field) => {
     const cell = document.createElement('td');
 
-    cell.textContent = person[field];
+    if (field === 'sex') {
+      cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    } else {
+      cell.textContent = person[field];
+    }
+
     row.appendChild(cell);
   });
 
