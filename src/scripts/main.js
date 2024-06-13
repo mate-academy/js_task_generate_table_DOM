@@ -362,35 +362,14 @@ const table = document.querySelector('.dashboard');
 people.forEach((person) => {
   const tableRow = document.createElement('tr');
 
-  const nameTableData = document.createElement('td');
-
-  nameTableData.textContent = person.name;
-  tableRow.appendChild(nameTableData);
-
-  const genderTableData = document.createElement('td');
-
-  genderTableData.textContent = person.sex === 'f' ? 'Female' : 'Male';
-  tableRow.appendChild(genderTableData);
-
-  const bornTableData = document.createElement('td');
-
-  bornTableData.textContent = person.born;
-  tableRow.appendChild(bornTableData);
-
-  const diedTableData = document.createElement('td');
-
-  diedTableData.textContent = person.died;
-  tableRow.appendChild(diedTableData);
-
-  const ageTableData = document.createElement('td');
-
-  ageTableData.textContent = person.died - person.born;
-  tableRow.appendChild(ageTableData);
-
-  const centuryTableData = document.createElement('td');
-
-  centuryTableData.textContent = Math.ceil(person.died / 100);
-  tableRow.appendChild(centuryTableData);
+  tableRow.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
+  `;
 
   table.appendChild(tableRow);
 });
