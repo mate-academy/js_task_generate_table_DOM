@@ -357,4 +357,34 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('table');
+
+people.forEach((human) => {
+  const { name: nameHuman, sex, born, died } = human;
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const row = document.createElement('tr');
+
+  const ceilName = document.createElement('td');
+  const ceilGender = document.createElement('td');
+  const ceilBorn = document.createElement('td');
+  const ceilDied = document.createElement('td');
+  const ceilAge = document.createElement('td');
+  const ceilCentury = document.createElement('td');
+
+  ceilName.textContent = nameHuman;
+  ceilGender.textContent = sex === 'm' ? 'Male' : 'Female';
+  ceilBorn.textContent = born;
+  ceilDied.textContent = died;
+  ceilAge.textContent = age;
+  ceilCentury.textContent = century;
+
+  row.insertAdjacentElement('beforeend', ceilName);
+  row.insertAdjacentElement('beforeend', ceilGender);
+  row.insertAdjacentElement('beforeend', ceilBorn);
+  row.insertAdjacentElement('beforeend', ceilDied);
+  row.insertAdjacentElement('beforeend', ceilAge);
+  row.insertAdjacentElement('beforeend', ceilCentury);
+
+  table.insertAdjacentElement('beforeend', row);
+});
