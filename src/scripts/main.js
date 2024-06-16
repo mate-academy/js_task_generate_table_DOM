@@ -354,7 +354,7 @@ const people = [
   },
 ];
 
-const dashboardTable = document.querySelector('table');
+const dashboardTable = document.querySelector('table.dashboard');
 
 const peopleTableElements = people.map(
   ({ name: personName, sex, born, died }) => {
