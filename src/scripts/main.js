@@ -358,12 +358,12 @@ const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const lineContainer = document.createElement('tr');
-  const lineName = document.createElement('th');
-  const lineGender = document.createElement('th');
-  const lineBorn = document.createElement('th');
-  const lineDied = document.createElement('th');
-  const lineAge = document.createElement('th');
-  const lineCentery = document.createElement('th');
+  const lineName = document.createElement('td');
+  const lineGender = document.createElement('td');
+  const lineBorn = document.createElement('td');
+  const lineDied = document.createElement('td');
+  const lineAge = document.createElement('td');
+  const lineCentery = document.createElement('td');
   const lines = [
     lineName,
     lineGender,
