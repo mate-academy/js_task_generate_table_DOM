@@ -354,7 +354,51 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const SEX = {
+  m: 'Male',
+  f: 'Female',
+};
 
-// write your code here
+const calculateAge = (born, died) => died - born;
+const calculateCentury = (died) => Math.ceil(died / 100);
+
+const createCell = (value) => {
+  const cell = document.createElement('td');
+
+  cell.textContent = value;
+
+  return cell;
+};
+
+const createPersonRow = (person) => {
+  const tableRow = document.createElement('tr');
+
+  const age = calculateAge(person.born, person.died);
+  const century = calculateCentury(person.died);
+
+  const values = [
+    person.name,
+    SEX[person.sex],
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
+
+  values.forEach((value) => {
+    const cell = createCell(value);
+
+    tableRow.append(cell);
+  });
+
+  return tableRow;
+};
+
+const tableSelector = document.querySelector('.dashboard');
+const tableBody = tableSelector.querySelector('tbody');
+
+people.forEach((person) => {
+  const tableRow = createPersonRow(person);
+
+  tableBody.append(tableRow);
+});
