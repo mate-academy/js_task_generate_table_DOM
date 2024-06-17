@@ -358,35 +358,22 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
-const table = document.querySelector('.dashboard');
+const tableBody = document.querySelector('.tbody');
 
 people.map((person) => {
   const { name: personName, sex, born, died } = person;
   const age = died - born;
   const century = Math.ceil(died / 100);
 
-  const tr = document.createElement('tr');
-
-  const tdName = document.createElement('td');
-  const tdGender = document.createElement('td');
-  const tdBorn = document.createElement('td');
-  const tdDied = document.createElement('td');
-  const tdAge = document.createElement('td');
-  const tdCentury = document.createElement('td');
-
-  tdName.innerText = personName;
-  tdGender.innerText = sex === 'm' ? 'Male' : 'Female';
-  tdBorn.innerText = born;
-  tdDied.innerText = died;
-  tdAge.innerText = age;
-  tdCentury.innerText = century;
-
-  tr.insertAdjacentElement('beforeend', tdName);
-  tr.insertAdjacentElement('beforeend', tdGender);
-  tr.insertAdjacentElement('beforeend', tdBorn);
-  tr.insertAdjacentElement('beforeend', tdDied);
-  tr.insertAdjacentElement('beforeend', tdAge);
-  tr.insertAdjacentElement('beforeend', tdCentury);
-
-  table.insertAdjacentElement('beforeend', tr);
+  tableBody.insertAdjacentHTML(
+    'beforeend',
+    `<tr>
+      <td>${personName}</td>
+      <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    </tr>`,
+  );
 });
