@@ -354,7 +354,14 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tableDashboard = document.querySelector('.dashboard tbody');
 
-// write your code here
+people.map((person) => {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  tableDashboard.insertAdjacentHTML(
+    'beforeend',
+    `<tr><th>${person.name}</th><th>${person.sex}</th><th>${person.born}</th><th>${person.died}</th><th>${age}</th><th>${century}</th></tr>`,
+  );
+});
