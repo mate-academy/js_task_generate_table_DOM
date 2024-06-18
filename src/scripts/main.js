@@ -357,38 +357,26 @@ const people = [
 document.addEventListener('DOMContentLoaded', () => {
   const table = document.querySelector('.dashboard');
 
+  const createCell = (content, row) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = content;
+    row.appendChild(cell);
+  };
+
   people.forEach((person) => {
     const row = document.createElement('tr');
 
-    const nameCell = document.createElement('th');
+    const personData = [
+      person.name,
+      person.sex,
+      person.born,
+      person.died,
+      person.died - person.born,
+      Math.ceil(person.died / 100),
+    ];
 
-    nameCell.textContent = person.name;
-    row.appendChild(nameCell);
-
-    const genderCell = document.createElement('th');
-
-    genderCell.textContent = person.sex;
-    row.appendChild(genderCell);
-
-    const bornCell = document.createElement('th');
-
-    bornCell.textContent = person.born;
-    row.appendChild(bornCell);
-
-    const diedCell = document.createElement('th');
-
-    diedCell.textContent = person.died;
-    row.appendChild(diedCell);
-
-    const ageCell = document.createElement('th');
-
-    ageCell.textContent = person.died - person.born;
-    row.appendChild(ageCell);
-
-    const centuryCell = document.createElement('th');
-
-    centuryCell.textContent = Math.ceil(person.died / 100);
-    row.appendChild(centuryCell);
+    personData.forEach((data) => createCell(data, row));
 
     table.appendChild(row);
   });
