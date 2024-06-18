@@ -354,7 +354,65 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboardBody = document.querySelector('table.dashboard tbody');
 
-// write your code here
+if (!dashboardBody) {
+  const newTbody = document.createElement('tbody');
+
+  document.querySelector('table.dashboard').appendChild(newTbody);
+}
+
+const tbody = document.querySelector('table.dashboard tbody');
+
+const peopleData = [...people].map((person) => ({
+  ...person,
+  age: getAge(person),
+  century: getCentury(person),
+}));
+
+peopleData.forEach((person) => {
+  const { sex, born, died, age, century } = person;
+  const gender = sex === 'm' ? 'Male' : 'Female';
+
+  const nameCell = document.createElement('td');
+
+  nameCell.innerText = person.name;
+
+  const sexCell = document.createElement('td');
+
+  sexCell.innerText = gender;
+
+  const bornCell = document.createElement('td');
+
+  bornCell.innerText = born;
+
+  const diedCell = document.createElement('td');
+
+  diedCell.innerText = died;
+
+  const ageCell = document.createElement('td');
+
+  ageCell.innerText = age;
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.innerText = century;
+
+  const peopleRow = document.createElement('tr');
+
+  peopleRow.append(nameCell, sexCell, bornCell, diedCell, ageCell, centuryCell);
+
+  tbody.appendChild(peopleRow);
+});
+
+function getAge(person) {
+  const { died, born } = person;
+
+  return died - born;
+}
+
+function getCentury(person) {
+  const { died } = person;
+
+  return Math.ceil(died / 100);
+}
