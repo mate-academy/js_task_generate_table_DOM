@@ -369,7 +369,7 @@ function createTableRow(person) {
 
   const sexCell = document.createElement('td');
 
-  sexCell.textContent = person.sex === 'm' ? 'm' : 'f';
+  sexCell.textContent = person.sex === 'm' ? 'male' : 'female';
   row.appendChild(sexCell);
 
   const bornCell = document.createElement('td');
@@ -380,6 +380,7 @@ function createTableRow(person) {
   const diedCell = document.createElement('td');
 
   diedCell.textContent = person.died;
+
   row.appendChild(diedCell);
 
   const ageCell = document.createElement('td');
