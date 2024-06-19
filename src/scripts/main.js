@@ -369,7 +369,7 @@ function createTableRow(person) {
 
   const sexCell = document.createElement('td');
 
-  sexCell.textContent = person.sex === 'm' ? 'male' : 'female';
+  sexCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
   row.appendChild(sexCell);
 
   const bornCell = document.createElement('td');
