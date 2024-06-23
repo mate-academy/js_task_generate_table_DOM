@@ -358,24 +358,41 @@ const dashBoard = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const trElem = document.createElement('tr');
-  const tdName = document.createElement('td');
-  const tdGender = document.createElement('td');
-  const tdBorn = document.createElement('td');
-  const tdDied = document.createElement('td');
-  const tdAge = document.createElement('td');
-  const tdCentury = document.createElement('td');
 
   dashBoard.append(trElem);
-  trElem.append(tdName);
-  trElem.append(tdGender);
-  trElem.append(tdBorn);
-  trElem.append(tdDied);
-  trElem.append(tdAge);
-  trElem.append(tdCentury);
-  tdName.textContent = person.name;
-  tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
-  tdBorn.textContent = person.born;
-  tdDied.textContent = person.died;
-  tdAge.textContent = person.died - person.born;
-  tdCentury.textContent = Math.ceil(person.died / 100);
+
+  trElem.insertAdjacentHTML(
+    'beforeend',
+    `<td>${person.name}</td>
+      <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>`,
+  );
 });
+
+// people.forEach((person) => {
+//   const trElem = document.createElement('tr');
+//   const tdName = document.createElement('td');
+//   const tdGender = document.createElement('td');
+//   const tdBorn = document.createElement('td');
+//   const tdDied = document.createElement('td');
+//   const tdAge = document.createElement('td');
+//   const tdCentury = document.createElement('td');
+
+//   dashBoard.append(trElem);
+//   trElem.append(tdName);
+//   trElem.append(tdGender);
+//   trElem.append(tdBorn);
+//   trElem.append(tdDied);
+//   trElem.append(tdAge);
+//   trElem.append(tdCentury);
+//   tdName.textContent = person.name;
+//   tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+//   tdBorn.textContent = person.born;
+//   tdDied.textContent = person.died;
+//   tdAge.textContent = person.died - person.born;
+//   tdCentury.textContent = Math.ceil(person.died / 100);
+// });
+
