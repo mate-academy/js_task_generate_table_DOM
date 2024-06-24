@@ -371,7 +371,7 @@ function getViewedPersons(peopleList) {
 
     transformedPeople.push({
       name,
-      sexInfo: sex === 'm' ? 'male' : 'female',
+      sexInfo: sex === 'm' ? 'Male' : 'Female',
       born,
       died,
       age: died - born,
