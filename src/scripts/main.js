@@ -354,27 +354,35 @@ const people = [
   },
 ];
 
-const table = document.querySelector('tr');
+const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
+  const sex = person.sex === 'm' ? 'Male' : 'Female';
 
-  if (person.sex === 'm') {
-    person.sex = 'Male';
-  } else {
-    person.sex = 'Female';
-  }
+  const row = document.createElement('tr');
 
-  table.insertAdjacentHTML(
-    'afterend',
-    `<tr>
-      <td>${person.name}</td>
-      <td>${person.sex}</td>
-      <td>${person.born}</td>
-      <td>${person.died}</td>
-      <td>${age}</td>
-      <td>${century}</td>
-    </tr>`,
-  );
+  const nameData = document.createElement('td');
+  const sexData = document.createElement('td');
+  const bornData = document.createElement('td');
+  const diedData = document.createElement('td');
+  const ageData = document.createElement('td');
+  const centuryData = document.createElement('td');
+
+  nameData.innerText = person.name;
+  sexData.innerText = sex;
+  bornData.innerText = person.born;
+  diedData.innerText = person.died;
+  ageData.innerText = age;
+  centuryData.innerText = century;
+
+  row.appendChild(nameData);
+  row.appendChild(sexData);
+  row.appendChild(bornData);
+  row.appendChild(diedData);
+  row.appendChild(ageData);
+  row.appendChild(centuryData);
+
+  table.appendChild(row);
 });
