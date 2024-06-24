@@ -404,10 +404,10 @@ const getPersonDataElement = (person, except) => {
 
   for (const prop in person) {
     if (!except.includes(prop)) {
-      const th = document.createElement('th');
+      const td = document.createElement('td');
 
-      th.textContent = person[prop];
-      tr.append(th);
+      td.textContent = person[prop];
+      tr.append(td);
     }
   }
 
