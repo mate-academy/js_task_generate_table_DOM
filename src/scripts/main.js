@@ -354,7 +354,82 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+/**
+ * @function getAge
+ * @param {number} born
+ * @param {number} died
+ * @returns {number}
+ */
+const getAge = (born, died) => {
+  return died - born;
+};
 
-// write your code here
+/**
+ * @function getCentury
+ * @param {number} died;
+ * @returns {number}
+ */
+const getCentury = (died) => {
+  return Math.ceil(died / 100);
+};
+
+/**
+ * @function getPeopleData
+ * @param {object[]} peopleData
+ * @returns {object[]}
+ */
+const getPeopleData = (peopleData) => {
+  return [...peopleData].map((person) => {
+    const age = getAge(person.born, person.died);
+    const century = getCentury(person.died);
+    const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+    return {
+      ...person,
+      age,
+      century,
+      sex: gender,
+    };
+  });
+};
+
+/**
+ * @function getPersonDataElement
+ * @param {object} person;
+ * @param {string[]} except;
+ * @returns {Element}
+ */
+const getPersonDataElement = (person, except) => {
+  const tr = document.createElement('tr');
+
+  for (const prop in person) {
+    if (!except.includes(prop)) {
+      const th = document.createElement('th');
+
+      th.textContent = person[prop];
+      tr.append(th);
+    }
+  }
+
+  return tr;
+};
+
+/**
+ * @function render
+ * @param {string} selctor
+ * @param {string} peopleData
+ * @param {string[]} except
+ * @returns {void}
+ */
+const render = (selctor, peopleData, except) => {
+  const table = document.querySelector(selctor);
+  const exceptFields = [...except];
+
+  getPeopleData(peopleData).forEach((person) => {
+    const newPersonData = getPersonDataElement(person, exceptFields);
+
+    table.append(newPersonData);
+  });
+};
+
+render('.dashboard', people, ['fatherName', 'motherName', 'slug']);
