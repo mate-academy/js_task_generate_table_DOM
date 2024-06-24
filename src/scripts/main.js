@@ -373,7 +373,7 @@ const allPeople = people.map((person) => ({
   century: century(person.died),
 }));
 
-const classDashbord = document.querySelector('.dashboard');
+const classDashbord = document.querySelector('.dashboard tbody');
 
 allPeople.forEach((person) => {
   const row = Object.values(person)
