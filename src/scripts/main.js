@@ -354,7 +354,44 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+function addingContent(textContent, rowToAppend) {
+  const td = document.createElement('td');
+
+  td.textContent = textContent;
+  rowToAppend.appendChild(td);
+}
+
+function getViewedPersons(peopleList) {
+  const transformedPeople = [];
+
+  peopleList.forEach((person) => {
+    // eslint-disable-next-line no-shadow
+    const { name, sex, born, died } = person;
+
+    transformedPeople.push({
+      name,
+      sexInfo: sex === 'm' ? 'Male' : 'Female',
+      born,
+      died,
+      age: died - born,
+      century: Math.ceil(died / 100),
+    });
+  });
+
+  return transformedPeople;
+}
+
+const table = document.querySelector('.dashboard');
+
+const peopleTableList = getViewedPersons(people);
+
+peopleTableList.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  for (const key of Object.keys(person)) {
+    addingContent(person[key], tr);
+  }
+
+  table.appendChild(tr);
+});
