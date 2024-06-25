@@ -356,7 +356,7 @@ const people = [
 
 // eslint-disable-next-line no-console
 
-const dashboard = document.querySelector('.dashboard > tbody');
+const dashboard = document.querySelector('.dashboard');
 
 function addToDashboard(arrayPeople) {
   arrayPeople.forEach((item) => {
@@ -375,7 +375,7 @@ function addToDashboard(arrayPeople) {
       </tr>
     `;
 
-    dashboard.insertAdjacentHTML('beforeend', markup);
+    dashboard.querySelector('tbody').insertAdjacentHTML('beforeend', markup);
   });
 }
 
