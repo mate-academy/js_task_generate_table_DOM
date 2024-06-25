@@ -355,6 +355,46 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const tbody = document.querySelector('tbody');
+
+for (let tr = 0; tr < people.length; tr++) {
+  const newTr = document.createElement('tr');
+
+  const nameTd = document.createElement('td');
+
+  nameTd.textContent = people[tr].name;
+
+  const gendereTd = document.createElement('td');
+
+  if (people[tr].sex === 'm') {
+    people[tr].sex = 'Male';
+  } else if (people[tr].sex === 'f') {
+    people[tr].sex = 'Female';
+  }
+  gendereTd.textContent = people[tr].sex;
+
+  const bornTd = document.createElement('td');
+
+  bornTd.textContent = people[tr].born;
+
+  const diedTd = document.createElement('td');
+
+  diedTd.textContent = people[tr].died;
+
+  const ageTd = document.createElement('td');
+
+  ageTd.textContent = people[tr].died - people[tr].born;
+
+  const centurydTd = document.createElement('td');
+
+  centurydTd.textContent = Math.ceil(people[tr].died / 100);
+
+  newTr.append(nameTd);
+  newTr.append(gendereTd);
+  newTr.append(bornTd);
+  newTr.append(diedTd);
+  newTr.append(ageTd);
+  newTr.append(centurydTd);
+  tbody.append(newTr);
+}
