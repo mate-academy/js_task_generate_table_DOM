@@ -355,40 +355,46 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
+
 const tbody = document.querySelector('tbody');
 
 for (let tr = 0; tr < people.length; tr++) {
   const newTr = document.createElement('tr');
 
-  const nameTh = document.createElement('th');
+  const nameTd = document.createElement('td');
 
-  nameTh.textContent = people[tr].name;
+  nameTd.textContent = people[tr].name;
 
-  const gendereTh = document.createElement('th');
+  const gendereTd = document.createElement('td');
 
-  gendereTh.textContent = people[tr].sex;
+  if (people[tr].sex === 'm') {
+    people[tr].sex = 'Male';
+  } else if (people[tr].sex === 'f') {
+    people[tr].sex = 'Female';
+  }
+  gendereTd.textContent = people[tr].sex;
 
-  const bornTh = document.createElement('th');
+  const bornTd = document.createElement('td');
 
-  bornTh.textContent = people[tr].born;
+  bornTd.textContent = people[tr].born;
 
-  const diedTh = document.createElement('th');
+  const diedTd = document.createElement('td');
 
-  diedTh.textContent = people[tr].died;
+  diedTd.textContent = people[tr].died;
 
-  const ageTh = document.createElement('th');
+  const ageTd = document.createElement('td');
 
-  ageTh.textContent = people[tr].died - people[tr].born;
+  ageTd.textContent = people[tr].died - people[tr].born;
 
-  const centurydTh = document.createElement('th');
+  const centurydTd = document.createElement('td');
 
-  centurydTh.textContent = Math.ceil(people[tr].died / 100);
+  centurydTd.textContent = Math.ceil(people[tr].died / 100);
 
-  newTr.append(nameTh);
-  newTr.append(gendereTh);
-  newTr.append(bornTh);
-  newTr.append(diedTh);
-  newTr.append(ageTh);
-  newTr.append(centurydTh);
+  newTr.append(nameTd);
+  newTr.append(gendereTd);
+  newTr.append(bornTd);
+  newTr.append(diedTd);
+  newTr.append(ageTd);
+  newTr.append(centurydTd);
   tbody.append(newTr);
 }
