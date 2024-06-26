@@ -1,5 +1,7 @@
 'use strict';
 
+// import people from './lib/people.json
+
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +356,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard tbody');
 
-// write your code here
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  ['name', 'sex', 'born', 'died', 'age', 'century'].forEach((key) => {
+    const cell = document.createElement('td');
+
+    if (key === 'age') {
+      cell.textContent = person.died - person.born;
+    } else if (key === 'century') {
+      cell.textContent = Math.ceil(person.died / 100);
+    } else if (key === 'sex') {
+      cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    } else {
+      cell.textContent = person[key] || 'N/A';
+    }
+
+    row.appendChild(cell);
+  });
+
+  table.appendChild(row);
+});
