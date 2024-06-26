@@ -1,5 +1,7 @@
 'use strict';
 
+// import people from './lib/people.json
+
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -355,48 +357,27 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
-const createTableRow = (person) => {
-  const row = document.createElement('tr');
-
-  const nameCell = document.createElement('td');
-
-  nameCell.textContent = person.name;
-  row.appendChild(nameCell);
-
-  const genderCell = document.createElement('td');
-
-  genderCell.textContent = person.gender;
-  row.appendChild(genderCell);
-
-  const bornCell = document.createElement('td');
-
-  bornCell.textContent = person.born;
-  row.appendChild(bornCell);
-
-  const diedCell = document.createElement('td');
-
-  diedCell.textContent = person.died;
-  row.appendChild(diedCell);
-
-  const ageCell = document.createElement('td');
-
-  ageCell.textContent = person.died - person.born;
-  row.appendChild(ageCell);
-
-  const centuryCell = document.createElement('td');
-
-  centuryCell.textContent = Math.ceil(person.died / 100);
-  row.appendChild(centuryCell);
-
-  return row;
-};
 
 const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
-  const row = createTableRow(person);
+  const row = document.createElement('tr');
+
+  ['name', 'gender', 'born', 'died', 'age', 'century'].forEach((key) => {
+    const cell = document.createElement('td');
+
+    if (key === 'age') {
+      cell.textContent = person.died - person.born;
+    } else if (key === 'century') {
+      cell.textContent = Math.ceil(person.died / 100);
+    } else if (key === 'gender') {
+      cell.textContent = person.sex.toUpperCase();
+    } else {
+      cell.textContent = person[key] || 'N/A';
+    }
+
+    row.appendChild(cell);
+  });
 
   table.appendChild(row);
 });
