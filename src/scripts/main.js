@@ -363,14 +363,14 @@ const table = document.querySelector('.dashboard');
 people.forEach((person) => {
   const row = document.createElement('tr');
 
-  ['name', 'gender', 'born', 'died', 'age', 'century'].forEach((key) => {
+  ['name', 'sex', 'born', 'died', 'age', 'century'].forEach((key) => {
     const cell = document.createElement('td');
 
     if (key === 'age') {
       cell.textContent = person.died - person.born;
     } else if (key === 'century') {
       cell.textContent = Math.ceil(person.died / 100);
-    } else if (key === 'gender') {
+    } else if (key === 'sex') {
       cell.textContent = person.sex.toUpperCase();
     } else {
       cell.textContent = person[key] || 'N/A';
