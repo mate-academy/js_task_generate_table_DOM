@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach((person) => {
+  const dashboard = document.getElementsByClassName('dashboard')[0];
 
-// write your code here
+  const newRow = document.createElement('tr');
+
+  dashboard.appendChild(newRow);
+
+  const columnTopics = {
+    name: `${person.name}`,
+    gender: `${person.sex === 'm' ? 'Male' : 'Female'}`,
+    born: `${person.born}`,
+    died: `${person.died}`,
+    age: `${person.died - person.born}`,
+    centry: Math.ceil(person.died / 100),
+  };
+
+  let newColumn = '';
+
+  for (const i in columnTopics) {
+    newColumn = document.createElement('td');
+    newColumn.textContent = columnTopics[i];
+
+    newRow.appendChild(newColumn);
+  }
+});
