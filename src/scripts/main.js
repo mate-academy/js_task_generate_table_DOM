@@ -356,8 +356,6 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-
 const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
