@@ -356,7 +356,7 @@ const people = [
   },
 ];
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard tbody');
 
 people.forEach((person) => {
   const row = document.createElement('tr');
@@ -369,7 +369,7 @@ people.forEach((person) => {
     } else if (key === 'century') {
       cell.textContent = Math.ceil(person.died / 100);
     } else if (key === 'sex') {
-      cell.textContent = person.sex.toUpperCase();
+      cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
     } else {
       cell.textContent = person[key] || 'N/A';
     }
