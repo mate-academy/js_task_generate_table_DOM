@@ -367,20 +367,26 @@ people.forEach((p) => {
     const td = document.createElement('td');
 
     if (key !== 'slug') {
-      if (key === 'fatherName') {
-        td.textContent = p.died - p.born;
-        row.appendChild(td);
-        continue;
-      }
+      switch (key) {
+        case 'sex':
+          td.textContent = p[key] === 'm' ? 'Male' : 'Female';
+          row.appendChild(td);
+          break;
 
-      if (key === 'motherName') {
-        td.textContent = Math.ceil(p.died / 100);
-        row.appendChild(td);
-        continue;
-      }
+        case 'fatherName':
+          td.textContent = p.died - p.born;
+          row.appendChild(td);
+          break;
 
-      td.textContent = p[key];
-      row.appendChild(td);
+        case 'motherName':
+          td.textContent = Math.ceil(p.died / 100);
+          row.appendChild(td);
+          break;
+
+        default:
+          td.textContent = p[key];
+          row.appendChild(td);
+      }
     }
   }
 
