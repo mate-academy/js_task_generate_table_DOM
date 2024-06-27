@@ -354,7 +354,38 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// eslint - disable - next - line no - console
+const table = document.querySelector('table');
 
-// write your code here
+people.forEach((person) => {
+  const { name: personName, sex, born, died } = person;
+
+  const gender = sex === 'm' ? 'Male' : 'Female';
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+
+  const row = document.createElement('tr');
+
+  const ceilName = document.createElement('td');
+  const ceilGender = document.createElement('td');
+  const ceilBorn = document.createElement('td');
+  const ceilDied = document.createElement('td');
+  const ceilAge = document.createElement('td');
+  const ceilCentury = document.createElement('td');
+
+  ceilName.textContent = personName;
+  ceilGender.textContent = gender;
+  ceilBorn.textContent = born;
+  ceilDied.textContent = died;
+  ceilAge.textContent = age;
+  ceilCentury.textContent = century;
+
+  row.insertAdjacentElement('beforeend', ceilName);
+  row.insertAdjacentElement('beforeend', ceilGender);
+  row.insertAdjacentElement('beforeend', ceilBorn);
+  row.insertAdjacentElement('beforeend', ceilDied);
+  row.insertAdjacentElement('beforeend', ceilAge);
+  row.insertAdjacentElement('beforeend', ceilCentury);
+
+  table.insertAdjacentElement('beforeend', row);
+});
