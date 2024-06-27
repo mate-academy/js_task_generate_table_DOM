@@ -357,4 +357,32 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.getElementsByTagName('table')[0];
+const tbody = table.getElementsByTagName('tbody')[0];
+
+people.forEach((p) => {
+  const row = document.createElement('tr');
+
+  for (const key in p) {
+    const td = document.createElement('td');
+
+    if (key !== 'slug') {
+      if (key === 'fatherName') {
+        td.textContent = p.died - p.born;
+        row.appendChild(td);
+        continue;
+      }
+
+      if (key === 'motherName') {
+        td.textContent = Math.ceil(p.died / 100);
+        row.appendChild(td);
+        continue;
+      }
+
+      td.textContent = p[key];
+      row.appendChild(td);
+    }
+  }
+
+  tbody.appendChild(row);
+});
