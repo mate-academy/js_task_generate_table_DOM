@@ -354,10 +354,11 @@ const people = [
   },
 ];
 
+const tableBody = document.querySelector('table.dashboard tbody');
+const tableColumns = document.querySelectorAll('th');
+
 people.forEach((person) => {
-  const table = document.querySelector('table.dashboard');
   const tableRow = document.createElement('tr');
-  const tableColumns = document.querySelectorAll('th');
 
   tableColumns.forEach((column) => {
     const tableCell = document.createElement('td');
@@ -395,5 +396,5 @@ people.forEach((person) => {
     tableRow.append(tableCell);
   });
 
-  table.append(tableRow);
+  tableBody.append(tableRow);
 });
