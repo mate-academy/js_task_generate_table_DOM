@@ -354,7 +354,7 @@ const people = [
   },
 ];
 
-const dashboard = document.querySelector('table.dashboard');
+const dashboard = document.querySelector('tbody');
 
 people.forEach((person) => {
   const tableRow = document.createElement('tr');
