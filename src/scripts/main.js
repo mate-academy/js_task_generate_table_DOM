@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 'use strict';
 
 const people = [
@@ -354,7 +355,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tbody = document.querySelector('.dashboard > tbody');
 
-// write your code here
+people.forEach((person) => {
+  const { name, sex, born, died } = person;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  const tr = document.createElement('tr');
+
+  const createCell = (content) => {
+    const td = document.createElement('td');
+
+    td.textContent = content;
+
+    return td;
+  };
+
+  tr.appendChild(createCell(name));
+  tr.appendChild(createCell(sex === 'm' ? 'Male' : 'Female'));
+  tr.appendChild(createCell(born));
+  tr.appendChild(createCell(died));
+  tr.appendChild(createCell(age));
+  tr.appendChild(createCell(century));
+
+  tbody.appendChild(tr);
+});
