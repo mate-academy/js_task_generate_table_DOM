@@ -360,20 +360,38 @@ console.log(people); // you can remove it
 // write your code here
 
 const dashboard = document.querySelector('.dashboard');
-// const table = document.createElement('table');
 
 people.forEach((person) => {
   const tr = document.createElement('tr');
-  const keys = Object.keys(person);
 
-  keys.forEach((key, inx) => {
-    if (inx <= 3) {
-      const td = document.createElement('td');
+  const fullName = document.createElement('td');
 
-      td.textContent = person[key];
-      tr.append(td);
-    }
-  });
+  fullName.textContent = person.name;
+
+  tr.append(fullName);
+
+  const sex = document.createElement('td');
+
+  if (person.sex === 'm') {
+    sex.textContent = 'Male';
+  }
+
+  if (person.sex === 'f') {
+    sex.textContent = 'Female';
+  }
+  tr.append(sex);
+
+  const born = document.createElement('td');
+
+  born.textContent = person.born;
+
+  tr.append(born);
+
+  const died = document.createElement('td');
+
+  died.textContent = person.died;
+
+  tr.append(died);
 
   const age = document.createElement('td');
 
