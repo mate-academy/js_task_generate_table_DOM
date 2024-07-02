@@ -355,6 +355,27 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
+
+people.forEach((el) => {
+  const newTr = document.createElement('tr');
+
+  const createAndAppendTh = (text) => {
+    const th = document.createElement('th');
+    th.textContent = text;
+
+    newTr.appendChild(th);
+  }
+
+  createAndAppendTh(el.name)
+  createAndAppendTh(el.sex === 'm' ? 'Male' : 'Female')
+  createAndAppendTh(el.born)
+  createAndAppendTh(el.died)
+  createAndAppendTh(el.died - el.born)
+  createAndAppendTh(Math.ceil(el.born / 100))
+
+  dashboard.appendChild(newTr);
+})
+
 
 // write your code here
