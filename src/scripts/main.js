@@ -354,8 +354,6 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-
 document.addEventListener('DOMContentLoaded', () => {
   const dashboard = document.querySelector('.dashboard');
 
