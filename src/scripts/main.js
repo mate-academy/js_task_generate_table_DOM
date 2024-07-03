@@ -354,7 +354,25 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+document.addEventListener('DOMContentLoaded', () => {
+  const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+  for (const person of people) {
+    const columns = [
+      person.name,
+      person.sex === 'm' ? 'Male' : 'Female',
+      person.born,
+      person.died,
+      person.died - person.born,
+      Math.ceil(person.died / 100),
+    ];
+
+    const tr = dashboard.insertRow();
+
+    for (const column of columns) {
+      const td = tr.insertCell();
+
+      td.textContent = column;
+    }
+  }
+});
