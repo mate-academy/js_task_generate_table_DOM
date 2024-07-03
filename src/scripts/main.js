@@ -368,8 +368,9 @@ people.forEach((person) => {
     century: Math.ceil(person.died / 100).toString(),
   };
 
-  for (const [key, val] of Object.entries(data)) {
+  for (const val of Object.values(data)) {
     const tdEl = document.createElement('td');
+
     tdEl.textContent = val;
     row.append(tdEl);
   }
