@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+const fragment = document.createDocumentFragment();
+
+const createCell = (content) => {
+  const td = document.createElement('td');
+
+  td.textContent = content;
+
+  return td;
+};
+
+people.forEach(({ name: personName, sex, born, died }) => {
+  const row = document.createElement('tr');
+
+  row.appendChild(createCell(personName));
+  row.appendChild(createCell(sex === 'm' ? 'Male' : 'Female'));
+  row.appendChild(createCell(born));
+  row.appendChild(createCell(died));
+  row.appendChild(createCell(died - born));
+  row.appendChild(createCell(Math.ceil(died / 100)));
+  fragment.append(row);
+});
+
+table.appendChild(fragment);
