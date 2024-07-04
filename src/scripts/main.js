@@ -357,43 +357,21 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.dashboard');
 
-const table = document.querySelector('.dashboard');
+  people.forEach((person) => {
+    const tableRow = document.createElement('tr');
 
-people.forEach((person) => {
-  const tr = document.createElement('tr');
-  const nameTh = document.createElement('th');
-  const sexTh = document.createElement('th');
-  const bornTh = document.createElement('th');
-  const diedTh = document.createElement('th');
-  const ageTh = document.createElement('th');
-  const centuryTh = document.createElement('th');
+    tableRow.innerHTML = `
+      <td>${person.name}</td>
+      <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
+    `;
 
-  nameTh.textContent = person.name;
-  tr.appendChild(nameTh);
-
-  sexTh.textContent = person.sex;
-
-  if (person.sex === 'm') {
-    sexTh.textContent = 'male';
-  } else {
-    sexTh.textContent = 'female';
-  }
-
-  tr.appendChild(sexTh);
-
-  bornTh.textContent = person.born;
-  tr.appendChild(bornTh);
-
-  diedTh.textContent = person.died;
-  tr.appendChild(diedTh);
-
-  ageTh.textContent = person.died - person.born;
-  tr.appendChild(ageTh);
-
-  centuryTh.textContent = Math.ceil(person.died / 100);
-  tr.appendChild(centuryTh);
-
-  table.appendChild(tr);
+    table.appendChild(tableRow);
+  });
 });
