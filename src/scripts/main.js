@@ -370,9 +370,9 @@ people.forEach(({ name: personName, sex: personSex, born, died }) => {
 
   const transformation = (sex) => {
     if (sex === 'f') {
-      return 'female';
+      return 'Female';
     } else {
-      return 'male';
+      return 'Male';
     }
   };
 
