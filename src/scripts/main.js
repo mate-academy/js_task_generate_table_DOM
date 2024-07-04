@@ -356,17 +356,24 @@ const people = [
 
 // write your code here
 const dashboard = document.querySelector('.dashboard');
-people.forEach(peop => {
+
+const createCell = (content) => {
+  const td = document.createElement('td');
+
+  td.textContent = content;
+
+  return td;
+};
+
+people.forEach(({ name: personName, sex, born, died }) => {
   const row = document.createElement('tr');
 
-  row.innerHTML = `
-   <th>${peop.name}</th>
-   <th>${peop.sex}</th>
-   <th>${peop.born}</th>
-   <th>${peop.died}</th>
-   <th>${peop.died - peop.born}</th>
-   <th>${Math.ceil(peop.died / 100)}</th>
-  `;
+  row.appendChild(createCell(personName));
+  row.appendChild(createCell(sex));
+  row.appendChild(createCell(born));
+  row.appendChild(createCell(died));
+  row.appendChild(createCell(died - born));
+  row.appendChild(createCell(Math.ceil(died / 100)));
 
   dashboard.appendChild(row);
-})
+});
