@@ -354,7 +354,34 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const dashboard = document.querySelector('.dashboard');
+
+const createCell = (content) => {
+  const td = document.createElement('td');
+
+  td.textContent = content;
+
+  return td;
+};
+
+people.forEach(({ name: personName, sex: personSex, born, died }) => {
+  const row = document.createElement('tr');
+
+  const transformation = (sex) => {
+    if (sex === 'f') {
+      return 'Female';
+    } else {
+      return 'Male';
+    }
+  };
+
+  row.appendChild(createCell(personName));
+  row.appendChild(createCell(transformation(personSex)));
+  row.appendChild(createCell(born));
+  row.appendChild(createCell(died));
+  row.appendChild(createCell(died - born));
+  row.appendChild(createCell(Math.ceil(died / 100)));
+
+  dashboard.appendChild(row);
+});
