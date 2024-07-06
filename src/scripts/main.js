@@ -354,7 +354,35 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function createTableRows(peopleArr) {
+  const table = document.querySelector('.dashboard');
+  const headers = Array.from(table.querySelectorAll('th'));
+  const headerNames = headers.map((header) => header.textContent.toLowerCase());
 
-// write your code here
+  peopleArr.forEach((person) => {
+    const row = document.createElement('tr');
+
+    headerNames.forEach((header) => {
+      const cell = document.createElement('td');
+
+      switch (header) {
+        case 'age':
+          cell.textContent = person.died - person.born;
+          break;
+        case 'century':
+          cell.textContent = Math.ceil(person.died / 100);
+          break;
+        case 'gender':
+          cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+          break;
+        default:
+          cell.textContent = person[header];
+      }
+      row.appendChild(cell);
+    });
+
+    table.appendChild(row);
+  });
+}
+
+createTableRows(people);
