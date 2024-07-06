@@ -373,7 +373,7 @@ function createTableRows(peopleArr) {
           cell.textContent = Math.ceil(person.died / 100);
           break;
         case 'gender':
-          cell.textContent = person.sex;
+          cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
           break;
         default:
           cell.textContent = person[header];
