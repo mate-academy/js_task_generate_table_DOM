@@ -369,7 +369,13 @@ for (const person of people) {
   const td5 = document.createElement('td');
 
   td0.textContent = person.name;
-  td1.textContent = person.sex;
+
+  if (person.sex === 'm') {
+    td1.textContent = 'Male';
+  } else {
+    td1.textContent = 'Female';
+  }
+
   td2.textContent = person.born;
   td3.textContent = person.died;
   td4.textContent = person.died - person.born;
