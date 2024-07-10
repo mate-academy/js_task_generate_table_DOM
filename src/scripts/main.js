@@ -369,7 +369,11 @@ people.forEach((person) => {
   nameColumns.forEach((nameColumn) => {
     const newCell = document.createElement('td');
 
-    newCell.textContent = person[nameColumn.textContent.toLowerCase()];
+    if (nameColumn.textContent === 'Gender') {
+      newCell.textContent = person.sex;
+    } else {
+      newCell.textContent = person[nameColumn.textContent.toLowerCase()];
+    }
     newRaw.appendChild(newCell);
   });
   table.appendChild(newRaw);
