@@ -361,6 +361,8 @@ console.log(people); // you can remove it
 
 const table = document.querySelector('table.dashboard');
 
+const tbody = table.querySelector('tbody');
+
 for (const person of people) {
   const tr = document.createElement('tr');
 
@@ -400,5 +402,5 @@ for (const person of people) {
   tdCentury.textContent = Math.ceil(person.died / 100);
   tr.append(tdCentury);
 
-  table.append(tr);
+  tbody.append(tr);
 }
