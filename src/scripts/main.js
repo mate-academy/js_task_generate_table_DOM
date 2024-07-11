@@ -370,7 +370,7 @@ people.forEach((person) => {
     const newCell = document.createElement('td');
 
     if (nameColumn.textContent === 'Gender') {
-      newCell.textContent = person.sex;
+      newCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
     } else {
       newCell.textContent = person[nameColumn.textContent.toLowerCase()];
     }
