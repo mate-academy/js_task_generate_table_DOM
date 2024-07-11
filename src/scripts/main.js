@@ -375,8 +375,19 @@ people.forEach((person) => {
   info.age = info.died - info.born;
   info.century = Math.ceil(info.died / 100);
 
+  const genderMap = {
+    m: 'Male',
+    f: 'Female',
+  };
+
   for (const key in info) {
     const newTd = document.createElement('td');
+
+    const value = info[key];
+
+    if (key === 'sex') {
+      info[key] = genderMap[value] || value;
+    }
 
     newTr.append(newTd);
 
