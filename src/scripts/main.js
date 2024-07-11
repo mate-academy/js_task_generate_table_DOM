@@ -355,6 +355,26 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('table');
+const nameColumns = document.querySelectorAll('th');
+
+people.forEach((person) => {
+  const newRaw = document.createElement('tr');
+
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
+
+  nameColumns.forEach((nameColumn) => {
+    const newCell = document.createElement('td');
+
+    if (nameColumn.textContent === 'Gender') {
+      newCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    } else {
+      newCell.textContent = person[nameColumn.textContent.toLowerCase()];
+    }
+    newRaw.appendChild(newCell);
+  });
+  table.appendChild(newRaw);
+});
