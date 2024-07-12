@@ -390,6 +390,3 @@ people.forEach((person) => {
 
   table.appendChild(tr);
 });
-
-// eslint-disable-next-line no-console
-console.log('done');
