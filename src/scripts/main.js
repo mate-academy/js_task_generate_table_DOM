@@ -354,7 +354,52 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function checkSex(sex) {
+  let gender = '';
 
-// write your code here
+  if (sex === 'm') {
+    gender = 'Male';
+  } else {
+    gender = 'Female';
+  }
+
+  return gender;
+}
+
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  const nameTd = document.createElement('td');
+
+  nameTd.textContent = person.name;
+  tr.append(nameTd);
+
+  const sexTd = document.createElement('td');
+
+  sexTd.textContent = checkSex(person.sex);
+  tr.append(sexTd);
+
+  const bornTd = document.createElement('td');
+
+  bornTd.textContent = person.born;
+  tr.append(bornTd);
+
+  const diedTd = document.createElement('td');
+
+  diedTd.textContent = person.died;
+  tr.append(diedTd);
+
+  const ageTd = document.createElement('td');
+
+  ageTd.textContent = person.died - person.born;
+  tr.append(ageTd);
+
+  const centuryTd = document.createElement('td');
+
+  centuryTd.textContent = Math.ceil(person.died / 100);
+  tr.append(centuryTd);
+
+  table.append(tr);
+});
