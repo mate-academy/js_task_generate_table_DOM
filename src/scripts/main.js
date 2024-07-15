@@ -357,6 +357,10 @@ const people = [
 // write your code here
 
 const table = document.querySelector('.dashboard');
+const genderMap = {
+  m: 'Male',
+  f: 'Female',
+};
 
 people.forEach((person) => {
   const newTr = document.createElement('tr');
@@ -375,18 +379,13 @@ people.forEach((person) => {
   info.age = info.died - info.born;
   info.century = Math.ceil(info.died / 100);
 
-  const genderMap = {
-    m: 'Male',
-    f: 'Female',
-  };
-
   for (const key in info) {
     const newTd = document.createElement('td');
 
     const value = info[key];
 
     if (key === 'sex') {
-      info[key] = genderMap[value] || value;
+      info[key] = genderMap[value];
     }
 
     newTr.append(newTd);
