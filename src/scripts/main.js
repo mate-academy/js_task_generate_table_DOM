@@ -362,7 +362,7 @@ const createTableRows = (arr) => {
 
     const data = [
       person.name,
-      person.sex,
+      person.sex === 'm' ? 'Male' : 'Female',
       person.born,
       person.died,
       (person.age = person.died - person.born),
@@ -371,6 +371,7 @@ const createTableRows = (arr) => {
 
     data.forEach((item) => {
       const cell = document.createElement('td');
+
       cell.textContent = item;
       row.appendChild(cell);
     });
