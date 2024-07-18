@@ -360,7 +360,7 @@ people.forEach((person) => {
 
   const human = {
     name: person.name,
-    gender: person.sex,
+    gender: person.sex === 'm' ? 'male' : 'female',
     born: person.born,
     died: person.died,
     age: person.died - person.born,
