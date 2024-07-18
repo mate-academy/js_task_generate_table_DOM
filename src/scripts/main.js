@@ -353,8 +353,30 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const tableBody = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+  const nameCell = document.createElement('td');
+  const genderCell = document.createElement('td');
+  const bornCell = document.createElement('td');
+  const diedCell = document.createElement('td');
+  const ageCell = document.createElement('td');
+  const centuryCell = document.createElement('td');
 
-// write your code here
+  nameCell.textContent = person.name;
+  genderCell.textContent = person.sex === 'm' ? 'male' : 'female'
+  bornCell.textContent = person.born;
+  diedCell.textContent = person.died;
+  ageCell.textContent = person.died - person.born;
+  centuryCell.textContent = Math.ceil(person.died / 100);
+
+  tr.appendChild(nameCell);
+  tr.appendChild(genderCell);
+  tr.appendChild(bornCell);
+  tr.appendChild(diedCell);
+  tr.appendChild(ageCell);
+  tr.appendChild(centuryCell);
+
+  tableBody.appendChild(tr);
+});
