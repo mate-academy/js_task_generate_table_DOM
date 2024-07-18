@@ -354,9 +354,6 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 people.forEach((person) => {
   const dashboard = document.querySelector('.dashboard');
   const row = document.createElement('tr');
@@ -366,21 +363,16 @@ people.forEach((person) => {
     gender: person.sex,
     born: person.born,
     died: person.died,
-    age: Math.ceil(person.died / 100),
-    century: Math.ceil(person.died / 100) * 100,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
   };
 
-  for (const option in human) {
-    const ceil = document.createElement('tb');
+  for (const key in human) {
+    const cell = document.createElement('td');
 
-    ceil.innerText = option;
-    row.appendChild(ceil);
+    cell.textContent = human[key];
+    row.appendChild(cell);
   }
-  // const name = person.name;
-  // const gender = person.sex;
-  // const born = person.born;
-  // const died = person.died;
-  // const age = Math.ceil(person.died / 100)
-  // const century = Math.ceil(person.died / 100) * 100;
+
   dashboard.appendChild(row);
 });
