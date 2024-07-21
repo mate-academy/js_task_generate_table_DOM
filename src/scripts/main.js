@@ -359,17 +359,17 @@ console.log(people); // you can remove it
 
 function createTableRow(person) {
   const age = person.died - person.born;
-  const century = Math.floor(person.died / 100);
+  const century = Math.ceil(person.died / 100);
 
   const row = document.createElement('tr');
 
   row.innerHTML = `
-  <th>${person.name}</th>
-  <th>${person.sex}</th>
-  <th>${person.born}</th>
-  <th>${person.died}</th>
-  <th>${age}</th>
-  <th>${century}</th>
+  <td>${person.name}</td>
+  <td>${person.sex === 'm' ? 'male' : 'female'}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${age}</td>
+  <td>${century}</td>
   `;
 
   return row;
