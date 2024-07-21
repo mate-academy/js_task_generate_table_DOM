@@ -354,14 +354,16 @@ const people = [
   },
 ];
 
-people.forEach(({ name: fulName, sex, born, died }) => {
+people.forEach(({ name: fullName, sex, born, died }) => {
   const table = document.querySelector('.dashboard');
   const tr = table.insertRow();
 
-  const gender = sex === 'm' ? 'Male' : 'Famale';
+  //   tr.textContent = fulName;
+
+  const gender = sex === 'm' ? 'Male' : 'Female';
   const age = died - born;
   const century = Math.ceil(died / 100);
-  const data = [fulName, gender, born, died, age, century];
+  const data = [fullName, gender, born, died, age, century];
 
   data.forEach((el) => {
     const td = tr.insertCell();
