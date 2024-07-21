@@ -364,7 +364,6 @@ function fillTable() {
     const age = person.died - person.born;
     const century = Math.ceil(person.died / 100);
     const personName = person.name;
-    const personSex = person.sex;
     const personBorn = person.born;
     const personDied = person.died;
 
@@ -385,7 +384,12 @@ function fillTable() {
     row.appendChild(centuryCell);
 
     nameCell.textContent = personName;
-    sexCell.textContent = personSex;
+
+    if (person.sex === 'f') {
+      sexCell.textContent = 'Female';
+    } else {
+      sexCell.textContent = 'Male';
+    }
     bornCell.textContent = personBorn;
     diedCell.textContent = personDied;
     ageCell.textContent = age;
