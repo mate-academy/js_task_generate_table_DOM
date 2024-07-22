@@ -361,9 +361,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const table = document.querySelector('.dashboard');
 
   const genderMap = {
-    'm': 'Male',
-    'f': 'Female',
-  }
+    m: 'Male',
+    f: 'Female',
+  };
 
   people.forEach((person) => {
     const tr = document.createElement('tr');
@@ -374,6 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tr.appendChild(nameCell);
 
     const genderCell = document.createElement('td');
+
     genderCell.textContent = genderMap[person.sex];
     tr.appendChild(genderCell);
 
