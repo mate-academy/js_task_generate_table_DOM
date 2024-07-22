@@ -354,7 +354,32 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function addAgeCenturi(array) {
+  array.map((person) => {
+    const calcAge = person.died - person.born;
+    const calcCenturi = Math.ceil(person.died / 100);
 
-// write your code here
+    person.age = calcAge;
+    person.century = calcCenturi;
+  });
+}
+addAgeCenturi(people);
+
+const tbl = document.querySelector('.dashboard');
+
+for (let i = 1; i < people.length; i++) {
+  const row = document.createElement('tr');
+  const keys = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+  for (let j = 0; j < 6; j++) {
+    const human = people[i];
+    const innerText = human[keys[j]];
+    const cell = document.createElement('td');
+    const cellText = document.createTextNode(innerText);
+
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+  }
+
+  tbl.appendChild(row);
+}
