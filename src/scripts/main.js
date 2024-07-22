@@ -360,6 +360,11 @@ console.log(people); // you can remove it
 document.addEventListener('DOMContentLoaded', () => {
   const table = document.querySelector('.dashboard');
 
+  const genderMap = {
+    'm': 'Male',
+    'f': 'Female',
+  }
+
   people.forEach((person) => {
     const tr = document.createElement('tr');
 
@@ -369,8 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tr.appendChild(nameCell);
 
     const genderCell = document.createElement('td');
-
-    genderCell.textContent = person.sex;
+    genderCell.textContent = genderMap[person.sex];
     tr.appendChild(genderCell);
 
     const bornCell = document.createElement('td');
