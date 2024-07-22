@@ -354,7 +354,42 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.dashboard');
 
-// write your code here
+  // eslint-disable-next-line no-shadow
+  people.forEach(({ name, sex, born, died }) => {
+    const row = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+    const genderCell = document.createElement('td');
+    const bornCell = document.createElement('td');
+    const diedCell = document.createElement('td');
+    const ageCell = document.createElement('td');
+    const centuryCell = document.createElement('td');
+
+    nameCell.textContent = name;
+    genderCell.textContent = sex === 'm' ? 'Male' : 'Female';
+    bornCell.textContent = born;
+    diedCell.textContent = died;
+    ageCell.textContent = calculateAge(born, died);
+    centuryCell.textContent = calculateCentury(died);
+
+    row.appendChild(nameCell);
+    row.appendChild(genderCell);
+    row.appendChild(bornCell);
+    row.appendChild(diedCell);
+    row.appendChild(ageCell);
+    row.appendChild(centuryCell);
+
+    table.appendChild(row);
+  });
+
+  function calculateAge(born, died) {
+    return died - born;
+  }
+
+  function calculateCentury(died) {
+    return Math.ceil(died / 100);
+  }
+});
