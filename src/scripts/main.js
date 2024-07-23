@@ -359,32 +359,32 @@ const dashboard = document.querySelector('tbody');
 for (let i = 0; i < people.length; i++) {
   const tr = document.createElement('tr');
 
-  const personName = document.createElement('th');
+  const personName = document.createElement('td');
 
   personName.textContent = people[i].name;
   tr.appendChild(personName);
 
-  const personGender = document.createElement('th');
+  const personGender = document.createElement('td');
 
   personGender.textContent = people[i].sex === 'm' ? 'Male' : 'Female';
   tr.appendChild(personGender);
 
-  const personBorn = document.createElement('th');
+  const personBorn = document.createElement('td');
 
   personBorn.textContent = people[i].born;
   tr.appendChild(personBorn);
 
-  const personDied = document.createElement('th');
+  const personDied = document.createElement('td');
 
   personDied.textContent = people[i].died;
   tr.appendChild(personDied);
 
-  const personAge = document.createElement('th');
+  const personAge = document.createElement('td');
 
   personAge.textContent = people[i].died - people[i].born;
   tr.appendChild(personAge);
 
-  const personCentury = document.createElement('th');
+  const personCentury = document.createElement('td');
 
   personCentury.textContent = Math.ceil(people[i].died / 100);
   tr.appendChild(personCentury);
