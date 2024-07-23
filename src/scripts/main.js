@@ -358,37 +358,39 @@ const people = [
 const table = document.querySelector('.dashboard');
 
 const TableCell = (text) => {
-  const tableCell = document.createElement('th');
+  const tableCell = document.createElement('td');
+
   tableCell.textContent = text;
 
   return tableCell;
-}
+};
 
 const TableRow = () => {
   const tableRow = document.createElement('tr');
 
   return tableRow;
-}
+};
 
 const createTableItems = () => {
   for (const person of people) {
     const tableRow = TableRow();
+    const personGender = person.sex === 'm' ? 'Male' : 'Female';
 
     tableRow.append(
       TableCell(person.name),
-      TableCell(person.sex),
+      TableCell(personGender),
       TableCell(person.born),
       TableCell(person.died),
       TableCell(person.died - person.born),
       TableCell(Math.ceil(person.died / 100)),
-    )
+    );
 
     table.append(tableRow);
   }
-}
+};
 
 const App = () => {
   createTableItems();
-}
+};
 
 App();
