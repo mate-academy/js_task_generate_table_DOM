@@ -355,22 +355,15 @@ const people = [
 ];
 
 function addAgeCenturi(array) {
-  array.map((person) => {
+  array.forEach((person) => {
     const calcAge = person.died - person.born;
     const calcCenturi = Math.ceil(person.died / 100);
     const MALE = 'm';
-    const FEMALE = 'f';
 
     person.age = calcAge;
     person.century = calcCenturi;
 
-    if (person.sex === MALE) {
-      person.sex = 'Male';
-    }
-
-    if (person.sex === FEMALE) {
-      person.sex = 'Female';
-    }
+    person.sex = person.sex === MALE ? 'Male' : 'Female';
   });
 }
 addAgeCenturi(people);
