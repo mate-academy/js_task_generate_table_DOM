@@ -376,7 +376,8 @@ function getTableRow(person) {
   return createdPerson;
 }
 
-const dashboard = [...document.getElementsByClassName('dashboard')][0];
+// const dashboard = [...document.getElementsByClassName('dashboard')][0];
+const dashboard = document.body.querySelector('table');
 
 people.forEach((item) => {
   const dashboardRow = document.createElement('tr');
