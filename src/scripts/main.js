@@ -370,7 +370,7 @@ addAgeCenturi(people);
 
 const tbl = document.querySelector('.dashboard');
 
-for (let i = 1; i < people.length; i++) {
+for (let i = 0; i < people.length; i++) {
   const row = document.createElement('tr');
   const keys = ['name', 'sex', 'born', 'died', 'age', 'century'];
 
