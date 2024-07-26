@@ -354,7 +354,27 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.getElementsByClassName('dashboard')[0];
 
-// write your code here
+people.forEach((el) => {
+  const row = document.createElement('tr');
+
+  const dataPerson = {
+    name: el.name,
+    sex: el.sex,
+    born: el.born,
+    died: el.died,
+    age: el.died - el.born,
+    century: Math.ceil(el.died / 100),
+  };
+
+  for (const key in dataPerson) {
+    const rowItem = document.createElement('td');
+
+    rowItem.innerHTML = dataPerson[key];
+
+    row.append(rowItem);
+  }
+
+  table.append(row);
+});
