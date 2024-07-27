@@ -353,8 +353,57 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const usersWithAge = people.map((user) => ({
+  name: user.name,
+  sex: user.sex,
+  born: user.born,
+  died: user.died,
+  fatherName: user.fatherName,
+  motherName: user.motherName,
+  slug: user.slug,
+  age: user.died - user.born,
+  century: Math.ceil(user.died / 100),
+}));
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function editTable(user) {
+  const table = document.querySelector('.dashboard');
 
-// write your code here
+  user.forEach((user) => {
+    const row = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+
+    nameCell.textContent = user.name;
+    row.appendChild(nameCell);
+
+    const sexCell = document.createElement('td');
+
+    sexCell.textContent = user.sex;
+    row.appendChild(sexCell);
+
+    const bornCell = document.createElement('td');
+
+    bornCell.textContent = user.born;
+    row.appendChild(bornCell);
+
+    const diedCell = document.createElement('td');
+
+    diedCell.textContent = user.died;
+    row.appendChild(diedCell);
+    diedCell;
+
+    const ageCell = document.createElement('td');
+
+    ageCell.textContent = user.age;
+    row.appendChild(ageCell);
+
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = user.century;
+    row.appendChild(centuryCell);
+
+    table.appendChild(row);
+  });
+}
+
+editTable(usersWithAge);
