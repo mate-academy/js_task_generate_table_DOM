@@ -354,7 +354,43 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.getElementsByClassName('dashboard');
+const fragment = document.createDocumentFragment();
 
-// write your code here
+people.forEach((x) => {
+  const row = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+
+  nameCell.innerText = x.name;
+  row.appendChild(nameCell);
+
+  const genderCell = document.createElement('td');
+
+  genderCell.innerText = x.sex;
+  row.appendChild(genderCell);
+
+  const bornCell = document.createElement('td');
+
+  bornCell.innerText = x.born;
+  row.appendChild(bornCell);
+
+  const diedCell = document.createElement('td');
+
+  diedCell.innerText = x.died;
+  row.appendChild(diedCell);
+
+  const ageCell = document.createElement('td');
+
+  ageCell.innerText = x.died - x.born;
+  row.appendChild(ageCell);
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.innerText = Math.ceil(x.died / 100);
+  row.appendChild(centuryCell);
+
+  fragment.appendChild(row);
+});
+
+table[0].appendChild(fragment);
