@@ -353,53 +353,52 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
-const usersWithAge = people.map((user) => ({
-  name: user.name,
-  sex: user.sex,
-  born: user.born,
-  died: user.died,
-  fatherName: user.fatherName,
-  motherName: user.motherName,
-  slug: user.slug,
-  age: user.died - user.born,
-  century: Math.ceil(user.died / 100),
+const usersWithAge = people.map((el) => ({
+  name: el.name,
+  sex: el.sex,
+  born: el.born,
+  died: el.died,
+  fatherName: el.fatherName,
+  motherName: el.motherName,
+  slug: el.slug,
+  age: el.died - el.born,
+  century: Math.ceil(el.died / 100),
 }));
 
-function editTable(user) {
+function editTable(data) {
   const table = document.querySelector('.dashboard');
 
-  user.forEach((user) => {
+  data.forEach((e) => {
     const row = document.createElement('tr');
 
     const nameCell = document.createElement('td');
 
-    nameCell.textContent = user.name;
+    nameCell.textContent = e.name;
     row.appendChild(nameCell);
 
     const sexCell = document.createElement('td');
 
-    sexCell.textContent = user.sex;
+    sexCell.textContent = e.sex;
     row.appendChild(sexCell);
 
     const bornCell = document.createElement('td');
 
-    bornCell.textContent = user.born;
+    bornCell.textContent = e.born;
     row.appendChild(bornCell);
 
     const diedCell = document.createElement('td');
 
-    diedCell.textContent = user.died;
+    diedCell.textContent = e.died;
     row.appendChild(diedCell);
-    diedCell;
 
     const ageCell = document.createElement('td');
 
-    ageCell.textContent = user.age;
+    ageCell.textContent = e.age;
     row.appendChild(ageCell);
 
     const centuryCell = document.createElement('td');
 
-    centuryCell.textContent = user.century;
+    centuryCell.textContent = e.century;
     row.appendChild(centuryCell);
 
     table.appendChild(row);
