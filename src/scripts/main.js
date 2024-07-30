@@ -370,12 +370,12 @@ const table = document.querySelector('.dashboard');
 people.forEach((person) => {
   const row = document.createElement('tr');
 
-  const nameCell = document.createElement('th');
+  const nameCell = document.createElement('td');
 
   nameCell.textContent = person.name;
   row.appendChild(nameCell);
 
-  const genderCell = document.createElement('th');
+  const genderCell = document.createElement('td');
 
   if (person.sex === 'm') {
     genderCell.textContent = 'Male';
@@ -384,22 +384,22 @@ people.forEach((person) => {
   }
   row.appendChild(genderCell);
 
-  const bornCell = document.createElement('th');
+  const bornCell = document.createElement('td');
 
   bornCell.textContent = person.born;
   row.appendChild(bornCell);
 
-  const diedCell = document.createElement('th');
+  const diedCell = document.createElement('td');
 
   diedCell.textContent = person.died;
   row.appendChild(diedCell);
 
-  const ageCell = document.createElement('th');
+  const ageCell = document.createElement('td');
 
   ageCell.textContent = calculateAge(person.born, person.died);
   row.appendChild(ageCell);
 
-  const centuryCell = document.createElement('th');
+  const centuryCell = document.createElement('td');
 
   centuryCell.textContent = calculateCentury(person.died);
   row.appendChild(centuryCell);
