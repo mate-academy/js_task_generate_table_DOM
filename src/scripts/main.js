@@ -378,7 +378,11 @@ function editTable(data) {
 
     const sexCell = document.createElement('td');
 
-    sexCell.textContent = e.sex;
+    if (e.sex === 'f') {
+      sexCell.textContent = 'Female';
+    } else {
+      sexCell.textContent = 'Male';
+    }
     row.appendChild(sexCell);
 
     const bornCell = document.createElement('td');
