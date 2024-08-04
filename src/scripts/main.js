@@ -354,7 +354,32 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function makeList(array) {
+  const table = document.querySelector('.dashboard');
 
-// write your code here
+  array.forEach((person) => {
+    const row = document.createElement('tr');
+    const nameData = document.createElement('td');
+    nameData.textContent = person.name;
+    const gender = document.createElement('td');
+    gender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    const bornData = document.createElement('td');
+    bornData.textContent = person.born;
+    const diedData = document.createElement('td');
+    diedData.textContent = person.died;
+    const ageData = document.createElement('td');
+    ageData.textContent = person.died - person.born;
+    const century = document.createElement('td');
+    century.textContent = Math.ceil(person.died / 100);
+
+    row.appendChild(nameData);
+    row.appendChild(gender);
+    row.appendChild(bornData);
+    row.appendChild(diedData);
+    row.appendChild(ageData);
+    row.appendChild(century);
+    table.appendChild(row);
+  });
+}
+
+makeList(people);
