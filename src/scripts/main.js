@@ -354,58 +354,32 @@ const people = [
   },
 ];
 
-// Функція для створення таблиці з інформацією про людей
 function makeList(array) {
-  // Знаходимо таблицю з класом 'dashboard'
   const table = document.querySelector('.dashboard');
 
-  // Перебираємо кожну людину в масиві
   array.forEach((person) => {
-    // Створюємо новий рядок таблиці
     const row = document.createElement('tr');
-
-    // Створюємо і заповнюємо клітинку для імені
     const nameData = document.createElement('td');
-
     nameData.textContent = person.name;
-
-    // Створюємо і заповнюємо клітинку для статі
     const gender = document.createElement('td');
-
     gender.textContent = person.sex === 'm' ? 'Male' : 'Female';
-
-    // Створюємо і заповнюємо клітинку для року народження
     const bornData = document.createElement('td');
-
     bornData.textContent = person.born;
-
-    // Створюємо і заповнюємо клітинку для року смерті
     const diedData = document.createElement('td');
-
     diedData.textContent = person.died;
-
-    // Створюємо і заповнюємо клітинку для віку
     const ageData = document.createElement('td');
-
     ageData.textContent = person.died - person.born;
-
-    // Створюємо і заповнюємо клітинку для століття
     const century = document.createElement('td');
-
     century.textContent = Math.ceil(person.died / 100);
 
-    // Додаємо всі клітинки до рядка таблиці
     row.appendChild(nameData);
     row.appendChild(gender);
     row.appendChild(bornData);
     row.appendChild(diedData);
     row.appendChild(ageData);
     row.appendChild(century);
-
-    // Додаємо рядок до таблиці
     table.appendChild(row);
   });
 }
 
-// Викликаємо функцію для створення таблиці, передаючи масив людей
 makeList(people);
