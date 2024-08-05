@@ -361,14 +361,16 @@ people.forEach((person) => {
   const tr = document.createElement('tr');
 
   tablePropetires.forEach((prop) => {
-    const element = document.createElement('th');
+    const element = document.createElement('td');
 
-    if (prop !== 'age' && prop !== 'century') {
+    if (prop !== 'age' && prop !== 'century' && prop !== 'sex') {
       element.innerText = person[prop];
     } else if (prop === 'age') {
       element.innerText = person.died - person.born;
     } else if (prop === 'century') {
       element.innerText = Math.ceil(person.died / 100);
+    } else if (prop === 'sex') {
+      element.innerText = person[prop] === 'm' ? 'Male' : 'Female';
     }
 
     tr.appendChild(element);
