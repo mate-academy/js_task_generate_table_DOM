@@ -354,7 +354,25 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table');
+const tablePropetires = ['name', 'sex', 'born', 'died', 'age', 'century'];
 
-// write your code here
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  tablePropetires.forEach((prop) => {
+    const element = document.createElement('th');
+
+    if (prop !== 'age' && prop !== 'century') {
+      element.innerText = person[prop];
+    } else if (prop === 'age') {
+      element.innerText = person.died - person.born;
+    } else if (prop === 'century') {
+      element.innerText = Math.ceil(person.died / 100);
+    }
+
+    tr.appendChild(element);
+  });
+
+  table.appendChild(tr);
+});
