@@ -372,7 +372,7 @@ people.forEach((e) => {
   bornData.textContent = e.born;
   diedData.textContent = e.died;
   ageData.textContent = e.died - e.born;
-  centData.textContent = Math.ceil(e.born / 100);
+  centData.textContent = Math.ceil(e.died / 100);
 
   newRow.append(nameData, sexData, bornData, diedData, ageData, centData);
   tbodyElement.append(newRow);
