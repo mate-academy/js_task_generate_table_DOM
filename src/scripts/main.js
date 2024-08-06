@@ -369,7 +369,7 @@ people.forEach((person) => {
 
   row.append(
     CreateCell(person.name),
-    CreateCell(person.sex),
+    CreateCell(person.sex ==='m' ? 'Male' : 'Female'),
     CreateCell(person.born),
     CreateCell(person.died),
     CreateCell(person.died - person.born),
