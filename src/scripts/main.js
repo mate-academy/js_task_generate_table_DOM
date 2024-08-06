@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboardElement = document.getElementsByClassName('dashboard')[0];
+const tbodyElement = dashboardElement.children[0];
 
-// write your code here
+people.forEach((e) => {
+  const newRow = document.createElement('tr');
+
+  const nameData = document.createElement('td');
+  const sexData = document.createElement('td');
+  const bornData = document.createElement('td');
+  const diedData = document.createElement('td');
+  const ageData = document.createElement('td');
+  const centData = document.createElement('td');
+
+  nameData.textContent = e.name;
+  sexData.textContent = e.sex === 'm' ? 'Male' : 'Female';
+  bornData.textContent = e.born;
+  diedData.textContent = e.died;
+  ageData.textContent = e.died - e.born;
+  centData.textContent = Math.ceil(e.died / 100);
+
+  newRow.append(nameData, sexData, bornData, diedData, ageData, centData);
+  tbodyElement.append(newRow);
+});
