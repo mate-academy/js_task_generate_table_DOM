@@ -356,7 +356,7 @@ const people = [
 
 // eslint-disable-next-line no-console
 
-const tableBody = document.querySelector('.dashboard');
+const tableBody = document.querySelector('tbody');
 
 const createCell = (content) => {
   const cell = document.createElement('td');
