@@ -318,7 +318,7 @@ const people = [
   },
   {
     name: 'Jan Haverbeke',
-    sex: 'm',
+    sex: 'Male',
     born: 1671,
     died: 1731,
     fatherName: 'Lieven Haverbeke',
@@ -370,9 +370,10 @@ for (const person of people) {
   const tableRow = document.createElement('tr');
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
+  const sex = person.sex === 'm' ? 'Male' : 'Female';
 
   tableRow.appendChild(createCell(person.name));
-  tableRow.appendChild(createCell(person.sex));
+  tableRow.appendChild(createCell(sex));
   tableRow.appendChild(createCell(person.born));
   tableRow.appendChild(createCell(person.died));
   tableRow.appendChild(createCell(age));
