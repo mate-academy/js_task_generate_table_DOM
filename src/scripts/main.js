@@ -357,4 +357,41 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+function getGender(gender) {
+  if (gender === 'm') {
+    return 'Male';
+  }
+
+  if (gender === 'f') {
+    return 'Female';
+  }
+}
+
+const table = document.querySelector('.dashboard');
+
+for (let i = 0; i < people.length; i++) {
+  const item = document.createElement('tr');
+
+  table.append(item);
+
+  const cell1 = document.createElement('th');
+  const cell2 = document.createElement('th');
+  const cell3 = document.createElement('th');
+  const cell4 = document.createElement('th');
+  const cell5 = document.createElement('th');
+  const cell6 = document.createElement('th');
+
+  item.append(cell1);
+  item.append(cell2);
+  item.append(cell3);
+  item.append(cell4);
+  item.append(cell5);
+  item.append(cell6);
+
+  cell1.textContent = `${people[i].name}`;
+  cell2.textContent = `${getGender(people[i].sex)}`;
+  cell3.textContent = `${people[i].born}`;
+  cell4.textContent = `${people[i].died}`;
+  cell5.textContent = `${people[i].died - people[i].born}`;
+  cell6.textContent = `${Math.ceil(people[i].died / 100)}`;
+}
