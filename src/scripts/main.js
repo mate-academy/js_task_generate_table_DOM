@@ -357,16 +357,6 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-function getGender(gender) {
-  if (gender === 'm') {
-    return 'Male';
-  }
-
-  if (gender === 'f') {
-    return 'Female';
-  }
-}
-
 const table = document.querySelector('tbody');
 
 for (let i = 0; i < people.length; i++) {
@@ -389,7 +379,7 @@ for (let i = 0; i < people.length; i++) {
   item.append(cellCentury);
 
   cellName.textContent = `${people[i].name}`;
-  cellGender.textContent = `${getGender(people[i].sex)}`;
+  cellGender.textContent = `${people[i].sex === 'm' ? 'Male' : 'Female'}`;
   cellBorn.textContent = `${people[i].born}`;
   cellDied.textContent = `${people[i].died}`;
   cellAge.textContent = `${people[i].died - people[i].born}`;
