@@ -374,24 +374,24 @@ for (let i = 0; i < people.length; i++) {
 
   table.append(item);
 
-  const cell2 = document.createElement('td');
-  const cell1 = document.createElement('td');
-  const cell3 = document.createElement('td');
-  const cell4 = document.createElement('td');
-  const cell5 = document.createElement('td');
-  const cell6 = document.createElement('td');
+  const cellName1 = document.createElement('td');
+  const cellName2 = document.createElement('td');
+  const cellName3 = document.createElement('td');
+  const cellName4 = document.createElement('td');
+  const cellName5 = document.createElement('td');
+  const cellName6 = document.createElement('td');
 
-  item.append(cell1);
-  item.append(cell2);
-  item.append(cell3);
-  item.append(cell4);
-  item.append(cell5);
-  item.append(cell6);
+  item.append(cellName1);
+  item.append(cellName2);
+  item.append(cellName3);
+  item.append(cellName4);
+  item.append(cellName5);
+  item.append(cellName6);
 
-  cell1.textContent = `${people[i].name}`;
-  cell2.textContent = `${getGender(people[i].sex)}`;
-  cell3.textContent = `${people[i].born}`;
-  cell4.textContent = `${people[i].died}`;
-  cell5.textContent = `${people[i].died - people[i].born}`;
-  cell6.textContent = `${Math.ceil(people[i].died / 100)}`;
+  cellName1.textContent = `${people[i].name}`;
+  cellName2.textContent = `${getGender(people[i].sex)}`;
+  cellName3.textContent = `${people[i].born}`;
+  cellName4.textContent = `${people[i].died}`;
+  cellName5.textContent = `${people[i].died - people[i].born}`;
+  cellName6.textContent = `${Math.ceil(people[i].died / 100)}`;
 }
