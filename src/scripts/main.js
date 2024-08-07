@@ -355,7 +355,7 @@ const people = [
 ];
 
 function CreateCell(content) {
-  const cell = document.createElement('th');
+  const cell = document.createElement('td');
 
   cell.textContent = content;
 
@@ -369,7 +369,7 @@ people.forEach((person) => {
 
   row.append(
     CreateCell(person.name),
-    CreateCell(person.sex ==='m' ? 'Male' : 'Female'),
+    CreateCell(person.sex === 'm' ? 'Male' : 'Female'),
     CreateCell(person.born),
     CreateCell(person.died),
     CreateCell(person.died - person.born),
