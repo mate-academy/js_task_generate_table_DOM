@@ -367,19 +367,19 @@ function getGender(gender) {
   }
 }
 
-const table = document.querySelector('.dashboard');
+const table = document.querySelector('tbody');
 
 for (let i = 0; i < people.length; i++) {
   const item = document.createElement('tr');
 
   table.append(item);
 
-  const cell1 = document.createElement('th');
-  const cell2 = document.createElement('th');
-  const cell3 = document.createElement('th');
-  const cell4 = document.createElement('th');
-  const cell5 = document.createElement('th');
-  const cell6 = document.createElement('th');
+  const cell2 = document.createElement('td');
+  const cell1 = document.createElement('td');
+  const cell3 = document.createElement('td');
+  const cell4 = document.createElement('td');
+  const cell5 = document.createElement('td');
+  const cell6 = document.createElement('td');
 
   item.append(cell1);
   item.append(cell2);
