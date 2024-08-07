@@ -354,7 +354,27 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function CreateCell(content) {
+  const cell = document.createElement('td');
 
-// write your code here
+  cell.textContent = content;
+
+  return cell;
+}
+
+const table = document.querySelector('tbody');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  row.append(
+    CreateCell(person.name),
+    CreateCell(person.sex === 'm' ? 'Male' : 'Female'),
+    CreateCell(person.born),
+    CreateCell(person.died),
+    CreateCell(person.died - person.born),
+    CreateCell(Math.ceil(person.died / 100)),
+  );
+
+  table.append(row);
+});
