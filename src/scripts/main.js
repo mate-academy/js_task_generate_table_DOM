@@ -358,3 +358,39 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+document.addEventListener('DOMContentLoaded', showInfo(people));
+
+function showInfo(peopleObject) {
+  // const table = document.querySelector('.dashboard');
+  const tbody = document.querySelector('tbody');
+
+  peopleObject.forEach((person) => {
+    const tr = document.createElement('tr');
+    const tdName = document.createElement('td');
+    const tdSex = document.createElement('td');
+    const tdBorn = document.createElement('td');
+    const tdDied = document.createElement('td');
+    const tdAge = document.createElement('td');
+    const tdCentury = document.createElement('td');
+
+    tbody.insertAdjacentElement('beforeend', tr);
+
+    tr.insertAdjacentElement('beforeend', tdName);
+    tdName.innerText = person.name;
+
+    tr.insertAdjacentElement('beforeend', tdSex);
+    tdSex.innerText = person.sex;
+
+    tr.insertAdjacentElement('beforeend', tdBorn);
+    tdBorn.innerText = person.born;
+
+    tr.insertAdjacentElement('beforeend', tdDied);
+    tdDied.innerText = person.died;
+
+    tr.insertAdjacentElement('beforeend', tdAge);
+    tdAge.innerText = Number(person.died) - Number(person.born);
+
+    tr.insertAdjacentElement('beforeend', tdCentury);
+    tdCentury.innerText = Math.ceil(Number(person.died) / 100);
+  });
+}
