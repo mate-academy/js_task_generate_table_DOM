@@ -379,7 +379,7 @@ function showInfo(peopleObject) {
     tdName.innerText = person.name;
 
     tr.insertAdjacentElement('beforeend', tdSex);
-    tdSex.innerText = person.sex;
+    tdSex.innerText = person.sex === 'm' ? 'Male' : 'Female';
 
     tr.insertAdjacentElement('beforeend', tdBorn);
     tdBorn.innerText = person.born;
