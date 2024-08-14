@@ -359,6 +359,7 @@ const people = [
 const dashboard = document.querySelector('.dashboard');
 
 for (const person of people) {
+  // eslint-disable-next-line no-shadow
   const { name, sex, born, died } = person;
   const age = died - born;
   const century = Math.ceil(died / 100);
