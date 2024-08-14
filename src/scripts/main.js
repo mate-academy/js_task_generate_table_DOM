@@ -354,7 +354,21 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.map((person) => {
+  // creating rows for every person
 
-// write your code here
+  const createRows = document.createElement('tr');
+  const table = document.querySelector('.dashboard');
+
+  table.insertAdjacentElement('beforeend', createRows);
+  // creating cells
+
+  createRows.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${person.died ? Math.ceil(person.died / 100) : 'N/A'}</td>
+  `;
+});
