@@ -6,8 +6,8 @@ const people = [
     sex: 'm',
     born: 1832,
     died: 1905,
-    fatherName: 'Carel Haverbeke',
-    motherName: 'Maria van Brussel',
+    fatderName: 'Carel Haverbeke',
+    motderName: 'Maria van Brussel',
     slug: 'carolus-haverbeke-1832',
   },
   {
@@ -15,8 +15,8 @@ const people = [
     sex: 'f',
     born: 1876,
     died: 1956,
-    fatherName: 'Petrus de Milliano',
-    motherName: 'Sophia van Damme',
+    fatderName: 'Petrus de Milliano',
+    motderName: 'Sophia van Damme',
     slug: 'emma-de-milliano-1876',
   },
   {
@@ -24,8 +24,8 @@ const people = [
     sex: 'f',
     born: 1683,
     died: 1724,
-    fatherName: 'Frederik de Rycke',
-    motherName: 'Laurentia van Vlaenderen',
+    fatderName: 'Frederik de Rycke',
+    motderName: 'Laurentia van Vlaenderen',
     slug: 'maria-de-rycke-1683',
   },
   {
@@ -33,8 +33,8 @@ const people = [
     sex: 'm',
     born: 1714,
     died: 1748,
-    fatherName: 'Jacobus van Brussel',
-    motherName: 'Joanna van Rooten',
+    fatderName: 'Jacobus van Brussel',
+    motderName: 'Joanna van Rooten',
     slug: 'jan-van-brussel-1714',
   },
   {
@@ -42,8 +42,8 @@ const people = [
     sex: 'm',
     born: 1907,
     died: 1997,
-    fatherName: 'Emile Haverbeke',
-    motherName: 'Emma de Milliano',
+    fatderName: 'Emile Haverbeke',
+    motderName: 'Emma de Milliano',
     slug: 'philibert-haverbeke-1907',
   },
   {
@@ -51,8 +51,8 @@ const people = [
     sex: 'm',
     born: 1761,
     died: 1833,
-    fatherName: 'Jacobus Bernardus van Brussel',
-    motherName: null,
+    fatderName: 'Jacobus Bernardus van Brussel',
+    motderName: null,
     slug: 'jan-frans-van-brussel-1761',
   },
   {
@@ -60,8 +60,8 @@ const people = [
     sex: 'm',
     born: 1535,
     died: 1582,
-    fatherName: 'N. van Haverbeke',
-    motherName: null,
+    fatderName: 'N. van Haverbeke',
+    motderName: null,
     slug: 'pauwels-van-haverbeke-1535',
   },
   {
@@ -69,8 +69,8 @@ const people = [
     sex: 'f',
     born: 1918,
     died: 2012,
-    fatherName: 'Henry Aernoudts',
-    motherName: 'Sidonie Coene',
+    fatderName: 'Henry Aernoudts',
+    motderName: 'Sidonie Coene',
     slug: 'clara-aernoudts-1918',
   },
   {
@@ -78,8 +78,8 @@ const people = [
     sex: 'm',
     born: 1877,
     died: 1968,
-    fatherName: 'Carolus Haverbeke',
-    motherName: 'Maria Sturm',
+    fatderName: 'Carolus Haverbeke',
+    motderName: 'Maria Sturm',
     slug: 'emile-haverbeke-1877',
   },
   {
@@ -87,8 +87,8 @@ const people = [
     sex: 'm',
     born: 1696,
     died: 1724,
-    fatherName: 'Carel de Causmaecker',
-    motherName: 'Joanna Claes',
+    fatderName: 'Carel de Causmaecker',
+    motderName: 'Joanna Claes',
     slug: 'lieven-de-causmaecker-1696',
   },
   {
@@ -96,8 +96,8 @@ const people = [
     sex: 'm',
     born: 1602,
     died: 1642,
-    fatherName: 'Lieven van Haverbeke',
-    motherName: null,
+    fatderName: 'Lieven van Haverbeke',
+    motderName: null,
     slug: 'pieter-haverbeke-1602',
   },
   {
@@ -105,8 +105,8 @@ const people = [
     sex: 'f',
     born: 1692,
     died: 1743,
-    fatherName: 'Daniel Haverbeke',
-    motherName: 'Joanna de Pape',
+    fatderName: 'Daniel Haverbeke',
+    motderName: 'Joanna de Pape',
     slug: 'livina-haverbeke-1692',
   },
   {
@@ -114,8 +114,8 @@ const people = [
     sex: 'm',
     born: 1695,
     died: 1762,
-    fatherName: 'Willem Haverbeke',
-    motherName: 'Petronella Wauters',
+    fatderName: 'Willem Haverbeke',
+    motderName: 'Petronella Wauters',
     slug: 'pieter-bernard-haverbeke-1695',
   },
   {
@@ -123,8 +123,8 @@ const people = [
     sex: 'm',
     born: 1570,
     died: 1636,
-    fatherName: 'Pauwels van Haverbeke',
-    motherName: 'Lievijne Jans',
+    fatderName: 'Pauwels van Haverbeke',
+    motderName: 'Lievijne Jans',
     slug: 'lieven-van-haverbeke-1570',
   },
   {
@@ -132,8 +132,8 @@ const people = [
     sex: 'f',
     born: 1762,
     died: 1807,
-    fatherName: 'Bernardus de Causmaecker',
-    motherName: null,
+    fatderName: 'Bernardus de Causmaecker',
+    motderName: null,
     slug: 'joanna-de-causmaecker-1762',
   },
   {
@@ -141,8 +141,8 @@ const people = [
     sex: 'm',
     born: 1668,
     died: 1731,
-    fatherName: 'Lieven Haverbeke',
-    motherName: 'Elisabeth Hercke',
+    fatderName: 'Lieven Haverbeke',
+    motderName: 'Elisabetd Hercke',
     slug: 'willem-haverbeke-1668',
   },
   {
@@ -150,8 +150,8 @@ const people = [
     sex: 'm',
     born: 1753,
     died: 1798,
-    fatherName: 'Jan Francies Haverbeke',
-    motherName: 'Petronella de Decker',
+    fatderName: 'Jan Francies Haverbeke',
+    motderName: 'Petronella de Decker',
     slug: 'pieter-antone-haverbeke-1753',
   },
   {
@@ -159,8 +159,8 @@ const people = [
     sex: 'f',
     born: 1801,
     died: 1834,
-    fatherName: 'Jan Frans van Brussel',
-    motherName: 'Joanna de Causmaecker',
+    fatderName: 'Jan Frans van Brussel',
+    motderName: 'Joanna de Causmaecker',
     slug: 'maria-van-brussel-1801',
   },
   {
@@ -168,26 +168,26 @@ const people = [
     sex: 'f',
     born: 1728,
     died: 1734,
-    fatherName: 'Pieter Bernard Haverbeke',
-    motherName: 'Livina de Vrieze',
+    fatderName: 'Pieter Bernard Haverbeke',
+    motderName: 'Livina de Vrieze',
     slug: 'angela-haverbeke-1728',
   },
   {
-    name: 'Elisabeth Haverbeke',
+    name: 'Elisabetd Haverbeke',
     sex: 'f',
     born: 1711,
     died: 1754,
-    fatherName: 'Jan Haverbeke',
-    motherName: 'Maria de Rycke',
-    slug: 'elisabeth-haverbeke-1711',
+    fatderName: 'Jan Haverbeke',
+    motderName: 'Maria de Rycke',
+    slug: 'elisabetd-haverbeke-1711',
   },
   {
     name: 'Lievijne Jans',
     sex: 'f',
     born: 1542,
     died: 1582,
-    fatherName: null,
-    motherName: null,
+    fatderName: null,
+    motderName: null,
     slug: 'lievijne-jans-1542',
   },
   {
@@ -195,8 +195,8 @@ const people = [
     sex: 'm',
     born: 1721,
     died: 1789,
-    fatherName: 'Lieven de Causmaecker',
-    motherName: 'Livina Haverbeke',
+    fatderName: 'Lieven de Causmaecker',
+    motderName: 'Livina Haverbeke',
     slug: 'bernardus-de-causmaecker-1721',
   },
   {
@@ -204,8 +204,8 @@ const people = [
     sex: 'f',
     born: 1699,
     died: 1740,
-    fatherName: 'Lieven Lammens',
-    motherName: 'Livina de Vrieze',
+    fatderName: 'Lieven Lammens',
+    motderName: 'Livina de Vrieze',
     slug: 'jacoba-lammens-1699',
   },
   {
@@ -213,8 +213,8 @@ const people = [
     sex: 'm',
     born: 1705,
     died: 1780,
-    fatherName: 'Joos de Decker',
-    motherName: 'Petronella van de Steene',
+    fatderName: 'Joos de Decker',
+    motderName: 'Petronella van de Steene',
     slug: 'pieter-de-decker-1705',
   },
   {
@@ -222,8 +222,8 @@ const people = [
     sex: 'f',
     born: 1654,
     died: 1723,
-    fatherName: 'Vincent de Pape',
-    motherName: 'Petronella Wauters',
+    fatderName: 'Vincent de Pape',
+    motderName: 'Petronella Wauters',
     slug: 'joanna-de-pape-1654',
   },
   {
@@ -231,8 +231,8 @@ const people = [
     sex: 'm',
     born: 1652,
     died: 1723,
-    fatherName: 'Lieven Haverbeke',
-    motherName: 'Elisabeth Hercke',
+    fatderName: 'Lieven Haverbeke',
+    motderName: 'Elisabetd Hercke',
     slug: 'daniel-haverbeke-1652',
   },
   {
@@ -240,8 +240,8 @@ const people = [
     sex: 'm',
     born: 1631,
     died: 1676,
-    fatherName: 'Pieter Haverbeke',
-    motherName: 'Anna van Hecke',
+    fatderName: 'Pieter Haverbeke',
+    motderName: 'Anna van Hecke',
     slug: 'lieven-haverbeke-1631',
   },
   {
@@ -249,8 +249,8 @@ const people = [
     sex: 'f',
     born: 1666,
     died: 1727,
-    fatherName: 'Vincent de Pape',
-    motherName: 'Petronella Wauters',
+    fatderName: 'Vincent de Pape',
+    motderName: 'Petronella Wauters',
     slug: 'martina-de-pape-1666',
   },
   {
@@ -258,8 +258,8 @@ const people = [
     sex: 'm',
     born: 1725,
     died: 1779,
-    fatherName: 'Pieter Bernard Haverbeke',
-    motherName: 'Livina de Vrieze',
+    fatderName: 'Pieter Bernard Haverbeke',
+    motderName: 'Livina de Vrieze',
     slug: 'jan-francies-haverbeke-1725',
   },
   {
@@ -267,8 +267,8 @@ const people = [
     sex: 'm',
     born: 1905,
     died: 1997,
-    fatherName: 'Emile Haverbeke',
-    motherName: 'Emma de Milliano',
+    fatderName: 'Emile Haverbeke',
+    motderName: 'Emma de Milliano',
     slug: 'maria-haverbeke-1905',
   },
   {
@@ -276,8 +276,8 @@ const people = [
     sex: 'f',
     born: 1731,
     died: 1781,
-    fatherName: 'Pieter de Decker',
-    motherName: 'Livina Haverbeke',
+    fatderName: 'Pieter de Decker',
+    motderName: 'Livina Haverbeke',
     slug: 'petronella-de-decker-1731',
   },
   {
@@ -285,8 +285,8 @@ const people = [
     sex: 'f',
     born: 1761,
     died: 1826,
-    fatherName: 'Jan Sierens',
-    motherName: 'Maria van Waes',
+    fatderName: 'Jan Sierens',
+    motderName: 'Maria van Waes',
     slug: 'livina-sierens-1761',
   },
   {
@@ -294,8 +294,8 @@ const people = [
     sex: 'f',
     born: 1710,
     died: 1786,
-    fatherName: 'Jan Haverbeke',
-    motherName: 'Maria de Rycke',
+    fatderName: 'Jan Haverbeke',
+    motderName: 'Maria de Rycke',
     slug: 'laurentia-haverbeke-1710',
   },
   {
@@ -303,26 +303,26 @@ const people = [
     sex: 'm',
     born: 1796,
     died: 1837,
-    fatherName: 'Pieter Antone Haverbeke',
-    motherName: 'Livina Sierens',
+    fatderName: 'Pieter Antone Haverbeke',
+    motderName: 'Livina Sierens',
     slug: 'carel-haverbeke-1796',
   },
   {
-    name: 'Elisabeth Hercke',
+    name: 'Elisabetd Hercke',
     sex: 'f',
     born: 1632,
     died: 1674,
-    fatherName: 'Willem Hercke',
-    motherName: 'Margriet de Brabander',
-    slug: 'elisabeth-hercke-1632',
+    fatderName: 'Willem Hercke',
+    motderName: 'Margriet de Brabander',
+    slug: 'elisabetd-hercke-1632',
   },
   {
     name: 'Jan Haverbeke',
     sex: 'm',
     born: 1671,
     died: 1731,
-    fatherName: 'Lieven Haverbeke',
-    motherName: 'Elisabeth Hercke',
+    fatderName: 'Lieven Haverbeke',
+    motderName: 'Elisabetd Hercke',
     slug: 'jan-haverbeke-1671',
   },
   {
@@ -330,8 +330,8 @@ const people = [
     sex: 'f',
     born: 1607,
     died: 1670,
-    fatherName: 'Paschasius van Hecke',
-    motherName: 'Martijntken Beelaert',
+    fatderName: 'Paschasius van Hecke',
+    motderName: 'Martijntken Beelaert',
     slug: 'anna-van-hecke-1607',
   },
   {
@@ -339,8 +339,8 @@ const people = [
     sex: 'f',
     born: 1835,
     died: 1917,
-    fatherName: 'Charles Sturm',
-    motherName: 'Seraphina Spelier',
+    fatderName: 'Charles Sturm',
+    motderName: 'Seraphina Spelier',
     slug: 'maria-sturm-1835',
   },
   {
@@ -348,8 +348,8 @@ const people = [
     sex: 'm',
     born: 1736,
     died: 1809,
-    fatherName: 'Jan van Brussel',
-    motherName: 'Elisabeth Haverbeke',
+    fatderName: 'Jan van Brussel',
+    motderName: 'Elisabetd Haverbeke',
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
@@ -357,4 +357,40 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+  row.appendChild(nameCell);
+
+  const sexCell = document.createElement('td');
+
+  sexCell.textContent = person.sex;
+  row.appendChild(sexCell);
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+  row.appendChild(bornCell);
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+  row.appendChild(diedCell);
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = person.died - person.born;
+  row.appendChild(ageCell);
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = Math.ceil(person.died / 100);
+  row.appendChild(centuryCell);
+
+  table.append(row);
+});
