@@ -355,6 +355,10 @@ const people = [
 ];
 
 const table = document.querySelector('.dashboard');
+// console.log(table);
+const tableBody = document.querySelector('tbody');
+
+// console.log(tableBody);
 
 people.forEach((person) => {
   const row = document.createElement('tr');
@@ -365,7 +369,7 @@ people.forEach((person) => {
 
   const genderCell = document.createElement('td');
 
-  genderCell.textContent = person.sex;
+  genderCell.textContent = person.sex === 'f' ? 'Female' : 'Male';
 
   const bornCell = document.createElement('td');
 
@@ -391,5 +395,7 @@ people.forEach((person) => {
   row.appendChild(ageCell);
   row.appendChild(centuryCell);
 
-  table.appendChild(row);
+  tableBody.appendChild(row);
 });
+
+table.appendChild(tableBody);
