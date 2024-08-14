@@ -142,7 +142,7 @@ const people = [
     born: 1668,
     died: 1731,
     fatherName: 'Lieven Haverbeke',
-    motherName: 'Elisabeth Hercke',
+    motherName: 'Elisabetd Hercke',
     slug: 'willem-haverbeke-1668',
   },
   {
@@ -173,13 +173,13 @@ const people = [
     slug: 'angela-haverbeke-1728',
   },
   {
-    name: 'Elisabeth Haverbeke',
+    name: 'Elisabetd Haverbeke',
     sex: 'f',
     born: 1711,
     died: 1754,
     fatherName: 'Jan Haverbeke',
     motherName: 'Maria de Rycke',
-    slug: 'elisabeth-haverbeke-1711',
+    slug: 'elisabetd-haverbeke-1711',
   },
   {
     name: 'Lievijne Jans',
@@ -232,7 +232,7 @@ const people = [
     born: 1652,
     died: 1723,
     fatherName: 'Lieven Haverbeke',
-    motherName: 'Elisabeth Hercke',
+    motherName: 'Elisabetd Hercke',
     slug: 'daniel-haverbeke-1652',
   },
   {
@@ -308,13 +308,13 @@ const people = [
     slug: 'carel-haverbeke-1796',
   },
   {
-    name: 'Elisabeth Hercke',
+    name: 'Elisabetd Hercke',
     sex: 'f',
     born: 1632,
     died: 1674,
     fatherName: 'Willem Hercke',
     motherName: 'Margriet de Brabander',
-    slug: 'elisabeth-hercke-1632',
+    slug: 'elisabetd-hercke-1632',
   },
   {
     name: 'Jan Haverbeke',
@@ -322,7 +322,7 @@ const people = [
     born: 1671,
     died: 1731,
     fatherName: 'Lieven Haverbeke',
-    motherName: 'Elisabeth Hercke',
+    motherName: 'Elisabetd Hercke',
     slug: 'jan-haverbeke-1671',
   },
   {
@@ -349,7 +349,7 @@ const people = [
     born: 1736,
     died: 1809,
     fatherName: 'Jan van Brussel',
-    motherName: 'Elisabeth Haverbeke',
+    motherName: 'Elisabetd Haverbeke',
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
@@ -357,4 +357,40 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+  row.appendChild(nameCell);
+
+  const sexCell = document.createElement('td');
+
+  sexCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  row.appendChild(sexCell);
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+  row.appendChild(bornCell);
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+  row.appendChild(diedCell);
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = person.died - person.born;
+  row.appendChild(ageCell);
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = Math.ceil(person.died / 100);
+  row.appendChild(centuryCell);
+
+  table.append(row);
+});
