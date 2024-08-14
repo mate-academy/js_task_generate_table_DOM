@@ -358,28 +358,22 @@ const people = [
 
 const dashboard = document.querySelector('.dashboard');
 
-people.forEach((person) => {
-  const newTr = document.createElement('tr');
-  const keys = Object.keys(person);
+for (const person of people) {
+  const { name, sex, born, died } = person;
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const gender = sex === 'm' ? 'Male' : 'Female';
 
-  keys.slice(0, 4).forEach((key) => {
-    const newTh = document.createElement('td');
+  const tr = document.createElement('tr');
 
-    newTh.innerText =
-      key === 'sex' ? (person[key] === 'm' ? 'Male' : 'Female') : person[key];
+  tr.innerHTML = `
+  <td>${name}</td>
+  <td>${gender}</td>
+  <td>${born}</td>
+  <td>${died}</td>
+  <td>${age}</td>
+  <td>${century}</td>
+  `;
 
-    newTr.appendChild(newTh);
-  });
-
-  const ageTh = document.createElement('td');
-
-  ageTh.innerText = person.died - person.born;
-  newTr.appendChild(ageTh);
-
-  const centuryTh = document.createElement('td');
-
-  centuryTh.innerText = Math.ceil(person.died / 100);
-  newTr.appendChild(centuryTh);
-
-  dashboard.appendChild(newTr);
-});
+  dashboard.append(tr);
+}
