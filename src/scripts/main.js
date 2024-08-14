@@ -358,45 +358,17 @@ people.map((person) => {
   // creating rows for every person
 
   const createRows = document.createElement('tr');
-
-  // creating cells
-
-  const cellName = document.createElement('td');
-
-  cellName.textContent = person.name;
-  createRows.insertAdjacentElement('beforeend', cellName);
-
-  const cellGender = document.createElement('td');
-
-  if (person.sex === 'f') {
-    cellGender.textContent = 'Female';
-  } else {
-    cellGender.textContent = 'Male';
-  }
-
-  createRows.insertAdjacentElement('beforeend', cellGender);
-
-  const cellBorn = document.createElement('td');
-
-  cellBorn.textContent = person.born;
-  createRows.insertAdjacentElement('beforeend', cellBorn);
-
-  const cellDied = document.createElement('td');
-
-  cellDied.textContent = person.died;
-  createRows.insertAdjacentElement('beforeend', cellDied);
-
-  const cellAge = document.createElement('td');
-
-  cellAge.textContent = person.died - person.born;
-  createRows.insertAdjacentElement('beforeend', cellAge);
-
-  const cellCentury = document.createElement('td');
-
-  cellCentury.textContent = Math.ceil(person.died / 100);
-  createRows.insertAdjacentElement('beforeend', cellCentury);
-
   const table = document.querySelector('.dashboard');
 
   table.insertAdjacentElement('beforeend', createRows);
+  // creating cells
+
+  createRows.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'f' ? 'Female' : 'Male'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${person.died ? Math.ceil(person.died / 100) : 'N/A'}</td>
+  `;
 });
