@@ -357,7 +357,7 @@ const people = [
 const table = document.querySelector('.dashboard');
 
 const createCell = (content) => {
-  const ceil = document.createElement('th');
+  const ceil = document.createElement('td');
 
   ceil.textContent = content;
 
