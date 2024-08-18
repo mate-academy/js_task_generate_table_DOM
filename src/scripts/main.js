@@ -1,5 +1,6 @@
 'use strict';
 
+const table = document.querySelector('.dashboard');
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +355,27 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach((person) => {
+  const newRow = table.insertRow();
+  const newName = person.name;
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+  const born = person.born;
+  const died = person.died;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
-// write your code here
+  const newPerson = {
+    newName,
+    gender,
+    born,
+    died,
+    age,
+    century,
+  };
+
+  for (const key in newPerson) {
+    const cell = newRow.insertCell();
+
+    cell.innerHTML = newPerson[key];
+  }
+});
