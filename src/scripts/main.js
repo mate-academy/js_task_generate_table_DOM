@@ -354,30 +354,27 @@ const people = [
   },
 ];
 
-const firstRowOfTalbe = document.querySelector('tr');
+const table = document.querySelector('table');
 
-people.map((person) => {
-  const personCopy = Object.assign({}, person);
+people.forEach((person) => {
+  const ageOfPerson = person.died - person.born;
+  const centuryOfPerson = Math.ceil(person.died / 100);
 
-  const age = person.died - person.born;
-  const century = Math.ceil(person.died / 100);
+  const personSex = person.sex === 'm' ? 'Male' : 'Female';
 
-  if (personCopy.sex === 'm') {
-    personCopy.sex = 'MALE';
-  }
+  const newRow = table.insertRow();
 
-  if (personCopy.sex === 'f') {
-    personCopy.sex = 'FEMALE';
-  }
+  const nameCell = newRow.insertCell();
+  const genderCell = newRow.insertCell();
+  const bornCell = newRow.insertCell();
+  const diedCell = newRow.insertCell();
+  const ageCell = newRow.insertCell();
+  const centuryCell = newRow.insertCell();
 
-  const tableRow = `<tr>
- <td> ${person.name} </td>
- <td> ${personCopy.sex} </td>
- <td> ${person.born} </td>
- <td> ${person.died} </td>
- <td> ${age}</td>
- <td>${century}</td>
- </tr>`;
-
-  firstRowOfTalbe.insertAdjacentHTML('afterend', tableRow);
+  nameCell.textContent = `${person.name}`;
+  genderCell.textContent = `${personSex}`;
+  bornCell.textContent = `${person.born}`;
+  diedCell.textContent = `${person.died}`;
+  ageCell.textContent = `${ageOfPerson}`;
+  centuryCell.textContent = `${centuryOfPerson}`;
 });
