@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const firstRowOfTalbe = document.querySelector('tr');
 
-// write your code here
+people.map((person) => {
+  const personCopy = Object.assign({}, person);
+
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  if (personCopy.sex === 'm') {
+    personCopy.sex = 'MALE';
+  }
+
+  if (personCopy.sex === 'f') {
+    personCopy.sex = 'FEMALE';
+  }
+
+  const tableRow = `<tr>
+ <td> ${person.name} </td>
+ <td> ${personCopy.sex} </td>
+ <td> ${person.born} </td>
+ <td> ${person.died} </td>
+ <td> ${age}</td>
+ <td>${century}</td>
+ </tr>`;
+
+  firstRowOfTalbe.insertAdjacentHTML('afterend', tableRow);
+});
