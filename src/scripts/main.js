@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+for (const person of people) {
+  const newRow = document.createElement('tr');
+
+  for (let i = 0; i < 6; i++) {
+    const newCell = document.createElement('td');
+
+    if (i === 0) {
+      newCell.textContent = person.name;
+    } else if (i === 1) {
+      newCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    } else if (i === 2) {
+      newCell.textContent = person.born;
+    } else if (i === 3) {
+      newCell.textContent = person.died;
+    } else if (i === 4) {
+      newCell.textContent = person.died - person.born;
+    } else if (i === 5) {
+      newCell.textContent = Math.ceil(person.died / 100);
+    }
+
+    newRow.appendChild(newCell);
+  }
+
+  dashboard.appendChild(newRow);
+}
