@@ -360,7 +360,7 @@ people.forEach((person) => {
   const ageOfPerson = person.died - person.born;
   const centuryOfPerson = Math.ceil(person.died / 100);
 
-  const personSex = person.sex === 'm' ? 'Male' : 'Female';
+  const personSex = person.sex === 'm' ? 'MALE' : 'FEMALE';
 
   const newRow = table.insertRow();
 
@@ -371,10 +371,10 @@ people.forEach((person) => {
   const ageCell = newRow.insertCell();
   const centuryCell = newRow.insertCell();
 
-  nameCell.textContent = `${person.name}`;
-  genderCell.textContent = `${personSex}`;
-  bornCell.textContent = `${person.born}`;
-  diedCell.textContent = `${person.died}`;
-  ageCell.textContent = `${ageOfPerson}`;
-  centuryCell.textContent = `${centuryOfPerson}`;
+  nameCell.textContent = person.name;
+  genderCell.textContent = personSex;
+  bornCell.textContent = person.born;
+  diedCell.textContent = person.died;
+  ageCell.textContent = ageOfPerson;
+  centuryCell.textContent = centuryOfPerson;
 });
