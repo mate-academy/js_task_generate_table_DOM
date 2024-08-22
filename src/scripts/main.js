@@ -372,7 +372,7 @@ people.forEach((person) => {
   const centuryCell = newRow.insertCell();
 
   nameCell.textContent = person.name;
-  genderCell.textContent = personSex.toUpperCase();
+  genderCell.textContent = personSex;
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
   ageCell.textContent = ageOfPerson;
