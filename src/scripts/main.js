@@ -366,7 +366,7 @@ people.forEach((el) => {
   const century = document.createElement('td');
 
   personName.textContent = el.name;
-  gender.textContent = el.sex;
+  gender.textContent = el.sex === 'm' ? 'Male' : 'Female';
   born.textContent = el.born;
   died.textContent = el.died;
   age.textContent = el.died - el.born;
