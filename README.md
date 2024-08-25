@@ -1,4 +1,4 @@
-1. Replace https://github.com/sinner1993/js_task_generate_table_DOM with your Github username in the link
+1. Replace mate-scripts test with your Github username in the link
     - [DEMO LINK](https://sinner1993.github.io/js_task_generate_table_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
