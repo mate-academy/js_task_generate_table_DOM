@@ -359,12 +359,12 @@ const tablet = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const newRow = document.createElement('tr');
-  const nameOfPerson = document.createElement('th');
+  const nameOfPerson = document.createElement('td');
 
   nameOfPerson.textContent = person.name;
   newRow.appendChild(nameOfPerson);
 
-  const gender = document.createElement('th');
+  const gender = document.createElement('td');
 
   if (person.sex === 'm') {
     gender.textContent = 'Male';
@@ -373,22 +373,22 @@ people.forEach((person) => {
   }
   newRow.appendChild(gender);
 
-  const born = document.createElement('th');
+  const born = document.createElement('td');
 
   born.textContent = person.born;
   newRow.appendChild(born);
 
-  const died = document.createElement('th');
+  const died = document.createElement('td');
 
   died.textContent = person.died;
   newRow.appendChild(died);
 
-  const age = document.createElement('th');
+  const age = document.createElement('td');
 
   age.textContent = person.died - person.born;
   newRow.appendChild(age);
 
-  const century = document.createElement('th');
+  const century = document.createElement('td');
 
   century.textContent = Math.ceil(person.died / 100);
   newRow.appendChild(century);
