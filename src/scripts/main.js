@@ -356,32 +356,43 @@ const people = [
 
 // eslint-disable-next-line no-console
 
-const table = document.querySelector('.dashboard');
-
 people.forEach((person) => {
-  const newRow = table.insertRow(1);
+  const personRow = document.createElement('tr');
+  const table = document.querySelector('.dashboard');
 
-  const nameCell = newRow.insertCell();
+  table.append(personRow);
 
-  nameCell.textContent = person.name;
+  const nameCell = document.createElement('td');
 
-  const genderCell = newRow.insertCell();
+  nameCell.innerHTML = person.name;
+  personRow.append(nameCell);
 
-  genderCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  const genderCell = document.createElement('td');
 
-  const bornCell = newRow.insertCell();
+  if (person.sex === 'm') {
+    genderCell.innerHTML = 'Male';
+  } else {
+    genderCell.innerHTML = 'Female';
+  }
+  personRow.append(genderCell);
 
-  bornCell.textContent = person.born;
+  const bornCell = document.createElement('td');
 
-  const diedCell = newRow.insertCell();
+  bornCell.innerHTML = person.born;
+  personRow.append(bornCell);
 
-  diedCell.textContent = person.died;
+  const diedCell = document.createElement('td');
 
-  const ageCell = newRow.insertCell();
+  diedCell.innerHTML = person.died;
+  personRow.append(diedCell);
 
-  ageCell.textContent = person.died - person.born;
+  const ageCell = document.createElement('td');
 
-  const centuryCell = newRow.insertCell();
+  ageCell.innerHTML = person.died - person.born;
+  personRow.append(ageCell);
 
-  centuryCell.textContent = Math.ceil(person.born / 100);
+  const centuryCell = document.createElement('td');
+
+  centuryCell.innerHTML = Math.ceil(person.died / 100);
+  personRow.append(centuryCell);
 });
