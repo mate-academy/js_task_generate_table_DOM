@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const peopleData = people.map((person) => {
+  const sex = person.sex === 'm' ? 'Male' : 'Female';
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
-// write your code here
+  return {
+    0: person.name,
+    1: sex,
+    2: person.born,
+    3: person.died,
+    4: age,
+    5: century,
+  };
+});
+
+const numOfCols = Object.keys(peopleData[0]).length;
+const table = document.querySelector('.dashboard');
+
+peopleData.forEach((person) => {
+  const row = document.createElement('tr');
+
+  for (let i = 0; i < numOfCols; i++) {
+    const cell = document.createElement('td');
+
+    cell.textContent = person[i];
+    row.append(cell);
+  }
+
+  table.append(row);
+});
