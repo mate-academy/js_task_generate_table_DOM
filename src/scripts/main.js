@@ -375,10 +375,21 @@ people.forEach((person) => {
 
   dashboard.append(row);
 
-  for (let i = 0; i < personData.length; i++) {
-    const ceil = document.createElement('th');
+  function createCell(cell, index) {
+    cell.innerHTML = personData[index];
+    row.append(cell);
+  }
 
-    ceil.innerHTML = personData[i];
-    row.append(ceil);
+  for (let i = 0; i < personData.length; i++) {
+    const cellTh = document.createElement('th');
+    const cellTd = document.createElement('td');
+
+    if (i === 0) {
+      createCell(cellTh, i);
+
+      continue;
+    }
+
+    createCell(cellTd, i);
   }
 });
