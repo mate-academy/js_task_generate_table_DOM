@@ -362,7 +362,7 @@ people.forEach((person) => {
   const { name, born, died } = person;
   let { sex } = person;
 
-  sex = sex === 'f' ? 'female' : 'male';
+  sex = sex === 'f' ? 'Female' : 'Male';
 
   const personData = [
     name,
