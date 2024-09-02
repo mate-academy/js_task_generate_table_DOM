@@ -359,7 +359,11 @@ const dashboard = document.querySelector('.dashboard');
 people.forEach((person) => {
   const row = document.createElement('tr');
   // eslint-disable-next-line no-shadow
-  const { name, sex, born, died } = person;
+  const { name, born, died } = person;
+  let { sex } = person;
+
+  sex = sex === 'f' ? 'female' : 'male';
+
   const personData = [
     name,
     sex,
