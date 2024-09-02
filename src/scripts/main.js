@@ -358,3 +358,19 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const getTable = document.querySelector('.dashboard');
+
+people.map((person) => {
+  const personSex = person.sex === 'm' ? 'Male' : 'Female';
+  const personAge = person.died - person.born;
+  const personSentuary = Math.ceil(person.died / 100);
+  const tr = document.createElement('tr');
+
+  tr.innerHTML = `<td>${person.name}</td>
+                    <td>${personSex}</td>
+                    <td>${person.born}</td>
+                    <td>${person.died}</td>
+                    <td>${personAge}</td>
+                    <td>${personSentuary}</td>`;
+  getTable.append(tr);
+});
