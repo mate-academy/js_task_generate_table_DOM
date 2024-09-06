@@ -354,7 +354,7 @@ const people = [
   },
 ];
 
-const table = document.querySelector('.dashboard');
+const tableBody = document.querySelector('tbody');
 
 people.forEach((person) => {
   const row = document.createElement('tr');
@@ -366,5 +366,5 @@ people.forEach((person) => {
                     <td>${person.died - person.born}</td>
                     <td>${Math.ceil(person.died / 100)}</td>`;
 
-  table.appendChild(row);
+  tableBody.appendChild(row);
 });
