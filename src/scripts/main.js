@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const peopleExtented = people.map((person) => {
+  const born = person.born;
+  const died = person.died;
 
-// write your code here
+  person.age = died - born;
+
+  person.century = Math.ceil(person.died / 100);
+
+  return person;
+});
+
+const peopleTable = document.querySelector('.dashboard');
+
+peopleExtented.forEach((person) => {
+  const personLine = document.createElement('tr');
+
+  personLine.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.age}</td>
+    <td>${person.century}</td>
+  `;
+
+  peopleTable.append(personLine);
+});
