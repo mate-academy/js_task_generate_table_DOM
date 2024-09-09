@@ -354,60 +354,41 @@ const people = [
   },
 ];
 
-function getGenderDisplayName(sex) {
-  switch (sex.toLowerCase()) {
-    case 'm':
-      return 'Male';
-    case 'f':
-      return 'Female';
-    default:
-      return 'Unknown'; // For any unexpected sex values
-  }
+const table = document.querySelector('.dashboard');
+const tableBody = table.firstElementChild;
+
+function getGender(sex) {
+  return sex === 'm' ? 'Male' : 'Female';
 }
 
-function calculateAge(born, died) {
+function getAge(born, died) {
   return died - born;
 }
 
-function calculateCentury(year) {
-  return Math.ceil(year / 100);
+function getCentury(died) {
+  return Math.ceil(died / 100);
 }
 
-const dashboardTable = document.querySelector('.dashboard tbody');
-
 people.forEach((person) => {
-  const row = document.createElement('tr');
+  const { sex, born, died } = person;
+  const tableRow = document.createElement('tr');
 
-  const nameCell = document.createElement('td');
+  const data = [
+    person.name,
+    getGender(sex),
+    born,
+    died,
+    getAge(born, died),
+    getCentury(died),
+  ];
 
-  nameCell.textContent = person.name;
+  data.forEach((value) => {
+    const tableCell = document.createElement('td');
 
-  const genderCell = document.createElement('td');
+    tableCell.textContent = value;
 
-  genderCell.textContent = getGenderDisplayName(person.sex);
+    return tableRow.append(tableCell);
+  });
 
-  const bornCell = document.createElement('td');
-
-  bornCell.textContent = person.born;
-
-  const diedCell = document.createElement('td');
-
-  diedCell.textContent = person.died;
-
-  const ageCell = document.createElement('td');
-
-  ageCell.textContent = calculateAge(person.born, person.died);
-
-  const centuryCell = document.createElement('td');
-
-  centuryCell.textContent = calculateCentury(person.born);
-
-  row.appendChild(nameCell);
-  row.appendChild(genderCell);
-  row.appendChild(bornCell);
-  row.appendChild(diedCell);
-  row.appendChild(ageCell);
-  row.appendChild(centuryCell);
-
-  dashboardTable.appendChild(row);
+  return tableBody.append(tableRow);
 });

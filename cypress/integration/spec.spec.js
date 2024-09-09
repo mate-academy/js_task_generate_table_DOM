@@ -1,3 +1,5 @@
+'use strict';
+
 import people from '../../src/scripts/lib/people.json';
 
 describe('Generate table app', () => {
