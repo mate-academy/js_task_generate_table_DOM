@@ -357,4 +357,49 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+function calculateAge(born, died) {
+  return died - born;
+}
+
+function calculateCentury(year) {
+  return Math.ceil(year / 100);
+}
+
+const dashboardTable = document.querySelector('.dashboard tbody');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+
+  const genderCell = document.createElement('td');
+
+  genderCell.textContent = person.gender;
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = calculateAge(person.born, person.died);
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = calculateCentury(person.born);
+
+  row.appendChild(nameCell);
+  row.appendChild(genderCell);
+  row.appendChild(bornCell);
+  row.appendChild(diedCell);
+  row.appendChild(ageCell);
+  row.appendChild(centuryCell);
+
+  dashboardTable.appendChild(row);
+});
