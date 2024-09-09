@@ -354,6 +354,17 @@ const people = [
   },
 ];
 
+function getGenderDisplayName(sex) {
+  switch (sex.toLowerCase()) {
+    case 'm':
+      return 'Male';
+    case 'f':
+      return 'Female';
+    default:
+      return 'Unknown'; // For any unexpected sex values
+  }
+}
+
 function calculateAge(born, died) {
   return died - born;
 }
@@ -373,7 +384,7 @@ people.forEach((person) => {
 
   const genderCell = document.createElement('td');
 
-  genderCell.textContent = person.gender;
+  genderCell.textContent = getGenderDisplayName(person.sex);
 
   const bornCell = document.createElement('td');
 
