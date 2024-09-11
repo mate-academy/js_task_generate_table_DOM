@@ -357,6 +357,8 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
+const table = document.querySelector('.dashboard');
+
 const createTableRow = (person) => {
   const row = document.createElement('tr');
 
@@ -394,18 +396,8 @@ const createTableRow = (person) => {
   return row;
 };
 
-const populateTable = () => {
-  const table = document.querySelector('.dashboard');
+people.forEach((person) => {
+  const row = createTableRow(person);
 
-  const tbody = document.createElement('tbody');
-
-  people.forEach((person) => {
-    const row = createTableRow(person);
-
-    tbody.appendChild(row);
-  });
-
-  table.appendChild(tbody);
-};
-
-populateTable();
+  table.appendChild(row);
+});
