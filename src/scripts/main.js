@@ -397,11 +397,15 @@ const createTableRow = (person) => {
 const populateTable = () => {
   const table = document.querySelector('.dashboard');
 
+  const tbody = document.createElement('tbody');
+
   people.forEach((person) => {
     const row = createTableRow(person);
 
-    table.appendChild(row);
+    tbody.appendChild(row);
   });
+
+  table.appendChild(tbody);
 };
 
 populateTable();
