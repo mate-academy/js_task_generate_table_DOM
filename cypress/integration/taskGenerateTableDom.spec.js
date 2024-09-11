@@ -9,17 +9,19 @@ describe('Generate table app', () => {
 
   it('should create a table based on people.json file', () => {
     for (let i = 0; i < people.length; i++) {
-
       cy.contains('tr', people[i].name).contains('td', people[i].born);
       cy.contains('tr', people[i].name).contains('td', people[i].died);
 
       cy.contains('tr', people[i].name)
+
         .contains(('td', people[i].died) - ('td', people[i].born));
 
       cy.contains('tr', people[i].name)
+
         .contains('td', Math.ceil(people[i].died / 100));
 
       cy.contains('tr', people[i].name)
+
         .contains('td', people[i].sex === 'm' ? 'Male' : 'Female');
     }
   });
