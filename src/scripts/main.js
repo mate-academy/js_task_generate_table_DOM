@@ -366,7 +366,7 @@ function createTableRow(person) {
 
   const sexCell = document.createElement('td');
 
-  sexCell.textContent = person.sex;
+  sexCell.textContent = person.sex === 'm' ? 'male' : person.sex === 'f' ? 'female' : 'unknown';
   row.appendChild(sexCell);
 
   const bornCell = document.createElement('td');
@@ -394,7 +394,7 @@ function createTableRow(person) {
 
 const table = document.querySelector('.dashboard');
 
-people.forEach(person => {
+people.forEach((person) => {
   const row = createTableRow(person);
 
   table.appendChild(row);
