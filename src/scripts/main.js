@@ -357,7 +357,7 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const dashboard = document.querySelector('.dashboard');
+const dashboard = document.querySelector('.dashboard tbody');
 
 function createTableRow(person) {
   const row = document.createElement('tr');
@@ -365,14 +365,9 @@ function createTableRow(person) {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
-  const cells = [
-    person.name,
-    person.sex,
-    person.born,
-    person.died,
-    age,
-    century,
-  ];
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  const cells = [person.name, gender, person.born, person.died, age, century];
 
   cells.forEach((cellData) => {
     const cell = document.createElement('td');
