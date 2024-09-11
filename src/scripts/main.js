@@ -366,7 +366,8 @@ function createTableRow(person) {
 
   const sexCell = document.createElement('td');
 
-  sexCell.textContent = person.sex === 'm' ? 'male' : person.sex === 'f' ? 'female' : 'unknown';
+  sexCell.textContent =
+    person.sex === 'm' ? 'male' : person.sex === 'f' ? 'female' : 'unknown';
   row.appendChild(sexCell);
 
   const bornCell = document.createElement('td');
