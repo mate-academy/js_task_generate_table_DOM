@@ -354,7 +354,52 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+function createNewPerson(object) {
+  const table = document.querySelector('.dashboard');
+  const tableBody = table.querySelector('tbody');
+
+  const newPerson = {
+    row: document.createElement('tr'),
+    name: document.createElement('td'),
+    sex: document.createElement('td'),
+    born: document.createElement('td'),
+    died: document.createElement('td'),
+    age: document.createElement('td'),
+    century: document.createElement('td'),
+  };
+
+  const newRow = newPerson['row'];
+
+  for (const key in newPerson) {
+    switch (key) {
+      case 'row':
+        tableBody.appendChild(newPerson[key]);
+        break;
+      case 'sex':
+        const gender = object[key] === 'f' ? 'Female' : 'Male';
+
+        newRow.appendChild(newPerson[key]);
+        newPerson[key].textContent = gender;
+        break;
+      case 'age':
+        const personAge = Number(object['died']) - Number(object['born']);
+
+        newRow.appendChild(newPerson[key]);
+        newPerson[key].textContent = personAge;
+        break;
+      case 'century':
+        const personCentury = Math.ceil(Number(object['died']) / 100);
+
+        newRow.appendChild(newPerson[key]);
+        newPerson[key].textContent = personCentury;
+        break;
+      default:
+        newRow.appendChild(newPerson[key]);
+        newPerson[key].textContent = object[key];
+        break;
+    }
+  }
+}
+
+people.forEach((person) => createNewPerson(person));
