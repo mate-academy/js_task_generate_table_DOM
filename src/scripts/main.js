@@ -354,45 +354,36 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const getTable = document.querySelector('.dashboard');
 
-// write your code here
-const getTable = document.querySelectorAll('.dashboard');
+// If the table exists, proceed to populate it
+if (getTable) {
+  // Loop through each person in the 'people' array
+  people.forEach((person) => {
+    // Create a new table row
+    const newRow = document.createElement('tr');
 
-getTable.forEach((table) => {
-  const rows = table.querySelectorAll('tr');
+    // Create table cells and append them to the row
+    ['name', 'sex', 'born', 'died'].forEach((field) => {
+      const cell = document.createElement('td');
 
-  rows.forEach((row, rowIndex) => {
-    const person = people[rowIndex]; // Доступ до об'єкта з масиву
-
-    if (!person) {
-      return;
-    }
-
-    const cells = row.querySelectorAll('td');
-
-    cells.forEach((item, index) => {
-      switch (index) {
-        case 0:
-          item.textContent = person.name;
-          break;
-        case 1:
-          item.textContent = person.sex;
-          break;
-        case 2:
-          item.textContent = person.born;
-          break;
-        case 3:
-          item.textContent = person.died;
-          break;
-        case 4:
-          item.textContent = person.born - person.died;
-          break;
-        case 5:
-          item.textContent = Math.ceil(person.died / 100);
-          break;
-      }
+      cell.textContent = person[field];
+      newRow.appendChild(cell);
     });
+
+    // Calculate and append the age
+    const ageCell = document.createElement('td');
+
+    ageCell.textContent = person.died - person.born;
+    newRow.appendChild(ageCell);
+
+    // Calculate and append the century
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = Math.ceil(person.died / 100);
+    newRow.appendChild(centuryCell);
+
+    // Append the newly created row to the table
+    getTable.appendChild(newRow);
   });
-});
+}
