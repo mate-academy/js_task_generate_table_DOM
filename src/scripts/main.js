@@ -358,3 +358,41 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const getTable = document.querySelectorAll('.dashboard');
+
+getTable.forEach((table) => {
+  const rows = table.querySelectorAll('tr');
+
+  rows.forEach((row, rowIndex) => {
+    const person = people[rowIndex]; // Доступ до об'єкта з масиву
+
+    if (!person) {
+      return;
+    }
+
+    const cells = row.querySelectorAll('td');
+
+    cells.forEach((item, index) => {
+      switch (index) {
+        case 0:
+          item.textContent = person.name;
+          break;
+        case 1:
+          item.textContent = person.sex;
+          break;
+        case 2:
+          item.textContent = person.born;
+          break;
+        case 3:
+          item.textContent = person.died;
+          break;
+        case 4:
+          item.textContent = person.born - person.died;
+          break;
+        case 5:
+          item.textContent = Math.ceil(person.died / 100);
+          break;
+      }
+    });
+  });
+});
