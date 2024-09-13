@@ -361,7 +361,7 @@ people.forEach((person) => {
 
   const infos = [
     person.name,
-    person.sex,
+    person.sex === 'f' ? 'Female' : 'Male',
     person.born,
     person.died,
     person.died - person.born,
