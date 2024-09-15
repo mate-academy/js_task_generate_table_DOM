@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tbody = document.getElementsByClassName('dashboard')[0].children[0];
 
-// write your code here
+people.forEach((person) => {
+  const row = document.createElement('tr'); // create row
+  const nameR = document.createElement('td');
+  const sexR = document.createElement('td');
+  const bornR = document.createElement('td');
+  const diedR = document.createElement('td');
+  const ageR = document.createElement('td');
+  const centryR = document.createElement('td');
+
+  nameR.textContent = person.name;
+  sexR.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  bornR.textContent = person.born;
+  diedR.textContent = person.died;
+  ageR.textContent = person.died - person.born;
+  centryR.textContent = Math.ceil(person.died / 100);
+
+  tbody.appendChild(row); // insert row
+  row.appendChild(nameR);
+  row.appendChild(sexR);
+  row.appendChild(bornR);
+  row.appendChild(diedR);
+  row.appendChild(ageR);
+  row.appendChild(centryR);
+});
