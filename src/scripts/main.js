@@ -386,7 +386,7 @@ people.forEach((person) => {
 
   cells[4].innerText = person.died - person.born;
 
-  cells[5].innerText = Math.ceil(person.born / 100);
+  cells[5].innerText = Math.ceil(person.died / 100);
 
   cells.forEach((el) => {
     row.appendChild(el);
