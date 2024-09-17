@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const root = document.body;
+const table = root.querySelector('.dashboard').firstElementChild;
 
-// write your code here
+for (const person of people) {
+  table.insertAdjacentHTML('beforeend', `
+    <tr>
+      <td>${person.name}</td>
+      <td>${fixGender(person.sex)}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${Math.ceil(person.died / 100)}</td>
+    </tr> 
+  `);
+}
+
+function fixGender(gender) {
+  switch (gender) {
+    case 'm':
+      return 'Male';
+    case 'f':
+      return 'Female';
+
+    default:
+      return '';
+  }
+}
