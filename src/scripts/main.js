@@ -367,10 +367,12 @@ people.forEach((person) => {
   const diedCell = document.createElement('td');
   const ageCell = document.createElement('td');
   const centuryCell = document.createElement('td');
+
   const century = Math.ceil(person.died / 100);
+  const gender = person.sex === 'm' ? 'male' : 'female';
 
   nameCell.textContent = person.name;
-  genderCell.textContent = person.sex;
+  genderCell.textContent = gender;
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
   ageCell.textContent = person.died - person.born;
