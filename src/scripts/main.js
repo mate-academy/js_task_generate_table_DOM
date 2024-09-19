@@ -354,32 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// const table = document.querySelector('.dashboard');
 
+// function checkSex(sex) {
+//   return sex === 'f' ? 'Female' : 'Male';
+// }
 
-const dashboard = document.querySelector('.dashboard');
+// function createRow(value) {
+//   const td = document.createElement('td');
 
-people.forEach((person) => {
-  const row = document.createElement('tr');
-  const { name: personName, sex, born, died } = person;
+//   td.textContent = value;
 
-  const data = {
-    name: personName,
-    sex,
-    born,
-    died,
-    age: person.died - person.born,
-    century: Math.ceil(person.died / 100),
-  };
+//   return td;
+// }
 
-  for (const info in data) {
-    const sell = document.createElement('th');
+// people.forEach((person) => {
+//   const tr = document.createElement('tr');
 
-    sell.textContent = data[info];
+//   tr.appendChild(createRow(person.name) || '');
+//   tr.appendChild(createRow(checkSex(person.sex)) || '');
+//   tr.appendChild(createRow(person.born) || '');
+//   tr.appendChild(createRow(person.died) || '');
+//   tr.appendChild(createRow(person.died - person.born) || '');
+//   tr.appendChild(createRow(Math.ceil(person.died / 100)) || '');
 
-    row.append(sell);
-  }
-
-  dashboard.append(row);
-});
+//   table.appendChild(tr);
+// });
