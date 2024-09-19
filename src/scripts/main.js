@@ -354,29 +354,23 @@ const people = [
   },
 ];
 
-// const table = document.querySelector('.dashboard');
+const table = document.querySelector('.dashboard');
 
-// function checkSex(sex) {
-//   return sex === 'f' ? 'Female' : 'Male';
-// }
+people.forEach(({ died, born, sex, name: personName }) => {
+  const tableRow = document.createElement('tr');
 
-// function createRow(value) {
-//   const td = document.createElement('td');
+  tableRow.innerHTML = `
+    <td>${personName}</td>
+    <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${getCentury(died)}</td>
+  `;
 
-//   td.textContent = value;
+  table.append(tableRow);
+});
 
-//   return td;
-// }
-
-// people.forEach((person) => {
-//   const tr = document.createElement('tr');
-
-//   tr.appendChild(createRow(person.name) || '');
-//   tr.appendChild(createRow(checkSex(person.sex)) || '');
-//   tr.appendChild(createRow(person.born) || '');
-//   tr.appendChild(createRow(person.died) || '');
-//   tr.appendChild(createRow(person.died - person.born) || '');
-//   tr.appendChild(createRow(Math.ceil(person.died / 100)) || '');
-
-//   table.appendChild(tr);
-// });
+function getCentury(year) {
+  return Math.ceil(year / 100);
+}
