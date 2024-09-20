@@ -354,7 +354,7 @@ const people = [
   },
 ];
 
-const table = document.querySelector('.dashboard');
+const tbody = document.querySelector('.dashboard tbody');
 
 people.forEach(({ died, born, sex, name: personName }) => {
   const tableRow = document.createElement('tr');
@@ -368,7 +368,7 @@ people.forEach(({ died, born, sex, name: personName }) => {
     <td>${getCentury(died)}</td>
   `;
 
-  table.append(tableRow);
+  tbody.append(tableRow);
 });
 
 function getCentury(year) {
