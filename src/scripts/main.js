@@ -348,7 +348,7 @@ const people = [
     sex: 'm',
     born: 1736,
     died: 1809,
-    fatherName: 'Jan van Brussel',
+    fatherName: 'Jan van Brrussel',
     motherName: 'Elisabeth Haverbeke',
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
