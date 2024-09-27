@@ -383,6 +383,6 @@ const createRow = (person) => {
   return row;
 };
 
-const table = document.querySelector('.dashboard');
+const tBody = document.querySelector('tbody');
 
-people.forEach((person) => table.append(createRow(person)));
+people.forEach((person) => tBody.append(createRow(person)));
