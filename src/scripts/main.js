@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboardElem = document.querySelector('table.dashboard');
 
-// write your code here
+const elemCreatorFunc = (elemType, elemContent) => {
+  const newElem = document.createElement(elemType);
+
+  newElem.textContent = elemContent;
+
+  return newElem;
+};
+
+const rowCreatorFunc = (peopleArr, targetElem) => {
+  for (const person of peopleArr) {
+    const newRow = document.createElement('tr');
+
+    newRow.append(elemCreatorFunc('td', person.name));
+
+    newRow.append(
+      elemCreatorFunc('td', person.sex === 'm' ? 'Male' : 'Female'),
+    );
+
+    newRow.append(elemCreatorFunc('td', person.born));
+    newRow.append(elemCreatorFunc('td', person.died));
+    newRow.append(elemCreatorFunc('td', String(person.died - person.born)));
+    newRow.append(elemCreatorFunc('td', Math.ceil(person.died / 100)));
+
+    targetElem.append(newRow);
+  }
+};
+
+rowCreatorFunc(people, dashboardElem);
