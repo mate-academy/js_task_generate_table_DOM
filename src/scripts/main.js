@@ -354,15 +354,14 @@ const people = [
   },
 ];
 
-
-function getCentury(year){
+function getCentury(year) {
   return Math.ceil(year / 100);
 }
 
 // eslint-disable-next-line no-console
 const table = document.querySelector('.dashboard');
 
-people.forEach(person => {
+people.forEach((person) => {
   const tr = document.createElement('tr');
 
   const age = person.died - person.born;
@@ -377,8 +376,9 @@ people.forEach(person => {
     century,
   ];
 
-  cells.forEach(cell => {
+  cells.forEach((cell) => {
     const td = document.createElement('td');
+
     td.textContent = cell;
     tr.appendChild(td);
   });
