@@ -358,3 +358,34 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const tableBody = document.querySelector('tbody');
+
+function getAge() {
+  return this.died - this.born;
+}
+
+function getCentury() {
+  return Math.ceil(this.died / 100);
+}
+
+function getGender() {
+  return this.sex === 'm' ? 'Male' : this.sex === 'f' ? 'Female' : '';
+}
+
+for (let i = 0; i < people.length; i++) {
+  const person = people[i];
+  const row = document.createElement('tr');
+  const age = getAge.bind(person);
+  const century = getCentury.bind(person);
+  const gender = getGender.bind(person);
+
+  row.innerHTML += `
+  <td>${person.name}</td>
+  <td>${gender()}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${age()}</td>
+  <td>${century()}</td>
+  `;
+  tableBody.append(row);
+}
