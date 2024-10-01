@@ -354,7 +354,48 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const getAge = (born, died) => died - born;
+const getCentury = (year) => Math.ceil(year / 100);
+const getSex = (person) => {
+  if (person.sex === 'm') {
+    return 'Male';
+  } else {
+    return 'Female';
+  }
+};
 
-// write your code here
+const allPeople = people.map((person) => ({
+  name: person.name,
+  sex: getSex(person),
+  born: person.born,
+  died: person.died,
+  age: getAge(person.born, person.died),
+  century: getCentury(person.died),
+}));
+
+const htmlClassDashboard = document.querySelector('.dashboard');
+
+allPeople.forEach((person) => {
+  const rowData = Object.values(person)
+    .map((value) => `<td>${value}</td>`)
+    .join('');
+
+  const elementTr = document.createElement('tr');
+
+  elementTr.innerHTML = rowData;
+
+  htmlClassDashboard.appendChild(elementTr);
+});
+// allPeople.forEach((person) => {
+//   const elementTr = document.createElement('tr');
+
+//   elementTr.innerHTML = `
+//     <td>${person.name}</td>
+//     <td>${person.sex}</td>
+//     <td>${person.born}</td>
+//     <td>${person.died}</td>
+//     <td>${person.age}</td>
+//     <td>${person.century}</td>
+//   `;
+//   htmlClassDashboard.appendChild(elementTr);
+// });
