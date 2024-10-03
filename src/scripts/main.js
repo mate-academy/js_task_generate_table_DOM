@@ -354,7 +354,19 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table');
 
-// write your code here
+people.forEach((person) => {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+  const sex = person.sex === 'm' ? 'Male' : 'Female';
+
+  const newRow = table.insertRow();
+  const values = [person.name, sex, person.born, person.died, age, century];
+
+  values.forEach((value, index) => {
+    const ceil = newRow.insertCell(index);
+
+    ceil.textContent = value;
+  });
+});
