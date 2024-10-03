@@ -8,7 +8,7 @@ function createRow(item) {
   const { name, sex, born, died } = item;
   const age = died - born;
   const century = Math.ceil(died / 100);
-  const gender = sex === 'm' ? 'Men' : 'Woman';
+  const gender = sex === 'm' ? 'Male' : 'Female';
 
   table.firstElementChild.insertAdjacentHTML(
     'beforeend',
