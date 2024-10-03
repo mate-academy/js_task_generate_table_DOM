@@ -357,4 +357,35 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const data = document.querySelector('.dashboard');
+
+people.forEach((man) => {
+  const newRowOfPerson = document.createElement('tr');
+  const arrayOfPerson = [
+    man.name,
+    man.sex === 'm' ? 'Male' : 'Female',
+    man.born,
+    man.died,
+
+    man.died - man.born,
+    Math.ceil(man.died / 100),
+
+    /* man.fatherName,
+    man.motherName,
+    slug(man.name, man.born), */
+  ];
+
+  arrayOfPerson.forEach((personData) => {
+    const columnCellOfPerson = document.createElement('td');
+
+    columnCellOfPerson.textContent = personData;
+    newRowOfPerson.appendChild(columnCellOfPerson);
+  });
+  data.appendChild(newRowOfPerson);
+});
+
+/* function slug(n, b) {
+  const a = n.split(' ').join('-');
+
+  return a + '-' + b;
+}; */
