@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach((person) => {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+  const personSex = person.sex === 'm' ? 'Male' : 'Female';
+  const personDetails = [
+    person.name,
+    personSex,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
+
+  const row = document.createElement('tr');
+
+  for (let i = 0; i < personDetails.length; i++) {
+    const cell = document.createElement('td');
+
+    cell.textContent += personDetails[i];
+    row.append(cell);
+  }
+
+  table.append(row);
+});
