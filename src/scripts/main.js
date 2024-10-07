@@ -7,7 +7,7 @@ console.log(people); // you can remove it
 
 // write your code here
 
-const dashboard = document.querySelector('.dashboard');
+const tbody = document.querySelector('.dashboard tbody');
 
 people.forEach((person) => {
   const { name: fullName, sex, born, died } = person;
@@ -30,5 +30,5 @@ people.forEach((person) => {
     tr.insertAdjacentElement('beforeend', td);
   });
 
-  dashboard.insertAdjacentElement('beforeend', tr);
+  tbody.insertAdjacentElement('beforeend', tr);
 });
