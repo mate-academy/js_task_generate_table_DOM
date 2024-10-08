@@ -354,7 +354,7 @@ const people = [
   },
 ];
 
-const dashboard = document.querySelector('.dashboard');
+const dashboard = document.querySelector('.dashboard>tbody');
 
 function returnSex(gender) {
   if (gender === 'm') {
