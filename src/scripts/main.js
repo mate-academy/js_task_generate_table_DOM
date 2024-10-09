@@ -354,12 +354,12 @@ const people = [
   },
 ];
 
+const table = document.querySelector('.dashboard');
+
 people.forEach((hum) => {
   hum.age = hum.died - hum.born;
   hum.century = Math.ceil(hum.died / 100);
 });
-
-const table = document.querySelector('.dashboard');
 
 function addRow(person) {
   const newRow = table.insertRow();
