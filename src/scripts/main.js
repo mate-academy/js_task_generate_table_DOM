@@ -354,7 +354,35 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table');
 
-// write your code here
+people.map((person) => {
+  const row = document.createElement('tr');
+  const personName = document.createElement('td');
+  const gender = document.createElement('td');
+  const born = document.createElement('td');
+  const died = document.createElement('td');
+  const age = document.createElement('td');
+  const century = document.createElement('td');
+
+  personName.textContent = person.name;
+
+  if (person.sex === 'm') {
+    gender.textContent = 'Male';
+  } else {
+    gender.textContent = 'Female';
+  }
+
+  born.textContent = person.born;
+  died.textContent = person.died;
+  age.textContent = Number(person.died) - Number(person.born);
+  century.textContent = Math.ceil(Number(person.died) / 100);
+
+  table.append(row);
+  row.append(personName);
+  row.append(gender);
+  row.append(born);
+  row.append(died);
+  row.append(age);
+  row.append(century);
+});
