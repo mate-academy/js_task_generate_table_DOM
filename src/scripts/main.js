@@ -132,7 +132,7 @@ const people = [
     sex: 'f',
     born: 1762,
     died: 1807,
-    fatherName: 'Bernardus de Causmaecker',
+    fatherName: 'Bernardude Causmaecker',
     motherName: null,
     slug: 'joanna-de-causmaecker-1762',
   },
@@ -357,4 +357,29 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const tableOfPeople = document.querySelector('.dashboard tbody');
+
+people.forEach((person) => {
+  const { name: namePerson, born, died } = person;
+  let { sex } = person;
+
+  if (sex === 'm') {
+    sex = 'Male';
+  }
+
+  if (sex === 'f') {
+    sex = 'Female';
+  }
+
+  const row = document.createElement('tr');
+  const rowInner = `
+    <td>${namePerson}</td>
+    <td>${sex}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${died - born}</td>
+    <td>${Math.ceil(died / 100)}</td>`;
+
+  row.innerHTML += rowInner;
+  tableOfPeople.append(row);
+});
