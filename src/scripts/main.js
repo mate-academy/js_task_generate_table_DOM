@@ -371,7 +371,7 @@ function addRow(person) {
   const centuryCell = newRow.insertCell(5);
 
   nameCell.textContent = person.name;
-  genderCell.textContent = person.gender;
+  genderCell.textContent = person.sex;
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
   ageCell.textContent = person.age;
