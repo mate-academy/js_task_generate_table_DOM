@@ -376,7 +376,7 @@ people.map((person) => {
   born.textContent = person.born;
   died.textContent = person.died;
   age.textContent = Number(person.died) - Number(person.born);
-  century.textContent = Math.ceil(Number(person.died) / 100);
+  century.textContent = Math.ceil(Number(person.born) / 100);
 
   table.append(row);
   row.append(personName);
