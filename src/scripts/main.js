@@ -355,6 +355,27 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('tbody');
+
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  const rowSrc = {
+    name: person.name,
+    gender: person.sex === 'm' ? 'Male' : 'Female',
+    born: person.born,
+    died: person.died,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
+
+  for (const key in rowSrc) {
+    const cell = document.createElement('td');
+
+    cell.textContent = rowSrc[key];
+    row.append(cell);
+  }
+
+  table.append(row);
+}
