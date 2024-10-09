@@ -361,36 +361,21 @@ const table = document.querySelector('tbody');
 for (const person of people) {
   const row = document.createElement('tr');
 
-  const nameCell = document.createElement('td');
+  const rowSrc = {
+    name: person.name,
+    gender: person.sex === 'm' ? 'Male' : 'Female',
+    born: person.born,
+    died: person.died,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
 
-  nameCell.textContent = person.name;
+  for (const key in rowSrc) {
+    const cell = document.createElement('td');
 
-  const genderCell = document.createElement('td');
-
-  genderCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
-
-  const bornCell = document.createElement('td');
-
-  bornCell.textContent = person.born;
-
-  const diedCell = document.createElement('td');
-
-  diedCell.textContent = person.died;
-
-  const ageCell = document.createElement('td');
-
-  ageCell.textContent = person.died - person.born;
-
-  const centuryCell = document.createElement('td');
-
-  centuryCell.textContent = Math.ceil(person.died / 100);
-
-  row.append(nameCell);
-  row.append(genderCell);
-  row.append(bornCell);
-  row.append(diedCell);
-  row.append(ageCell);
-  row.append(centuryCell);
+    cell.textContent = rowSrc[key];
+    row.append(cell);
+  }
 
   table.append(row);
 }
