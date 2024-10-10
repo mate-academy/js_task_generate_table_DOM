@@ -359,30 +359,17 @@ const table = document.querySelector('tbody');
 people.forEach((person) => {
   const row = document.createElement('tr');
 
-  for (const key in person) {
+  ['name', 'sex', 'born', 'died'].forEach((key) => {
     const cell = document.createElement('td');
 
-    switch (key) {
-      case 'name':
-        cell.textContent = person.name;
-        row.appendChild(cell);
-        break;
-      case 'sex':
-        cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
-        row.appendChild(cell);
-        break;
-      case 'born':
-        cell.textContent = person.born;
-        row.appendChild(cell);
-        break;
-      case 'died':
-        cell.textContent = person.died;
-        row.appendChild(cell);
-        break;
-      default:
-        break;
+    if (key === 'sex') {
+      cell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    } else {
+      cell.textContent = person[key];
     }
-  }
+
+    row.appendChild(cell);
+  });
 
   const ageCell = document.createElement('td');
   const centuryCell = document.createElement('td');
