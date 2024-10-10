@@ -369,10 +369,6 @@ people.forEach((man) => {
 
     man.died - man.born,
     Math.ceil(man.died / 100),
-
-    /* man.fatherName,
-    man.motherName,
-    slug(man.name, man.born), */
   ];
 
   arrayOfPerson.forEach((personData) => {
@@ -383,9 +379,3 @@ people.forEach((man) => {
   });
   data.appendChild(newRowOfPerson);
 });
-
-/* function slug(n, b) {
-  const a = n.split(' ').join('-');
-
-  return a + '-' + b;
-}; */
