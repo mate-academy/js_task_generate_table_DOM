@@ -354,7 +354,40 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+'use strict';
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+function createCell(content) {
+  const cell = document.createElement('td');
+  cell.textContent = content;
+  return cell;
+}
+
+function calculateAge(person) {
+  return person.died - person.born;
+}
+
+function calculateCentury(year) {
+  return Math.ceil(year / 100 - 1);
+}
+
+function createRow(person) {
+  const row = document.createElement('tr');
+
+  const nameCell = createCell(person.name);
+  const sexCell = createCell(person.sex);
+  const bornCell = createCell(person.born);
+  const diedCell = createCell(person.died);
+  const ageCell = createCell(calculateAge(person));
+  const centuryCell = createCell(calculateCentury(person.died));
+
+  row.append(nameCell, sexCell, bornCell, diedCell, ageCell, centuryCell);
+
+  return row;
+}
+
+people.forEach(person => {
+  const row = createRow(person);
+  table.appendChild(row);
+});
