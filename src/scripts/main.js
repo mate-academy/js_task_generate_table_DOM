@@ -355,6 +355,25 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// console.log(people);
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const { names, sex, born, died } = person;
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const gender = sex === 'm' ? 'Male' : 'Female';
+
+  table.firstElementChild.insertAdjacentHTML(
+    'beforeend',
+    ` <tr>
+      <td>${names}</td>
+      <td>${gender}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    </tr>`,
+  );
+});
