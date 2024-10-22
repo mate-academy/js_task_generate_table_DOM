@@ -357,4 +357,31 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+// write your code here person.died - person.born `Math.ceil(person.died / 100)`
+const table = document.querySelector('.dashboard');
+
+people.forEach((item) => {
+  const row = document.createElement('tr');
+  const nameItem = document.createElement('td');
+  const genderItem = document.createElement('td');
+  const bornItem = document.createElement('td');
+  const diedItem = document.createElement('td');
+  const ageItem = document.createElement('td');
+  const centuryItem = document.createElement('td');
+
+  nameItem.textContent = item.name;
+  genderItem.textContent = item.sex === 'f' ? 'women' : 'man';
+  bornItem.textContent = item.born;
+  diedItem.textContent = item.died;
+  ageItem.textContent = item.died - item.born;
+  centuryItem.textContent = Math.ceil(item.died / 100);
+
+  row.append(nameItem);
+  row.append(genderItem);
+  row.append(bornItem);
+  row.append(diedItem);
+  row.append(ageItem);
+  row.append(centuryItem);
+
+  table.append(row);
+});
