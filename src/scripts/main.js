@@ -354,29 +354,6 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-
-// // write your code here
-//   function createTableRow() {
-//     people.age = people.born - people.died;
-//     people.century = Math.ceil(person.died / 100);
-
-//     people.forEach(person => {
-//       const row = document.createElement('tr')
-//     });
-
-//     const properties = ['name', 'Gender', 'Born', 'Died', 'Age', 'Century']
-
-//     properties.forEach(prop => {
-//       const cell = document.createElement('td');
-//       cell.textContent = person[prop];
-//       row.appendChild(cell);
-//   });
-//   }
-
-//   const table = document.querySelector('dashboard');
-//   createTable(table);
-
 function createTableRow(tableId) {
   people.age = people.born - people.died;
   people.century = Math.ceil(people.died / 100);
