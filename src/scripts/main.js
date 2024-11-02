@@ -376,15 +376,14 @@ const people = [
 
 //   const table = document.querySelector('dashboard');
 //   createTable(table);
+const table = document.querySelector('#dashboard')
 
 function createTableRow(tableId) {
-  for (let person of people) {
-
+  for (const person of people) {
     people.age = person.born - person.died;
     people.century = Math.ceil(person.died / 100);
   }
 
-  const table = document.querySelector('dashboard');
 
   const properties = ['name', 'Gender', 'Born', 'Died', 'Age', 'Century'];
 
@@ -402,4 +401,4 @@ function createTableRow(tableId) {
   });
 }
 
-createTableRow();
+createTableRow(table);
