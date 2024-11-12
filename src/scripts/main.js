@@ -354,7 +354,31 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table.dashboard');
 
-// write your code here
+function createRowInDashboard({ name: personName, sex, born, died }) {
+  const tableRow = document.createElement('tr');
+  const rowData = [
+    personName,
+    sex,
+    born,
+    died,
+    died - born,
+    Math.ceil(died / 100),
+  ];
+
+  rowData.forEach((data) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = data;
+    tableRow.appendChild(cell);
+  });
+
+  table.appendChild(tableRow);
+}
+
+people.forEach((person) => {
+  if (table) {
+    createRowInDashboard(person);
+  }
+});
