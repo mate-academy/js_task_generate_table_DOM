@@ -358,3 +358,44 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+// document.getElementById('average').
+// addEventListener('submit', function (event) {
+//   event.preventDefault();
+
+//   var tr = document.createElement("tr");
+//   var cols = ['baza', 'petrol', 'cars'];
+
+//   for (var q=0; q<cols.length; ++q) {
+//     var td = document.createElement("td");
+//     td.textContent = document.getElementById(cols[q]).value;
+//     tr.appendChild(td);
+//   }
+
+const numRows = people.length;
+const nameCols = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+for (let i = 0; i < numRows; i++) {
+  const newRow = document.createElement('tr');
+  const elName = people[i].name;
+  const elSex = people[i].sex;
+  const elBorn = people[i].born;
+  const elDied = people[i].died;
+  const elAge = elDied - elBorn;
+  const elCentury = Math.ceil(elDied / 100);
+  // const newMassElement = people[i];
+
+  const newCol = [];
+
+  for (let col = 0; col < nameCols.length; col++) {
+    newCol[col] = document.createElement('td');
+  }
+
+  newCol[0].textContent = elName;
+  newCol[1].textContent = elSex;
+  newCol[2].textContent = elBorn;
+  newCol[3].textContent = elDied;
+  newCol[4].textContent = elAge;
+  newCol[5].textContent = elCentury;
+
+  newRow.appendChild('/tr');
+}
