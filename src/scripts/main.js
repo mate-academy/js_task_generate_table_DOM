@@ -357,4 +357,34 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+function calculateAgeAndCentury(born, died) {
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+
+  return { age, century };
+}
+
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const { age, century } = calculateAgeAndCentury(person.born, person.died);
+
+  const row = document.createElement('tr');
+
+  if (person.sex === 'm') {
+    person.sex = 'Male';
+  } else {
+    person.sex = 'Female';
+  }
+
+  row.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `;
+
+  table.appendChild(row);
+});
