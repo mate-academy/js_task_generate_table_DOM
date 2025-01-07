@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+document.addEventListener('DOMContentLoaded', function () {
+  const table = document.querySelector('.dashboard');
 
-// write your code here
+  if (table) {
+    people.forEach((person) => {
+      const row = document.createElement('tr');
+
+      const cells = [
+        person.name,
+        person.sex === 'm' ? 'Male' : 'Female',
+        person.born,
+        person.died,
+        person.died - person.born,
+        Math.ceil(person.died / 100),
+      ];
+
+      cells.forEach((cellData) => {
+        const cell = document.createElement('td');
+
+        cell.textContent = cellData;
+        row.appendChild(cell);
+      });
+
+      table.appendChild(row);
+    });
+  }
+});
