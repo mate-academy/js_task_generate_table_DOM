@@ -354,43 +354,59 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const table = document.querySelector('.dashboard');
 
-people.forEach((person) => {
-  const row = document.querySelector('tr');
-  const nameCell = document.createElement('td');
+// Перевірка, що елемент таблиці існує
+if (table) {
+  // Додавання заголовка таблиці (якщо потрібно)
+  const headerRow = document.createElement('tr');
+  const headers = ['Name', 'Sex', 'Born', 'Died', 'Age', 'Century'];
 
-  nameCell.textContent = person.name;
+  headers.forEach((headerText) => {
+    const headerCell = document.createElement('th');
 
-  const sexCell = document.createElement('td');
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
+  });
+  table.appendChild(headerRow);
 
-  sexCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  // Додавання рядків з даними
+  people.forEach((person) => {
+    const row = document.createElement('tr');
 
-  const bornCell = document.createElement('td');
+    const nameCell = document.createElement('td');
 
-  bornCell.textContent = person.born;
+    nameCell.textContent = person.name;
 
-  const diedCell = document.createElement('td');
+    const sexCell = document.createElement('td');
 
-  diedCell.textContent = person.died;
+    sexCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
 
-  const ageCell = document.createElement('td');
+    const bornCell = document.createElement('td');
 
-  ageCell.textContent = person.died - person.born;
+    bornCell.textContent = person.born;
 
-  const centuryCell = document.createElement('td');
+    const diedCell = document.createElement('td');
 
-  centuryCell.textContent = Math.ceil(person.died / 100);
+    diedCell.textContent = person.died;
 
-  row.appendChild(nameCell);
-  row.appendChild(sexCell);
-  row.appendChild(bornCell);
-  row.appendChild(diedCell);
-  row.appendChild(ageCell);
-  row.appendChild(centuryCell);
+    const ageCell = document.createElement('td');
 
-  table.appendChild(row);
-});
+    ageCell.textContent = person.died - person.born;
+
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = Math.ceil(person.died / 100);
+
+    // Додаємо створені клітинки до рядка
+    row.appendChild(nameCell);
+    row.appendChild(sexCell);
+    row.appendChild(bornCell);
+    row.appendChild(diedCell);
+    row.appendChild(ageCell);
+    row.appendChild(centuryCell);
+
+    // Додаємо рядок до таблиці
+    table.appendChild(row);
+  });
+}
