@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 'use strict';
 
 const people = [
@@ -358,3 +359,38 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const table = document.querySelector('table');
+
+people.forEach(tableCreate);
+
+function tableCreate(element) {
+  const age = element.died - element.born;
+  const century = Math.ceil(element.born / 100);
+
+  const obj = {
+    personName: element.name,
+    gender: element.sex,
+    born: element.born,
+    died: element.died,
+    age: age,
+    century: century,
+  };
+
+  const tr = document.createElement('tr');
+
+  for (const key in obj) {
+    const td = document.createElement('td');
+
+    if (obj[key] === 'f') {
+      td.textContent = 'Female';
+    } else if (obj[key] === 'm') {
+      td.textContent = 'Male';
+    } else {
+      td.textContent = obj[key];
+    }
+
+    tr.appendChild(td);
+  }
+
+  table.appendChild(tr);
+}
