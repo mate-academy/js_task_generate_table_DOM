@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+const createRowMarkup = ({ name: personName, sex, born, died }) => {
+  const gender = {
+    m: 'Male',
+    f: 'Female',
+  };
+
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+
+  return `
+  <tr>
+    <td>${personName}</td>
+    <td>${gender[sex]}</td>
+    <td>${born}</td>
+    <td>${died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  </tr>
+`;
+};
+
+const markup = `${people.map(createRowMarkup).join('')}`;
+
+dashboard.lastChild.insertAdjacentHTML('beforeend', markup);
