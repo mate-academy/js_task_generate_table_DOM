@@ -353,8 +353,32 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const dashboard = document.querySelector('.dashboard');
+const peopleRows = createPeopleRows(people);
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function createPeopleRows(people) {
+  const rows = [];
 
-// write your code here
+  for (const p of people) {
+    const row = `
+      <tr>
+        <th>${p.name}</th>
+        <th>${p.sex}</th>
+        <th>${p.born}</th>
+        <th>${p.died}</th>
+        <th>${p.died - p.born}</th>
+        <th>${Math.ceil(p.died / 100)}</th>
+      </tr>
+    `;
+
+    rows.push(row);
+  }
+
+  return rows;
+}
+
+appendRowsToDashboard(dashboard, peopleRows);
+
+function appendRowsToDashboard(dashboard, peopleRows) {
+  peopleRows.forEach(row => dashboard.insertAdjacentHTML('beforeend', row));
+}
