@@ -353,8 +353,24 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const creteCell = (content) => {
+  const cell = document.createElement('td');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+  cell.textContent = content;
 
-// write your code here
+  return cell;
+};
+const table = document.querySelector('.dashboard');
+
+people.forEach(({ name: personName, sex, born, died }) => {
+  const row = document.createElement('tr');
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+
+  const personSex = sex === 'm' ? 'Male' : 'Female';
+
+  [personName, personSex, born, died, age, century].forEach((element) => {
+    row.append(creteCell(element));
+  });
+  table.append(row);
+});
