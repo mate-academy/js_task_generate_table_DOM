@@ -357,4 +357,26 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+let previousRow = document.querySelector('tr');
+
+for (const person of people) {
+  const newRow = document.createElement('tr');
+
+  newRow.append(fillColumn(person.name));
+  newRow.append(fillColumn(person.sex === 'm' ? 'Male' : 'Female'));
+  newRow.append(fillColumn(person.born));
+  newRow.append(fillColumn(person.died));
+  newRow.append(fillColumn(String(person.died - person.born)));
+  newRow.append(fillColumn(String(Math.ceil(person.died / 100))));
+
+  previousRow.after(newRow);
+  previousRow = newRow;
+}
+
+function fillColumn(content) {
+  const newColumn = document.createElement('th');
+
+  newColumn.textContent = content;
+
+  return newColumn;
+}
