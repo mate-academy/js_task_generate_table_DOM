@@ -357,4 +357,33 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('tbody');
+
+  people.forEach((person) => {
+    const newRow = document.createElement('tr');
+
+    const personName = person.name;
+    const gender = person.sex;
+    const born = person.born;
+    const died = person.died;
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    createElement(personName, newRow);
+    createElement(gender, newRow);
+    createElement(born, newRow);
+    createElement(died, newRow);
+    createElement(age, newRow);
+    createElement(century, newRow);
+
+    table.appendChild(newRow);
+  });
+
+  function createElement(text, parentElement) {
+    const td = document.createElement('td');
+
+    td.textContent = text;
+    parentElement.appendChild(td);
+  }
+});
