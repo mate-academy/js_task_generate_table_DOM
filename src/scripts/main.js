@@ -357,4 +357,35 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+function addInfoToTable(list) {
+  const dashBoard = document.querySelector('.dashboard');
+
+  if (!dashBoard) {
+    return;
+  }
+
+  for (const person of list) {
+    const row = document.createElement('tr');
+    const personInformation = [];
+
+    const { name: namePerson, sex: shortSex, born, died } = person;
+
+    const sex = shortSex === 'm' ? 'Male' : 'Female';
+
+    const age = died - born;
+    const century = Math.ceil(died / 100);
+
+    personInformation.push(namePerson, sex, born, died, age, century);
+
+    for (const info of personInformation) {
+      const cell = document.createElement('td');
+
+      cell.textContent = info;
+      row.append(cell);
+    }
+
+    dashBoard.append(row);
+  }
+}
+
+addInfoToTable(people);
