@@ -355,6 +355,13 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+function addRow(arr) {
+  const table = document.querySelector('.dashboard');
+
+  for (let i = 0; i < arr.length; i++) {
+    table.innerHTML += `<tr><td>${arr[i].name}</td><td>${arr[i].sex === 'm' ? 'Male' : 'Female'}</td><td>${arr[i].born}</td><td>${arr[i].died}</td><td>${arr[i].died - arr[i].born}</td><td>${Math.ceil(arr[i].died / 100)}</td></tr>`;
+  }
+}
+
+addRow(people);
