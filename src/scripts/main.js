@@ -355,6 +355,64 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+function initHeaders() {
+  const tabel = document.querySelector('.dashboard');
+  const headers = [];
+
+  tabel.querySelectorAll('th').forEach((elem) => {
+    headers.push(elem.innerHTML);
+  });
+
+  return headers;
+}
+
+function fillTabel(peoples) {
+  const headers = initHeaders();
+  const tBody = document.querySelector('tbody');
+
+  peoples.forEach((peop) => {
+    tBody.appendChild(createRow(peop, headers));
+  });
+}
+
+function createRow(person, headers) {
+  const row = document.createElement('tr');
+
+  let currentValue;
+
+  for (const header of headers) {
+    const data = document.createElement('td');
+
+    switch (header) {
+      case 'Name':
+        currentValue = person.name;
+        break;
+      case 'Gender':
+        currentValue = person.sex;
+        break;
+      case 'Born':
+        currentValue = person.born;
+        break;
+      case 'Died':
+        currentValue = person.died;
+        break;
+      case 'Age':
+        currentValue = person.died - person.born;
+        break;
+      case 'Century':
+        currentValue = Math.ceil(person.died / 100);
+        break;
+
+      default:
+        currentValue = '';
+    }
+
+    data.innerHTML = currentValue;
+    row.appendChild(data);
+  }
+
+  return row;
+}
+
+fillTabel(people);
