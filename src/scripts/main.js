@@ -354,7 +354,32 @@ const people = [
   },
 ];
 
+const table = document.querySelector('.dashboard');
+
+for (const person of people) {
+  const newRow = document.createElement('tr');
+  const names = document.createElement('td');
+  const gender = document.createElement('td');
+  const born = document.createElement('td');
+  const died = document.createElement('td');
+  const age = document.createElement('td');
+  const century = document.createElement('td');
+
+  names.innerHTML = person.name;
+
+  gender.innerHTML = person.sex;
+
+  born.innerHTML = person.born;
+
+  died.innerHTML = person.died;
+
+  age.innerHTML = Number(person.died) - Number(person.born);
+
+  century.innerHTML = Math.ceil(person.died / 100);
+
+  newRow.append(names, gender, born, died, age, century);
+  table.append(newRow);
+}
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
 // write your code here
