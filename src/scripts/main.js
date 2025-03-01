@@ -355,6 +355,16 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+for (let i = 0; i < people.length; i++) {
+  const row = table.insertRow();
+
+  row.insertCell().textContent = people[i].name;
+  row.insertCell().textContent = people[i].sex === 'f' ? 'Female' : 'Male';
+  row.insertCell().textContent = people[i].born;
+  row.insertCell().textContent = people[i].died;
+  row.insertCell().textContent = people[i].died - people[i].born;
+  row.insertCell().textContent = Math.ceil(people[i].died / 100);
+}
