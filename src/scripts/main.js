@@ -356,8 +356,8 @@ const people = [
 
 const table = document.querySelector('.dashboard');
 
-people.forEach((person, index) => {
-  const row = table.insertRow(index);
+people.forEach((person) => {
+  const row = table.insertRow(-1);
 
   const cell1 = row.insertCell(0);
   const cell2 = row.insertCell(1);
@@ -372,6 +372,4 @@ people.forEach((person, index) => {
   cell4.innerHTML = person.died;
   cell5.innerHTML = person.died - person.born;
   cell6.innerHTML = Math.ceil(person.died / 100);
-
-  table.appendChild(row);
 });
