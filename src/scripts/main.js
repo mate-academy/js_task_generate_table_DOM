@@ -358,7 +358,7 @@ const people = [
 
 const table = document.querySelector('.dashboard');
 
-for (let i = 1; i < people.length; i++) {
+for (let i = 0; i < people.length; i++) {
   const row = table.insertRow();
 
   row.insertCell().textContent = people[i].name;
