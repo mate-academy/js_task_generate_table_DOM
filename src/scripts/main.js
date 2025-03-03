@@ -364,7 +364,7 @@ people.forEach((person) => {
 
   newRow.innerHTML = `
     <td>${person.name}</td>
-    <td>${person.sex === 'f' ? 'Male' : 'Female'}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
     <td>${person.born}</td>
     <td>${person.died}</td>
     <td>${age}</td>
