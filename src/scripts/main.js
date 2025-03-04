@@ -379,7 +379,6 @@ for(const human of people) {
   } else {
     genderCell.textContent = 'Famele';
   }
-
   row.append(nameCell, genderCell, bornCell, diedCell, ageCell, centuryCell);
   table.appendChild(row);
 }
