@@ -358,8 +358,14 @@ const people = [
 console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
+let tbody = table.querySelector('tbody');
 
-for(const human of people) {
+if (!tbody) {
+  tbody = document.createElement('tbody');
+  table.appendChild(tbody);
+}
+
+for (const human of people) {
   const row = document.createElement('tr');
   const nameCell = document.createElement('td');
   const genderCell = document.createElement('td');
@@ -374,13 +380,8 @@ for(const human of people) {
   ageCell.textContent = human.died - human.born;
   centuryCell.textContent = Math.ceil(human.died / 100);
 
-  if (human.sex === 'm') {
-    genderCell.textContent = 'Male';
-  } else {
-    genderCell.textContent = 'Famele';
-  }
+  genderCell.textContent = human.sex === 'm' ? 'Male' : 'Female';
+
   row.append(nameCell, genderCell, bornCell, diedCell, ageCell, centuryCell);
-  table.appendChild(row);
+  tbody.appendChild(row);
 }
-
-
