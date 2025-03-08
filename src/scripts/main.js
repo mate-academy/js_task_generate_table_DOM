@@ -357,4 +357,55 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const body = document.body;
+const table = body.querySelector('table');
+
+people.forEach((item) => {
+  const row = document.createElement('tr');
+  const howLongLive = item.died - item.born;
+  let td;
+
+  for (let i = 0; i < 6; i++) {
+    td = document.createElement('td');
+
+    switch (i) {
+      case 0:
+        td.textContent = item.name;
+        row.prepend(td);
+        break;
+
+      case 1:
+        if (item.sex === 'm') {
+          td.textContent = 'male';
+        } else {
+          td.textContent = 'famel';
+        }
+
+        row.append(td);
+        break;
+
+      case 2:
+        td.textContent = item.born;
+
+        row.append(td);
+        break;
+
+      case 3:
+        td.textContent = item.died;
+        row.append(td);
+        break;
+
+      case 4:
+        td.textContent = howLongLive;
+        row.append(td);
+        break;
+
+      case 5:
+        td.textContent = Math.ceil(item.died / 100);
+        row.append(td);
+        break;
+    }
+  }
+
+  table.append(row);
+});
