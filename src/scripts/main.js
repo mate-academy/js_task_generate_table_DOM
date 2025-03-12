@@ -358,3 +358,30 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const table = document.querySelector('.dashboard');
+
+// eslint-disable-next-line no-console
+console.log(table);
+
+people.forEach((element) => {
+  // eslint-disable-next-line no-console
+  console.log(element);
+
+  const row = document.createElement('tr');
+  const value1 = document.createElement('td');
+  const value2 = document.createElement('td');
+  const value3 = document.createElement('td');
+  const value4 = document.createElement('td');
+  const value5 = document.createElement('td');
+  const value6 = document.createElement('td');
+
+  value1.textContent = element.name;
+  value2.textContent = element.sex;
+  value3.textContent = element.born;
+  value4.textContent = element.died;
+  value5.textContent = element.died - element.born;
+  value6.textContent = Math.ceil(element.died / 100);
+
+  row.append(value1, value2, value3, value4, value5, value6);
+  table.appendChild(row);
+});
