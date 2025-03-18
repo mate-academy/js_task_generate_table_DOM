@@ -383,7 +383,7 @@ function generateTable(peopleArray) {
     personCentury.textContent = Math.ceil(person.died / 100);
     row.appendChild(personCentury);
 
-    document.querySelector('table').appendChild(row);
+    document.querySelector('.dashboard').appendChild(row);
   });
 }
 
