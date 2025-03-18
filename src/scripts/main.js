@@ -358,3 +358,26 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+function fillTable() {
+  const table = document.querySelector('.dashboard tbody');
+
+  people.forEach((person) => {
+    const { name, sex, born, died } = person;
+
+    table.insertAdjacentHTML(
+      'beforeend',
+      `
+        <tr>
+          <td>${name}</td>
+          <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+          <td>${born}</td>
+          <td>${died}</td>
+          <td>${died - born}</td>
+          <td>${Math.ceil(person.died / 100)}</td>
+        </tr>
+      `,
+    );
+  });
+}
+
+fillTable();
