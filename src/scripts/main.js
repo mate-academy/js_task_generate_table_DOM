@@ -358,3 +358,28 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+// Find the table with class 'dashboard'
+const table = document.querySelector('.dashboard');
+
+// Create and append rows for each person
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  // Calculate age and century
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  // Create cells with data
+  row.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'male' : 'female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `;
+
+  // Append row to table
+  table.appendChild(row);
+});
