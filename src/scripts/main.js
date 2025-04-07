@@ -358,36 +358,36 @@ const people = [
 
 const table = document.querySelector('table');
 
-for (const person of people) {
-  class Person {
-    constructor() {
-      this.name = person.name;
-      this.gender = person.sex;
-      this.born = person.born;
-      this.died = person.died;
-      this.age = person.died - person.born;
-      this.century = Math.ceil(person.died / 100);
+class Person {
+  constructor(obj) {
+    this.name = obj.name;
+    this.gender = obj.sex;
+    this.born = obj.born;
+    this.died = obj.died;
+    this.age = obj.died - obj.born;
+    this.century = Math.ceil(obj.died / 100);
 
-      this.gender =
-        this.gender === 'm' ? 'Male' : this.gender === 'f' ? 'Female' : null;
-    }
-
-    createRow() {
-      const tableRow = document.createElement('tr');
-      const values = Object.values(this);
-
-      for (let i = 0; i < 6; i++) {
-        const rowData = document.createElement('td');
-
-        rowData.textContent = values[i];
-        tableRow.append(rowData);
-      }
-
-      return tableRow;
-    }
+    this.gender =
+      this.gender === 'm' ? 'Male' : this.gender === 'f' ? 'Female' : null;
   }
 
-  const pers = new Person();
+  createRow() {
+    const tableRow = document.createElement('tr');
+    const values = Object.values(this);
+
+    for (let i = 0; i < 6; i++) {
+      const rowData = document.createElement('td');
+
+      rowData.textContent = values[i];
+      tableRow.append(rowData);
+    }
+
+    return tableRow;
+  }
+}
+
+for (const person of people) {
+  const pers = new Person(person);
 
   table.append(pers.createRow());
 }
