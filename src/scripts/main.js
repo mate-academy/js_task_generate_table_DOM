@@ -368,16 +368,8 @@ for (const person of people) {
       this.age = person.died - person.born;
       this.century = Math.ceil(person.died / 100);
 
-      switch (this.gender) {
-        case 'm':
-          this.gender = 'Male';
-          break;
-        case 'f':
-          this.gender = 'Female';
-          break;
-        default:
-          return 0;
-      }
+      this.gender =
+        this.gender === 'm' ? 'Male' : this.gender === 'f' ? 'Female' : null;
     }
 
     createRow() {
