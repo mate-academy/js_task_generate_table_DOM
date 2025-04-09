@@ -364,15 +364,17 @@ people.forEach((person) => {
   const cellGender = document.createElement('td');
   const cellBorn = document.createElement('td');
   const cellDied = document.createElement('td');
+  const cellAge = document.createElement('td');
   const cellCentury = document.createElement('td');
 
   cellName.textContent = person.name;
-  cellGender.textContent = person.sex;
+  cellGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
   cellBorn.textContent = person.born;
   cellDied.textContent = person.died;
+  cellAge.textContent = person.died - person.born;
   cellCentury.textContent = Math.ceil(person.died / 100);
 
-  newRow.append(cellName, cellGender, cellBorn, cellDied, cellCentury);
+  newRow.append(cellName, cellGender, cellBorn, cellDied, cellAge, cellCentury);
 
   table.appendChild(newRow);
 });
