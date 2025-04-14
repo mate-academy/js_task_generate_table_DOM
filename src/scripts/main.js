@@ -357,4 +357,44 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  // Ім’я
+  const nameTd = document.createElement('td');
+
+  nameTd.textContent = person.name;
+
+  // Стать
+  const sexTd = document.createElement('td');
+
+  sexTd.textContent = person.sex;
+
+  // Народився
+  const bornTd = document.createElement('td');
+
+  bornTd.textContent = person.born;
+
+  // Помер
+  const diedTd = document.createElement('td');
+
+  diedTd.textContent = person.died;
+
+  // Вік
+  const ageTd = document.createElement('td');
+
+  ageTd.textContent = person.died - person.born;
+
+  // Століття
+  const centuryTd = document.createElement('td');
+
+  centuryTd.textContent = Math.ceil(person.died / 100);
+
+  // Додати всі <td> до <tr>
+  tr.append(nameTd, sexTd, bornTd, diedTd, ageTd, centuryTd);
+
+  // Додати <tr> до таблиці
+  table.appendChild(tr);
+});
