@@ -354,7 +354,43 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+const transformedPeople = people.map((person) => ({
+  ...person,
+  sex: person.sex === 'm' ? 'Male' : 'Female',
+}));
+
+transformedPeople.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+
+  const genderCell = document.createElement('td');
+
+  genderCell.textContent = person.sex;
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+
+  const ageCell = document.createElement('td');
+  const age = person.died - person.born;
+
+  ageCell.textContent = age;
+
+  const centuryCell = document.createElement('td');
+  const century = Math.ceil(person.died / 100);
+
+  centuryCell.textContent = century;
+
+  row.append(nameCell, genderCell, bornCell, diedCell, ageCell, centuryCell);
+
+  table.appendChild(row);
+});
