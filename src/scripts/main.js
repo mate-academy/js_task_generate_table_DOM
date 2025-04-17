@@ -358,13 +358,13 @@ const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const tr = document.createElement('tr');
-  const { namePerson, sex, born, died } = person;
+  const { name: title, sex, born, died } = person;
   const gender = sex === 'm' ? 'Male' : 'Female';
   const age = died - born;
   const century = Math.ceil(died / 100);
 
   const data = [
-    `${namePerson}`,
+    `${title}`,
     `${gender}`,
     `${born}`,
     `${died}`,
