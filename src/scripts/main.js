@@ -358,3 +358,25 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const tableBody = document.querySelector('.dashboard tbody');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const cleanedPerson = {
+    name: person.name,
+    gender: person.sex === 'm' ? 'Male' : 'Female',
+    born: person.born,
+    died: person.died,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
+
+  for (const key in cleanedPerson) {
+    const cell = document.createElement('td');
+
+    cell.textContent = cleanedPerson[key];
+    row.append(cell);
+  }
+  tableBody.append(row);
+});
