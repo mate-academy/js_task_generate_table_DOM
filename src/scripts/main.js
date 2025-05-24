@@ -360,6 +360,10 @@ console.log(people); // you can remove it
 const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
+  if (!table) {
+    return;
+  }
+
   const row = document.createElement('tr');
   const personName = document.createElement('td');
   const gender = document.createElement('td');
