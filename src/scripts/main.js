@@ -356,26 +356,21 @@ const people = [
 
 const table = document.querySelector('table.dashboard');
 
-people.forEach(person => {
-  const tr = document.createElement('tr');
-  const gender = person.sex === 'f' ? 'Female' : 'Male';
-  const age = person.died - person.born;
-  const century = Math.ceil(person.died / 100);
-  const values = [
-    person.name,
-    gender,
-    person.born,
-    person.died,
-    age,
-    century,
-  ];
+if (table) {
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
+    const gender = person.sex === 'f' ? 'Female' : 'Male';
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const values = [person.name, gender, person.born, person.died, age, century];
 
-  values.forEach(value => {
-    const td = document.createElement('td');
-    td.textContent = value;
-    tr.appendChild(td);
+    values.forEach((value) => {
+      const td = document.createElement('td');
+
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+
+    table.appendChild(tr);
   });
-
-
-  table.appendChild(tr);
-})
+}
