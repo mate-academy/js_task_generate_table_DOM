@@ -354,34 +354,35 @@ const people = [
   },
 ];
 
-const table = document.querySelector('.dashboard');
+const dashboardTable = document.querySelector('.dashboard');
+
+let tbody = dashboardTable.querySelector('tbody');
+
+if (!tbody) {
+  tbody = document.createElement('tbody');
+  dashboardTable.appendChild(tbody);
+}
 
 people.forEach(person => {
-  const row = document.createElement('tr');
+  const tr = document.createElement('tr');
 
-  const nameCell = document.createElement('td');
-  nameCell.textContent = person.name;
-  row.appendChild(nameCell);
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
-  const genderCell = document.createElement('td');
-  genderCell.textContent = person.sex;
-  row.appendChild(genderCell);
+  const cells = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
 
-  const bornCell = document.createElement('td');
-  bornCell.textContent = person.born;
-  row.appendChild(bornCell);
+  cells.forEach(cellValue => {
+    const td = document.createElement('td');
+    td.textContent = cellValue;
+    tr.appendChild(td);
+  });
 
-  const diedCell = document.createElement('td');
-  diedCell.textContent = person.died;
-  row.appendChild(diedCell);
-
-  const ageCell = document.createElement('td');
-  ageCell.textContent = person.died - person.born;
-  row.appendChild(ageCell);
-
-  const centuryCell = document.createElement('td');
-  centuryCell.textContent = Math.ceil(person.died / 100);
-  row.appendChild(centuryCell);
-
-  table.appendChild(row);
+  tbody.appendChild(tr);
 });
