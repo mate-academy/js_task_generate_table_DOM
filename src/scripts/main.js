@@ -354,35 +354,29 @@ const people = [
   },
 ];
 
-function createTable(tableParam) {
-  for (const person of people) {
-    const tr = document.createElement('tr');
+const table = document.querySelector('.dashboard');
 
-    tableParam.appendChild(tr);
+people.forEach((person) => {
+  const tr = document.createElement('tr');
 
-    const peopleName = document.createElement('td');
-    const gender = document.createElement('td');
-    const bord = document.createElement('td');
-    const died = document.createElement('td');
-    const age = document.createElement('td');
-    const century = document.createElement('td');
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
-    peopleName.innerText = person['name'];
-    gender.innerText = person['sex'] === 'm' ? 'Male' : 'Female';
-    bord.innerText = person['born'];
-    died.innerText = person['died'];
-    age.innerText = person['died'] - person['born'];
-    century.innerText = Math.ceil(person.died / 100);
+  const cellsData = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
 
-    tr.appendChild(peopleName);
-    tr.appendChild(gender);
-    tr.appendChild(bord);
-    tr.appendChild(died);
-    tr.appendChild(age);
-    tr.appendChild(century);
-  }
-}
+  cellsData.forEach((data) => {
+    const td = document.createElement('td');
 
-const table = document.querySelector('table.dashboard');
+    td.textContent = data;
+    tr.appendChild(td);
+  });
 
-createTable(table);
+  table.appendChild(tr);
+});
