@@ -354,7 +354,35 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function createTable(tableParam) {
+  for (const person of people) {
+    const tr = document.createElement('tr');
 
-// write your code here
+    tableParam.appendChild(tr);
+
+    const peopleName = document.createElement('td');
+    const gender = document.createElement('td');
+    const bord = document.createElement('td');
+    const died = document.createElement('td');
+    const age = document.createElement('td');
+    const century = document.createElement('td');
+
+    peopleName.innerText = person['name'];
+    gender.innerText = person['sex'] === 'm' ? 'Male' : 'Female';
+    bord.innerText = person['born'];
+    died.innerText = person['died'];
+    age.innerText = person['died'] - person['born'];
+    century.innerText = Math.ceil(person.died / 100);
+
+    tr.appendChild(peopleName);
+    tr.appendChild(gender);
+    tr.appendChild(bord);
+    tr.appendChild(died);
+    tr.appendChild(age);
+    tr.appendChild(century);
+  }
+}
+
+const table = document.querySelector('table.dashboard');
+
+createTable(table);
