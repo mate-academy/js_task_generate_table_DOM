@@ -354,7 +354,8 @@ const people = [
   },
 ];
 
-const table = document.body.querySelector('.dashboard');
+const tbody = document.body.querySelector('.dashboard tbody');
+
 
 people.forEach((element) => {
   const line = document.createElement('tr');
@@ -387,5 +388,5 @@ people.forEach((element) => {
   tdCentury.textContent = century;
   line.appendChild(tdCentury);
 
-  table.appendChild(line)
+  tbody.appendChild(line)
 })
