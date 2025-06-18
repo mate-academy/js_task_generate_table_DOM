@@ -368,7 +368,7 @@ function createTable(tableParam) {
     const century = document.createElement('td');
 
     peopleName.innerText = person['name'];
-    gender.innerText = person['sex'];
+    gender.innerText = person['sex'] === 'm' ? 'Male' : 'Female';
     bord.innerText = person['born'];
     died.innerText = person['died'];
     age.innerText = person['died'] - person['born'];
