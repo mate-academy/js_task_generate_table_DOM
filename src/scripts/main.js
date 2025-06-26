@@ -356,6 +356,10 @@ const people = [
 
 const table = document.querySelector('table.dashboard');
 
+const tbody =
+  table.querySelector('tbody') ||
+  table.appendChild(document.createElement('tbody'));
+
 function createPersonRow(person) {
   const tr = document.createElement('tr');
 
@@ -391,5 +395,5 @@ function createPersonRow(person) {
 people.forEach((person) => {
   const row = createPersonRow(person);
 
-  table.appendChild(row);
+  tbody.appendChild(row);
 });
