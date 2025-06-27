@@ -354,34 +354,35 @@ const people = [
   },
 ];
 
-import people from './lib/people.json';
-
 const table = document.querySelector('.dashboard');
 
-people.forEach(person => {
-const row = document.createElement('tr');
+people.forEach((person) => {
+  const row = document.createElement('tr');
 
-const tdName = document.createElement('td');
-tdName.textContent = person.name;
+  const tdName = document.createElement('td');
 
-const tdGender = document.createElement('td');
-tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  tdName.textContent = person.name;
 
-const tdBorn = document.createElement('td');
-tdBorn.textContent = person.born;
+  const tdGender = document.createElement('td');
 
-const tdDied = document.createElement('td');
-tdDied.textContent = person.died;
+  tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
 
-const tdAge = document.createElement('td');
-tdAge.textContent = person.died - person.born;
+  const tdBorn = document.createElement('td');
 
-const tdCentury = document.createElement('td');
-tdCentury.textContent = Math.ceil(person.died / 100);
+  tdBorn.textContent = person.born;
 
+  const tdDied = document.createElement('td');
 
-row.append(tdName, tdGender, tdBorn, tdDied, tdAge, tdCentury);
-table.appendChild(row);
+  tdDied.textContent = person.died;
+
+  const tdAge = document.createElement('td');
+
+  tdAge.textContent = person.died - person.born;
+
+  const tdCentury = document.createElement('td');
+
+  tdCentury.textContent = Math.ceil(person.died / 100);
+
+  row.append(tdName, tdGender, tdBorn, tdDied, tdAge, tdCentury);
+  table.appendChild(row);
 });
-
-
