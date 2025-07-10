@@ -354,7 +354,60 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+let table = document.querySelector('.dashboard');
+
+   let newCell =[];
+
+let count = 0;
+
+for(let i=0; i<people.length; i++){
+  let newRow = document.createElement("tr");
+  newRow.classList.add("personne");
+  table.append(newRow);
+
+  for(let j=0; j<6;j++){
+    let cell = document.createElement("td");
+    cell.classList.add(`cell${j}`);
+    newCell [j]= cell;
+    newRow.append(newCell[j]);
+  } 
+}
+  document.querySelectorAll('.personne td.cell0').forEach(function(item){
+    item.append(people[count].name);
+    count++;
+  });
+
+  count=0;
+  document.querySelectorAll('.personne td.cell1').forEach(function(item){
+    item.append(people[count].sex);
+    count++;
+  });
+
+  count=0;
+  document.querySelectorAll('.personne td.cell2').forEach(function(item){
+    item.append(people[count].born);
+    count++;
+  });
+
+  count=0;
+  document.querySelectorAll('.personne td.cell3').forEach(function(item){
+    item.append(people[count].died);
+    count++;
+  });
+
+  count=0;
+  document.querySelectorAll('.personne td.cell4').forEach(function(item){
+    let age = people[count].died - people[count].born;
+    item.append(age);
+    count++;
+  });
+
+  count=0;
+  document.querySelectorAll('.personne td.cell5').forEach(function(item){
+    let century = Math.ceil(people[count].died/ 100);
+    item.append(century);
+    count++;
+  });
+
+
