@@ -354,34 +354,39 @@ const people = [
   },
 ];
 
-const table = document.querySelector('table');
-const tableBody = document.querySelector('tbody');
-const tableHead = document.querySelector('th');
+const table = document.querySelector('.dashboard');
+const tableBody = table.querySelector('tbody');
 
 for (const person of people) {
   const row = document.createElement('tr');
 
-  const nameCell = document.createElement('td')
+  const nameCell = document.createElement('td');
+
   nameCell.innerText = person.name;
   row.appendChild(nameCell);
 
-  const sexCell = document.createElement('td')
+  const sexCell = document.createElement('td');
+
   sexCell.innerText = person.sex;
   row.appendChild(sexCell);
 
-  const bornCell = document.createElement('td')
+  const bornCell = document.createElement('td');
+
   bornCell.innerText = person.born;
   row.appendChild(bornCell);
 
-  const diedCell = document.createElement('td')
+  const diedCell = document.createElement('td');
+
   diedCell.innerText = person.died;
   row.appendChild(diedCell);
 
-  const lifeCell = document.createElement('td')
-  lifeCell.innerText = (person.died - person.born);
+  const lifeCell = document.createElement('td');
+
+  lifeCell.innerText = person.died - person.born;
   row.appendChild(lifeCell);
 
-  const centuryCell = document.createElement('td')
+  const centuryCell = document.createElement('td');
+
   centuryCell.innerText = Math.ceil(person.died / 100);
   row.appendChild(centuryCell);
 
