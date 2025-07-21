@@ -354,7 +354,38 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard tbody');
 
-// write your code here
+const getAge = (born, died) => died - born;
+const getCentury = (year) => Math.ceil(year / 100);
+const getGender = (sex) => (sex === 'm' ? 'Male' : 'Female');
+const createCell = (text) => {
+  const cell = document.createElement('td');
+
+  cell.textContent = text;
+
+  return cell;
+};
+
+const createRow = (values) => {
+  const row = document.createElement('tr');
+
+  values.forEach((value) => row.appendChild(createCell(value)));
+
+  return row;
+};
+
+const renderTable = (container, data) => {
+  // eslint-disable-next-line no-shadow
+  const rows = data.map(({ name, sex, born, died }) => {
+    const age = getAge(born, died);
+    const century = getCentury(died);
+    const gender = getGender(sex);
+
+    return [name, gender, born, died, age, century];
+  });
+
+  rows.forEach((row) => container.appendChild(createRow(row)));
+};
+
+renderTable(dashboard, people);
