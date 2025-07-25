@@ -365,19 +365,15 @@ people.forEach((el) => {
   const tr = document.createElement('tr');
   const age = el.died - el.born;
   const century = Math.ceil(el.died / 100);
-  const sex = el.sex === 'f' ? 'Female' : 'Male';
+  const gender = el.sex === 'f' ? 'Female' : 'Male';
 
   const nameTd = document.createElement('td');
 
   nameTd.textContent = el.name;
 
-  const sexTd = document.createElement('td');
-
-  sexTd.textContent = sex;
-
   const genderTd = document.createElement('td');
 
-  genderTd.textContent = el.gender;
+  genderTd.textContent = gender;
 
   const bornTd = document.createElement('td');
 
@@ -395,7 +391,7 @@ people.forEach((el) => {
 
   centuryTd.textContent = century;
 
-  tr.append(nameTd, bornTd, diedTd, ageTd, centuryTd, sexTd);
+  tr.append(nameTd, genderTd, bornTd, diedTd, ageTd, centuryTd);
 
   table.appendChild(tr);
 });
