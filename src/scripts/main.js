@@ -363,25 +363,30 @@ const calculateAge = (born, died) => died - born;
 const getCentury = (year) => Math.ceil(year / 100);
 
 // Додаємо рядки після заголовка
-people.forEach((person) => {
-  const tr = document.createElement('tr');
+if (table) {
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
 
-  let gender = '';
+    let gender = '';
 
-  if (person.sex === 'm') {
-    gender = 'Male';
-  } else {
-    gender = 'Female';
-  }
+    if (person.sex === 'm') {
+      gender = 'Male';
+    } else {
+      gender = 'Female';
+    }
 
-  tr.innerHTML = `
-    <td>${person.name}</td>
-    <td>${gender}</td>
-    <td>${person.born}</td>
-    <td>${person.died}</td>
-    <td>${calculateAge(person.born, person.died)}</td>
-    <td>${getCentury(person.died)}</td>
-  `;
+    tr.innerHTML = `
+      <td>${person.name}</td>
+      <td>${gender}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${calculateAge(person.born, person.died)}</td>
+      <td>${getCentury(person.died)}</td>
+    `;
 
-  table.appendChild(tr);
-});
+    table.appendChild(tr);
+  });
+} else {
+  // eslint-disable-next-line no-console
+  console.log('Таблица с классом .dashboard не найдена в DOM.');
+}
