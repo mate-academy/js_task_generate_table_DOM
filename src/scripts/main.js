@@ -365,8 +365,6 @@ people.forEach((person) => {
 
   const newTrElement = document.createElement('tr');
 
-  dashboardElement.append(newTrElement);
-
   const personName = document.createElement('td');
 
   personName.textContent = `${person.name}`;
@@ -403,4 +401,6 @@ people.forEach((person) => {
     personAge,
     personCentury,
   );
+
+  dashboardElement.append(newTrElement);
 });
