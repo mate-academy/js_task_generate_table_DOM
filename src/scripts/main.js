@@ -357,4 +357,28 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('table');
+
+people.forEach((element) => {
+  if (element.sex === 'm') {
+    element.sex = 'Male';
+  } else {
+    element.sex = 'Female';
+  }
+
+  const tr = document.createElement('tr');
+
+  const age = element.died - element.born;
+  const century = Math.ceil(element.died / 100);
+
+  tr.innerHTML = `
+        <td>${element.name}</td>
+        <td>${element.sex}</td>
+        <td>${element.born}</td>
+        <td>${element.died}</td>
+        <td>${age}</td>
+        <td>${century}</td>
+    `;
+
+  table.appendChild(tr);
+});
