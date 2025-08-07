@@ -264,7 +264,7 @@ const people = [
   },
   {
     name: 'Maria Haverbeke',
-    sex: 'm',
+    sex: 'f',
     born: 1905,
     died: 1997,
     fatherName: 'Emile Haverbeke',
@@ -363,7 +363,7 @@ people.forEach((person) => {
     `
       <tr>
         <td>${person.name}</td>
-        <td>${person.sex === 'm' ? 'Male' : person.sex === 'f' ? 'Female' : ''}</td>
+        <td>${{ m: 'Male', f: 'Female' }[person.sex] || ''}</td>
         <td>${person.born}</td>
         <td>${person.died}</td>
         <td>${person.died - person.born}</td>
