@@ -385,6 +385,7 @@ people.forEach((person) => {
         break;
       case 5:
         cell.textContent = Math.ceil(died / 100);
+        break;
     }
 
     row.appendChild(cell);
