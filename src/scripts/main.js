@@ -357,4 +357,24 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const list = document.querySelector('.dashboard tbody');
+
+for (const key of people) {
+  const tr = document.createElement('tr');
+  const values = [
+    key.name,
+    key.sex === 'm' ? 'Male' : 'Female',
+    key.born,
+    key.died,
+    key.died - key.born,
+    Math.ceil(key.died / 100),
+  ];
+
+  for (const value of values) {
+    const td = document.createElement('td');
+
+    td.textContent = value;
+    tr.appendChild(td);
+  }
+  list.appendChild(tr);
+}
