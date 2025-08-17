@@ -358,3 +358,46 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('table.dashboard');
+
+  if (!table) {
+    return;
+  }
+
+  // гарантуємо, що пишемо саме в <tbody>
+  const tbody =
+    table.tBodies[0] || table.appendChild(document.createElement('tbody'));
+
+  // якщо тести запускають скрипт кілька разів — почистимо старі рядки
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+
+  // ВАЖЛИВО: беремо саме person.sex (у даних поле називається sex)
+  people.forEach((person) => {
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    const tr = document.createElement('tr');
+
+    // порядок клітинок: name, gender, born, died, age, century
+    const cells = [
+      person.name,
+      person.sex, // не "gender", а саме person.sex (m/f)
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
+
+    cells.forEach((val) => {
+      const td = document.createElement('td');
+
+      td.textContent = String(val);
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+});
