@@ -378,27 +378,27 @@ function createPeopleInfoRows(humans) {
   for (const human of humans) {
     const row = document.createElement('tr');
 
-    const nameCell = document.createElement('th');
+    const nameCell = document.createElement('td');
 
     nameCell.textContent = human.name;
 
-    const gender = document.createElement('th');
+    const gender = document.createElement('td');
 
-    gender.textContent = human.sex;
+    gender.textContent = human.sex === 'm' ? 'Male' : 'Female';
 
-    const born = document.createElement('th');
+    const born = document.createElement('td');
 
     born.textContent = human.born;
 
-    const died = document.createElement('th');
+    const died = document.createElement('td');
 
     died.textContent = human.died;
 
-    const age = document.createElement('th');
+    const age = document.createElement('td');
 
     age.textContent = human.age;
 
-    const century = document.createElement('th');
+    const century = document.createElement('td');
 
     century.textContent = human.century;
 
