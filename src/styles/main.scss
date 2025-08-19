@@ -1,13 +1,17 @@
 body {
-  background-image: linear-gradient(45deg, #e25644, #7e7cf9);
-  background-attachment: fixed;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
   min-height: 100vh;
-  padding: 100px;
-  font-family: Roboto, sans-serif;
+
   margin: 0;
+  padding: 100px;
+  background-image: linear-gradient(45deg, #e25644, #7e7cf9);
+
+  background-attachment: fixed;
+
+  font-family: Roboto, sans-serif;
   box-sizing: border-box;
 }
 
@@ -18,8 +22,8 @@ table {
 }
 
 tr {
-  background: #fff;
   color: #808080;
+  background: #fff;
 }
 
 tr:nth-child(2n + 1) {
@@ -27,8 +31,8 @@ tr:nth-child(2n + 1) {
 }
 
 table tr:first-child {
-  background: #e25644;
   color: #fff;
+  background: #e25644;
 }
 
 td,
