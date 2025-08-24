@@ -359,32 +359,32 @@ const mainTable = document.querySelector('.dashboard');
 people.forEach((person) => {
   const personInfo = document.createElement('tr');
 
-  const personName = document.createElement('th');
+  const personName = document.createElement('td');
 
   personName.textContent = person.name;
   personInfo.append(personName);
 
-  const personGender = document.createElement('th');
+  const personGender = document.createElement('td');
 
   personGender.textContent = person.sex === 'm' ? 'male' : 'female';
   personInfo.append(personGender);
 
-  const personBorn = document.createElement('th');
+  const personBorn = document.createElement('td');
 
   personBorn.textContent = person.born;
   personInfo.append(personBorn);
 
-  const personDied = document.createElement('th');
+  const personDied = document.createElement('td');
 
   personDied.textContent = person.died;
   personInfo.append(personDied);
 
-  const personAge = document.createElement('th');
+  const personAge = document.createElement('td');
 
   personAge.textContent = person.died - person.born;
   personInfo.append(personAge);
 
-  const personCentury = document.createElement('th');
+  const personCentury = document.createElement('td');
 
   personCentury.textContent = Math.ceil(person.died / 100);
   personInfo.append(personCentury);
