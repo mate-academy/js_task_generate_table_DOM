@@ -358,3 +358,32 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const peopleTable = document.querySelector('.dashboard');
+
+function makeCell(data) {
+  const newCell = document.createElement('td');
+
+  newCell.textContent = data;
+
+  return newCell;
+}
+// eslint-disable-next-line
+for (const { name, sex, born, died } of people) {
+  const tr = document.createElement('tr');
+  const nameElement = makeCell(name);
+  const genderElement = makeCell(sex === 'm' ? 'Male' : 'Female');
+  const bornElement = makeCell(born);
+  const diedElement = makeCell(died);
+  const ageElement = makeCell(died - born);
+  const centuryElement = makeCell(Math.ceil(died / 100));
+
+  tr.append(
+    nameElement,
+    genderElement,
+    bornElement,
+    diedElement,
+    ageElement,
+    centuryElement,
+  );
+  peopleTable.append(tr);
+}
