@@ -358,3 +358,76 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const tableQuery = 'table.dashboard';
+
+/**
+ * Form table for first element with table selector
+ * based on people array
+ *
+ * @param {String} tableSelector
+ * @param {Object[]} peopleArray
+ */
+function formTable(tableSelector, peopleArray) {
+  const table = document.querySelector(tableSelector);
+
+  if (!table) {
+    throw new Error('No table found.');
+  }
+
+  const targetTableBody = table.querySelector('tr');
+
+  if (!targetTableBody) {
+    throw new Error('No target for table body found.');
+  }
+
+  if (!Array.isArray(peopleArray)) {
+    throw new Error('peopleArray should be an Array.');
+  }
+
+  /**
+   * Validates person data
+   *
+   * @throws Error
+   * @param person
+   */
+  const validatePerson = (person) => {
+    if (
+      typeof person.name !== 'string' ||
+      typeof person.sex !== 'string' ||
+      typeof person.fatherName !== 'string' ||
+      typeof person.motherName !== 'string' ||
+      typeof person.slug !== 'string' ||
+      typeof person.born !== 'number' ||
+      typeof person.died !== 'number' ||
+      typeof person.died - person.born <= 0
+    ) {
+      // throw new Error('Person is invalid for parsing');
+    }
+  };
+
+  const genderMap = {
+    m: 'Male',
+    f: 'Female',
+  };
+
+  for (const person of peopleArray) {
+    validatePerson(person);
+
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    targetTableBody.insertAdjacentHTML(
+      'afterend',
+      '<tr>' +
+        `<td>${person.name}</td>` +
+        `<td>${genderMap[person.sex]}</td>` +
+        `<td>${person.born}</td>` +
+        `<td>${person.died}</td>` +
+        `<td>${age}</td>` +
+        `<td>${century}</td>` +
+        '</tr>',
+    );
+  }
+}
+
+formTable(tableQuery, people);
