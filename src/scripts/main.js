@@ -374,7 +374,7 @@ function formTable(tableSelector, peopleArray) {
     throw new Error('No table found.');
   }
 
-  const targetTableBody = table.querySelector('tr');
+  const targetTableBody = table.querySelector('tbody') || table;
 
   if (!targetTableBody) {
     throw new Error('No target for table body found.');
@@ -384,50 +384,39 @@ function formTable(tableSelector, peopleArray) {
     throw new Error('peopleArray should be an Array.');
   }
 
+  const columns = [
+    'name',
+    (p) => (p.sex === 'm' ? 'Male' : 'Female'),
+    'born',
+    'died',
+    (p) => p.died - p.born, // age
+    (p) => Math.ceil(p.died / 100), // century
+  ];
+
   /**
-   * Validates person data
+   * Create a table row based on data and mappings
    *
-   * @throws Error
-   * @param person
+   * @param person - data
+   * @param cols - mappings
+   * @return {HTMLTableRowElement}
    */
-  const validatePerson = (person) => {
-    if (
-      typeof person.name !== 'string' ||
-      typeof person.sex !== 'string' ||
-      typeof person.fatherName !== 'string' ||
-      typeof person.motherName !== 'string' ||
-      typeof person.slug !== 'string' ||
-      typeof person.born !== 'number' ||
-      typeof person.died !== 'number' ||
-      typeof person.died - person.born <= 0
-    ) {
-      // throw new Error('Person is invalid for parsing');
-    }
-  };
+  function createRow(person, cols) {
+    const tr = document.createElement('tr');
 
-  const genderMap = {
-    m: 'Male',
-    f: 'Female',
-  };
+    cols.forEach((col) => {
+      const td = document.createElement('td');
 
-  for (const person of peopleArray) {
-    validatePerson(person);
+      // use map function or real field
+      td.textContent = typeof col === 'function' ? col(person) : person[col];
+      tr.appendChild(td);
+    });
 
-    const age = person.died - person.born;
-    const century = Math.ceil(person.died / 100);
-
-    targetTableBody.insertAdjacentHTML(
-      'afterend',
-      '<tr>' +
-        `<td>${person.name}</td>` +
-        `<td>${genderMap[person.sex]}</td>` +
-        `<td>${person.born}</td>` +
-        `<td>${person.died}</td>` +
-        `<td>${age}</td>` +
-        `<td>${century}</td>` +
-        '</tr>',
-    );
+    return tr;
   }
+
+  people.forEach((person) => {
+    targetTableBody.appendChild(createRow(person, columns));
+  });
 }
 
 formTable(tableQuery, people);
