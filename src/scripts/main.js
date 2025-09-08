@@ -373,7 +373,12 @@ function createTableRows(peoples) {
     .join('');
 }
 
-const adder = finder ? finder.querySelector('tbody') : null;
+let adder = finder ? finder.querySelector('tbody') : null;
+
+if (finder && !adder) {
+  adder = document.createElement('tbody');
+  finder.appendChild(adder);
+}
 
 if (adder) {
   adder.insertAdjacentHTML('beforeend', createTableRows(people));
