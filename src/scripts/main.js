@@ -17,8 +17,7 @@ function createTableRows(peoples, tbody) {
 
     const sexTd = document.createElement('td');
 
-    sexTd.textContent =
-      person.sex === 'm' ? 'Male' : person.sex === 'f' ? 'Female' : person.sex;
+    sexTd.textContent = person.sex;
     tr.appendChild(sexTd);
 
     const bornTd = document.createElement('td');
