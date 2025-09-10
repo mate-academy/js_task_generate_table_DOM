@@ -37,6 +37,7 @@ const people = [
     motherName: 'Joanna van Rooten',
     slug: 'jan-van-brussel-1714',
   },
+
   {
     name: 'Philibert Haverbeke',
     sex: 'm',
@@ -357,4 +358,46 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.dashboard');
+
+  if (!table) {
+    return;
+  }
+
+  for (const pers of people) {
+    const row = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+
+    nameCell.textContent = pers.name;
+    row.appendChild(nameCell);
+
+    const genderCell = document.createElement('td');
+
+    genderCell.textContent = pers.sex;
+    row.appendChild(genderCell);
+
+    const bornCell = document.createElement('td');
+
+    bornCell.textContent = pers.born;
+    row.appendChild(bornCell);
+
+    const diedCell = document.createElement('td');
+
+    diedCell.textContent = pers.died;
+    row.appendChild(diedCell);
+
+    const ageCell = document.createElement('td');
+
+    ageCell.textContent = pers.died - pers.born;
+    row.appendChild(ageCell);
+
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = Math.ceil(pers.died / 100);
+    row.appendChild(centuryCell);
+
+    table.appendChild(row);
+  }
+});
