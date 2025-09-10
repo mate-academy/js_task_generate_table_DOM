@@ -37,6 +37,7 @@ const people = [
     motherName: 'Joanna van Rooten',
     slug: 'jan-van-brussel-1714',
   },
+
   {
     name: 'Philibert Haverbeke',
     sex: 'm',
