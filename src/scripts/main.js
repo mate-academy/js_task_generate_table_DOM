@@ -359,7 +359,7 @@ const dashboard = document.querySelector('.dashboard');
 function preparedPerson(person) {
   return {
     name: person.name,
-    gender: person.sex,
+    gender: person.sex === 'm' ? 'Male' : 'Female',
     born: person.born,
     died: person.died,
     age: person.died - person.born,
@@ -368,16 +368,20 @@ function preparedPerson(person) {
 }
 
 people.forEach((person) => {
+  if (!dashboard) {
+    return;
+  }
+
   const prepared = preparedPerson(person);
   const row = document.createElement('tr');
 
-  for (const prep in prepared) {
-    const cell = document.createElement('th');
+  const keys = ['name', 'gender', 'born', 'died', 'age', 'century'];
 
-    cell.textContent = prepared[prep];
+  keys.forEach((key) => {
+    const cell = document.createElement('td');
 
+    cell.textContent = prepared[key];
     row.append(cell);
-  }
-
+  });
   dashboard.append(row);
 });
