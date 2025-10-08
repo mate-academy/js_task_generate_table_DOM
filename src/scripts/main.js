@@ -354,7 +354,62 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const getAge = (person) => {
+  if (!(person?.died || person?.born)) {
+    return '-';
+  }
 
-// write your code here
+  return person.died - person.born;
+};
+
+const getCentury = (person) => {
+  if (!person?.died) {
+    return '-';
+  }
+
+  return Math.ceil(person.died / 100);
+};
+
+const normalizeGender = (person) => {
+  const code = person?.sex;
+
+  if (code === 'm') {
+    return 'Male';
+  }
+
+  if (code === 'f') {
+    return 'Female';
+  }
+
+  return '-';
+};
+
+function filTable(table) {
+  const tBody = table.querySelector('tbody');
+
+  if (!tBody) {
+    return;
+  }
+
+  let rowsHtml = '';
+
+  people.forEach((person) => {
+    rowsHtml += `
+      <tr>
+        <td>${typeof person.name === 'string' ? person.name : '-'}</td>
+        <td>${normalizeGender(person)}</td>
+        <td>${typeof person.born === 'number' ? person.born : '-'}</td>
+        <td>${typeof person.died === 'number' ? person.died : '-'}</td>
+        <td>${getAge(person)}</td>
+        <td>${getCentury(person)}</td>
+      </tr>`;
+  });
+
+  tBody.insertAdjacentHTML('beforeend', rowsHtml);
+}
+
+const dashboard = document.querySelector('.dashboard');
+
+if (dashboard) {
+  filTable(dashboard);
+}
