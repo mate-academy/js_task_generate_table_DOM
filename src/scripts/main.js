@@ -354,20 +354,18 @@ const people = [
   },
 ];
 
-const getAge = (person) => {
-  if (!(person?.died || person?.born)) {
-    return '-';
-  }
+const isValidNumber = (n) => typeof n === 'number' && !Number.isNaN(n);
 
-  return person.died - person.born;
+const getAge = (person) => {
+  const { born, died } = person ?? {};
+
+  return isValidNumber(born) && isValidNumber(died) ? died - born : '-';
 };
 
 const getCentury = (person) => {
-  if (!person?.died) {
-    return '-';
-  }
+  const { died } = person ?? {};
 
-  return Math.ceil(person.died / 100);
+  return isValidNumber(died) ? Math.ceil(died / 100) : '-';
 };
 
 const normalizeGender = (person) => {
@@ -384,12 +382,8 @@ const normalizeGender = (person) => {
   return '-';
 };
 
-function filTable(table) {
-  const tBody = table.querySelector('tbody');
-
-  if (!tBody) {
-    return;
-  }
+function fillTable(table) {
+  const tBody = table.tBodies?.[0] ?? table.createTBody();
 
   let rowsHtml = '';
 
@@ -398,8 +392,8 @@ function filTable(table) {
       <tr>
         <td>${typeof person.name === 'string' ? person.name : '-'}</td>
         <td>${normalizeGender(person)}</td>
-        <td>${typeof person.born === 'number' ? person.born : '-'}</td>
-        <td>${typeof person.died === 'number' ? person.died : '-'}</td>
+        <td>${isValidNumber(person.born) ? person.born : '-'}</td>
+        <td>${isValidNumber(person.died) ? person.died : '-'}</td>
         <td>${getAge(person)}</td>
         <td>${getCentury(person)}</td>
       </tr>`;
@@ -411,5 +405,5 @@ function filTable(table) {
 const dashboard = document.querySelector('.dashboard');
 
 if (dashboard) {
-  filTable(dashboard);
+  fillTable(dashboard);
 }
