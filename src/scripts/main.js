@@ -354,26 +354,29 @@ const people = [
   },
 ];
 
-// write your code here
 const table = document.querySelector('.dashboard');
+const target = table.querySelector('tbody') || table;
 
-const objectsArray = people.map(man => ({
-  name: man.name,
-  gender: man.sex === 'm' ? 'Male' : 'Female',
-  born: man.born,
-  died: man.died,
-  age: man.died - man.born,
-  century: Math.ceil(man.died / 100),
-}));
-
-objectsArray.forEach(man => {
+people.forEach(person => {
   const row = document.createElement('tr');
 
-  for (const key in man) {
-    const th = document.createElement('td');
-    th.textContent = man[key];
-    row.append(th);
-  }
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
-  table.append(row);
+  const cells = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
+
+  cells.forEach(value => {
+    const td = document.createElement('td');
+    td.textContent = value;
+    row.appendChild(td);
+  });
+
+  target.appendChild(row);
 });
