@@ -358,3 +358,30 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+people.forEach((person) => {
+  person.age = function () {
+    return this.died - this.born;
+  };
+
+  person.century = function () {
+    return Math.ceil(this.born / 100);
+  };
+});
+
+const userTable = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const rows = document.createElement('tr');
+  const cells = `
+    <td>${person.name}</td>
+    <td>${person.sex}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.age()}</td>
+    <td>${person.century()}</td>
+  `;
+
+  rows.insertAdjacentHTML('beforeend', cells);
+  userTable.appendChild(rows);
+});
