@@ -373,16 +373,29 @@ people.forEach((person) => {
   };
 });
 
-const userTable = document.querySelector('.dashboard');
+document.addEventListener('DOMContentLoaded', () => {
+  const userTable = document.querySelector('.dashboard');
 
-if (!userTable) {
-  document.getElementById('error').textContent =
-    '❌ No table with such class name';
-}
+  if (!userTable) {
+    const errMsg = document.createElement('div');
 
-people.forEach((person) => {
-  const rows = document.createElement('tr');
-  const cells = `
+    errMsg.style.color = 'red';
+
+    errMsg.style.cssText = `
+  background: #ffe0e0;
+  color: red;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;`;
+    errMsg.textContent = 'Error! No table with such class name!';
+    document.body.insertAdjacentElement('afterbegin', errMsg);
+
+    return;
+  }
+
+  people.forEach((person) => {
+    const rows = document.createElement('tr');
+    const cells = `
     <td>${person.name}</td>
     <td>${person.male()}</td>
     <td>${person.born}</td>
@@ -391,6 +404,7 @@ people.forEach((person) => {
     <td>${person.century()}</td>
   `;
 
-  rows.insertAdjacentHTML('beforeend', cells);
-  userTable.appendChild(rows);
+    rows.insertAdjacentHTML('beforeend', cells);
+    userTable.appendChild(rows);
+  });
 });
