@@ -365,17 +365,26 @@ people.forEach((person) => {
   };
 
   person.century = function () {
-    return Math.ceil(this.born / 100);
+    return Math.ceil(this.died / 100);
+  };
+
+  person.male = function () {
+    return this.sex === 'm' ? 'Male' : 'Female';
   };
 });
 
 const userTable = document.querySelector('.dashboard');
 
+if (!userTable) {
+  document.getElementById('error').textContent =
+    '❌ No table with such class name';
+}
+
 people.forEach((person) => {
   const rows = document.createElement('tr');
   const cells = `
     <td>${person.name}</td>
-    <td>${person.sex}</td>
+    <td>${person.male()}</td>
     <td>${person.born}</td>
     <td>${person.died}</td>
     <td>${person.age()}</td>
