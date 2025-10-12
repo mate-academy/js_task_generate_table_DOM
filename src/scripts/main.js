@@ -358,3 +358,53 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+people.forEach((person) => {
+  person.age = function () {
+    return this.died - this.born;
+  };
+
+  person.century = function () {
+    return Math.ceil(this.died / 100);
+  };
+
+  person.male = function () {
+    return this.sex === 'm' ? 'Male' : 'Female';
+  };
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const userTable = document.querySelector('.dashboard');
+
+  if (!userTable) {
+    const errMsg = document.createElement('div');
+
+    errMsg.style.color = 'red';
+
+    errMsg.style.cssText = `
+  background: #ffe0e0;
+  color: red;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;`;
+    errMsg.textContent = 'Error! No table with such class name!';
+    document.body.insertAdjacentElement('afterbegin', errMsg);
+
+    return;
+  }
+
+  people.forEach((person) => {
+    const rows = document.createElement('tr');
+    const cells = `
+    <td>${person.name}</td>
+    <td>${person.male()}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.age()}</td>
+    <td>${person.century()}</td>
+  `;
+
+    rows.insertAdjacentHTML('beforeend', cells);
+    userTable.appendChild(rows);
+  });
+});
