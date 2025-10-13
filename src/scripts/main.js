@@ -361,25 +361,33 @@ console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard');
 
-people.forEach((person) => {
-  const tr = document.createElement('tr');
-  const age = person.died - person.born;
-  const century = Math.ceil(person.died / 100);
+if (!table) {
+  // eslint-disable-next-line no-console
+  console.error('Table with class "dashboard" not found in the document');
+} else {
+  const tbody = table.querySelector('tbody') || table;
 
-  const rowData = [
-    person.name,
-    person.sex === 'm' ? 'male' : 'female',
-    person.born,
-    person.died,
-    age,
-    century,
-  ];
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
 
-  rowData.forEach((value) => {
-    const td = document.createElement('td');
+    const rowData = [
+      person.name,
+      person.sex === 'm' ? 'male' : 'female',
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
 
-    td.textContent = value;
-    tr.appendChild(td);
+    rowData.forEach((value) => {
+      const td = document.createElement('td');
+
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
   });
-  table.appendChild(tr);
-});
+}
