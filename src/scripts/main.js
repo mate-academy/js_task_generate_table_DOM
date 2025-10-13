@@ -358,3 +358,39 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const table = document.querySelector('.dashboard');
+
+if (!table) {
+  // eslint-disable-next-line no-console
+  console.error('Table with class "dashboard" not found in the document');
+} else {
+  const tbody = table.querySelector('tbody') || table;
+
+  const sexMap = { m: 'Male', f: 'Female' };
+
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const gender = sexMap[person.sex] || 'unknown';
+
+    const rowData = [
+      person.name,
+      gender,
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
+
+    rowData.forEach((value) => {
+      const td = document.createElement('td');
+
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  });
+}
