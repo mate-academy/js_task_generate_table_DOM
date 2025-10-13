@@ -353,8 +353,41 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function createCell(text) {
+  const cell = document.createElement('td');
 
-// write your code here
+  cell.textContent = text;
+
+  return cell;
+}
+
+if (table) {
+  const tbody =
+    table.querySelector('tbody') ||
+    table.appendChild(document.createElement('tbody'));
+
+  const fragment = document.createDocumentFragment();
+  const genderMap = {
+    m: 'Male',
+    f: 'Female',
+  };
+
+  people.forEach((person) => {
+    const row = document.createElement('tr');
+    const cells = [
+      createCell(person.name),
+      createCell(genderMap[person.sex] || 'Unknown'),
+      createCell(person.born),
+      createCell(person.died),
+      createCell(person.died - person.born),
+      createCell(Math.ceil(person.died / 100)),
+    ];
+
+    row.append(...cells);
+    fragment.append(row);
+  });
+
+  tbody.append(fragment);
+}
