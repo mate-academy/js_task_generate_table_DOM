@@ -367,14 +367,17 @@ if (!table) {
 } else {
   const tbody = table.querySelector('tbody') || table;
 
+  const sexMap = { m: 'Male', f: 'Female' };
+
   people.forEach((person) => {
     const tr = document.createElement('tr');
     const age = person.died - person.born;
     const century = Math.ceil(person.died / 100);
+    const gender = sexMap[person.sex] || 'unknown';
 
     const rowData = [
       person.name,
-      person.sex === 'm' ? 'male' : 'female',
+      gender,
       person.born,
       person.died,
       age,
