@@ -365,48 +365,46 @@ function getCentury(person) {
   return Math.ceil(person.died / 100);
 }
 
-function getFullSex(person) {
-  if (person.sex === 'm') {
-    return 'male';
-  } else {
-    return 'female';
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.dashboard');
+
+  if (!table) {
+    return;
   }
-}
 
-const table = document.querySelector('.dashboard');
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
 
-people.forEach((person) => {
-  const tr = document.createElement('tr');
+    const nameTd = document.createElement('td');
 
-  const nameTd = document.createElement('td');
+    nameTd.textContent = person.name;
+    tr.appendChild(nameTd);
 
-  nameTd.textContent = person.name;
-  tr.appendChild(nameTd);
+    const genderTd = document.createElement('td');
 
-  const genderTd = document.createElement('td');
+    genderTd.textContent = person.sex || '';
+    tr.appendChild(genderTd);
 
-  genderTd.textContent = getFullSex(person);
-  tr.appendChild(genderTd);
+    const bornTd = document.createElement('td');
 
-  const bornTd = document.createElement('td');
+    bornTd.textContent = person.born;
+    tr.appendChild(bornTd);
 
-  bornTd.textContent = person.born;
-  tr.appendChild(bornTd);
+    const diedTd = document.createElement('td');
 
-  const diedTd = document.createElement('td');
+    diedTd.textContent = person.died;
+    tr.appendChild(diedTd);
 
-  diedTd.textContent = person.died;
-  tr.appendChild(diedTd);
+    const ageTd = document.createElement('td');
 
-  const ageTd = document.createElement('td');
+    ageTd.textContent = getAge(person);
+    tr.appendChild(ageTd);
 
-  ageTd.textContent = getAge(person);
-  tr.appendChild(ageTd);
+    const centuryTd = document.createElement('td');
 
-  const centuryTd = document.createElement('td');
+    centuryTd.textContent = getCentury(person);
+    tr.appendChild(centuryTd);
 
-  centuryTd.textContent = getCentury(person);
-  tr.appendChild(centuryTd);
-
-  table.appendChild(tr);
+    table.appendChild(tr);
+  });
 });
