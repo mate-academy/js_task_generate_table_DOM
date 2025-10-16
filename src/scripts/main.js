@@ -354,9 +354,6 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 function getAge(person) {
   return person.died - person.born;
 }
@@ -372,39 +369,29 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
+  const frag = document.createDocumentFragment();
+
   people.forEach((person) => {
     const tr = document.createElement('tr');
 
-    const nameTd = document.createElement('td');
+    const values = [
+      person.name,
+      person.sex || '',
+      person.born,
+      person.died,
+      getAge(person),
+      getCentury(person),
+    ];
 
-    nameTd.textContent = person.name;
-    tr.appendChild(nameTd);
+    values.forEach((value) => {
+      const td = document.createElement('td');
 
-    const genderTd = document.createElement('td');
+      td.textContent = value;
+      tr.appendChild(td);
+    });
 
-    genderTd.textContent = person.sex || '';
-    tr.appendChild(genderTd);
-
-    const bornTd = document.createElement('td');
-
-    bornTd.textContent = person.born;
-    tr.appendChild(bornTd);
-
-    const diedTd = document.createElement('td');
-
-    diedTd.textContent = person.died;
-    tr.appendChild(diedTd);
-
-    const ageTd = document.createElement('td');
-
-    ageTd.textContent = getAge(person);
-    tr.appendChild(ageTd);
-
-    const centuryTd = document.createElement('td');
-
-    centuryTd.textContent = getCentury(person);
-    tr.appendChild(centuryTd);
-
-    table.appendChild(tr);
+    frag.appendChild(tr);
   });
+
+  table.appendChild(frag);
 });
