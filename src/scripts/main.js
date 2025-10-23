@@ -372,7 +372,10 @@ people.forEach((person) => {
   ];
 
   arr.map((x) => {
-    tr.append(document.createElement('td').textContent(x));
+    const el = document.createElement('td');
+
+    el.textContent = x;
+    tr.append(el);
   });
 
   table.append(tr);
