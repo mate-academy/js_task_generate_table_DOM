@@ -355,38 +355,49 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const table = document.querySelector('.dashboard tbody');
 
-// write your code here
-people.forEach((person) => {
+function getAge({ born, died }) {
+  return died - born;
+}
+
+function getCentury({ died }) {
+  return Math.ceil(died / 100);
+}
+
+function createCell(text) {
+  const td = document.createElement('td');
+
+  td.textContent = text;
+
+  return td;
+}
+
+function createRow(person) {
   const tr = document.createElement('tr');
-  const age = document.createElement('td');
+  const fields = [
+    person.name,
+    person.sex === 'm' ? 'Male' : 'Female',
+    person.born,
+    person.died,
+    getAge(person),
+    getCentury(person),
+  ];
 
-  const century = document.createElement('td');
+  fields.forEach((value) => tr.appendChild(createCell(value)));
 
-  ['name', 'sex', 'born', 'died'].forEach((key) => {
-    const td = document.createElement('td');
+  return tr;
+}
 
-    if(key === 'sex') {
-      if(person[key] === 'm') {
-        td.textContent = 'Male';
-      } else {
-        td.textContent = 'Female';
-      }
-    } else {
-      td.textContent = person[key];
-    }
+const renderTable = (peopleList, tableEl) => {
+  const fragment = document.createDocumentFragment();
 
-    tr.appendChild(td);
-  });
+  peopleList.forEach((person) => fragment.appendChild(createRow(person)));
 
-  age.textContent = person.died - person.born;
-  century.textContent = Math.ceil(person.died / 100);
+  tableEl.appendChild(fragment);
+};
 
-  tr.appendChild(age);
-  tr.appendChild(century);
-
-  table.appendChild(tr);
-})
+// === Run ===
+if (table) {
+  renderTable(people, table);
+}
