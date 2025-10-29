@@ -366,9 +366,9 @@ people.forEach(person => {
   nameCell.textContent = person.name;
   row.appendChild(nameCell);
 
-  const genderCell = document.createElement('td');
-  genderCell.textContent = person.gender;
-  row.appendChild(genderCell);
+  const sexCell = document.createElement('td');
+  sexCellCell.textContent = person.sex;
+  row.appendChild(sexCellCell);
 
   const bornCell = document.createElement('td');
   bornCell.textContent = person.born;
