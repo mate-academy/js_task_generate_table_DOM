@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable */
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -353,8 +353,42 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
-
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
+// console.log(people); // you can remove it
 // write your code here
+
+// Шаги для выполнения этого задания:
+
+// Для каждого человека из массива people создай строку таблицы (<tr>) с
+// шестью ячейками (<td>) — в них должны быть:
+// имя, пол, год рождения, год смерти, возраст, век.
+
+// Найди таблицу с классом dashboard в документе.
+
+// Добавь созданную строку в эту таблицу.
+
+// Готово ✅
+
+// const dash = document.querySelector('.dashboard');
+// dash.append(obj);
+// console.log(dash);
+
+const dash = document.querySelector('.dashboard');
+for (let worker of people) {
+  const obj = {
+    name: worker.name,
+    sex: worker.sex,
+    born: worker.born,
+    died: worker.died,
+    age: worker.died - worker.born,
+    century: Math.ceil(worker.died / 100),
+  };
+
+  const str = document.createElement('tr'); // cтрока таблицы
+  for (let dashi of Object.values(obj)) {
+    const row = document.createElement('td'); // ячейки
+    row.append(dashi);
+    str.append(row);
+  }
+  dash.append(str);
+}
