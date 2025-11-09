@@ -357,13 +357,13 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const table = document.querySelector('table');
+const table = document.querySelector('.dashboard');
 
 for (const person of people) {
   const tableRow = document.createElement('tr');
 
   const personName = person.name;
-  const gender = person.sex === 'm' ? 'Male' : 'Famele';
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
   const born = person.born;
   const died = person.died;
   const age = person.died - person.born;
