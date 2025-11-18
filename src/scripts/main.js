@@ -358,3 +358,19 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const tableBody = document.querySelector('.dashboard tbody');
+
+people.forEach((person) => {
+  const trElement = document.createElement('tr');
+  let row = '';
+
+  row += `<td>${person.name}</td>`;
+  row += `<td>${person.sex === 'm' ? 'Male' : 'Female'}</td>`;
+  row += `<td>${person.born}</td>`;
+  row += `<td>${person.died}</td>`;
+  row += `<td>${person.died - person.born}</td>`;
+  row += `<td>${Math.ceil(person.died / 100)}</td>`;
+
+  trElement.innerHTML = row;
+  tableBody.appendChild(trElement);
+});
