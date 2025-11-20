@@ -357,4 +357,37 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+  const properties = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+  properties.forEach((prop) => {
+    const cell = document.createElement('td');
+    let value;
+
+    if (prop === 'sex') {
+      if (person.sex === 'm') {
+        value = 'Male';
+      } else if (person.sex === 'f') {
+        value = 'Female';
+      } else {
+        value = '';
+      }
+    } else if (prop === 'age') {
+      const died = +person.died;
+      const born = +person.born;
+
+      value = !isNaN(died) && !isNaN(born) ? died - born : '';
+    } else if (prop === 'century') {
+      value = !isNaN(+person.died) ? Math.ceil(+person.died / 100) : '';
+    } else {
+      value = person[prop] ?? '';
+    }
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
+
+  table.appendChild(row);
+});
