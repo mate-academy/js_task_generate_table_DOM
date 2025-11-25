@@ -359,24 +359,32 @@ console.log(people); // you can remove it
 
 // write your code here
 const dashboard = document.querySelector('.dashboard');
+
 function getGender(str) {
   if (str === 'f') {
     return 'Female';
   }
+
   return 'Male';
 }
 
-for (let person of people) {
-  let tr = document.createElement('tr');
-  let [td1, td2, td3, td4, td5, td6] = ['td', 'td', 'td', 'td', 'td', 'td'].map(() =>
-  document.createElement('td')
-);
+for (const person of people) {
+  const tr = document.createElement('tr');
+  const [td1, td2, td3, td4, td5, td6] = [
+    'td',
+    'td',
+    'td',
+    'td',
+    'td',
+    'td',
+  ].map(() => document.createElement('td'));
+
   td1.textContent = person.name;
   td2.textContent = getGender(person.sex);
   td3.textContent = person.born;
   td4.textContent = person.died;
   td5.textContent = person.died - person.born;
-  td6.textContent = Math.ceil(person.born/100);
+  td6.textContent = Math.ceil(person.died / 100);
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
