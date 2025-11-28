@@ -357,16 +357,12 @@ const people = [
 const fragment = document.createDocumentFragment();
 const dashboard = document.querySelector('.dashboard');
 
-function validateSex(sex) {
-  return sex === 'm' ? 'Male' : 'Female';
-}
-
 people.forEach((person) => {
   const tableRow = document.createElement('tr');
 
   const personData = {
     name: person.name,
-    sex: validateSex(person.sex),
+    sex: person.sex,
     born: person.born,
     died: person.died,
     age: person.died - person.born,
