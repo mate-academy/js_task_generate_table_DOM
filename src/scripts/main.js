@@ -357,4 +357,41 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+// знаходжу таблицю з класом ('.dashboard')
+const table = document.querySelector('.dashboard');
+
+// проходжуся циклом по кожній людині в масиві people!!!
+people.forEach((person) => {
+
+  // створюю новий рядок таблиці
+  // автоматично створюється стільки tr скільки і є об'єктів 
+  const tr = document.createElement('tr');
+
+  // розраховую вік
+  const age = person.died - person.born;
+
+  // розраховую століття
+  // Math.ceil - заокруглює
+  const century = Math.ceil(person.died / 100);
+
+  // тут я змінюю вміст в таблиці
+
+  //<td>${person.sex === 'm' ? 'Male' : 'Female'}</td> 
+  // тут я додаю перевірку через знак питання
+  // Якщо person.sex дорівнює 'm' → повертає 'Male'
+  // якшо ні повертає 'Female'
+
+  tr.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `;
+  // ось тут я додаю елементи в таблицю вже оновлену 
+  // ОНОВЛЯЮ DOM!!!
+  //
+  
+  table.appendChild(tr);
+});
