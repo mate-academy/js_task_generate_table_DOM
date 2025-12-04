@@ -1,5 +1,13 @@
 'use strict';
 
+// name: 'Carolus Haverbeke',
+// sex: 'm',
+// born: 1832,
+// died: 1905,
+// fatherName: 'Carel Haverbeke',
+// motherName: 'Maria van Brussel',
+// slug: 'carolus-haverbeke-1832',
+
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -355,6 +363,36 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const dashboard = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  const arrPerson = [];
+
+  arrPerson.push(person.name);
+
+  arrPerson.push(person.sex);
+
+  arrPerson.push(person.born);
+
+  arrPerson.push(person.died);
+
+  arrPerson.push(age);
+
+  arrPerson.push(century);
+
+  const tr = document.createElement('tr');
+
+  for (let i = 0; i < arrPerson.length; i++) {
+    const td = document.createElement('td');
+
+    td.textContent = arrPerson[i];
+
+    tr.append(td);
+  }
+
+  dashboard.append(tr);
+});
