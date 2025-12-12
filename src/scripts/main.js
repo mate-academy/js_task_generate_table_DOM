@@ -354,7 +354,43 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+function calculateAge(born, died) {
+  return died - born;
+}
+
+function calculateCentury(died) {
+  return Math.ceil(died / 100);
+}
+
+function toFullString(str) {
+  switch (str) {
+    case 'm':
+      return 'Male';
+    case 'f':
+      return 'Female';
+  }
+}
+
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  const fields = [
+    person.name,
+    toFullString(person.sex),
+    person.born,
+    person.died,
+    calculateAge(person.born, person.died),
+    calculateCentury(person.died),
+  ];
+
+  fields.forEach((value) => {
+    const td = document.createElement('td');
+
+    td.textContent = value;
+    row.appendChild(td);
+  });
+
+  table.appendChild(row);
+}
