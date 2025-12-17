@@ -358,7 +358,7 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
-const trMain = document.querySelector('tr');
+const dashboard = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const tr = document.createElement('tr');
@@ -390,8 +390,8 @@ people.forEach((person) => {
 
   const tdCentury = document.createElement('td');
 
-  tdCentury.textContent = Math.ceil(person.born / 100);
+  tdCentury.textContent = Math.ceil(person.died / 100);
   tr.appendChild(tdCentury);
 
-  trMain.parentNode.appendChild(tr);
+  dashboard.appendChild(tr);
 });
