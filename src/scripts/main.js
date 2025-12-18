@@ -388,4 +388,3 @@ for (let i = 0; i < people.length; i++) {
 
   table.append(tableRow);
 }
-// write your code here
