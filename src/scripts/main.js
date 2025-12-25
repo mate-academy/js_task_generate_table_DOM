@@ -359,7 +359,7 @@ console.log(people); // you can remove it
 
 const table = document.querySelector('.dashboard tbody');
 
-const tableKeys = [...table.children[0].children];
+const tableKeys = table.children[0] ? [...table.children[0].children] : [];
 
 const objectKeys = tableKeys.map((th) => th.textContent.toLowerCase());
 
