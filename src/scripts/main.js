@@ -1,4 +1,5 @@
 'use strict';
+// import people from '../scripts/lib/people.json';
 
 const people = [
   {
@@ -355,6 +356,43 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
 // write your code here
+
+// 1️⃣ Находим таблицу с классом 'dashboard'
+
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+
+  const genderCell = document.createElement('td');
+
+  genderCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = age;
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = century;
+
+  row.append(nameCell, genderCell, bornCell, diedCell, ageCell, centuryCell);
+  table.append(row);
+});
