@@ -361,16 +361,17 @@ const dashboard = document.querySelector('.dashboard');
 
 for (const person of people) {
   const tr = document.createElement('tr');
+  let sex = person.sex;
 
-  if (person.sex === 'f') {
-    person.sex = 'Female';
+  if (sex === 'f') {
+    sex = 'Female';
   } else {
-    person.sex = 'Male';
+    sex = 'Male';
   }
 
   const values = [
     person.name,
-    person.sex,
+    sex,
     person.born,
     person.died,
     person.died - person.born,
