@@ -7,12 +7,12 @@ people.forEach((el) => {
   table.insertAdjacentHTML(
     'beforeend',
     `      <tr>
-        <th>${el.name}</th>
-        <th>${el.sex === 'm' ? 'Male' : 'Female'}</th>
-        <th>${el.born}</th>
-        <th>${el.died}</th>
-        <th>${el.died - el.born}</th>
-        <th>${Math.ceil(el.born / 100)}</th>
+        <td>${el.name}</td>
+        <td>${el.sex === 'm' ? 'Male' : 'Female'}</td>
+        <td>${el.born}</td>
+        <td>${el.died}</td>
+        <td>${el.died - el.born}</td>
+        <td>${Math.ceil(el.died / 100)}</td>
       </tr>`,
   );
 });
