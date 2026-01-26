@@ -8,7 +8,7 @@ people.forEach((el) => {
     'beforeend',
     `      <tr>
         <th>${el.name}</th>
-        <th>${el.sex}</th>
+        <th>${el.sex === 'm' ? 'Male' : 'Female'}</th>
         <th>${el.born}</th>
         <th>${el.died}</th>
         <th>${el.died - el.born}</th>
