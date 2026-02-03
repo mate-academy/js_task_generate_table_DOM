@@ -358,7 +358,7 @@ const db = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const age = person.died - person.born;
-  const century = Math.ceil(person.born / 100);
+  const century = Math.ceil(person.died / 100);
   const rowData = [
     person.name,
     person.sex,
