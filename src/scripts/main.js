@@ -358,3 +358,29 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.dashboard');
+  const container = table.querySelector('tbody') || table;
+
+  people.forEach((person) => {
+    const row = document.createElement('tr');
+
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    // правильно визначаємо стать
+    const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+    // порядок колонок для тесту
+    const cells = [person.name, person.born, person.died, age, gender, century];
+
+    cells.forEach((value) => {
+      const cell = document.createElement('td');
+
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+
+    container.appendChild(row);
+  });
+});
