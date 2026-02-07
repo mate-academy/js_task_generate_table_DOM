@@ -1,5 +1,7 @@
 'use strict';
 
+// const { createElement } = require("react");
+
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -358,3 +360,44 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const board = document.querySelector('.dashboard');
+
+people.forEach((human) => {
+  const humanBoard = document.createElement('tr');
+
+  const humanName = document.createElement('td');
+
+  humanName.textContent = human.name.trim();
+  humanBoard.append(humanName);
+
+  const humanGender = document.createElement('td');
+  const gender = human.sex === 'm' ? 'male' : 'female';
+
+  humanGender.textContent = gender;
+  humanBoard.append(humanGender);
+
+  const humanBorn = document.createElement('td');
+
+  humanBorn.textContent = human.born;
+  humanBoard.append(humanBorn);
+
+  const humanDied = document.createElement('td');
+
+  humanDied.textContent = human.died;
+  humanBoard.append(humanDied);
+
+  const humanAge = document.createElement('td');
+  const age = +human.died - +human.born;
+
+  humanAge.textContent = age;
+  humanBoard.append(humanAge);
+
+  const humanCentury = document.createElement('td');
+  const century = Math.ceil(human.died / 100);
+
+  humanCentury.textContent = century;
+  humanBoard.append(humanCentury);
+
+  board.append(humanBoard);
+});
