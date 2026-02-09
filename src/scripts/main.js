@@ -354,7 +354,32 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard tr');
 
-// write your code here
+people.forEach((item) => {
+  const copy = dashboard.cloneNode(true);
+
+  copy.querySelectorAll('th').forEach((th) => {
+    const td = document.createElement('td');
+
+    td.innerHTML = th.innerHTML;
+    th.replaceWith(td);
+  });
+
+  const cells = copy.querySelectorAll('td');
+
+  cells[0].textContent = item.name;
+
+  if (item.sex === 'm') {
+    cells[1].textContent = 'Male';
+  } else {
+    cells[1].textContent = 'Female';
+  }
+
+  cells[2].textContent = item.born;
+  cells[3].textContent = item.died;
+  cells[4].textContent = item.died - item.born;
+  cells[5].textContent = Math.ceil(item.died / 100);
+
+  dashboard.after(copy);
+});
