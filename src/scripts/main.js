@@ -356,37 +356,41 @@ const people = [
 
 const table = document.querySelector('.dashboard');
 
-people.forEach((person) => {
-  const tr = document.createElement('tr');
+if (table) {
+  const tbody = table.querySelector('tbody') || table;
 
-  const tdName = document.createElement('td');
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
 
-  tdName.textContent = person.name;
+    const tdName = document.createElement('td');
 
-  const tdGender = document.createElement('td');
+    tdName.textContent = person.name;
 
-  tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+    const tdGender = document.createElement('td');
 
-  const tdBorn = document.createElement('td');
+    tdGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
 
-  tdBorn.textContent = person.born;
+    const tdBorn = document.createElement('td');
 
-  const tdDied = document.createElement('td');
+    tdBorn.textContent = person.born;
 
-  tdDied.textContent = person.died;
+    const tdDied = document.createElement('td');
 
-  const tdAge = document.createElement('td');
+    tdDied.textContent = person.died;
 
-  const age = person.died - person.born;
+    const tdAge = document.createElement('td');
 
-  tdAge.textContent = age;
+    const age = person.died - person.born;
 
-  const tdCentury = document.createElement('td');
+    tdAge.textContent = age;
 
-  const century = Math.ceil(person.died / 100);
+    const tdCentury = document.createElement('td');
 
-  tdCentury.textContent = century;
+    const century = Math.ceil(person.died / 100);
 
-  tr.append(tdName, tdGender, tdBorn, tdDied, tdAge, tdCentury);
-  table.append(tr);
-});
+    tdCentury.textContent = century;
+
+    tr.append(tdName, tdGender, tdBorn, tdDied, tdAge, tdCentury);
+    tbody.append(tr);
+  });
+}
