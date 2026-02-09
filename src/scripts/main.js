@@ -354,32 +354,19 @@ const people = [
   },
 ];
 
-const dashboard = document.querySelector('.dashboard tr');
+const dashboard = document.querySelector('.dashboard tbody');
 
 people.forEach((item) => {
-  const copy = dashboard.cloneNode(true);
+  const row = document.createElement('tr');
 
-  copy.querySelectorAll('th').forEach((th) => {
-    const td = document.createElement('td');
+  row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.sex === 'm' ? 'Male' : 'Female'}</td>
+        <td>${item.born}</td>
+        <td>${item.died}</td>
+        <td>${item.died - item.born}</td>
+        <td>${Math.ceil(item.died / 100)}</td>
+    `;
 
-    td.innerHTML = th.innerHTML;
-    th.replaceWith(td);
-  });
-
-  const cells = copy.querySelectorAll('td');
-
-  cells[0].textContent = item.name;
-
-  if (item.sex === 'm') {
-    cells[1].textContent = 'Male';
-  } else {
-    cells[1].textContent = 'Female';
-  }
-
-  cells[2].textContent = item.born;
-  cells[3].textContent = item.died;
-  cells[4].textContent = item.died - item.born;
-  cells[5].textContent = Math.ceil(item.died / 100);
-
-  dashboard.after(copy);
+  dashboard.appendChild(row);
 });
