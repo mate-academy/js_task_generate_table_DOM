@@ -372,7 +372,7 @@ for (const person of people) {
   const tr = document.createElement('tr');
 
   tr.appendChild(makeTd(person.name));
-  tr.appendChild(makeTd(person.gender));
+  tr.appendChild(makeTd(person.sex));
   tr.appendChild(makeTd(person.born));
   tr.appendChild(makeTd(person.died));
 
