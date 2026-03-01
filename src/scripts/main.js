@@ -358,7 +358,7 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people);
 
-const table = document.getElementsByTagName('table')[0];
+const table = document.querySelector('.dashboard');
 
 people.forEach((person) => {
   const age = person.died - person.born;
