@@ -354,8 +354,6 @@ const people = [
   },
 ];
 
-'use strict';
-
 import people from './people.json';
 
 const table = document.querySelector('.dashboard');
@@ -366,32 +364,20 @@ people.forEach(person => {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
-  const nameCell = document.createElement('td');
-  nameCell.textContent = person.name;
+  const values = [
+    person.name,
+    person.gender,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
 
-  const genderCell = document.createElement('td');
-  genderCell.textContent = person.sex;
+  values.forEach(value => {
+    const cell = document.createElement('td');
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
 
-  const bornCell = document.createElement('td');
-  bornCell.textContent = person.born;
-
-  const diedCell = document.createElement('td');
-  diedCell.textContent = person.died;
-
-  const ageCell = document.createElement('td');
-  ageCell.textContent = age;
-
-  const centuryCell = document.createElement('td');
-  centuryCell.textContent = century;
-
-  row.append(
-    nameCell,
-    genderCell,
-    bornCell,
-    diedCell,
-    ageCell,
-    centuryCell
-  );
-
-  table.append(row);
+  table.appendChild(row);
 });
