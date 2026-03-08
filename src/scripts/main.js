@@ -358,3 +358,53 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+/**
+ * Знаходимо таблицю з класом dashboard
+ */
+const table = document.querySelector('.dashboard');
+
+/**
+ * Функція для заповнення таблиці
+ * @param {Array} data - масив об'єктів людей
+ * @param {HTMLElement} tableElement - цільова таблиця
+ */
+function fillDashboard(data, tableElement) {
+  if (!tableElement) {
+    return;
+  }
+
+  data.forEach((person) => {
+    // 1. Створюємо рядок таблиці
+    const row = document.createElement('tr');
+
+    // 2. Розраховуємо необхідні дані
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+    // 3. Створюємо масив значень у порядку заголовків таблиці
+    const cellsData = [
+      person.name,
+      gender,
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
+
+    // 4. Створюємо клітинки td та додаємо їх у рядок
+    cellsData.forEach((value) => {
+      const td = document.createElement('td');
+
+      td.textContent = value;
+      row.append(td);
+    });
+
+    // 5. Додаємо готовий рядок у таблицю
+    tableElement.append(row);
+  });
+}
+
+// Виклик функції
+fillDashboard(people, table);
