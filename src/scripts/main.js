@@ -366,9 +366,9 @@ for (let i = 0; i < people.length; i++) {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
-  const tableRow = document.createElement('tr');
+  const newRow = document.createElement('tr');
 
-  tableRow.innerHTML = `
+  newRow.innerHTML = `
   <td>${person.name}</td>
   <td>${gender}</td>
   <td>${person.born}</td>
@@ -377,5 +377,5 @@ for (let i = 0; i < people.length; i++) {
   <td>${century}</td>
   `;
 
-  tablePeople.appendChild(tableRow);
+  tablePeople.appendChild(newRow);
 }
