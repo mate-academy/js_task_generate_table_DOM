@@ -355,6 +355,40 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const dashboard = document.querySelector('.dashboard');
+
+  if (!dashboard) {
+    throw new Error('dashboard is not found');
+  }
+
+  let tbody = dashboard.querySelector('tbody');
+
+  if (!tbody) {
+    tbody = document.createElement('tbody');
+    dashboard.appendChild(tbody);
+  }
+
+  people.forEach((person) => {
+    const tr = document.createElement('tr');
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const values = [
+      person.name,
+      person.sex,
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
+
+    values.forEach((v) => {
+      const td = document.createElement('td');
+
+      td.textContent = String(v);
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+});
