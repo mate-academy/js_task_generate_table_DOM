@@ -357,4 +357,41 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+people.forEach((person) => {
+  const personElement = document.createElement('tr');
+
+  const namePerson = document.createElement('th');
+
+  namePerson.textContent = person.name;
+
+  const genderPerson = document.createElement('th');
+
+  genderPerson.textContent = person.sex;
+
+  const bornedPerson = document.createElement('th');
+
+  bornedPerson.textContent = person.born;
+
+  const diedPerson = document.createElement('th');
+
+  diedPerson.textContent = person.died;
+
+  const agePerson = document.createElement('th');
+
+  agePerson.textContent = (person.died - person.born).toString();
+
+  const centuryPerson = document.createElement('th');
+
+  centuryPerson.textContent = Math.ceil(person.died / 100).toString();
+
+  personElement.append(
+    namePerson,
+    genderPerson,
+    bornedPerson,
+    diedPerson,
+    agePerson,
+    centuryPerson,
+  );
+
+  document.querySelector('.dashboard').appendChild(personElement);
+});
