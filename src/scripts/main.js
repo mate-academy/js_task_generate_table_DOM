@@ -360,27 +360,27 @@ console.log(people); // you can remove it
 people.forEach((person) => {
   const personElement = document.createElement('tr');
 
-  const namePerson = document.createElement('th');
+  const namePerson = document.createElement('td');
 
   namePerson.textContent = person.name;
 
-  const genderPerson = document.createElement('th');
+  const genderPerson = document.createElement('td');
 
   genderPerson.textContent = person.sex;
 
-  const bornedPerson = document.createElement('th');
+  const bornedPerson = document.createElement('td');
 
   bornedPerson.textContent = person.born;
 
-  const diedPerson = document.createElement('th');
+  const diedPerson = document.createElement('td');
 
   diedPerson.textContent = person.died;
 
-  const agePerson = document.createElement('th');
+  const agePerson = document.createElement('td');
 
   agePerson.textContent = (person.died - person.born).toString();
 
-  const centuryPerson = document.createElement('th');
+  const centuryPerson = document.createElement('td');
 
   centuryPerson.textContent = Math.ceil(person.died / 100).toString();
 
