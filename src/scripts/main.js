@@ -358,3 +358,45 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const dashboard = document.querySelector('.dashboard');
+const listTableHeader = [...dashboard.querySelector('tr').children];
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  listTableHeader.forEach((colName) => {
+    const nameTableHeader = colName.innerText.toLowerCase();
+
+    tr.append(createDataPerson(person, nameTableHeader));
+  });
+
+  dashboard.append(tr);
+});
+
+function createDataPerson(currentPerson, currentColName) {
+  const td = document.createElement('td');
+  const age = currentPerson.died - currentPerson.born;
+  const century = Math.ceil(currentPerson.died / 100);
+
+  switch (currentColName) {
+    case 'gender':
+      td.textContent = currentPerson.sex === 'm' ? 'Male' : 'Female';
+
+      return td;
+
+    case 'age':
+      td.textContent = age;
+
+      return td;
+
+    case 'century':
+      td.textContent = century;
+
+      return td;
+
+    default:
+      td.textContent = currentPerson[currentColName];
+
+      return td;
+  }
+}
