@@ -357,4 +357,29 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = table.insertRow();
+
+  if (person.sex === 'm') {
+    person.gender = 'Male';
+  } else {
+    person.gender = 'Female';
+  }
+
+  const rowData = [
+    `${person.name}`,
+    `${person.gender}`,
+    `${person.born}`,
+    `${person.died}`,
+    `${person.died - person.born}`,
+    `${Math.ceil(person.died / 100)}`,
+  ];
+
+  rowData.forEach((text, index) => {
+    const cell = row.insertCell(index);
+
+    cell.textContent = text;
+  });
+});
