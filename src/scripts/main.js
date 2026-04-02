@@ -362,31 +362,19 @@ const rowsTable = people.map((person) => {
    * @type {HTMLTableRowElement}
    *  */
   const row = document.createElement('tr');
-  const parametrs = {
-    name: person.name,
-    sex: person.sex,
-    born: person.born,
-    died: person.died,
-  };
 
-  if (parametrs.sex === 'm') {
-    parametrs.gender = 'Male';
-  }
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
 
-  if (parametrs.sex === 'f') {
-    parametrs.gender = 'Female';
-  }
-
-  parametrs.age = person.died - person.born;
-  parametrs.century = Math.ceil(person.died / 100);
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
   const listParametrs = [
-    parametrs.name,
-    parametrs.gender,
-    parametrs.born,
-    parametrs.died,
-    parametrs.age,
-    parametrs.century,
+    person.name,
+    gender,
+    person.born,
+    person.died,
+    age,
+    century,
   ];
 
   for (const param of listParametrs) {
