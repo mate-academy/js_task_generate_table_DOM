@@ -365,15 +365,15 @@ people.forEach((person) => {
   const century = Math.ceil(person.died / 100);
 
   const row = document.createElement('tr');
+  let gender = '';
 
-  const data = [
-    person.name,
-    person.sex,
-    person.born,
-    person.died,
-    age,
-    century,
-  ];
+  if (person.sex === 'm') {
+    gender = 'Male';
+  } else {
+    gender = 'Female';
+  }
+
+  const data = [person.name, gender, person.born, person.died, age, century];
 
   data.forEach((value) => {
     const cell = document.createElement('td');
