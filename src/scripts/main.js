@@ -358,3 +358,30 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const dashboard = document.querySelector('.dashboard');
+
+const rows = people.map((person) => {
+  // рахуємо значення для конкретної людини
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  // створюємо елемент рядка 'tr'
+  const tr = document.createElement('tr');
+
+  // Використовуємо шаблонний рядок для наповнення tr
+  tr.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `;
+
+  return tr;
+});
+
+// 3. Додаємо всі створені рядки в таблицю за один раз
+// Використовуємо spread-оператор (...),
+// щоб передати кожен елемент масиву окремо
+dashboard.append(...rows);
