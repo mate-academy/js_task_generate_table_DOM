@@ -357,4 +357,39 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const rowsTable = people.map((person) => {
+  /**
+   * @type {HTMLTableRowElement}
+   *  */
+  const row = document.createElement('tr');
+
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  const listParametrs = [
+    person.name,
+    gender,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
+
+  for (const param of listParametrs) {
+    /**
+     * @type {HTMLTableCellElement}
+     *  */
+    const cell = document.createElement('td');
+
+    cell.textContent = param;
+    row.appendChild(cell);
+  }
+
+  return row;
+});
+
+const dashboard = document.querySelector('.dashboard');
+
+dashboard.append(...rowsTable);
