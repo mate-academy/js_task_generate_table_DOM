@@ -354,7 +354,31 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table.dashboard');
 
-// write your code here
+function createRows(data) {
+  for (const person of data) {
+    const row = document.createElement('tr');
+    const cells = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+    table.append(row);
+
+    for (const key of cells) {
+      const td = document.createElement('td');
+
+      row.append(td);
+
+      if (key === 'sex') {
+        td.innerText = person[key] === 'm' ? 'Male' : 'Female';
+      } else if (key === 'age') {
+        td.innerText = person.died - person.born;
+      } else if (key === 'century') {
+        td.innerText = Math.ceil(person.died / 100);
+      } else {
+        td.innerText = person[key];
+      }
+    }
+  }
+}
+
+createRows(people);
