@@ -358,3 +358,24 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const dashboard = document.querySelector('.dashboard');
+const fragment = document.createDocumentFragment();
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  row.innerHTML = `
+  <td>${person.name}</td>
+  <td>${person.sex}</td>
+  <td>${person.born}</td>
+  <td>${person.died}</td>
+  <td>${age}</td>
+  <td>${century}</td>
+`;
+
+  fragment.appendChild(row);
+});
+
+dashboard.appendChild(fragment);
