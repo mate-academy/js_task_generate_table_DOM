@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const peopleLine = document.querySelector('tr');
 
-// write your code here
+const peopleInfo = people.map((person) => ({
+  name: person.name,
+  sex: person.sex === 'm' ? 'male' : 'female',
+  born: person.born,
+  died: person.died,
+  age: person.died - person.born,
+  century: Math.ceil(person.died / 100),
+}));
+
+const createPersonInfo = () => {
+  for (const person of peopleInfo) {
+    const newPerson = document.createElement('tr');
+
+    peopleLine.insertAdjacentElement('afterend', newPerson);
+
+    for (const key in person) {
+      const newPersonInfo = document.createElement('th');
+
+      newPerson.appendChild(newPersonInfo);
+      newPersonInfo.textContent = `${person[key]}`;
+    }
+  }
+};
+
+createPersonInfo();
