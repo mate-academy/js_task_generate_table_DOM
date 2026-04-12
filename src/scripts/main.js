@@ -354,7 +354,45 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const TABLE_ROWS = ['name', 'sex', 'born', 'died', 'age', 'century'];
 
 // write your code here
+function buildTrElement(person) {
+  const trElement = document.createElement('tr');
+
+  for (const key of TABLE_ROWS) {
+    const thElement = buildThElement(key, person);
+
+    trElement.append(thElement);
+  }
+
+  return trElement;
+}
+
+function buildThElement(key, person) {
+  const thElement = document.createElement('th');
+
+  switch (key) {
+    case 'age':
+      thElement.textContent = person.died - person.born;
+      break;
+    case 'century':
+      thElement.textContent = Math.ceil(person.died / 100);
+      break;
+    default:
+      thElement.textContent = person[key];
+      break;
+  }
+
+  return thElement;
+}
+
+function fillTable(peoples) {
+  const tableElement = document.querySelector('.dashboard');
+
+  for (const person of peoples) {
+    tableElement.append(buildTrElement(person));
+  }
+}
+
+fillTable(people);
