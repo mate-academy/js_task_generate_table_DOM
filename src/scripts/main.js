@@ -1,5 +1,45 @@
 'use strict';
 
+/* const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tableRow = document.createElement('tr');
+
+  const tableDataName = document.createElement('td');
+
+  tableDataName.innerHTML = person.name;
+
+  const tableDataGender = document.createElement('td');
+
+  tableDataGender.innerHTML = person.sex;
+
+  const tableDataBorn = document.createElement('td');
+
+  tableDataBorn.innerHTML = person.born;
+
+  const tableDataDied = document.createElement('td');
+
+  tableDataDied.innerHTML = person.died;
+
+  const tableDataAge = document.createElement('td');
+
+  tableDataAge.innerHTML = person.died - person.born;
+
+  const tableDataCentury = document.createElement('td');
+
+  tableDataCentury.innerHTML = Math.ceil(person.died / 100);
+
+  tableRow.append(
+    tableDataName,
+    tableDataGender,
+    tableDataBorn,
+    tableDataDied,
+    tableDataAge,
+    tableDataCentury,
+  );
+
+  table.append(tableRow);
+}); */
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +394,23 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach((person) => {
+  const { name: personName, sex, born, died } = person;
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const values = [personName, sex, born, died, age, century];
+
+  const row = document.createElement('tr');
+
+  values.forEach((value) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = value;
+
+    row.append(cell);
+  });
+
+  table.append(row);
+});
