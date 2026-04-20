@@ -354,7 +354,59 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+// Перевірка, що елемент таблиці існує
+if (table) {
+  // Додавання заголовка таблиці (якщо потрібно)
+  const headerRow = document.createElement('tr');
+  const headers = ['Name', 'Sex', 'Born', 'Died', 'Age', 'Century'];
+
+  headers.forEach((headerText) => {
+    const headerCell = document.createElement('th');
+
+    headerCell.textContent = headerText;
+    headerRow.appendChild(headerCell);
+  });
+  table.appendChild(headerRow);
+
+  // Додавання рядків з даними
+  people.forEach((person) => {
+    const row = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+
+    nameCell.textContent = person.name;
+
+    const sexCell = document.createElement('td');
+
+    sexCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+
+    const bornCell = document.createElement('td');
+
+    bornCell.textContent = person.born;
+
+    const diedCell = document.createElement('td');
+
+    diedCell.textContent = person.died;
+
+    const ageCell = document.createElement('td');
+
+    ageCell.textContent = person.died - person.born;
+
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = Math.ceil(person.died / 100);
+
+    // Додаємо створені клітинки до рядка
+    row.appendChild(nameCell);
+    row.appendChild(sexCell);
+    row.appendChild(bornCell);
+    row.appendChild(diedCell);
+    row.appendChild(ageCell);
+    row.appendChild(centuryCell);
+
+    // Додаємо рядок до таблиці
+    table.appendChild(row);
+  });
+}
