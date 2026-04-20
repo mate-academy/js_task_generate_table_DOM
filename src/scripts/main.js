@@ -354,7 +354,20 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+people.forEach( elem => {
+
+let tableElem = document.querySelector('tr') || ''
+let tableElemClone = tableElem.cloneNode(true)
+let thElemClone = tableElemClone.children
+
+  thElemClone[0].textContent = elem.name
+  thElemClone[1].textContent = elem.sex  === 'm' ? 'Male' : 'Female'
+  thElemClone[2].textContent = elem.born
+  thElemClone[3].textContent = elem.died
+  thElemClone[4].textContent = elem.died - elem.born
+  thElemClone[5].textContent = Math.floor(  elem.died / 100 )
+
+  tableElem.after(tableElemClone)
+})
+
