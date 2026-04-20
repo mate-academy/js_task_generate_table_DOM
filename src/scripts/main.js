@@ -355,6 +355,92 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+console.log(people);
 
-// write your code here
+const dashboardTableEl = document.querySelector('table.dashboard');
+const container = dashboardTableEl.querySelector('tbody') || dashboardTableEl;
+
+const schema = ['name', 'gender', 'born', 'died', 'age', 'century'];
+
+const map = { m: 'Male', f: 'Female' };
+const normalizeGender = (value) => {
+  const key = String(value || '')
+    .trim()
+    .toLowerCase();
+
+  return map[key] || 'Unknown';
+};
+
+const TableRowBuilder = function () {
+  this.tableRow = document.createElement('tr');
+};
+
+TableRowBuilder.SCHEMA = schema;
+
+TableRowBuilder.build = function (person) {
+  return new TableRowBuilder().addRowData(person).tr;
+};
+
+TableRowBuilder.prototype = {
+  constructor: TableRowBuilder,
+
+  addRowData: function (data) {
+    const rowData = this.getRowData(data);
+
+    const frag = document.createDocumentFragment();
+
+    TableRowBuilder.SCHEMA.forEach((column) => {
+      frag.appendChild(this.createCell(rowData[column]));
+    });
+
+    this.tableRow.appendChild(frag);
+
+    return this;
+  },
+
+  getRowData: function (data) {
+    const { name: personName, sex, died, born } = data;
+
+    return {
+      name: personName,
+      gender: normalizeGender(sex),
+      born,
+      died,
+      age: died - born,
+      century: Math.ceil(died / 100),
+    };
+  },
+
+  createCell: function (item) {
+    const td = document.createElement('td');
+
+    td.textContent = item ?? '';
+
+    return td;
+  },
+};
+
+Object.defineProperty(TableRowBuilder.prototype, 'tr', {
+  get: function () {
+    return this.tableRow;
+  },
+
+  enumerable: false,
+  configurable: true,
+});
+
+(() => {
+  if (!dashboardTableEl) {
+    // eslint-disable-next-line no-console
+    console.error('Table not found');
+
+    return;
+  }
+
+  const frag = document.createDocumentFragment();
+
+  people.forEach((person) => {
+    frag.appendChild(TableRowBuilder.build(person));
+  });
+  container.appendChild(frag);
+})();
