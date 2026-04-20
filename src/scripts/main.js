@@ -357,4 +357,50 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+// Функція для розрахунку віку
+const calculateAge = (born, died) => died - born;
+
+// Функція для розрахунку століття
+const calculateCentury = (died) => Math.ceil(died / 100);
+
+// Функція для створення таблиці
+const generateTable = () => {
+  people.forEach(person => {
+    // Розраховуємо вік і століття
+    const age = calculateAge(person.born, person.died);
+    const century = calculateCentury(person.died);
+
+    // Створюємо новий рядок для таблиці
+    const row = document.createElement('tr');
+
+    // Створюємо клітинки для кожного з атрибутів
+    const nameCell = document.createElement('td');
+    nameCell.textContent = person.name;
+
+    const genderCell = document.createElement('td');
+    genderCell.textContent = person.gender;
+
+    const bornCell = document.createElement('td');
+    bornCell.textContent = person.born;
+
+    const diedCell = document.createElement('td');
+    diedCell.textContent = person.died;
+
+    const ageCell = document.createElement('td');
+    ageCell.textContent = age;
+
+    const centuryCell = document.createElement('td');
+    centuryCell.textContent = century;
+
+    // Додаємо клітинки до рядка
+    row.append(nameCell, genderCell, bornCell, diedCell, ageCell, centuryCell);
+
+    // Додаємо рядок до таблиці
+    table.appendChild(row);
+  });
+};
+
+// Викликаємо функцію для генерації таблиці
+generateTable();
