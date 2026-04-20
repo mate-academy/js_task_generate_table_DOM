@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function calculateAge(bornDate, diedData) {
+  return diedData - bornDate;
+}
 
-// write your code here
+function calculateCentury(diedData) {
+  return Math.ceil(diedData / 100);
+}
+
+const dashboard = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const age = calculateAge(person.born, person.died);
+  const century = calculateCentury(person.died);
+
+  const trNew = document.createElement('tr');
+
+  trNew.innerHTML = `
+    <td>${person.name}
+    <td>${person.sex}
+    <td>${person.born}
+    <td>${person.died}
+    <td>${age}
+    <td>${century}
+  `;
+
+  dashboard.appendChild(trNew);
+});
