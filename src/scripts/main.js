@@ -354,7 +354,39 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const board = document.querySelector('.dashboard');
+let tbody = board.querySelector('tbody');
+
+if (!tbody) {
+  tbody = document.createElement('tbody');
+
+  const thead = board.querySelector('thead');
+
+  if (thead) {
+    board.insertBefore(tbody, thead.nextSibling);
+  } else {
+    board.appendChild(tbody);
+  }
+}
+
+function createTableRow(person) {
+  const row = document.createElement('tr');
+
+  row.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
+  `;
+
+  return row;
+}
+
+people.forEach((person) => {
+  const row = createTableRow(person);
+
+  tbody.appendChild(row);
+});
