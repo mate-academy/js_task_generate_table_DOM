@@ -357,4 +357,29 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const dashboard = document.querySelector('.dashboard');
+
+people.map((person) => {
+  const tr = document.createElement('tr');
+  const thName = document.createElement('th');
+  const thGender = document.createElement('th');
+  const thBorn = document.createElement('th');
+  const thDied = document.createElement('th');
+  const thAge = document.createElement('th');
+  const thCentury = document.createElement('th');
+
+  thName.innerText = person.name;
+  thGender.innerText = person.sex;
+  thBorn.innerText = person.born;
+  thDied.innerText = person.died;
+  thAge.innerText = person.died - person.born;
+  thCentury.innerText = Math.floor(person.born / 100);
+
+  tr.appendChild(thName);
+  tr.appendChild(thGender);
+  tr.appendChild(thBorn);
+  tr.appendChild(thDied);
+  tr.appendChild(thAge);
+  tr.appendChild(thCentury);
+  dashboard.appendChild(tr);
+});
