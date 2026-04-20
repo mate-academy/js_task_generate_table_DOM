@@ -354,7 +354,31 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
+const sex = (person) => {
+  if (person.sex === 'f') {
+    return 'Female';
+  } else {
+    return 'Male';
+  }
+};
 
-// write your code here
+const peopleObj = people.map((person) => ({
+  name: person.name,
+  sex: sex(person),
+  born: person.born,
+  died: person.died,
+  age: person.died - person.born,
+  century: Math.ceil(person.died / 100),
+}));
+
+peopleObj.forEach((person) => {
+  const tableData = Object.values(person)
+    .map((value) => `<td>${value}</td>`)
+    .join('');
+
+  const tableRow = document.createElement('tr');
+
+  tableRow.innerHTML = tableData;
+  dashboard.append(tableRow);
+});
