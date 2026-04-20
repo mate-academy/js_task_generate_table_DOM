@@ -354,7 +354,44 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+function convertor(text) {
+  return text === 'm' ? 'Male' : 'Female';
+}
+
+people.forEach((el) => {
+  const tr = document.createElement('tr');
+
+  const nameTd = document.createElement('td');
+
+  nameTd.textContent = el.name;
+  tr.appendChild(nameTd);
+
+  const genderTd = document.createElement('td');
+
+  genderTd.textContent = convertor(el.sex);
+  tr.appendChild(genderTd);
+
+  const bornTd = document.createElement('td');
+
+  bornTd.textContent = el.born;
+  tr.appendChild(bornTd);
+
+  const diedTd = document.createElement('td');
+
+  diedTd.textContent = el.died;
+  tr.appendChild(diedTd);
+
+  const ageTd = document.createElement('td');
+
+  ageTd.textContent = el.died - el.born;
+  tr.appendChild(ageTd);
+
+  const centuryTd = document.createElement('td');
+
+  centuryTd.textContent = Math.ceil(el.born / 100);
+  tr.appendChild(centuryTd);
+
+  dashboard.appendChild(tr);
+});
