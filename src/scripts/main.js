@@ -354,7 +354,32 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function addInfo(arr) {
+  for (const person of arr) {
+    person.age = person.died - person.born;
+    person.century = Math.ceil(person.died / 100);
+  }
 
-// write your code here
+  return arr;
+}
+
+function addRow(array) {
+  const table = document.querySelector('.dashboard');
+
+  for (const human of array) {
+    const row = table.createElement('tr');
+
+    row.innerHTML = `<td>${human.name}</td>
+      <td>${human.gender}</td>
+      <td>${human.born}</td>
+      <td>${human.died}</td>
+      <td>${human.age}</td>
+      <td>${human.century}</td>`;
+
+    table.appendChild(row);
+  }
+}
+
+const moreInfo = addInfo(people);
+
+addRow(moreInfo);
