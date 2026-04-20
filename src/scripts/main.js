@@ -354,7 +354,34 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const bodyElement = document.body;
+const tableElement = bodyElement.querySelector('table');
 
-// write your code here
+const ages = people.map(elem => {
+  return elem.died - elem.born;
+})
+
+const century = people.map(elem => {
+  return Math.floor(elem.born / 100);
+})
+
+for (let i = 0; i < people.length; i++) {
+  const newTr = document.createElement('tr');
+
+  const dataToAdd = [
+    people[i].name,
+    people[i].sex,
+    people[i].born,
+    people[i].died,
+    ages[i],
+    century[i],
+  ];
+
+  dataToAdd.forEach(data => {
+    const newTh = document.createElement('th');
+    newTh.textContent = data;
+    newTr.append(newTh);
+  })
+
+  tableElement.append(newTr);
+}
