@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// Get table from HTML
+const table = document.querySelector('.dashboard');
 
-// write your code here
+// Loop for table generation
+people.forEach((person) => {
+  const newRow = table.insertRow();
+
+  // Making new cells
+  const nameCell = newRow.insertCell();
+  const genderCell = newRow.insertCell();
+  const bornCell = newRow.insertCell();
+  const diedCell = newRow.insertCell();
+  const ageCell = newRow.insertCell();
+  const centuryCell = newRow.insertCell();
+
+  // Filling cells with data
+  nameCell.textContent = person.name;
+  genderCell.textContent = person.sex;
+  bornCell.textContent = person.born;
+  diedCell.textContent = person.died;
+  ageCell.textContent = person.died - person.born;
+  centuryCell.textContent = Math.ceil(person.died / 100);
+});
