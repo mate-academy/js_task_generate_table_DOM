@@ -354,7 +354,34 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+function preparedPerson(person) {
+  return {
+    name: person.name,
+    gender: person.sex === 'm' ? 'Male' : 'Female',
+    born: person.born,
+    died: person.died,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
+}
+
+people.forEach((person) => {
+  if (!dashboard) {
+    return;
+  }
+
+  const prepared = preparedPerson(person);
+  const row = document.createElement('tr');
+
+  const keys = ['name', 'gender', 'born', 'died', 'age', 'century'];
+
+  keys.forEach((key) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = prepared[key];
+    row.append(cell);
+  });
+  dashboard.append(row);
+});
