@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+('use strict');
 
-// write your code here
+const peopleWithAge = people.map((person) => ({
+  ...person,
+  age: person.died - person.born,
+  century: Math.ceil(person.died / 100),
+}));
+const table = document.querySelector('.dashboard');
+const keysToShow = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+peopleWithAge.forEach((person) => {
+  const newRow = document.createElement('tr');
+
+  keysToShow.forEach((key) => {
+    const td = document.createElement('td');
+
+    if (key === 'sex') {
+      td.textContent = person[key] === 'm' ? 'Male' : 'Female';
+    } else {
+      td.textContent = person[key] != null ? person[key] : '';
+    }
+    newRow.appendChild(td);
+  });
+  table.appendChild(newRow);
+});
