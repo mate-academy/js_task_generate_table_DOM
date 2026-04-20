@@ -353,8 +353,22 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const dashboard = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach((el) => {
+  el.Age = el.died - el.born;
+  el.Century = Math.ceil(el.died / 100);
+  el.sex = el.sex === 'f' ? 'Female' : 'Male';
 
-// write your code here
+  const row = `
+      <td>${el.name}</td>
+      <td>${el.sex}</td>
+      <td>${el.born}</td>
+      <td>${el.died}</td>
+      <td>${el.Age}</td>
+      <td>${el.Century}</td>
+  `;
+
+  dashboard.querySelector('tr').insertAdjacentHTML('afterend', row);
+});
+
