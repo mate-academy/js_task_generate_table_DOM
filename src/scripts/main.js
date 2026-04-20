@@ -354,7 +354,36 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function getCorrectPerson(arr) {
+  return arr.map((item) => {
+    return {
+      name: item.name,
+      gender: item.sex,
+      born: item.born,
+      died: item.died,
+      age: item.died - item.born,
+      century: Math.ceil(item.died / 100),
+    };
+  });
+}
 
-// write your code here
+const dashBoard = document.querySelector('.dashboard');
+
+const necessaryPeople = getCorrectPerson(people);
+
+necessaryPeople.forEach((item) => {
+  item.gender = item.gender === 'f' ? 'Female' : 'Male';
+});
+
+necessaryPeople.forEach((person) => {
+  const tr = document.createElement('tr');
+
+  Object.values(person).forEach((item) => {
+    const td = document.createElement('td');
+
+    td.textContent = item;
+    tr.appendChild(td);
+  });
+
+  dashBoard.appendChild(tr);
+});
