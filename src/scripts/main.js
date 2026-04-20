@@ -354,7 +354,45 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function addTableRows(peopleIn) {
+  const table = document.querySelector('table');
 
-// write your code here
+  peopleIn.map((person) => {
+    const row = document.createElement('tr');
+
+    const colName = document.createElement('td');
+
+    colName.textContent = person.name;
+
+    const colGender = document.createElement('td');
+
+    colGender.textContent = person.sex === 'm' ? 'Male' : 'Female';
+
+    const colBirth = document.createElement('td');
+
+    colBirth.textContent = person.born;
+
+    const colDeath = document.createElement('td');
+
+    colDeath.textContent = person.died;
+
+    const colAge = document.createElement('td');
+
+    colAge.textContent = person.died - person.born;
+
+    const colCent = document.createElement('td');
+
+    colCent.textContent = Math.ceil(person.died / 100);
+
+    row.appendChild(colName);
+    row.appendChild(colGender);
+    row.appendChild(colBirth);
+    row.appendChild(colDeath);
+    row.appendChild(colAge);
+    row.appendChild(colCent);
+
+    table.appendChild(row);
+  });
+}
+
+addTableRows(people);
