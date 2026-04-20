@@ -355,6 +355,41 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+const tbody = document.createElement('tbody');
+
+table.appendChild(tbody);
+
+function sex(str) {
+  if (str === 'f') {
+    return 'Female';
+  }
+
+  return 'Male';
+}
+
+for (let i = 0; i < people.length; i++) {
+  const column = document.createElement('tr');
+  const th1 = document.createElement('td');
+  const th2 = document.createElement('td');
+  const th3 = document.createElement('td');
+  const th4 = document.createElement('td');
+  const th5 = document.createElement('td');
+  const th6 = document.createElement('td');
+
+  th1.textContent = `${people[i].name}`;
+  th2.textContent = `${sex(people[i].sex)}`;
+  th3.textContent = `${people[i].born}`;
+  th4.textContent = `${people[i].died}`;
+  th5.textContent = `${people[i].died - people[i].born}`;
+  th6.textContent = `${Math.ceil(people[i].died / 100)}`;
+  column.appendChild(th1);
+  column.appendChild(th2);
+  column.appendChild(th3);
+  column.appendChild(th4);
+  column.appendChild(th5);
+  column.appendChild(th6);
+
+  tbody.appendChild(column);
+}
