@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+document.addEventListener('DOMContentLoaded', () => {
+  const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+  people.forEach((person) => dashboard.appendChild(createRow(person)));
+});
+
+function createRow(person) {
+  const row = document.createElement('tr');
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+  // eslint-disable-next-line no-shadow
+  const { name, sex, born, died } = person;
+
+  const genderMapped = sex === 'm' ? 'Male' : sex === 'f' ? 'Female' : sex;
+
+  for (const value of [name, genderMapped, born, died, age, century]) {
+    const data = document.createElement('td');
+
+    data.textContent = value;
+
+    row.appendChild(data);
+  }
+
+  return row;
+}
