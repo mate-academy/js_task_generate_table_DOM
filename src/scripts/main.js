@@ -357,4 +357,37 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+const tbody = table.querySelector('tbody') || table;
+
+function createTd(value) {
+  const td = document.createElement('td');
+
+  td.textContent = value;
+
+  return td;
+}
+
+for (const person of people) {
+  const tr = document.createElement('tr');
+  const age = person.died - person.born;
+  const centry = Math.ceil(person.died / 100);
+  const sexLabel =
+    person.sex === 'm' || person.sex === 'male' ? 'Male' : 'Female';
+
+  tr.appendChild(createTd(person.name));
+  tr.appendChild(createTd(sexLabel));
+  tr.appendChild(createTd(person.born));
+  tr.appendChild(createTd(person.died));
+
+  const ageTd = document.createElement('td');
+
+  ageTd.textContent = age;
+  tr.appendChild(ageTd);
+
+  const centryTd = document.createElement('td');
+
+  centryTd.textContent = centry;
+  tr.appendChild(centryTd);
+  tbody.appendChild(tr);
+}
