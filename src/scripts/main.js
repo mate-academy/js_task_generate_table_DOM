@@ -355,6 +355,47 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+function createTableRow(person) {
+  const tr = document.createElement('tr');
+
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+  tr.appendChild(nameCell);
+
+  const genderCell = document.createElement('td');
+
+  genderCell.textContent = person.sex;
+  tr.appendChild(genderCell);
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+  tr.appendChild(bornCell);
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+  tr.appendChild(diedCell);
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = person.died - person.born;
+  tr.appendChild(ageCell);
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = Math.ceil(person.died / 100);
+  tr.appendChild(centuryCell);
+
+  return tr;
+}
+
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = createTableRow(person);
+
+  table.appendChild(row);
+});
