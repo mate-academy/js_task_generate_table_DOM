@@ -354,7 +354,27 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboardRef = document.querySelector('.dashboard');
 
-// write your code here
+function addData(arr) {
+  arr.forEach((item, i) => {
+    const newRow = dashboardRef.insertRow(i);
+    const { sex, born, died } = item;
+    const gender = sex === 'm' ? 'Male' : 'Female';
+    const age = died - born;
+    const century = Math.ceil(died / 100);
+
+    const rowHtml = `
+      <td>${item.name}</td>
+      <td>${gender}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    `;
+
+    newRow.insertAdjacentHTML('beforeend', rowHtml);
+  });
+}
+
+addData(people);
