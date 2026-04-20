@@ -358,3 +358,18 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const line = document.querySelector('tbody');
+
+for (const i of people) {
+  line.insertAdjacentHTML(
+    'beforeend',
+    `<tr>
+    <td>${i.name}</td>
+    <td>${i.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${i.born}</td>
+    <td>${i.died}</td>
+    <td>${i.died - i.born}</td>
+    <td>${Math.ceil(i.died / 100)}</td>
+    </tr>`,
+  );
+}
