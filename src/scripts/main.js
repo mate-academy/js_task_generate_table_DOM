@@ -355,6 +355,49 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard tbody');
 
-// write your code here
+function getAge({ born, died }) {
+  return died - born;
+}
+
+function getCentury({ died }) {
+  return Math.ceil(died / 100);
+}
+
+function createCell(text) {
+  const td = document.createElement('td');
+
+  td.textContent = text;
+
+  return td;
+}
+
+function createRow(person) {
+  const tr = document.createElement('tr');
+  const fields = [
+    person.name,
+    person.sex === 'm' ? 'Male' : 'Female',
+    person.born,
+    person.died,
+    getAge(person),
+    getCentury(person),
+  ];
+
+  fields.forEach((value) => tr.appendChild(createCell(value)));
+
+  return tr;
+}
+
+const renderTable = (peopleList, tableEl) => {
+  const fragment = document.createDocumentFragment();
+
+  peopleList.forEach((person) => fragment.appendChild(createRow(person)));
+
+  tableEl.appendChild(fragment);
+};
+
+// === Run ===
+if (table) {
+  renderTable(people, table);
+}
