@@ -358,3 +358,32 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const tableElement = document.querySelector('.dashboard');
+
+const tableRowsStr = people
+  .map(({ name: userName, sex, born, died }) => {
+    return `<tr>
+      <td>${userName}</td>
+      <td>${sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${died - born}</td>
+      <td>${Math.ceil(died / 100)}${getOrdinalSuffix(Math.ceil(died / 100))} century</td>
+    </tr>`;
+  })
+  .join('');
+
+if (tableElement) {
+  tableElement.insertAdjacentHTML(
+    'beforeend',
+    `<tbody>${tableRowsStr}</tbody>`,
+  );
+}
+
+function getOrdinalSuffix(n) {
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+
+  return s[(v - 20) % 10] || s[v] || s[0];
+}
