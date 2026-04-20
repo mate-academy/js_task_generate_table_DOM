@@ -1,4 +1,8 @@
-'use strict';
+/* eslint-disable no-unused-expressions */
+/* eslint-disable padding-line-between-statements */
+/* eslint-disable no-unused-vars */
+
+('use strict');
 
 const people = [
   {
@@ -353,8 +357,30 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function addRowToTable(person) {
+  const row = document.createElement('tr');
 
-// write your code here
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  const cells = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
+
+  cells.forEach((cellData) => {
+    const cell = document.createElement('td');
+    cell.textContent = cellData;
+    row.appendChild(cell);
+  });
+
+  table.appendChild(row);
+}
+
+people.forEach((person) => addRowToTable(person));
