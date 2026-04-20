@@ -354,7 +354,25 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+//  variables
+const table = document.querySelector('tbody');
 
-// write your code here
+// calculate century
+function getCentury(year) {
+  return Math.ceil(year / 100);
+}
+
+// eslint-disable-next-line no-shadow
+people.forEach(({ name, born, died, sex }) => {
+  table.insertAdjacentHTML('beforeend',
+    `<tr>
+      <td>${name}</td>
+      <td>${sex === 'f' ? 'Female' : 'Male'}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${died - born}</td>
+      <td>${getCentury(died)}</td>
+    </tr>
+  `
+  );
+});
