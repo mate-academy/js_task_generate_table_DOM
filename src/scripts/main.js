@@ -355,6 +355,43 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+function ageCalc(person) {
+  return person.died - person.born;
+}
+
+function centCalc(person) {
+  return Math.ceil(person.died / 100);
+}
+
+function getPersonRow(person) {
+  const row = document.createElement('tr');
+
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  const cells = [
+    person.name,
+    gender,
+    person.born,
+    person.died,
+    ageCalc(person),
+    centCalc(person),
+  ];
+
+  for (const cellText of cells) {
+    const td = document.createElement('td');
+
+    td.textContent = cellText;
+    row.appendChild(td);
+  }
+
+  return row;
+}
+
+const table = document.querySelector('.dashboard');
+
+for (const person of people) {
+  const row = getPersonRow(person);
+
+  table.appendChild(row);
+}
