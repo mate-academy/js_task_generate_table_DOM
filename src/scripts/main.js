@@ -354,7 +354,35 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tbody = document.getElementsByTagName('tbody')[0];
 
-// write your code here
+for (const person of people) {
+  const row = document.createElement('tr');
+  const keys = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+
+  tbody.append(row);
+
+  for (let i = 0; i < 6; i++) {
+    const cell = document.createElement('td');
+
+    if (i === 1) {
+      if (keys[i] === 'm') {
+        cell.innerHTML = 'Male';
+      } else {
+        cell.innerHTML = 'Female';
+      }
+
+      row.append(cell);
+    } else {
+      cell.innerHTML = keys[i];
+      row.append(cell);
+    }
+  }
+}
