@@ -358,3 +358,29 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const tableElement = document.querySelector('.dashboard'); // отримуємо доступ до таблиці за класом
+
+people.forEach((persone) => { // Проходиом по масиву людей
+  const createRowElement = document.createElement('tr'); // створення рядка
+  const nameCell = document.createElement('td'); // сворення колонки для імені людини
+  const genderCell = document.createElement('td'); // сворення колонки для статі людини
+  const bornCell = document.createElement('td'); // сворення колонки для народження людини
+  const diedCell = document.createElement('td'); // сворення колонки для смерті людини
+  const ageCell = document.createElement('td'); // сворення колонки для віку людини
+  const centuryCell = document.createElement('td'); // сворення колонки для століття людини
+
+  const personeAge = persone.died - persone.born; // Скільки років для людини
+  const personeLiveCentury = Math.ceil(persone.died / 100); // В якому столітті померла людина
+
+  nameCell.textContent = persone.name;
+  genderCell.textContent = persone.sex;
+  bornCell.textContent = persone.born;
+  diedCell.textContent = persone.died;
+  ageCell.textContent = personeAge;
+  centuryCell.textContent = personeLiveCentury;
+
+  createRowElement.append(nameCell, genderCell, bornCell, diedCell, ageCell, centuryCell);
+
+  tableElement.append(createRowElement);
+})
