@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_generate_table_DOM/)
+    - [DEMO LINK](https://sophiasph.github.io/js_task_generate_table_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -14,12 +14,12 @@ Okay, now we know what is a table, and can do some magic.
 In `main.js`, you already have imported file `people.json`. Variable `people` contains an array of people, you can check it by using `console.log`.
 Your task today is to convert this array to table rows.
 
-Your layout for start: 
+Your layout for start:
 
 ![Preview](./src/images/preview.png)
 
 From the preview, you can see that table has 6 headers, but our data does not contain age and century. Yes, you need to calculate them by yourself.
- 
+
 ##### Steps to do this challenge:
 1) For each person from `people` array create table row with 6 table cells (name, gender, born, died, age, century)
 2) Find a table with class `dashboard` in the document.
