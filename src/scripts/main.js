@@ -354,7 +354,30 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const dataTable = document.querySelector('.dashboard');
+
+// Header is already created in index.html
+// There is no reason to add header
+
+people.forEach((person) => {
+  const newTableRow = document.createElement('tr');
+
+  const rowPerson = {
+    name: person.name,
+    sex: person.sex === 'm' ? 'Male' : 'Female',
+    born: person.born,
+    died: person.died,
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
+
+  for (const personDataPoint in rowPerson) {
+    const rowDataPoint = document.createElement('td');
+
+    rowDataPoint.textContent = rowPerson[personDataPoint];
+    newTableRow.appendChild(rowDataPoint);
+  }
+
+  dataTable.appendChild(newTableRow);
+});
