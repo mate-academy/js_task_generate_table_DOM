@@ -357,4 +357,17 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('tr');
+
+people.forEach((human) => {
+  table.insertAdjacentHTML('afterend', `
+    <tr>
+      <td>${human.name}</td>
+      <td>${human.sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${human.born}</td>
+      <td>${human.died}</td>
+      <td>${human.died - human.born}</td>
+      <td>${Math.ceil(human.died / 100)}</td>
+    </tr>
+  `);
+});
