@@ -357,4 +357,24 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+people.forEach((person) => {
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
+
+  delete person.fatherName;
+  delete person.motherName;
+  delete person.slug;
+
+  const newRow = document.createElement('tr');
+
+  for (const key of Object.keys(person)) {
+    const column = document.createElement('th');
+
+    column.textContent = person[key];
+    newRow.insertAdjacentElement('beforeend', column);
+  }
+
+  const table = document.querySelector('table');
+
+  table.insertAdjacentElement('beforeend', newRow);
+});
