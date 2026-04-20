@@ -354,7 +354,23 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach(({ name: personName, sex, born, died }) => {
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const gender = sex === 'm' ? 'Male' : 'Female';
+
+  const rowHTML = `
+    <tr>
+      <td>${personName}</td>
+      <td>${gender}</td>
+      <td>${born}</td>
+      <td>${died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    </tr>
+  `;
+
+  dashboard.insertAdjacentHTML('beforeend', rowHTML);
+});
