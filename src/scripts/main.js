@@ -357,4 +357,29 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+for (let i = 0; i < people.length; i++) {
+  const row = document.createElement('tr');
+  const tBody = document.createElement('tbody');
+  tBody.appendChild(row);
+  const name = document.createElement('td');
+  name.textContent = people[i].name;
+  row.appendChild(name);
+  const gender = document.createElement('td');
+  gender.textContent = people[i].sex;
+  row.appendChild(gender);
+  const born = document.createElement('td');
+  born.textContent = people[i].born;
+  row.appendChild(born);
+  const died = document.createElement('td');
+  died.textContent = people[i].died;
+  row.appendChild(died);
+  const age = document.createElement('td');
+  age.textContent = people[i].died - people[i].born;
+  row.appendChild(age);
+  const century = document.createElement('td');
+  century.textContent = Math.ceil(people[i].died / 100);
+  row.appendChild(century);
+
+  const table = document.querySelector('.dashboard');
+  table.appendChild(tBody);
+}
