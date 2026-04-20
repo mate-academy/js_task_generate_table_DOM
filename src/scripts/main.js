@@ -354,7 +354,107 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// ---------------------------------------------------------------
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const infoAboutPerson = [
+    person.name,
+    person.sex === 'f' ? 'Female' : 'Male',
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+
+  infoAboutPerson.forEach((el) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = el;
+    row.append(cell);
+  });
+
+  table.append(row);
+});
+
+// ---------------------------------------------------------------
+
+// Базова логіка
+
+// Знаходимо таблицю в HTML розмітці
+// const table = document.querySelector('.dashboard');
+
+// Створюємо рядок
+// const row1 = document.createElement('tr');
+
+// Додаємо рядок в таблицю
+// table.append(row1);
+
+// Створюємо комірки для даних
+// const cell1 = document.createElement('td');
+
+// Назначаємо комірці певний контент (данні про особу)
+// cell1.textContent = people[0].name;
+
+// Додаємо комірку в рядок
+// row1.append(cell1);
+
+// І так далі:
+// const cell2 = document.createElement('td');
+// const cell3 = document.createElement('td');
+// const cell4 = document.createElement('td');
+// const cell5 = document.createElement('td');
+// const cell6 = document.createElement('td');
+
+// cell2.textContent = people[0].sex === 'f' ? 'Female' : 'Male';
+// row1.append(cell2);
+// cell3.textContent = people[0].born;
+// row1.append(cell3);
+// cell4.textContent = people[0].died;
+// row1.append(cell4);
+// cell5.textContent = people[0].died - people[0].born;
+// row1.append(cell5);
+// cell6.textContent = Math.ceil(people[0].died / 100);
+// row1.append(cell6);
+
+// ---------------------------------------------------------------
+
+// Перший варіант
+
+// const table = document.querySelector('.dashboard');
+
+// people.forEach((person) => {
+//   const row = document.createElement('tr');
+
+//   table.append(row);
+
+//   const cell1 = document.createElement('td');
+//   const cell2 = document.createElement('td');
+//   const cell3 = document.createElement('td');
+//   const cell4 = document.createElement('td');
+//   const cell5 = document.createElement('td');
+//   const cell6 = document.createElement('td');
+
+//   cell1.textContent = person.name;
+//   row.append(cell1);
+
+//   cell2.textContent = person.sex === 'f' ? 'Female' : 'Male';
+//   row.append(cell2);
+
+//   cell3.textContent = person.born;
+//   row.append(cell3);
+
+//   cell4.textContent = person.died;
+//   row.append(cell4);
+
+//   cell5.textContent = person.died - person.born;
+//   row.append(cell5);
+
+//   cell6.textContent = Math.ceil(person.died / 100);
+//   row.append(cell6);
+// });
+
+// ---------------------------------------------------------------
