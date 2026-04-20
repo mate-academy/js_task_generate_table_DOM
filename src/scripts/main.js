@@ -355,6 +355,42 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+const names = [...document.querySelectorAll('th')].map((cell) => {
+  return cell.textContent.toLowerCase();
+});
+
+people.forEach((person) => {
+  table.firstChild.nextSibling.append(createRow(person));
+});
+
+function createRow(person) {
+  const row = document.createElement('tr');
+
+  /* eslint no-shadow: "error" */
+
+  for (const name of names) {
+    switch (name) {
+      case 'name':
+        row.innerHTML += `<td>${person.name}</td>`;
+        break;
+      case 'gender':
+        row.innerHTML += `<td>${person.sex}</td>`;
+        break;
+      case 'born':
+        row.innerHTML += `<td>${person.born}</td>`;
+        break;
+      case 'died':
+        row.innerHTML += `<td>${person.died}</td>`;
+        break;
+      case 'age':
+        row.innerHTML += `<td>${person.died - person.born}</td>`;
+        break;
+      default:
+        row.innerHTML += `<td>${Math.ceil(person.died / 100)}</td>`;
+    }
+  }
+
+  return row;
+}
