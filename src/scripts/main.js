@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function createTableRow(person) {
+  const tr = document.createElement('tr');
 
-// write your code here
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  tr.innerHTML = `
+    <td>${person.name}</td>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${age}</td>
+    <td>${century}</td>
+  `;
+
+  return tr;
+}
+
+const table = document.querySelector('table');
+
+people.forEach((person) => {
+  const row = createTableRow(person);
+
+  table.appendChild(row);
+});
