@@ -357,4 +357,41 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+function calcGender(gender) {
+  if (gender === 'm') {
+    return 'Male';
+  } else {
+    return 'Female';
+  }
+}
+
+function calcAge(personBorn, personDied) {
+  return personDied - personBorn;
+}
+
+function calcCentury(diedYear) {
+  return Math.ceil(diedYear / 100);
+}
+
+const table = document.querySelector('.dashboard');
+
+for (const person of people) {
+  const tabRow = table.insertRow();
+
+  const cellName = tabRow.insertCell();
+  cellName.textContent = person.name;
+  const cellGender = tabRow.insertCell();
+  cellGender.textContent = calcGender(person.sex);
+  const cellBorn = tabRow.insertCell();
+  cellBorn.textContent = person.born;
+  const cellDied = tabRow.insertCell();
+  cellDied.textContent = person.died;
+  const cellAge = tabRow.insertCell();
+  cellAge.textContent = calcAge(person.born, person.died);
+  const cellCentury = tabRow.insertCell();
+  cellCentury.textContent = calcCentury(person.died);
+}
+
+
+
+
