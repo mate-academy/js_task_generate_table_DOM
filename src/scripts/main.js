@@ -354,7 +354,37 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard')
 
-// write your code here
+for (const person of people) {
+  const tableRow = document.createElement('tr');
+  const fragment = document.createDocumentFragment();
+  const tableData = document.createElement('td');
+
+  const name = tableData.cloneNode(true);
+  name.textContent = person.name;
+  fragment.appendChild(name);
+
+  const gender = tableData.cloneNode(true);
+  gender.textContent = (person.sex === 'm') ? 'Male' : 'Female';
+  fragment.appendChild(gender)
+
+  const born = tableData.cloneNode(true);
+  born.textContent = person.born;
+  fragment.appendChild(born);
+
+  const died = tableData.cloneNode(true);
+  died.textContent = person.died;
+  fragment.appendChild(died);
+
+  const age = tableData.cloneNode(true);
+  age.textContent = person.died - person.born;
+  fragment.appendChild(age);
+
+  const century = tableData.cloneNode(true);
+  century.textContent = Math.ceil(person.died / 100);
+  fragment.appendChild(century);
+
+  tableRow.appendChild(fragment);
+  table.appendChild(tableRow);
+}
