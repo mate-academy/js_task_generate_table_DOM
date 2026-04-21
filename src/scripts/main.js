@@ -357,4 +357,52 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.dashboard');
+
+  if (!table) {
+    // eslint-disable-next-line no-console
+    console.error("Table with class 'dashboard' not found.");
+
+    return;
+  }
+
+  // Create and insert the table header inside <thead>
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  const headers = ['Name', 'Sex', 'Born', 'Died', 'Age', 'Century'];
+
+  headers.forEach((header) => {
+    const th = document.createElement('th');
+
+    th.textContent = header;
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead); // Append <thead> before the data rows
+
+  // Loop through each person and create a table row
+  people.forEach((person) => {
+    const row = document.createElement('tr');
+
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    ['name', 'sex', 'born', 'died'].forEach((key) => {
+      const cell = document.createElement('td');
+
+      cell.textContent = person[key];
+      row.appendChild(cell);
+    });
+
+    [age, century].forEach((value) => {
+      const cell = document.createElement('td');
+
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+
+    table.appendChild(row);
+  });
+});
