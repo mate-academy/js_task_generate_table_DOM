@@ -355,6 +355,43 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  document.querySelector('.dashboard').appendChild(row);
+
+  const fullName = document.createElement('td');
+
+  fullName.textContent = person.name;
+
+  const gender = document.createElement('td');
+
+  if (person.sex === 'f') {
+    gender.textContent = 'Female';
+  } else {
+    gender.textContent = 'Male';
+  }
+
+  const birthDate = document.createElement('td');
+
+  birthDate.textContent = person.born;
+
+  const deathDate = document.createElement('td');
+
+  deathDate.textContent = person.died;
+
+  const age = document.createElement('td');
+
+  age.textContent = person.died - person.born;
+
+  const century = document.createElement('td');
+
+  century.textContent = Math.ceil(person.died / 100);
+
+  const list = [fullName, gender, birthDate, deathDate, age, century];
+
+  for (const item of list) {
+    row.append(item);
+  }
+}
