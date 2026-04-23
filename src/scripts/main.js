@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const mainTable = document.querySelector('.dashboard');
+
+people.map((person) => {
+  const newRow = mainTable.insertRow();
+  const personLen = Object.keys(person).length;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  for (let i = 0; i < personLen - 3; i++) {
+    const newCell = newRow.insertCell();
+
+    if (Object.keys(person)[i] === 'sex') {
+      newCell.textContent =
+        Object.values(person)[i] === 'm' ? 'Male' : 'Female';
+    } else {
+      newCell.textContent = Object.values(person)[i];
+    }
+  }
+
+  const ageCell = newRow.insertCell();
+  const centuryCell = newRow.insertCell();
+
+  ageCell.textContent = age;
+  centuryCell.textContent = century;
+});
