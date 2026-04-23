@@ -264,7 +264,7 @@ const people = [
   },
   {
     name: 'Maria Haverbeke',
-    sex: 'm',
+    sex: 'f',
     born: 1905,
     died: 1997,
     fatherName: 'Emile Haverbeke',
@@ -354,7 +354,21 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
+const tbody = dashboard.querySelector('tbody');
 
-// write your code here
+people.forEach((person) => {
+  tbody.insertAdjacentHTML(
+    'beforeend',
+    `
+      <tr>
+        <td>${person.name}</td>
+        <td>${{ m: 'Male', f: 'Female' }[person.sex] || ''}</td>
+        <td>${person.born}</td>
+        <td>${person.died}</td>
+        <td>${person.died - person.born}</td>
+        <td>${Math.ceil(person.died / 100)}</td>
+      </tr>
+    `,
+  );
+});
