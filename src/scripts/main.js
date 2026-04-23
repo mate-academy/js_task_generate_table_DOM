@@ -357,4 +357,49 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+function fillTable() {
+  const table = document.querySelector('.dashboard');
+
+  people.forEach((person) => {
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const personName = person.name;
+    const personBorn = person.born;
+    const personDied = person.died;
+
+    const row = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+    const sexCell = document.createElement('td');
+    const bornCell = document.createElement('td');
+    const diedCell = document.createElement('td');
+    const ageCell = document.createElement('td');
+    const centuryCell = document.createElement('td');
+
+    row.appendChild(nameCell);
+    row.appendChild(sexCell);
+    row.appendChild(bornCell);
+    row.appendChild(diedCell);
+    row.appendChild(ageCell);
+    row.appendChild(centuryCell);
+
+    nameCell.textContent = personName;
+
+    if (person.sex === 'f') {
+      sexCell.textContent = 'Female';
+    } else {
+      sexCell.textContent = 'Male';
+    }
+    bornCell.textContent = personBorn;
+    diedCell.textContent = personDied;
+    ageCell.textContent = age;
+    centuryCell.textContent = century;
+
+    table.appendChild(row);
+
+    // console.log(age);
+    // console.log(century);
+  });
+}
+
+window.onload = fillTable;
