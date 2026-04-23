@@ -1,5 +1,7 @@
 'use strict';
 
+// const { createElement } = require('react');
+
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +356,54 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelectorAll('.dashboard');
+const tbody = document.createElement('tbody');
+const thead = document.querySelector('tr');
 
-// write your code here
+tbody.appendChild(thead);
+
+table[0].appendChild(tbody);
+
+for (let i = 0; i < people.length; i++) {
+  let newTr = null;
+  let tdName = null;
+  let tdGender = null;
+  let tdBorn = null;
+  let tdDied = null;
+  let tdAge = null;
+  let tdCentury = null;
+
+  newTr = document.createElement('tr');
+
+  tdName = document.createElement('td');
+  tdName.textContent = people[i].name;
+  newTr.appendChild(tdName);
+
+  tdGender = document.createElement('td');
+
+  if (people[i].sex === 'm') {
+    tdGender.textContent = 'Male';
+  } else {
+    tdGender.textContent = 'Female';
+  }
+
+  newTr.appendChild(tdGender);
+
+  tdBorn = document.createElement('td');
+  tdBorn.textContent = people[i].born;
+  newTr.appendChild(tdBorn);
+
+  tdDied = document.createElement('td');
+  tdDied.textContent = people[i].died;
+  newTr.appendChild(tdDied);
+
+  tdAge = document.createElement('td');
+  tdAge.textContent = people[i].died - people[i].born;
+  newTr.appendChild(tdAge);
+
+  tdCentury = document.createElement('td');
+  tdCentury.textContent = Math.ceil(people[i].died / 100);
+  newTr.appendChild(tdCentury);
+
+  tbody.appendChild(newTr);
+}
