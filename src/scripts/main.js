@@ -1,5 +1,7 @@
 'use strict';
 
+// Array of objects
+// Where object == person
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +356,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+for (const person of people) {
+  // Create row
+  const row = document.createElement('tr');
+  // Create cell
+  const cellName = document.createElement('td');
+  const cellGender = document.createElement('td');
+  const cellBorn = document.createElement('td');
+  const cellDied = document.createElement('td');
+  const cellAge = document.createElement('td');
+  const cellCentury = document.createElement('td');
+
+  cellName.innerText = person.name;
+  cellGender.innerText = person.sex === 'm' ? 'male' : 'female';
+  cellBorn.innerText = person.born;
+  cellDied.innerText = person.died;
+  cellAge.innerText = person.died - person.born;
+  cellCentury.innerText = Math.ceil(person.died / 100);
+
+  row.append(cellName, cellGender, cellBorn, cellDied, cellAge, cellCentury);
+  table.appendChild(row);
+}
