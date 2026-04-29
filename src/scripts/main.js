@@ -358,3 +358,32 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const dashboard = document.querySelector('.dashboard');
+
+function makeTr(peoples) {
+  return peoples.map((person) => {
+    const tr = document.createElement('tr');
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const allInfo = [
+      person.name,
+      person.sex === 'f' ? 'Female' : 'Male',
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
+
+    for (let i = 0; i < allInfo.length; i++) {
+      const td = document.createElement('td');
+
+      td.textContent = allInfo[i];
+      tr.append(td);
+    }
+
+    return tr;
+  });
+}
+
+makeTr(people).forEach((tr) => dashboard.append(tr));
