@@ -357,4 +357,55 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+// знаходимо таблицю (якщо є tbody — краще використовувати його)
+const table =
+  document.querySelector('.dashboard tbody') ||
+  document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  // створюємо рядок
+  const row = document.createElement('tr');
+
+  // обчислення
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  // створюємо клітинки
+  const nameCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+
+  const sexCell = document.createElement('td');
+
+  sexCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
+
+  const bornCell = document.createElement('td');
+
+  bornCell.textContent = person.born;
+
+  const diedCell = document.createElement('td');
+
+  diedCell.textContent = person.died;
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = age;
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = century;
+
+  // додаємо клітинки в рядок
+  row.append(
+    nameCell,
+
+    sexCell,
+    bornCell,
+    diedCell,
+    ageCell,
+    centuryCell,
+  );
+
+  // додаємо рядок у таблицю
+  table.appendChild(row);
+});
