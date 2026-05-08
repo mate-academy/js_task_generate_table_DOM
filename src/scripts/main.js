@@ -357,4 +357,24 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+const rowsHtml = people
+  .map((p) => {
+    const gender = p.sex === 'f' ? 'Female' : 'Male';
+    const century = Math.ceil(p.died / 100);
+    const age = p.died - p.born;
+
+    return `<tr>
+              <td>${p.name}</td>
+              <td>${gender}</td>
+              <td>${p.born}</td>
+              <td>${p.died}</td>
+              <td>${age}</td>
+              <td>${century}</td>
+              </tr>
+    `;
+  })
+  .join('');
+
+table.insertAdjacentHTML('beforeend', rowsHtml);
