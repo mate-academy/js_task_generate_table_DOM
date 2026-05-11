@@ -355,6 +355,36 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+
+const table = document.querySelector('.dashboard');
+
+people.map((el) => {
+  const row = document.createElement('tr');
+
+  table.append(row);
+
+  for (const e in el) {
+    if (e !== 'fatherName' && e !== 'motherName' && e !== 'slug') {
+      const cell = document.createElement('td');
+
+      row.append(cell);
+
+      if (e === 'sex') {
+        cell.textContent = el[e] === 'm' ? 'Male' : 'Female';
+      } else {
+        cell.textContent = el[e];
+      }
+    }
+  }
+
+  const ageCell = document.createElement('td');
+
+  row.append(ageCell);
+  ageCell.textContent = el.died - el.born;
+
+  const centuryCell = document.createElement('td');
+
+  row.append(centuryCell);
+  centuryCell.textContent = Math.ceil(el.died / 100);
+});
