@@ -354,7 +354,40 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('table');
 
-// write your code here
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  const personName = document.createElement('td');
+
+  personName.textContent = person.name;
+  row.insertAdjacentElement('beforeend', personName);
+
+  const sex = document.createElement('td');
+
+  sex.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  row.insertAdjacentElement('beforeend', sex);
+
+  const born = document.createElement('td');
+
+  born.textContent = person.born;
+  row.insertAdjacentElement('beforeend', born);
+
+  const died = document.createElement('td');
+
+  died.textContent = person.died;
+  row.insertAdjacentElement('beforeend', died);
+
+  const age = document.createElement('td');
+
+  age.textContent = person.died - person.born;
+  row.insertAdjacentElement('beforeend', age);
+
+  const century = document.createElement('td');
+
+  century.textContent = Math.ceil(person.died / 100);
+  row.insertAdjacentElement('beforeend', century);
+
+  table.insertAdjacentElement('beforeend', row);
+}
