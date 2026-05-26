@@ -365,7 +365,6 @@ people.forEach((person) => {
 
   tdName.textContent = person.name;
   tr.append(tdName);
-  table.append(tr);
 
   const tdSex = document.createElement('td');
 
@@ -376,7 +375,6 @@ people.forEach((person) => {
   }
 
   tr.append(tdSex);
-  table.append(tr);
 
   const tdBorn = document.createElement('td');
 
@@ -388,13 +386,11 @@ people.forEach((person) => {
 
   tdDied.textContent = person.died;
   tr.append(tdDied);
-  table.append(tr);
 
   const tdAge = document.createElement('td');
 
   tdAge.textContent = person.died - person.born;
   tr.append(tdAge);
-  table.append(tr);
 
   const tdCentury = document.createElement('td');
 
