@@ -354,7 +354,66 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+for (const el of people) {
+  el.age = el.died - el.born;
+  el.century = Math.ceil(el.died / 100);
+  el.gender = el.sex;
+  delete el.sex;
 
-// write your code here
+  if (el.gender === 'm') {
+    el.gender = 'Male';
+  } else {
+    el.gender = 'Female';
+  }
+}
+
+const table = document.querySelector('.dashboard');
+
+for (const person of people) {
+  const row = document.createElement('tr');
+  const nameCell = document.createElement('td');
+  const genderCell = document.createElement('td');
+  const bornCell = document.createElement('td');
+  const diedCell = document.createElement('td');
+  const ageCell = document.createElement('td');
+  const centuryCell = document.createElement('td');
+
+  nameCell.textContent = person.name;
+  genderCell.textContent = person.gender;
+  bornCell.textContent = person.born;
+  diedCell.textContent = person.died;
+  ageCell.textContent = person.age;
+  centuryCell.textContent = person.century;
+
+  row.append(nameCell);
+  row.append(genderCell);
+  row.append(bornCell);
+  row.append(diedCell);
+  row.append(ageCell);
+  row.append(centuryCell);
+  table.append(row);
+}
+
+// const table = document.querySelector('.dashboard');
+
+// for (const person of people) {
+//   const row = document.createElement('tr');
+
+//   const values = [
+//     person.name,
+//     person.sex === 'm' ? 'Male' : 'Female',
+//     person.born,
+//     person.died,
+//     person.died - person.born,
+//     Math.ceil(person.died / 100),
+//   ];
+
+//   for (const value of values) {
+//     const cell = document.createElement('td');
+
+//     cell.textContent = value;
+//     row.append(cell);
+//   }
+
+//   table.append(row);
+// }
