@@ -357,4 +357,28 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+for (let i = 0; i < people.length; i++) {
+  const person = people[i];
+  const row = document.createElement('tr');
+
+  row.insertAdjacentHTML('beforeend', `<td>${person.name}</td>`);
+
+  if (person.sex === 'm') {
+    row.insertAdjacentHTML('beforeend', `<td>Male</td>`);
+  } else if (person.sex === 'f') {
+    row.insertAdjacentHTML('beforeend', `<td>Female</td>`);
+  }
+
+  row.insertAdjacentHTML('beforeend', `<td>${person.born}</td>`);
+  row.insertAdjacentHTML('beforeend', `<td>${person.died}</td>`);
+  row.insertAdjacentHTML('beforeend', `<td>${person.died - person.born}</td>`);
+
+  row.insertAdjacentHTML(
+    'beforeend',
+    `<td>${Math.ceil(person.died / 100)}</td>`,
+  );
+
+  table.append(row);
+}
