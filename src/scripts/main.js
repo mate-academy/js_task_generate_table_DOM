@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+people.forEach(person => {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
 
-// write your code here
+  const row = document.createElement('tr');
+
+  const rowData = [
+    person.name,
+    person.gender,
+    person.born,
+    person.died,
+    age,
+    century
+  ];
+
+  rowData.forEach(text => {
+    const cell = document.createElement('td');
+    cell.textContent = text;
+    row.appendChild(cell);
+  });
+
+  table.appendChild(row);
+});
