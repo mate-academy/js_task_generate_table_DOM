@@ -361,6 +361,7 @@ people.forEach(person => {
   const century = Math.ceil(person.died / 100);
 
   const row = document.createElement('tr');
+
   const rowData = [
     person.name,
     person.sex,
