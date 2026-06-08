@@ -360,11 +360,13 @@ people.forEach(person => {
   const age = person.died - person.born;
   const century = Math.ceil(person.died / 100);
 
+  const genderText = person.sex === 'm' ? 'Male' : 'Female';
+
   const row = document.createElement('tr');
 
   const rowData = [
     person.name,
-    person.sex,
+    genderText,
     person.born,
     person.died,
     age,
