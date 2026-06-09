@@ -358,3 +358,25 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const table = document.querySelector('.dashboard');
+
+for (const p of people) {
+  const tr = document.createElement('tr');
+  const values = [
+    p.name,
+    p.sex,
+    p.born,
+    p.died,
+    p.died - p.born,
+    Math.ceil(p.died / 100),
+  ];
+
+  for (const value of values) {
+    const td = document.createElement('td');
+
+    td.textContent = value;
+    tr.appendChild(td);
+  }
+
+  table.appendChild(tr);
+}
