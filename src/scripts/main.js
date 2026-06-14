@@ -357,4 +357,39 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+// Знаходимо таблицю
+const table = document.querySelector('.dashboard');
+
+// Проходимо по масиву people
+people.forEach((person) => {
+  // Створюємо рядок таблиці
+  const row = document.createElement('tr');
+
+  // Обчислюємо вік та століття
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  // Перетворюємо sex у gender
+  const gender = person.sex === 'm' ? 'male' : 'female';
+
+  // Дані для комірок у правильному порядку
+  const cellsData = [
+    person.name,
+    gender,
+    person.born,
+    person.died,
+    age,
+    century,
+  ];
+
+  // Створюємо td і додаємо в рядок
+  cellsData.forEach((data) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = data;
+    row.appendChild(cell);
+  });
+
+  // Додаємо рядок у таблицю
+  table.appendChild(row);
+});
