@@ -355,6 +355,28 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+  const td = document.createElement('td');
+
+  const { sex, born, died } = person;
+
+  const obj = {
+    name: person.name,
+    sex: sex === 'f' ? 'Female' : 'Male',
+    born: born,
+    died: died,
+    age: died - born,
+    century: Math.ceil(died / 100),
+  };
+
+  for (const key in obj) {
+    td.textContent = obj[key];
+    tr.appendChild(td.cloneNode(true));
+  }
+
+  table.appendChild(tr);
+});
