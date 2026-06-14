@@ -358,3 +358,65 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const tableQuery = 'table.dashboard';
+
+/**
+ * Form table for first element with table selector
+ * based on people array
+ *
+ * @param {String} tableSelector
+ * @param {Object[]} peopleArray
+ */
+function formTable(tableSelector, peopleArray) {
+  const table = document.querySelector(tableSelector);
+
+  if (!table) {
+    throw new Error('No table found.');
+  }
+
+  const targetTableBody = table.querySelector('tbody') || table;
+
+  if (!targetTableBody) {
+    throw new Error('No target for table body found.');
+  }
+
+  if (!Array.isArray(peopleArray)) {
+    throw new Error('peopleArray should be an Array.');
+  }
+
+  const columns = [
+    'name',
+    (p) => (p.sex === 'm' ? 'Male' : 'Female'),
+    'born',
+    'died',
+    (p) => p.died - p.born, // age
+    (p) => Math.ceil(p.died / 100), // century
+  ];
+
+  /**
+   * Create a table row based on data and mappings
+   *
+   * @param person - data
+   * @param cols - mappings
+   * @return {HTMLTableRowElement}
+   */
+  function createRow(person, cols) {
+    const tr = document.createElement('tr');
+
+    cols.forEach((col) => {
+      const td = document.createElement('td');
+
+      // use map function or real field
+      td.textContent = typeof col === 'function' ? col(person) : person[col];
+      tr.appendChild(td);
+    });
+
+    return tr;
+  }
+
+  people.forEach((person) => {
+    targetTableBody.appendChild(createRow(person, columns));
+  });
+}
+
+formTable(tableQuery, people);
