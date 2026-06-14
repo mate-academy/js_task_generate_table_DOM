@@ -354,7 +354,25 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function getCentury(year) {
+  const century = Math.ceil(year / 100);
 
-// write your code here
+  return century;
+}
+
+const tBody = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  tr.innerHTML = `
+      <td>${person.name}</td>
+      <td>${gender}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${person.died - person.born}</td>
+      <td>${getCentury(person.died)}</td>
+  `;
+  tBody.appendChild(tr);
+});
