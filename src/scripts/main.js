@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function calculateAge(born, died) {
+  return died - born;
+}
+
+function calculateCent(year) {
+  return Math.ceil(year / 100);
+}
 
 // write your code here
+const dashboard = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+  const cells = [
+    person.name,
+    person.sex,
+    person.born,
+    person.died,
+    calculateAge(person.born, person.died),
+    calculateCent(person.died),
+  ];
+
+  cells.forEach((cellPeople) => {
+    const td = document.createElement('td');
+
+    td.textContent = cellPeople;
+    row.appendChild(td);
+  });
+  dashboard.appendChild(row);
+});
