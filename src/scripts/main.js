@@ -354,7 +354,48 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function calculateAge(born, died) {
+  return died - born;
+}
 
-// write your code here
+// Function to calculate century
+function calculateCentury(died) {
+  return Math.ceil(died / 100);
+}
+
+// Find the table with class 'dashboard'
+const dashboardTable = document.querySelector('.dashboard');
+
+// Loop through each person in the 'people' array
+people.forEach((person) => {
+  // Create a table row
+  const row = document.createElement('tr');
+
+  // Create table cells for name, gender, born, died,
+  // age, and century
+  const nameCell = document.createElement('td');
+  const genderCell = document.createElement('td');
+  const bornCell = document.createElement('td');
+  const diedCell = document.createElement('td');
+  const ageCell = document.createElement('td');
+  const centuryCell = document.createElement('td');
+
+  // Set the content of each cell
+  nameCell.textContent = person.name;
+  genderCell.textContent = person.sex;
+  bornCell.textContent = person.born;
+  diedCell.textContent = person.died;
+  ageCell.textContent = calculateAge(person.born, person.died);
+  centuryCell.textContent = calculateCentury(person.died);
+
+  // Append cells to the row
+  row.appendChild(nameCell);
+  row.appendChild(genderCell);
+  row.appendChild(bornCell);
+  row.appendChild(diedCell);
+  row.appendChild(ageCell);
+  row.appendChild(centuryCell);
+
+  // Append the row to the table
+  dashboardTable.appendChild(row);
+});
