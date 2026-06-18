@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard>tbody');
 
-// write your code here
+function returnSex(gender) {
+  if (gender === 'm') {
+    return 'Male';
+  }
+
+  return 'Female';
+}
+
+for (let i = 0; i < people.length; i++) {
+  dashboard.insertAdjacentHTML(
+    'beforeend',
+    `<tr>
+      <td>${people[i].name}</td>
+      <td>${returnSex(people[i].sex)}</td>
+      <td>${people[i].born}</td>
+      <td>${people[i].died}</td>
+      <td>${people[i].died - people[i].born}</td>
+      <td>${Math.ceil(people[i].died / 100)}</td>
+    </tr>`,
+  );
+}
