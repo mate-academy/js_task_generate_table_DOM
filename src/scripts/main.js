@@ -354,7 +354,42 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach((person) => {
+  const row = document.createElement('tr');
+  // eslint-disable-next-line no-shadow
+  const { name, born, died } = person;
+  let { sex } = person;
+
+  sex = sex === 'f' ? 'Female' : 'Male';
+
+  const personData = [
+    name,
+    sex,
+    born,
+    died,
+    died - born,
+    Math.ceil(died / 100),
+  ];
+
+  dashboard.append(row);
+
+  function createCell(cell, index) {
+    cell.innerHTML = personData[index];
+    row.append(cell);
+  }
+
+  for (let i = 0; i < personData.length; i++) {
+    const cellTh = document.createElement('th');
+    const cellTd = document.createElement('td');
+
+    if (i === 0) {
+      createCell(cellTh, i);
+
+      continue;
+    }
+
+    createCell(cellTd, i);
+  }
+});
