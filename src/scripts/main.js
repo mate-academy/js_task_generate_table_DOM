@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
 
-// write your code here
+if (!dashboard) {
+  throw new Error("Table with class 'dashboard' not found");
+}
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  [person.name, person.sex, person.born, person.died, age, century].forEach(
+    (value) => {
+      const cell = document.createElement('td');
+
+      cell.textContent = value;
+      row.appendChild(cell);
+    },
+  );
+
+  dashboard.appendChild(row);
+});
