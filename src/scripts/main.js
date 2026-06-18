@@ -357,4 +357,66 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+// 1. Знаходимо таблицю на сторінці
+const dashboardTable = document.querySelector('.dashboard');
+
+// 2. Перевіряємо, чи таблицю знайдено
+if (dashboardTable) {
+  // Створюємо елемент tbody для правильної структури таблиці
+  const tableBody = document.createElement('tbody');
+
+  // 3. Перебираємо масив людей
+  for (const person of people) {
+    // 3.1 Розраховуємо вік та століття
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    // 3.2 Створюємо рядок <tr>
+    const tableRow = document.createElement('tr');
+
+    // 3.3 Створюємо 6 комірок <td>
+    const tdName = document.createElement('td');
+    const tdGender = document.createElement('td');
+    const tdBorn = document.createElement('td');
+    const tdDied = document.createElement('td');
+    const tdAge = document.createElement('td');
+    const tdCentury = document.createElement('td');
+
+    // 3.4 Заповнюємо комірки даними
+    tdName.textContent = person.name;
+
+    // --- ВИПРАВЛЕННЯ ТУТ ---
+    // Перетворюємо 'm'/'f' на 'Male'/'Female'
+    let genderText = '';
+
+    if (person.sex === 'm') {
+      genderText = 'Male';
+    } else if (person.sex === 'f') {
+      genderText = 'Female';
+    } else {
+      genderText = person.sex; // На випадок інших значень
+    }
+    tdGender.textContent = genderText;
+    // --- КІНЕЦЬ ВИПРАВЛЕННЯ ---
+
+    tdBorn.textContent = person.born;
+    tdDied.textContent = person.died;
+    tdAge.textContent = age;
+    tdCentury.textContent = century;
+
+    // 3.5 Додаємо комірки <td> до рядка <tr>
+    tableRow.appendChild(tdName);
+    tableRow.appendChild(tdGender);
+    tableRow.appendChild(tdBorn);
+    tableRow.appendChild(tdDied);
+    tableRow.appendChild(tdAge);
+    tableRow.appendChild(tdCentury);
+
+    // 3.6 Додаємо готовий рядок <tr> до <tbody>
+    tableBody.appendChild(tableRow);
+  }
+
+  // 4. Додаємо готовий <tbody> (з усіма рядками) до <table>
+  dashboardTable.appendChild(tableBody);
+}
+// Немає else з console.error, якщо таблицю не знайдено
