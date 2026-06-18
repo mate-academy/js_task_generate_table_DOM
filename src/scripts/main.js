@@ -354,7 +354,34 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// Find the table with class 'dashboard'
+const table = document.querySelector('.dashboard');
 
-// write your code here
+if (!table) {
+  // eslint-disable-next-line no-console
+  console.error(
+    "No element with selector '.dashboard' found — skipping table population.",
+  );
+} else {
+  // if you expect a tbody, prefer appending into it:
+  const container = table.querySelector('tbody') || table;
+
+  // Loop through each person and create a table row
+  people.forEach((person) => {
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+    const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${person.name}</td>
+      <td>${gender}</td>
+      <td>${person.born}</td>
+      <td>${person.died}</td>
+      <td>${age}</td>
+      <td>${century}</td>
+    `;
+    container.appendChild(row);
+  });
+}
