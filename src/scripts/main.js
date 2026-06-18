@@ -354,7 +354,35 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const getTableEl = document.querySelector('table.dashboard');
 
-// write your code here
+if (getTableEl === null) {
+  throw new Error('Table element not found');
+}
+
+function makeTd(value) {
+  const td = document.createElement('td');
+
+  td.textContent = value;
+
+  return td;
+}
+
+for (const person of people) {
+  const tr = document.createElement('tr');
+
+  tr.appendChild(makeTd(person.name));
+  tr.appendChild(makeTd(person.sex));
+  tr.appendChild(makeTd(person.born));
+  tr.appendChild(makeTd(person.died));
+
+  const age = person.died - person.born;
+
+  tr.appendChild(makeTd(age));
+
+  const century = Math.ceil(person.died / 100);
+
+  tr.appendChild(makeTd(century));
+
+  getTableEl.appendChild(tr);
+}
