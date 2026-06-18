@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const getParam = (param) => {
+  switch (param) {
+    case 'm':
+      return 'Male';
+    case 'f':
+      return 'Female';
+    default:
+      return param;
+  }
+};
 
-// write your code here
+people.forEach(({ name: n, sex, born, died }) => {
+  const age = died - born;
+  const century = Math.ceil(died / 100);
+  const humanTr = document.createElement('tr');
+
+  [n, sex, born, died, age, century].forEach((param) => {
+    const param1 = document.createElement('td');
+
+    param1.textContent = getParam(param);
+    humanTr.append(param1);
+  });
+
+  document.querySelector('.dashboard').append(humanTr);
+});
