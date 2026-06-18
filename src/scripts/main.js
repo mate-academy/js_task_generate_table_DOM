@@ -354,7 +354,40 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
+const peopleTableData = [...people];
 
-// write your code here
+const fragment = document.createDocumentFragment();
+
+peopleTableData.forEach((person) => {
+  // Calculate age and century
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
+
+  // Convert sex to readable format
+  switch (person.sex) {
+    case 'm':
+      person.sex = 'Male';
+      break;
+    case 'f':
+      person.sex = 'Female';
+  }
+
+  // Modify DOM
+  const row = document.createElement('tr');
+  const tableColumns = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+  row.id = person.slug;
+
+  tableColumns.forEach((columnName) => {
+    const td = document.createElement('td');
+
+    td.textContent = person[columnName];
+
+    row.append(td);
+  });
+
+  fragment.append(row);
+});
+
+table.append(fragment);
