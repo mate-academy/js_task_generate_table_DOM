@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 'use strict';
 
 const people = [
@@ -358,3 +359,33 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+function calculateAge(born, died) {
+  return died - born;
+}
+
+function calculateCentury(year) {
+  return Math.ceil(year / 100);
+}
+
+const table = document.querySelector('.dashboard');
+
+function generateTable(peop) {
+  peop.forEach((person) => {
+    const row = document.createElement('tr');
+
+    const nameCell = `<td>${person.name}</td>`;
+    const genderCell = `<td>${person.sex === 'm' ? 'Male' : 'Female'}</td>`;
+    const bornCell = `<td>${person.born}</td>`;
+    const diedCell = `<td>${person.died}</td>`;
+    const ageCell = `<td>${calculateAge(person.born, person.died)}</td>`;
+    const centuryCell = `<td>${calculateCentury(person.died)}</td>`;
+
+    row.innerHTML =
+      nameCell + genderCell + bornCell + diedCell + ageCell + centuryCell;
+    table.appendChild(row);
+  });
+}
+
+if (table) {
+  generateTable(people);
+}
