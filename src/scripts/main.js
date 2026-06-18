@@ -357,4 +357,38 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+for (const hum of people) {
+  const row = document.createElement('tr');
+
+  const namePeople = document.createElement('td');
+  const genderPeople = document.createElement('td');
+  const bornPeople = document.createElement('td');
+  const diedPeople = document.createElement('td');
+  const agePeople = document.createElement('td');
+  const centuryPeople = document.createElement('td');
+
+  namePeople.textContent = hum.name;
+
+  if (hum.sex === 'm') {
+    genderPeople.textContent = 'Male';
+  }
+
+  if (hum.sex === 'f') {
+    genderPeople.textContent = 'Female';
+  }
+
+  bornPeople.textContent = hum.born;
+  diedPeople.textContent = hum.died;
+  agePeople.textContent = hum.died - hum.born;
+  centuryPeople.textContent = Math.ceil(hum.died / 100);
+
+  row.appendChild(namePeople);
+  row.appendChild(genderPeople);
+  row.appendChild(bornPeople);
+  row.appendChild(diedPeople);
+  row.appendChild(agePeople);
+  row.appendChild(centuryPeople);
+  table.querySelector('tbody').appendChild(row);
+}
