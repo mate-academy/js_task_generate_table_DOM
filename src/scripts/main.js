@@ -358,3 +358,34 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+function createCell(text) {
+  const cell = document.createElement('td');
+
+  cell.textContent = text;
+
+  return cell;
+}
+
+const table = document.querySelector('.dashboard');
+
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  // eslint-disable-next-line no-shadow
+  const name = person.name;
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+  const born = person.born;
+  const died = person.died;
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  row.appendChild(createCell(name));
+  row.appendChild(createCell(gender));
+  row.appendChild(createCell(born));
+  row.appendChild(createCell(died));
+  row.appendChild(createCell(age));
+  row.appendChild(createCell(century));
+
+  table.appendChild(row);
+}
