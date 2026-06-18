@@ -354,7 +354,37 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+function generateTable(peopleArray) {
+  people.forEach((person) => {
+    const row = document.createElement('tr');
+    const personName = document.createElement('td');
+    const personGender = document.createElement('td');
+    const personBorn = document.createElement('td');
+    const personDied = document.createElement('td');
+    const personAge = document.createElement('td');
+    const personCentury = document.createElement('td');
 
-// write your code here
+    personName.textContent = person.name;
+    row.appendChild(personName);
+
+    if (person.sex === 'm') {
+      personGender.textContent = 'Male';
+    } else {
+      personGender.textContent = 'Female';
+    }
+
+    row.appendChild(personGender);
+    personBorn.textContent = person.born;
+    row.appendChild(personBorn);
+    personDied.textContent = person.died;
+    row.appendChild(personDied);
+    personAge.textContent = person.died - person.born;
+    row.appendChild(personAge);
+    personCentury.textContent = Math.ceil(person.died / 100);
+    row.appendChild(personCentury);
+
+    document.querySelector('.dashboard').appendChild(row);
+  });
+}
+
+generateTable(people);
