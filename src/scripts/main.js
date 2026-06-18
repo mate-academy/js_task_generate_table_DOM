@@ -358,3 +358,44 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const table = document.querySelector('.dashboard');
+
+/**
+ *
+ * @param {Object} person
+ */
+function addingPeopleTotable(person) {
+  const tr = document.createElement('tr');
+  const tdName = document.createElement('td');
+  const tdGender = document.createElement('td');
+  const tdBorn = document.createElement('td');
+  const tdDied = document.createElement('td');
+  const tdAge = document.createElement('td');
+  const tdCentury = document.createElement('td');
+
+  tdName.textContent = person.name;
+
+  if (person.sex === 'm') {
+    tdGender.textContent = 'Male';
+  }
+
+  if (person.sex === 'f') {
+    tdGender.textContent = 'Female';
+  }
+
+  tdBorn.textContent = person.born;
+  tdDied.textContent = person.died;
+  tdAge.textContent = Number(person.died - person.born);
+  tdCentury.textContent = Math.ceil(person.died / 100);
+
+  tr.appendChild(tdName);
+  tr.appendChild(tdGender);
+  tr.appendChild(tdBorn);
+  tr.appendChild(tdDied);
+  tr.appendChild(tdAge);
+  tr.appendChild(tdCentury);
+
+  table.appendChild(tr);
+}
+
+people.forEach(addingPeopleTotable);
