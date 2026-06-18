@@ -354,7 +354,37 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tbodyElement = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach((person) => {
+  const trElement = document.createElement('tr');
+
+  const thName = document.createElement('th');
+  const thMale = document.createElement('th');
+  const thBorn = document.createElement('th');
+  const thDied = document.createElement('th');
+  const thAge = document.createElement('th');
+  const thCentury = document.createElement('th');
+
+  thName.textContent = person.name;
+
+  if (person.sex === 'm') {
+    thMale.textContent = 'Male';
+  } else {
+    thMale.textContent = 'Female';
+  }
+
+  thBorn.textContent = person.born;
+  thDied.textContent = person.died;
+  thAge.textContent = person.died - person.born;
+  thCentury.textContent = Math.floor(person.died / 100);
+
+  trElement.insertAdjacentElement('beforeend', thName);
+  trElement.insertAdjacentElement('beforeend', thMale);
+  trElement.insertAdjacentElement('beforeend', thBorn);
+  trElement.insertAdjacentElement('beforeend', thDied);
+  trElement.insertAdjacentElement('beforeend', thAge);
+  trElement.insertAdjacentElement('beforeend', thCentury);
+
+  tbodyElement.insertAdjacentElement('beforeend', trElement);
+});
