@@ -357,4 +357,23 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+people.forEach((person) => {
+  const table = document.querySelector('.dashboard');
+  const newRow = table.insertRow();
+
+  // Додаємо комірки до нового рядка
+  const name = newRow.insertCell(0);
+  const gender = newRow.insertCell(1);
+  const born = newRow.insertCell(2);
+  const died = newRow.insertCell(3);
+  const age = newRow.insertCell(4);
+  const century = newRow.insertCell(5);
+
+  // Встановлюємо текст для комірок
+  name.textContent = person.name;
+  gender.textContent = person.sex;
+  born.textContent = person.born;
+  died.textContent = person.died;
+  age.textContent = person.died - person.born;
+  century.textContent = Math.ceil(person.died / 100);
+});
