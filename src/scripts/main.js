@@ -357,4 +357,34 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard tbody');
+
+const tableKeys = table.children[0] ? [...table.children[0].children] : [];
+
+const objectKeys = tableKeys.map((th) => th.textContent.toLowerCase());
+
+const tableRows = people.map((person) => {
+  const row = document.createElement('tr');
+
+  const normalizedSex = (person.sex ?? '').toLowerCase();
+
+  const extendedPerson = {
+    ...person,
+    gender:
+      normalizedSex === 'm' ? 'Male' : normalizedSex === 'f' ? 'Female' : '',
+    age: person.died - person.born,
+    century: Math.ceil(person.died / 100),
+  };
+
+  for (const key of objectKeys) {
+    const cell = document.createElement('td');
+
+    cell.textContent = extendedPerson[key] ?? '';
+
+    row.appendChild(cell);
+  }
+
+  return row;
+});
+
+table.append(...tableRows);
