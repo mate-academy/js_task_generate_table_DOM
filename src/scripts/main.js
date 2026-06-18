@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+for (const person of people) {
+  const row = document.createElement('tr');
+
+  row.appendChild(createCell(person.name));
+  row.appendChild(createCell(person.sex === 'm' ? 'Male' : 'Female'));
+  row.appendChild(createCell(person.born));
+  row.appendChild(createCell(person.died));
+  row.appendChild(createCell(person.died - person.born));
+  row.appendChild(createCell(Math.ceil(person.died / 100)));
+
+  table.appendChild(row);
+}
+
+function createCell(text) {
+  const cell = document.createElement('td');
+  const cellText = document.createTextNode(text);
+
+  cell.appendChild(cellText);
+
+  return cell;
+}
