@@ -355,6 +355,31 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+for (const person of people) {
+  const tableHeader = document.querySelector('tr');
+  const tr = document.createElement('tr');
+
+  const rowName = document.createElement('td');
+  const rowSex = document.createElement('td');
+  const rowBorn = document.createElement('td');
+  const rowDied = document.createElement('td');
+  const rowAge = document.createElement('td');
+  const rowCentury = document.createElement('td');
+
+  rowName.textContent = `${person.name}`;
+  rowSex.textContent = person.sex === 'f' ? 'Female' : 'Male';
+  rowBorn.textContent = `${person.born}`;
+  rowDied.textContent = `${person.died}`;
+  rowAge.textContent = `${person.died - person.born}`;
+  rowCentury.textContent = `${Math.ceil(person.died / 100)}`;
+
+  tr.appendChild(rowName);
+  tr.appendChild(rowSex);
+  tr.appendChild(rowBorn);
+  tr.appendChild(rowDied);
+  tr.appendChild(rowAge);
+  tr.appendChild(rowCentury);
+
+  tableHeader.insertAdjacentElement('afterend', tr);
+}
