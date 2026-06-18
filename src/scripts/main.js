@@ -355,6 +355,24 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const dashboard = document.querySelector('.dashboard');
+const heads = [...document.querySelectorAll('th')]
+  .map((el) => el.textContent)
+  .map((el) => el.toLowerCase());
 
-// write your code here
+for (const person of people) {
+  person.gender = person.sex === 'm' ? 'Male' : 'Female';
+  person.age = person.died - person.born;
+  person.century = Math.ceil(person.died / 100);
+
+  const personRow = document.createElement('tr');
+
+  dashboard.append(personRow);
+
+  for (const head of heads) {
+    const cell = document.createElement('td');
+
+    cell.textContent = person[head];
+    personRow.append(cell);
+  }
+}
