@@ -1,5 +1,6 @@
 'use strict';
 
+// eslint-disable-next-line no-unused-vars
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +355,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+  const names = document.createElement('td');
+  const gender = document.createElement('td');
+  const born = document.createElement('td');
+  const died = document.createElement('td');
+  const age = document.createElement('td');
+  const century = document.createElement('td');
+
+  names.innerHTML = person.name;
+  gender.innerHTML = person.sex === 'f' ? 'Female' : 'Male';
+  born.innerHTML = person.born;
+  died.innerHTML = person.died;
+  age.innerHTML = person.died - person.born;
+  century.innerHTML = Math.ceil(person.died / 100);
+
+  table.appendChild(tr);
+  tr.appendChild(names);
+  tr.appendChild(gender);
+  tr.appendChild(born);
+  tr.appendChild(died);
+  tr.appendChild(age);
+  tr.appendChild(century);
+});
