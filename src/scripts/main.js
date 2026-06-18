@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
+const columnNameEls = document.querySelectorAll('th');
 
-// write your code here
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  columnNameEls.forEach((element) => {
+    const columnName = element.textContent;
+    const cell = document.createElement('td');
+
+    cell.textContent = getCellContent(person, columnName);
+    row.appendChild(cell);
+  });
+  table.append(row);
+});
+
+function getCellContent(person, columnName) {
+  const { sex, born, died } = person;
+
+  switch (columnName) {
+    case 'Gender':
+      return sex === 'm' ? 'Male' : 'Female';
+    case 'Age':
+      return died - born;
+    case 'Century':
+      return Math.ceil(died / 100);
+    default:
+      return person[columnName.toLowerCase()];
+  }
+}
