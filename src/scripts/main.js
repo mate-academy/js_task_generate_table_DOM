@@ -354,7 +354,31 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const tableBody = document.querySelector('table.dashboard > tbody');
 
-// write your code here
+people.forEach(({ name: personName, sex, born, died, slug }) => {
+  const nameCell = createTdHTMLString(personName);
+  const genderCell = createTdHTMLString(
+    sex === 'm' ? 'Male' : sex === 'f' ? 'Female' : 'Unknown',
+  );
+  const bornCell = createTdHTMLString(born);
+  const diedCell = createTdHTMLString(died);
+  const ageCell = createTdHTMLString(died - born);
+  const centuryCell = createTdHTMLString(Math.ceil(died / 100));
+
+  tableBody.insertAdjacentHTML(
+    'beforeend',
+    `<tr id=${slug}>` +
+      nameCell +
+      genderCell +
+      bornCell +
+      diedCell +
+      ageCell +
+      centuryCell +
+      '</tr>',
+  );
+});
+
+function createTdHTMLString(inner) {
+  return '<td>' + inner + '</td>';
+}
