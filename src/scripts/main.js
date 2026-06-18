@@ -358,3 +358,33 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+const table = document.getElementsByClassName('dashboard')[0];
+const innerBody = table.lastElementChild;
+
+for (const person of people) {
+  innerBody.appendChild(document.createElement('tr'));
+
+  const line = innerBody.lastElementChild;
+
+  line.appendChild(document.createElement('th'));
+  line.lastElementChild.textContent = person.name;
+  line.appendChild(document.createElement('th'));
+
+  if (person.sex === 'm') {
+    line.lastElementChild.textContent = 'Male';
+  } else if (person.sex === 'f') {
+    line.lastElementChild.textContent = 'Female';
+  }
+
+  line.appendChild(document.createElement('th'));
+  line.lastElementChild.textContent = person.born;
+
+  line.appendChild(document.createElement('th'));
+  line.lastElementChild.textContent = person.died;
+
+  line.appendChild(document.createElement('th'));
+  line.lastElementChild.textContent = person.died - person.born;
+
+  line.appendChild(document.createElement('th'));
+  line.lastElementChild.textContent = Math.ceil(person.died / 100);
+}
