@@ -354,7 +354,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+//   name: 'Carolus Haverbeke',
+//     sex: 'm',
+//   born: 1832,
+//   died: 1905,
+//   fatherName: 'Carel Haverbeke',
+//   motherName: 'Maria van Brussel',
+//   slug: 'carolus-haverbeke-1832',
 
-// write your code here
+const dashboard = document.querySelector('.dashboard');
+const fragment = new DocumentFragment();
+
+people.forEach((person) => {
+  const tableRow = document.createElement('tr');
+
+  tableRow.innerHTML = `
+    <th>${person.name}</th>
+    <td>${person.sex === 'm' ? 'Male' : 'Female'}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
+`;
+  fragment.append(tableRow);
+});
+
+dashboard.appendChild(fragment);
