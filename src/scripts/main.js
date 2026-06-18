@@ -353,8 +353,28 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
-
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const tableRow = document.createElement('tr');
+
+  const properties = [
+    person.name,
+    person.sex === 'm' ? 'Male' : 'Female',
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+
+  properties.forEach((prop) => {
+    const tableCells = document.createElement('td');
+
+    tableCells.textContent = prop;
+
+    tableRow.appendChild(tableCells);
+  });
+
+  table.appendChild(tableRow);
+});
