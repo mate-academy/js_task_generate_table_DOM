@@ -358,3 +358,40 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Знаходимо таблицю з класом dashboard
+  const table = document.querySelector('.dashboard');
+
+  // Проходимося по кожній людині з масиву people
+  people.forEach((person) => {
+    // Створюємо новий рядок
+    const row = document.createElement('tr');
+
+    // Розраховуємо вік і століття
+    const age = person.died - person.born;
+    const century = Math.ceil(person.died / 100);
+
+    // Заповнюємо комірки
+
+    const collums = [
+      person.name,
+      person.sex,
+      person.born,
+      person.died,
+      age,
+      century,
+    ];
+
+    // Для кожного значення створюємо комірку <td>
+    collums.forEach((value) => {
+      const cell = document.createElement('td');
+
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+
+    // Додаємо створений рядок у таблицю
+    table.appendChild(row);
+  });
+});
