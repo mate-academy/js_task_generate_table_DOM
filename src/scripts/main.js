@@ -354,7 +354,28 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+document.addEventListener('DOMContentLoaded', () => {
+  const dashboard = document.querySelector('.dashboard');
+  const blockedKeys = ['fatherName', 'motherName', 'slug'];
 
-// write your code here
+  for (const person of people) {
+    const createdRow = document.createElement('tr');
+
+    dashboard.appendChild(createdRow);
+
+    person.sex = person.sex === 'm' ? 'Male' : 'Female';
+    person.age = person.died - person.born;
+    person.century = Math.ceil(person.died / 100);
+
+    for (const key in person) {
+      if (blockedKeys.includes(key)) {
+        continue;
+      }
+
+      const createdCeil = document.createElement('td');
+
+      createdCeil.textContent = person[key];
+      createdRow.appendChild(createdCeil);
+    }
+  }
+});
