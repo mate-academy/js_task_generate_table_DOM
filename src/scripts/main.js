@@ -357,4 +357,29 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const formattedPeopleData = people.map((person) => {
+  return [
+    person.name,
+    person.sex === 'm' ? 'Male' : 'Female',
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+});
+
+const table = document.querySelector('.dashboard');
+
+formattedPeopleData.forEach((personData) => {
+  const tr = document.createElement('tr');
+
+  personData.forEach((data) => {
+    const td = document.createElement('td');
+
+    td.textContent = data;
+
+    tr.appendChild(td);
+  });
+
+  table.appendChild(tr);
+});
