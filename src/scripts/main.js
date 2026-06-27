@@ -358,3 +358,52 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+function getCentury(year) {
+  return Math.ceil(year / 100);
+}
+
+const table = document.querySelector('.dashboard');
+
+if (table) {
+  people.forEach((person) => {
+    const age = person.died - person.born;
+
+    const century = getCentury(person.died);
+
+    const row = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+
+    nameCell.textContent = person.name;
+
+    const genderCell = document.createElement('td');
+
+    genderCell.textContent = person.sex;
+
+    const bornCell = document.createElement('td');
+
+    bornCell.textContent = person.born;
+
+    const diedCell = document.createElement('td');
+
+    diedCell.textContent = person.died;
+
+    const ageCell = document.createElement('td');
+
+    ageCell.textContent = age;
+
+    const centuryCell = document.createElement('td');
+
+    centuryCell.textContent = century;
+
+    row.appendChild(nameCell);
+    row.appendChild(genderCell);
+    row.appendChild(bornCell);
+    row.appendChild(diedCell);
+    row.appendChild(ageCell);
+    row.appendChild(centuryCell);
+
+    table.appendChild(row);
+  });
+}
