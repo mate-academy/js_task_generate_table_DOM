@@ -354,7 +354,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const elementTableBody = document
+  .querySelector('.dashboard')
+  .getElementsByTagName('tbody')[0];
 
-// write your code here
+function addDatesInTable(listOfPeople) {
+  for (const person of listOfPeople) {
+    const newRow = document.createElement('tr');
+    const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+    newRow.innerHTML = `
+    <td>${person.name}</td>
+    <td>${gender}</td>
+    <td>${person.born}</td>
+    <td>${person.died}</td>
+    <td>${person.died - person.born}</td>
+    <td>${Math.ceil(person.died / 100)}</td>
+    `;
+
+    elementTableBody.appendChild(newRow);
+  }
+}
+
+addDatesInTable(people);
