@@ -358,3 +358,33 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const table = document.querySelector('.dashboard');
+
+const fields = ['name', 'sex', 'born', 'died'];
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  fields.forEach((field) => {
+    const cell = document.createElement('td');
+    let value = person[field];
+
+    if (field === 'sex') {
+      value = value === 'm' ? 'Male' : 'Female';
+    }
+
+    cell.textContent = value;
+    row.append(cell);
+  });
+
+  const ageCell = document.createElement('td');
+  const centuryCell = document.createElement('td');
+
+  ageCell.textContent = person.died - person.born;
+  centuryCell.textContent = Math.ceil(person.died / 100);
+
+  row.append(ageCell, centuryCell);
+
+  table.append(row);
+});
