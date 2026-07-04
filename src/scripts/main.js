@@ -1,5 +1,7 @@
 'use strict';
 
+import people from './lib/people.json' with { type: 'json' };
+
 // eslint-disable-next-line no-console
 
 
