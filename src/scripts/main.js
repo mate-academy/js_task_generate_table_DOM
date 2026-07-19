@@ -1,5 +1,5 @@
 'use strict';
-import people from '../people.json';
+import people from '../../people.json';
 
 people.forEach((person) => {
   const age = person.died - person.born;
