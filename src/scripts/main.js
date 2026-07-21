@@ -354,7 +354,35 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
 
-// write your code here
+for (const item of people) {
+  const row = document.createElement('tr');
+
+  for (let i = 0; i < Object.keys(item).length - 1; i++) {
+    const key = Object.keys(item)[i];
+    const data = document.createElement('td');
+
+    if (i < 4) {
+      data.textContent = item[key];
+
+      if (item[key] === 'm') {
+        data.textContent = 'Male';
+      }
+
+      if (item[key] === 'f') {
+        data.textContent = 'Female';
+      }
+    }
+
+    if (i === 4) {
+      data.textContent = item.died - item.born;
+    }
+
+    if (i === 5) {
+      data.textContent = Math.ceil(item.died / 100);
+    }
+    row.appendChild(data);
+  }
+  table.appendChild(row);
+}
