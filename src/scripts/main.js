@@ -2,9 +2,6 @@
 
 import people from './lib/people.json';
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 const table = document.querySelector('.dashboard');
 const fragment = new DocumentFragment();
 
