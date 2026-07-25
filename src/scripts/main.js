@@ -365,9 +365,9 @@ people.forEach((person) => {
 
   const gender = person.sex === 'm' ? 'Male' : 'Female';
   const age = person.died - person.born;
-  const centure = Math.ceil(person.died / 100);
+  const century = Math.ceil(person.died / 100);
 
-  const cells = [person.name, gender, person.born, person.died, age, centure];
+  const cells = [person.name, gender, person.born, person.died, age, century];
 
   cells.forEach((value) => {
     const cell = document.createElement('td');
