@@ -362,9 +362,11 @@ function generateTable(dashboard) {
 
   people.forEach((person) => {
     const tr = document.createElement('tr');
+    const genderMap = { m: 'Male', f: 'Female' };
+
     const data = [
       person?.name || null,
-      person?.sex.toUpperCase() || null,
+      genderMap[person?.sex] || null,
       person?.born || 0,
       person?.died || 0,
       person?.died - person?.born || 0,
