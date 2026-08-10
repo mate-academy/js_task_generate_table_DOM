@@ -357,8 +357,6 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-const table = document.querySelector('table');
-
 people.forEach((person) => {
   let gender;
 
@@ -388,5 +386,5 @@ people.forEach((person) => {
     newRow.appendChild(newCell);
   }
 
-  table.appendChild(newRow);
+  document.querySelector('.dashboard').appendChild(newRow);
 });
