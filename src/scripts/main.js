@@ -357,4 +357,44 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard ');
+
+people.forEach((person) => {
+  const tr = document.createElement('tr');
+  const tdName = document.createElement('td');
+  const tdSex = document.createElement('td');
+  const tdBorn = document.createElement('td');
+  const tdDied = document.createElement('td');
+  const tdAge = document.createElement('td');
+  const tdCentury = document.createElement('td');
+
+  tdName.textContent = person.name;
+  tr.append(tdName);
+
+  tdSex.textContent = convert(person.sex);
+  tr.append(tdSex);
+
+  tdBorn.textContent = person.born;
+  tr.append(tdBorn);
+
+  tdDied.textContent = person.died;
+  tr.append(tdDied);
+
+  tdAge.textContent = person.died - person.born;
+  tr.append(tdAge);
+
+  tdCentury.textContent = Math.ceil(person.died / 100);
+  tr.append(tdCentury);
+
+  table.append(tr);
+});
+
+function convert(value) {
+  switch (value) {
+    case 'f':
+      return 'Female';
+
+    case 'm':
+      return 'Male';
+  }
+}
