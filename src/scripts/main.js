@@ -361,8 +361,6 @@ const table = document.querySelector('.dashboard');
 people.forEach((person) => {
   const tr = document.createElement('tr');
 
-  table.append(tr);
-
   const tdName = document.createElement('td');
 
   tdName.textContent = person.name;
