@@ -354,6 +354,36 @@ const people = [
   },
 ];
 
+const table = document.querySelector('table');
+
+function createRows() {
+  for (const person of people) {
+    const cell = document.createElement('tr');
+    const name = document.createElement('td');
+    const gender = document.createElement('td');
+    const born = document.createElement('td');
+    const died = document.createElement('td');
+    const age = document.createElement('td');
+    const century = document.createElement('td');
+
+    name.textContent = person.name;
+    if (person.sex === 'm') {
+      gender.textContent = 'Male';
+    } else {
+      gender.textContent = 'Female';
+    }
+    born.textContent = person.born;
+    died.textContent = person.died;
+    age.textContent = person.died - person.born;
+    century.textContent = Math.ceil(person.died / 100);
+
+    cell.append(name, gender, born, died, age, century);
+    table.append(cell);
+  }
+}
+
+createRows();
+
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
