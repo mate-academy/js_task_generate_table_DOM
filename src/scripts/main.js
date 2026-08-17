@@ -366,7 +366,7 @@ function createRows() {
     const age = document.createElement('td');
     const century = document.createElement('td');
 
-    name.textContent = person.identity;
+    identity.textContent = person.name;
 
     if (person.sex === 'm') {
       gender.textContent = 'Male';
