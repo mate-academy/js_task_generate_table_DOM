@@ -357,4 +357,36 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const tableElement = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const newTableRow = document.createElement('tr');
+
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  createAndAddNewValue(person.name, newTableRow);
+  createAndAddNewValue(person.sex, newTableRow, 1);
+  createAndAddNewValue(person.born, newTableRow);
+  createAndAddNewValue(person.died, newTableRow);
+  createAndAddNewValue(age, newTableRow);
+  createAndAddNewValue(century, newTableRow);
+
+  tableElement.appendChild(newTableRow);
+});
+
+function createAndAddNewValue(valueInside, tableRow, isGender = 0) {
+  const personNewElement = document.createElement('td');
+
+  if (isGender) {
+    if (valueInside === 'f') {
+      personNewElement.textContent = 'Female';
+    } else {
+      personNewElement.textContent = 'Male';
+    }
+  } else {
+    personNewElement.textContent = `${valueInside}`;
+  }
+
+  tableRow.appendChild(personNewElement);
+}
