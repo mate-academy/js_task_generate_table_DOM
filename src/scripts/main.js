@@ -357,4 +357,24 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('table');
+
+people.forEach((person) => {
+  const newRow = table.insertRow(-1);
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  const values = [
+    person.name,
+    gender,
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+
+  for (const value of values) {
+    const cell = newRow.insertCell();
+
+    cell.textContent = value;
+  }
+});
