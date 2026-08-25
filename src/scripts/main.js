@@ -354,7 +354,24 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const table = document.querySelector('.dashboard');
+const tableBody = table.tBodies[0];
 
-// write your code here
+const getGender = (sex) => (sex === 'm' ? 'Male' : 'Female');
+
+people.forEach((person) => {
+  const row = tableBody.insertRow();
+
+  const values = [
+    person.name,
+    getGender(person.sex),
+    person.born,
+    person.died,
+    person.died - person.born,
+    Math.ceil(person.died / 100),
+  ];
+
+  values.forEach((value) => {
+    row.insertCell().textContent = value;
+  });
+});
