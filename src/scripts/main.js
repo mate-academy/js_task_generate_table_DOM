@@ -355,6 +355,31 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+const header = ['name', 'sex', 'born', 'died', 'age', 'century'];
+
+for (const person of people) {
+  const newTr = document.createElement('tr');
+
+  table.append(newTr);
+
+  for (const head of header) {
+    const newTd = document.createElement('td');
+
+    if (head === 'age') {
+      newTd.textContent = person.died - person.born;
+    } else if (head === 'century') {
+      newTd.textContent = Math.ceil(person.died / 100);
+    } else if (head === 'sex') {
+      if (person.sex === 'm') {
+        newTd.textContent = 'Male';
+      } else {
+        newTd.textContent = 'Female';
+      }
+    } else {
+      newTd.textContent = person[head];
+    }
+    newTr.append(newTd);
+  }
+}
