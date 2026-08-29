@@ -354,10 +354,7 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
-const tableBody = document.querySelector('.dashboard');
+const tableBody = document.querySelector('table.dashboard tbody');
 
 people.forEach((person) => {
   const personElement = document.createElement('tr');
