@@ -358,3 +358,27 @@ const people = [
 console.log(people); // you can remove it
 
 // write your code here
+
+const dashboard = document.querySelector('.dashboard');
+const tbody = document.createElement('tbody');
+
+function fillInRow(array) {
+  const row = array
+    .map(
+      (element) => `
+    <tr>
+      <td>${element.name}</td>
+      <td>${element.sex === 'm' ? 'Male' : 'Female'}</td>
+      <td>${element.born}</td>
+      <td>${element.died}</td>
+      <td>${element.died - element.born}</td>
+      <td>${Math.ceil(element.died / 100)}</td>
+    </tr>`,
+    )
+    .join('');
+
+  return row;
+}
+
+tbody.innerHTML = fillInRow(people);
+dashboard.append(tbody);
