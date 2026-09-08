@@ -368,7 +368,11 @@ people.forEach((person) => {
 
   const sexCell = document.createElement('td');
 
-  sexCell.textContent = person.sex;
+  if (person.sex === 'm') {
+    sexCell.textContent = 'Male';
+  } else {
+    sexCell.textContent = 'Female';
+  }
 
   const bornCell = document.createElement('td');
 
