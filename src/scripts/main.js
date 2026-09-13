@@ -355,6 +355,36 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
 
-// write your code here
+// Find the table with the class 'dashboard'
+const dashboardTable = document.querySelector('.dashboard');
+
+// Append to the <tbody> if it exists, otherwise append directly to the table
+const tableBody = dashboardTable.querySelector('tbody') || dashboardTable;
+
+// Loop thriugh each person in the 'people' array
+people.forEach((person) => {
+  // Calculate the age and the century using the provided formulas
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  // Format the gender string to match the expected layout ("Male" / "Female")
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  // Create a new table row element
+  const row = document.createElement('tr');
+
+  // Group the required value into an array
+  const rowData = [person.name, gender, person.born, person.died, age, century];
+
+  // Create a table cell for each value and append it to the row
+  rowData.forEach((value) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
+
+  // Append the completed row to the table body
+  tableBody.appendChild(row);
+});
