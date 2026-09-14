@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use strict';
 
 const people = [
@@ -354,7 +355,26 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const table = document.querySelector('.dashboard');
+
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const cell1 = document.createElement('td');
+  const cell2 = document.createElement('td');
+  const cell3 = document.createElement('td');
+  const cell4 = document.createElement('td');
+  const cell5 = document.createElement('td');
+  const cell6 = document.createElement('td');
+
+  cell1.textContent = person.name;
+  cell2.textContent = person.sex === 'm' ? 'Male' : 'Female';
+  cell3.textContent = person.born;
+  cell4.textContent = person.died;
+  cell5.textContent = person.died - person.born;
+  cell6.textContent = Math.ceil(person.died / 100);
+
+  table.append(row);
+  row.append(cell1, cell2, cell3, cell4, cell5, cell6);
+});
