@@ -357,4 +357,32 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.getElementsByClassName('dashboard')[0];
+const tableBody = document.createElement('tbody');
+
+function addToTable(list) {
+  list.forEach((item) => {
+    const row = document.createElement('tr');
+
+    const columns = [
+      item.name,
+      item.sex === 'm' ? 'Male' : 'Female',
+      item.born,
+      item.died,
+      item.died - item.born,
+      Math.ceil(item.died / 100),
+    ];
+
+    columns.forEach((value) => {
+      const cell = document.createElement('td');
+
+      cell.textContent = value;
+      row.append(cell);
+    });
+
+    tableBody.append(row);
+    table.append(tableBody);
+  });
+}
+
+addToTable(people);
