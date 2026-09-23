@@ -355,6 +355,32 @@ const people = [
 ];
 
 // eslint-disable-next-line no-console
-console.log(people); // you can remove it
+// you can remove it
 
+peopleTable(people);
+
+function peopleTable(peopList) {
+  const tableInfo = document.querySelector('.dashboard');
+
+  for (const person of peopList) {
+    const personInfo = {
+      personName: person.name,
+      male: person.sex === 'm' ? 'Male' : 'Female',
+      personBorn: person.born,
+      personDied: person.died,
+      age: person.died - person.born,
+      century: Math.ceil(person.died / 100),
+    };
+    const table = document.createElement('tr');
+
+    for (const key in personInfo) {
+      const thPerson = document.createElement('td');
+
+      thPerson.textContent = personInfo[key];
+      table.append(thPerson);
+    }
+
+    tableInfo.append(table);
+  }
+}
 // write your code here
