@@ -353,8 +353,21 @@ const people = [
     slug: 'jacobus-bernardus-van-brussel-1736',
   },
 ];
+const table = document.querySelector('.dashboard');
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+for (const person of people) {
+  const row = document.createElement('tr');
+  const sex = person.sex === 'm' ? 'Male' : 'Female';
+  const data = [person.name, sex, person.born, person.died];
 
-// write your code here
+  data.push(person.died - person.born, Math.ceil(person.died / 100));
+
+  for (let i = 0; i < data.length; i++) {
+    const cell = document.createElement('td');
+
+    cell.textContent = data[i];
+    row.appendChild(cell);
+  }
+
+  table.append(row);
+}
