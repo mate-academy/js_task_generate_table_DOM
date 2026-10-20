@@ -354,7 +354,34 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
+const nodeOfTable = document.querySelector('table.dashboard');
+const nodeOfTbody = nodeOfTable.firstElementChild;
+const amountOfColumns = [
+  ...nodeOfTbody.querySelector('tr').querySelectorAll('th'),
+];
 
-// write your code here
+people.forEach((person) => {
+  const trTag = document.createElement('tr');
+  const data = Object.values(person);
+
+  // Formating data
+  if (data[1] === 'm') {
+    data[1] = 'Male';
+  } else {
+    data[1] = 'Female';
+  }
+  data[4] = person.died - person.born;
+  data[5] = Math.ceil(person.died / 100);
+
+  // Finds <tbody> in this table and adds N-count of <tr> tags
+  const createdRow = nodeOfTbody.appendChild(trTag);
+
+  // Creates N - cells, according to amount of table rows needed
+  for (let i = 0; i < amountOfColumns.length; i++) {
+    const tdTag = document.createElement('td');
+
+    tdTag.textContent = data[i];
+
+    createdRow.append(tdTag);
+  }
+});
