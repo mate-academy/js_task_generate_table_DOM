@@ -357,4 +357,25 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+people.forEach((person) => {
+  const row = document.createElement('tr');
+
+  const Nazwy = [
+    person.name,
+    person.sex === 'm' ? 'Male' : 'Female',
+    person.born,
+    person.died,
+    (person.age = person.died - person.born),
+    (person.century = Math.ceil(person.died / 100)),
+  ];
+
+  for (let i = 0; i < 6; i++) {
+    const cell = document.createElement('td');
+
+    row.append(cell);
+
+    cell.textContent = Nazwy[i];
+  }
+
+  document.querySelector('.dashboard').append(row);
+});
