@@ -1,5 +1,7 @@
 'use strict';
 
+// const { createElement } = require('react');
+
 const people = [
   {
     name: 'Carolus Haverbeke',
@@ -354,7 +356,29 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+const tabela = document.querySelector('.dashboard');
+
+people.forEach((p) => {
+  const row = document.createElement('tr');
+  const values = [p.name, p.sex === 'm' ? 'Male' : 'Female', p.born, p.died];
+
+  values.forEach((value) => {
+    const cell = document.createElement('td');
+
+    cell.textContent = value;
+    row.append(cell);
+  });
+
+  const ageCell = document.createElement('td');
+
+  ageCell.textContent = p.died - p.born;
+  row.append(ageCell);
+
+  const centuryCell = document.createElement('td');
+
+  centuryCell.textContent = Math.ceil(p.died / 100);
+  row.append(centuryCell);
+
+  tabela.append(row);
+});
