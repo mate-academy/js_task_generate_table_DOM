@@ -354,7 +354,33 @@ const people = [
   },
 ];
 
-// eslint-disable-next-line no-console
-console.log(people); // you can remove it
-
 // write your code here
+
+const table = document.querySelector('table');
+
+for (let i = 0; i < people.length; i++) {
+  const tr = document.createElement('tr');
+  const person = people[i];
+  const age = person.died - person.born;
+  const centery = Math.ceil(people[i].died / 100);
+  const gender = person.sex === 'm' ? 'Male' : 'Female';
+
+  const dataForRow = [
+    person.name,
+    gender,
+    person.born,
+    person.died,
+    age,
+    centery,
+  ];
+
+  for (let j = 0; j < dataForRow.length; j++) {
+    const td = document.createElement('td');
+
+    td.textContent = dataForRow[j];
+
+    tr.append(td);
+  }
+
+  table.append(tr);
+}
