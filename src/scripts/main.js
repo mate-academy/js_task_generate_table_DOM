@@ -356,7 +356,7 @@ const people = [
 
 // write your code here
 
-const table = document.querySelector('table');
+const table = document.querySelector('.dashboard');
 
 for (let i = 0; i < people.length; i++) {
   const tr = document.createElement('tr');
