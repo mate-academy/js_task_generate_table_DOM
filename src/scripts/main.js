@@ -375,7 +375,7 @@ people.forEach((person) => {
   const century = Math.ceil(person.died / 100);
 
   cell.textContent = person.name;
-  genderCell.textContent = person.sex;
+  genderCell.textContent = person.sex === 'm' ? 'Male' : 'Female';
   bornCell.textContent = person.born;
   diedCell.textContent = person.died;
   ageCell.textContent = calculateAge;
